@@ -57,4 +57,13 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="TBTaxa.sql" />
+    <Build Include="TBCliente.sql" />
+    <Build Include="TBGrupoVeiculo.sql" />
+    <Build Include="TBFuncionario.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="LocadoraVeiculos.Db.refactorlog" />
+  </ItemGroup>
 </Project>
