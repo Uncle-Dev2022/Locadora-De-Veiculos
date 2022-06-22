@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Compartilhado\" />
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloFuncionário\" />
     <Folder Include="ModuloGrupoDeVeiculos\" />
