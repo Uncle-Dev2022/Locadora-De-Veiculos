@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Compartilhado
 {
-    internal class RepositorioBaseEmBancoDeDados
+    public class RepositorioBaseEmBancoDeDados
     {
     }
 }
