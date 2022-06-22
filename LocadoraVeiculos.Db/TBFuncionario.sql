@@ -6,5 +6,5 @@
     [Nome] VARCHAR(50) NOT NULL, 
     [Salario] MONEY NOT NULL, 
     [DataAdmissao] DATETIME NOT NULL, 
-    [TipoDePerfil] BIT NOT NULL IDENTITY
+    [TipoDePerfil] BIT NOT NULL 
 )
