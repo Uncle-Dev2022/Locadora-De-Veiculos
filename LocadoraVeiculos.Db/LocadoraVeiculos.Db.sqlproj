@@ -3,16 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>LocadoraDeVeiculos.DB</Name>
+    <Name>LocadoraVeiculos.Db</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{52da229a-91cd-4bca-8a11-5ac2a1576714}</ProjectGuid>
+    <ProjectGuid>{e8405a76-d19a-433c-a265-8aa328db5a7b}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>LocadoraDeVeiculos.DB</RootNamespace>
-    <AssemblyName>LocadoraDeVeiculos.DB</AssemblyName>
+    <RootNamespace>LocadoraVeiculos.Db</RootNamespace>
+    <AssemblyName>LocadoraVeiculos.Db</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -56,8 +56,5 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-  </ItemGroup>
-  <ItemGroup>
-    <Build Include="TEste.sql" />
   </ItemGroup>
 </Project>
