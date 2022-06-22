@@ -7,4 +7,11 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="ModuloCliente\" />
+    <Folder Include="ModuloGrupoDeVeiculos\" />
+    <Folder Include="ModuloFuncionário\" />
+    <Folder Include="ModuloTaxas\" />
+  </ItemGroup>
+
 </Project>
