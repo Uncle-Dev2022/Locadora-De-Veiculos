@@ -5,11 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Compartilhado\" />
+    <None Remove="Compartilhado\RepositorioBaseEmBancoDeDados.cs~RF1b5b5c98.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloFuncionário\" />
     <Folder Include="ModuloGrupoDeVeiculos\" />
     <Folder Include="ModuloTaxas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
 </Project>
