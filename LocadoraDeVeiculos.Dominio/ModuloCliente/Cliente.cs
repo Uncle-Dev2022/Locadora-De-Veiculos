@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 {
-    public class Cliente : EntidadeBase
+    public class Cliente : EntidadeBase<Cliente>
     {
         string Nome;
         string Endereco;

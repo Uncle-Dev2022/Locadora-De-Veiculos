@@ -21,4 +21,8 @@
     <Folder Include="ModuloTaxas\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra\LocadoraDeVeiculos.Infra.csproj" />
+  </ItemGroup>
+
 </Project>

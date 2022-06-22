@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 {
-    internal class PessoaFisica : Cliente
+    public class PessoaFisica : Cliente
     {
         string CPF;
         string CNH;

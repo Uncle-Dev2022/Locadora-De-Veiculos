@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+    <ProjectReference Include="..\LocadoraVeiculos.Db\LocadoraVeiculos.Db.sqlproj" />
   </ItemGroup>
 
 </Project>
