@@ -15,4 +15,9 @@
     <Folder Include="Compartilhado\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra\LocadoraDeVeiculos.Infra.csproj" />
+  </ItemGroup>
+
 </Project>
