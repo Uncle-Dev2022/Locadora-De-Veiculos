@@ -12,6 +12,7 @@
     <Folder Include="ModuloGrupoDeVeiculos\" />
     <Folder Include="ModuloFuncionário\" />
     <Folder Include="ModuloTaxas\" />
+    <Folder Include="Compartilhado\" />
   </ItemGroup>
 
 </Project>
