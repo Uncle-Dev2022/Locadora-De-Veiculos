@@ -10,4 +10,8 @@
     <Folder Include="ModuloTaxas\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.1.0" />
+  </ItemGroup>
+
 </Project>

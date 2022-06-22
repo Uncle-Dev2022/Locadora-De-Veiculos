@@ -11,13 +11,16 @@
   <ItemGroup>
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloFuncionário\" />
-    <Folder Include="ModuloGrupoDeVeiculos\" />
     <Folder Include="ModuloTaxas\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.1.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

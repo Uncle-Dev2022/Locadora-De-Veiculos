@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos
 {
-    public class GrupoDeVeiculo : EntidadeBase
+    public class GrupoDeVeiculo : EntidadeBase<GrupoDeVeiculo>
     {
         public String Nome { get; set; }
 
@@ -20,5 +20,26 @@ namespace LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos
         {
             Nome = nome;
         }
+
+
+        public override bool Equals(object obj)
+        {
+            GrupoDeVeiculo gv = obj as GrupoDeVeiculo;
+
+            if (gv == null)
+                return false;
+
+            return
+                gv.Id.Equals(Id) &&
+                gv.Nome.Equals(Nome);
+        }
+
+        public override string ToString()
+        {
+            return "Nome: " + Nome;
+
+        }
+
+
     }
 }
