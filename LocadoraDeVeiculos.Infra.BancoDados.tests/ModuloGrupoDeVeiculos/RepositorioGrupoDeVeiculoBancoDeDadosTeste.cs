@@ -12,9 +12,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
 
         RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo;
 
-        RepositorioGrupoDeVeiculoBancoDeDadosTeste()
+        public RepositorioGrupoDeVeiculoBancoDeDadosTeste()
         {
-            DB.executarSql("DELETE FROM TBGRUPOVEICULO; DBCC CHECKIDENT (TBFORNECEDOR, RESEED, 0)");
+            DB.executarSql("DELETE FROM TBGRUPOVEICULO; DBCC CHECKIDENT (TBGRUPOVEICULO, RESEED, 0)");
 
             grupoVeiculo = new GrupoDeVeiculo("GrupoDeVeiculo1");
 
