@@ -9,10 +9,10 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 {
     public class Cliente : EntidadeBase<Cliente>
     {
-        string Nome;
-        string Endereco;
-        string Email;
-        string Telefone;
+        protected string Nome;
+        protected string Endereco;
+        protected string Email;
+        protected string Telefone;
 
     }
 }

@@ -10,17 +10,79 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
 {
     public class RepositorioClienteEmBancoDeDados : RepositorioBaseEmBancoDeDados<Cliente, ValidadorCliente, MapeadorCliente>
     {
-        protected override string sqlInserir => "";
+        protected override string sqlInserir =>
+            @"INSERT INTO [DBO].[TBCLIENTE]
+                (
 
-        protected override string sqlEditar => "";
+                [NOME],
+                [CPF_CNPJ],
+                [ENDERECO],
+                [EMAIL],
+                [TELEFONE],
+                [CNH],
+                [TIPOCLIENTE]
+                )
+              VALUES
+                (
+			    @NOME,
+			    @CPF_CNPJ,
+			    @ENDERECO,
+			    @EMAIL,
+			    TELEFONE
+			    @CNH,
+			    @TIPOCLIENTE
+			    ); SELECT SCOPE_IDENTITY();";
+
+        protected override string sqlEditar =>
+            @"UPDATE [DBO].[TBCLIENTE]
+	            SET
+		            [NOME] = @NOME,
+		            [CPF_CNPJ] = @CPF_CNPJ,
+                    [ENDERECO] = @ENDERECO,
+                    [EMAIL] = @EMAIL,
+                    [TELEFONE] = @TELEFONE,
+                    [CNH] = @CNH,
+                    [TIPOCLIENTE] = @TIPOCLIENTE
+	            WHERE 
+		            [ID]=@ID";
 
 
-        protected override string sqlExcluir => "";
+        protected override string sqlExcluir =>
+            @"DELETE 
+	             FROM [DBO].[TBCLIENTE]
+              WHERE
+	             ID=@ID";
 
 
-        protected override string sqlSelecionarPorId => "";
+        protected override string sqlSelecionarPorId => 
+            @"SELECT
+                [ID],
+		        [NOME],
+		        [CPF_CNPJ],
+                [ENDERECO],
+                [EMAIL],
+                [TELEFONE],
+                [CNH],
+                [TIPOCLIENTE]
+
+                FROM
+                    [DBO].[TBCLIENTE]
+                WHERE
+                    [ID]=@ID";
 
 
-        protected override string sqlSelecionarTodos => "";
+        protected override string sqlSelecionarTodos => 
+            @"SELECT
+                [ID],
+		        [NOME],
+		        [CPF_CNPJ],
+                [ENDERECO],
+                [EMAIL],
+                [TELEFONE],
+                [CNH],
+                [TIPOCLIENTE]
+
+                FROM
+                    [DBO].[TBCLIENTE]";
     }
 }
