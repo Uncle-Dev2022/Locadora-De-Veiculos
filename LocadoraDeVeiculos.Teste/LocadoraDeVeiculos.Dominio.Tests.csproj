@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloFuncionário\" />
-    <Folder Include="ModuloGrupoDeVeiculos\" />
     <Folder Include="ModuloTaxas\" />
   </ItemGroup>
 
