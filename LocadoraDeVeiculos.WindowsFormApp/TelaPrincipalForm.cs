@@ -1,12 +1,9 @@
-﻿using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp
@@ -59,7 +56,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
 
-        private void categoriasMenuItem_Click(object sender, EventArgs e)
+        private void GrupoDeVeiculosSubMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
@@ -156,9 +153,15 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
         private void InicializarControladores()
         {
+            var repositorioGrupoVeiuculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
+
+
             controladores = new Dictionary<string, ControladorBase>();
+
+            controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo((IRepositorioGrupoDeVeiculo)repositorioGrupoVeiuculo));
 
         }
 
+        
     }
 }
