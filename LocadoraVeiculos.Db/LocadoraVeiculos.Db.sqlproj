@@ -63,7 +63,4 @@
     <Build Include="TBGrupoVeiculo.sql" />
     <Build Include="TBFuncionario.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="LocadoraVeiculos.Db.refactorlog" />
-  </ItemGroup>
 </Project>
