@@ -49,7 +49,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
 
-        private void compromissosMenuItem_Click(object sender, EventArgs e)
+        private void taxasMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
@@ -159,6 +159,5 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             controladores = new Dictionary<string, ControladorBase>();
 
         }
-
     }
 }
