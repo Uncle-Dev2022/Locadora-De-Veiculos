@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
 
         public Func<GrupoDeVeiculo, ValidationResult> GravarRegistro { get; set; }
 
-        public GrupoDeVeiculo GrupoDeVeiculo
+        public GrupoDeVeiculo _grupoDeVeiculo
         {
             get { return gp; }
             set
@@ -50,6 +50,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
                 DialogResult = DialogResult.None;
             }
         }
+
+        
     }
 }
 

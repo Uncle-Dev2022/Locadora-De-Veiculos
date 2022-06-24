@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
         public override void Inserir()
         {
             TelaCadastroGrupoDeVeiculoForm tela = new TelaCadastroGrupoDeVeiculoForm();
-            tela.GrupoDeVeiculo = new GrupoDeVeiculo();
+            tela._grupoDeVeiculo = new GrupoDeVeiculo();
 
             tela.GravarRegistro = repositorioGrupoDeVeiculo.Inserir;
 
@@ -48,7 +48,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
 
             TelaCadastroGrupoDeVeiculoForm tela = new TelaCadastroGrupoDeVeiculoForm();
 
-            tela.GrupoDeVeiculo = GrupoDeVeiculoSelecionado;
+            tela._grupoDeVeiculo = GrupoDeVeiculoSelecionado;
 
             tela.GravarRegistro = repositorioGrupoDeVeiculo.Editar;
 
