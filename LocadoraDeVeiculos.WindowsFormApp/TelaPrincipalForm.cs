@@ -158,7 +158,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
             controladores = new Dictionary<string, ControladorBase>();
 
-            controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo((IRepositorioGrupoDeVeiculo)repositorioGrupoVeiuculo));
+            controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo(repositorioGrupoVeiuculo));
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
 {
     public class ControladorGrupoDeVeiculo : ControladorBase
     {
-        private readonly IRepositorioGrupoDeVeiculo repositorioGrupoDeVeiculo;
+        private readonly RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo;
         private TabelaGrupoDeVeiculoControl tabelaGrupoDeVeiculo;
 
-        public ControladorGrupoDeVeiculo(IRepositorioGrupoDeVeiculo repositorioGrupoDeVeiculo)
+        public ControladorGrupoDeVeiculo(RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo)
         {
             this.repositorioGrupoDeVeiculo = repositorioGrupoDeVeiculo;
         }
@@ -100,7 +101,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
         {
             var numero = tabelaGrupoDeVeiculo.ObtemNumeroDisciplinaSelecionada();
 
-            return repositorioGrupoDeVeiculo.SelecionarPorNumero(numero);
+            return repositorioGrupoDeVeiculo.SelecionarPorId(numero);
         }
 
 
