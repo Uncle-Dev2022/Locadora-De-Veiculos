@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
-    public class MapeadorGrupoDeVeiculo : MapeadorBase<GrupoDeVeiculo>
+    public class MapeadorGrupoDeVeiculo : MapeadorBase<GrupoDeVeiculo> 
     {
         public override void ConfigurarParametros(GrupoDeVeiculo gv, SqlCommand comando)
         {

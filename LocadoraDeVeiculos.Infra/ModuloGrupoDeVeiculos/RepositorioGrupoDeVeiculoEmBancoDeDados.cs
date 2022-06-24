@@ -1,11 +1,12 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 
 
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
-    public class RepositorioGrupoDeVeiculoEmBancoDeDados :
-        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, ValidadorGrupoDeVeiculo, MapeadorGrupoDeVeiculo>
+    public class RepositorioGrupoDeVeiculoEmBancoDeDados : 
+        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, ValidadorGrupoDeVeiculo, MapeadorGrupoDeVeiculo> 
     {
         protected override string sqlInserir =>
             @"INSERT INTO [TBGRUPOVEICULO] 

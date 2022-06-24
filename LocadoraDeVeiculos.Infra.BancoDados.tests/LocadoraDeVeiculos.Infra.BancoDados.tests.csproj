@@ -25,7 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ModuloFuncionário\" />
-    <Folder Include="ModuloGrupoDeVeiculos\" />
     <Folder Include="ModuloTaxas\" />
   </ItemGroup>
   <ItemGroup>

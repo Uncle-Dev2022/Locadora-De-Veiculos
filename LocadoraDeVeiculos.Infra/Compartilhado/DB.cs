@@ -9,7 +9,7 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 {
     public class DB
     {
-        private const string enderecoBanco= @"Data Source=(LocalDB)\\MSSqlLocalDB;
+        private const string enderecoBanco= @"Data Source=(LocalDB)\MSSqlLocalDB;
                                               Initial Catalog=LocadoraVeiculos.Db;Integrated Security=True";
 
         public static void executarSql(string comando)
