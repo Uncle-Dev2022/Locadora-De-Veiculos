@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <Folder Include="ModuloCliente\" />
-    <Folder Include="ModuloFuncionário\" />
   </ItemGroup>
 
   <ItemGroup>

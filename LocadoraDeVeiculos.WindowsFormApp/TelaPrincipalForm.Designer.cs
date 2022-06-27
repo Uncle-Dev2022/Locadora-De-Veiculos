@@ -48,7 +48,7 @@
             this.toolbox = new System.Windows.Forms.ToolStrip();
             this.GrupoDeVeiculosSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taxasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contatosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FuncionarioSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tarefasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
@@ -163,7 +163,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcluir.Name = "btnExcluir";
@@ -174,7 +174,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
@@ -185,7 +185,8 @@
             // 
             // btnInserir
             // 
-            this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnInserir.AccessibleName = "";
+            this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnInserir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnInserir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInserir.Name = "btnInserir";
@@ -234,12 +235,17 @@
             this.taxasMenuItem.Size = new System.Drawing.Size(180, 22);
             this.taxasMenuItem.Text = "Taxas";
             // 
-            // contatosMenuItem
+            // FuncionarioSubMenuItem
             // 
             this.contatosMenuItem.Name = "contatosMenuItem";
             this.contatosMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.contatosMenuItem.Size = new System.Drawing.Size(224, 26);
             this.contatosMenuItem.Text = "Contatos";
+            this.FuncionarioSubMenuItem.Name = "FuncionarioSubMenuItem";
+            this.FuncionarioSubMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.FuncionarioSubMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.FuncionarioSubMenuItem.Text = "Funcionario";
+            this.FuncionarioSubMenuItem.Click += new System.EventHandler(this.FuncionarioSubMenuItem_Click);
             // 
             // tarefasMenuItem
             // 
@@ -252,7 +258,7 @@
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tarefasMenuItem,
-            this.contatosMenuItem,
+            this.FuncionarioSubMenuItem,
             this.taxasMenuItem,
             this.GrupoDeVeiculosSubMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -317,7 +323,7 @@
         private System.Windows.Forms.ToolStripMenuItem despesasMenuItem;
         private System.Windows.Forms.ToolStripMenuItem despesasSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taxasMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contatosMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FuncionarioSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tarefasMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menu;

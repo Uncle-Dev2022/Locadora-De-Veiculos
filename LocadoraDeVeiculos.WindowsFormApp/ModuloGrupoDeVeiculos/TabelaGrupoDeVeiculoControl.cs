@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
             return colunas;
         }
 
-        public int ObtemNumeroDisciplinaSelecionada()
+        public int ObtemNumeroGrupoDeVeiculoSelecionada()
         {
             return grid.SelecionarNumero<int>();
         }
