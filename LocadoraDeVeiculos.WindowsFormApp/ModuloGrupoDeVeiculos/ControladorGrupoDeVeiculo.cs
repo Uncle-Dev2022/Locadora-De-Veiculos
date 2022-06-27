@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
             }
         }
 
-        public override UserControl ObtemListagem() 
+        public override UserControl ObtemListagem()
         {
             if (tabelaGrupoDeVeiculo == null)
                 tabelaGrupoDeVeiculo = new TabelaGrupoDeVeiculoControl();
@@ -99,7 +99,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
 
         private GrupoDeVeiculo ObtemGrupoDeVeiculoSelecionado()
         {
-            var numero = tabelaGrupoDeVeiculo.ObtemNumeroDisciplinaSelecionada();
+            var numero = tabelaGrupoDeVeiculo.ObtemNumeroGrupoDeVeiculoSelecionada();
 
             return repositorioGrupoDeVeiculo.SelecionarPorId(numero);
         }
@@ -112,9 +112,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
 
             tabelaGrupoDeVeiculo.AtualizarRegistros(grupoDeVeiculo);
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {grupoDeVeiculo.Count} grupo de veículos(s)");
+            if (grupoDeVeiculo.Count > 1)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {grupoDeVeiculo.Count} Funcionario(s)");
+            }
+            else
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {grupoDeVeiculo.Count} Funcionario");
+
+
         }
-
-
     }
 }

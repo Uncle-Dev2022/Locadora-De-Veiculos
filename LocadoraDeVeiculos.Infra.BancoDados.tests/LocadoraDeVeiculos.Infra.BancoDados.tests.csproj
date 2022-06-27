@@ -24,10 +24,10 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ModuloFuncionário\" />
     <Folder Include="ModuloTaxas\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\LocadoraDeVeiculos.Infra\LocadoraDeVeiculos.Infra.csproj" />
   </ItemGroup>
   <ItemGroup />
