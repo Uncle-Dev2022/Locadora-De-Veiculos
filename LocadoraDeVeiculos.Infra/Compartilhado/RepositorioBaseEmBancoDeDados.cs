@@ -16,9 +16,9 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
         where TMapeador : MapeadorBase<T>, new()
     {
         protected string enderecoBanco =
-            @"Data Source=(LOCALDB)\MSSQLLOCALDB;
-              Initial Catalog=LocadoraVeiculos.Db;
-              Integrated Security=True";
+           @"Data Source=(LocalDB)\MSSqlLocalDB;
+             Initial Catalog=LocadoraVeiculos.Db;
+            Integrated Security=True";
 
         protected abstract string sqlInserir { get; }
 

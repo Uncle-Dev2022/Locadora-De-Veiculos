@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.Compartilhado
 {
-    public  class EntidadeBase<T>
+    public  class EntidadeBase<T> where T : class
     {
         public int Id { get; set; }
 
-
+        public T Clonar()
+        {
+            return MemberwiseClone() as T;
+        }
 
     }
 }
