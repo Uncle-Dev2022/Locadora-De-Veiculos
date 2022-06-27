@@ -8,6 +8,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
     public class RepositorioGrupoDeVeiculoEmBancoDeDados : 
         RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, ValidadorGrupoDeVeiculo, MapeadorGrupoDeVeiculo> 
     {
+        
+
         protected override string sqlInserir =>
             @"INSERT INTO [TBGRUPOVEICULO] 
                 (

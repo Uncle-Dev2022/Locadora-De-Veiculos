@@ -48,7 +48,7 @@
             this.toolbox = new System.Windows.Forms.ToolStrip();
             this.GrupoDeVeiculosSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compromissosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contatosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FuncionarioSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tarefasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
@@ -60,10 +60,10 @@
             // panelRegistros
             // 
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 70);
+            this.panelRegistros.Location = new System.Drawing.Point(0, 81);
             this.panelRegistros.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(1000, 460);
+            this.panelRegistros.Size = new System.Drawing.Size(1000, 449);
             this.panelRegistros.TabIndex = 7;
             // 
             // statusStrip1
@@ -88,13 +88,13 @@
             // 
             this.labelTipoCadastro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(141, 28);
+            this.labelTipoCadastro.Size = new System.Drawing.Size(141, 39);
             this.labelTipoCadastro.Text = "[tipoCadastro]";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 44);
             // 
             // btnAgrupar
             // 
@@ -103,12 +103,12 @@
             this.btnAgrupar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAgrupar.Name = "btnAgrupar";
             this.btnAgrupar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAgrupar.Size = new System.Drawing.Size(34, 28);
+            this.btnAgrupar.Size = new System.Drawing.Size(34, 39);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 44);
             // 
             // btnVisualizar
             // 
@@ -117,12 +117,12 @@
             this.btnVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnVisualizar.Size = new System.Drawing.Size(34, 28);
+            this.btnVisualizar.Size = new System.Drawing.Size(34, 39);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 44);
             // 
             // btnFiltrar
             // 
@@ -131,12 +131,12 @@
             this.btnFiltrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnFiltrar.Size = new System.Drawing.Size(34, 28);
+            this.btnFiltrar.Size = new System.Drawing.Size(34, 39);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 44);
             // 
             // btnAtualizarItens
             // 
@@ -145,7 +145,7 @@
             this.btnAtualizarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAtualizarItens.Name = "btnAtualizarItens";
             this.btnAtualizarItens.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAtualizarItens.Size = new System.Drawing.Size(34, 28);
+            this.btnAtualizarItens.Size = new System.Drawing.Size(34, 39);
             // 
             // btnAdicionarItens
             // 
@@ -154,44 +154,45 @@
             this.btnAdicionarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdicionarItens.Name = "btnAdicionarItens";
             this.btnAdicionarItens.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAdicionarItens.Size = new System.Drawing.Size(34, 28);
+            this.btnAdicionarItens.Size = new System.Drawing.Size(34, 39);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 44);
             // 
             // btnExcluir
             // 
-            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
-            this.btnExcluir.Size = new System.Drawing.Size(34, 28);
-            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.Size = new System.Drawing.Size(93, 39);
+            this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnEditar.Size = new System.Drawing.Size(34, 28);
-            this.btnEditar.Text = "Editar";
+            this.btnEditar.Size = new System.Drawing.Size(84, 39);
+            this.btnEditar.Text = "EDITAR";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnInserir
             // 
-            this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnInserir.AccessibleName = "";
+            this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnInserir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnInserir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Padding = new System.Windows.Forms.Padding(5);
-            this.btnInserir.Size = new System.Drawing.Size(34, 28);
-            this.btnInserir.Text = "Inserir";
+            this.btnInserir.Size = new System.Drawing.Size(90, 39);
+            this.btnInserir.Text = "INSERIR";
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // toolbox
@@ -215,7 +216,7 @@
             this.labelTipoCadastro});
             this.toolbox.Location = new System.Drawing.Point(0, 37);
             this.toolbox.Name = "toolbox";
-            this.toolbox.Size = new System.Drawing.Size(1000, 33);
+            this.toolbox.Size = new System.Drawing.Size(1000, 44);
             this.toolbox.TabIndex = 5;
             this.toolbox.Text = "toolStrip1";
             // 
@@ -234,12 +235,13 @@
             this.compromissosMenuItem.Size = new System.Drawing.Size(291, 34);
             this.compromissosMenuItem.Text = "Compromissos";
             // 
-            // contatosMenuItem
+            // FuncionarioSubMenuItem
             // 
-            this.contatosMenuItem.Name = "contatosMenuItem";
-            this.contatosMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.contatosMenuItem.Size = new System.Drawing.Size(291, 34);
-            this.contatosMenuItem.Text = "Contatos";
+            this.FuncionarioSubMenuItem.Name = "FuncionarioSubMenuItem";
+            this.FuncionarioSubMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.FuncionarioSubMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.FuncionarioSubMenuItem.Text = "Funcionario";
+            this.FuncionarioSubMenuItem.Click += new System.EventHandler(this.FuncionarioSubMenuItem_Click);
             // 
             // tarefasMenuItem
             // 
@@ -252,7 +254,7 @@
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tarefasMenuItem,
-            this.contatosMenuItem,
+            this.FuncionarioSubMenuItem,
             this.compromissosMenuItem,
             this.GrupoDeVeiculosSubMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -316,7 +318,7 @@
         private System.Windows.Forms.ToolStrip toolbox;
         private System.Windows.Forms.ToolStripMenuItem GrupoDeVeiculosSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem compromissosMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contatosMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FuncionarioSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tarefasMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menu;
