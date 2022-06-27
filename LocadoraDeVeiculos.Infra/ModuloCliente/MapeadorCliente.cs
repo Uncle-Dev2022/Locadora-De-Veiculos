@@ -31,8 +31,13 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
             var enderco = Convert.ToString(leitorRegistro["ENDERECO"]);
             var email = Convert.ToString(leitorRegistro["EMAIL"]);
             var telefone = Convert.ToString(leitorRegistro["TELEFONE"]);
-            var cnh = Convert.ToString(leitorRegistro["CNH"]);
             var tipoCliente = Convert.ToBoolean(leitorRegistro["TIPOCLIENTE"]);
+            string cnh = null;
+
+            if(leitorRegistro["CNH"] != DBNull.Value)
+            {
+                cnh = Convert.ToString(leitorRegistro["CNH"]);
+            }
 
             var cliente = new Cliente(nome, enderco, email, telefone, tipoCliente, Cpf_cnpj, cnh)
             {

@@ -15,9 +15,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
         public string Email;
         public string Telefone;
         public string CPF_CNPJ;
-        public string CNH;
+        public string? CNH;
 
-        public Cliente(string nome, string endereco,string email, string telefone,bool tipocliente,string Cpf_cnpj,string ? cnh)
+        public Cliente(string nome, string endereco,string email, string telefone,bool tipocliente,string Cpf_cnpj,string? cnh)
         {
             Nome = nome;
             Endereco = endereco;
