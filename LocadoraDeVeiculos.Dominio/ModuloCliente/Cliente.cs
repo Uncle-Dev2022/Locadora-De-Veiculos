@@ -29,6 +29,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
             {
                 CNH = cnh;
             }
+
         }
 
         public Cliente()

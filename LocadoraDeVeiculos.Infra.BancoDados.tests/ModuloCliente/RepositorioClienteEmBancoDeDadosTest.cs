@@ -41,23 +41,23 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
             Assert.AreEqual(clientePessoaFisica, ClienteEncontrado);
         }
 
-        //[TestMethod]
-        //public void Deve_inserir_Cliente_PessoaJuridica()
-        //{
-        //    repositorioCliente.Inserir(ClientePessoaJuridica);
+        [TestMethod]
+        public void Deve_inserir_Cliente_PessoaJuridica()
+        {
+            repositorioCliente.Inserir(ClientePessoaJuridica);
 
-        //    var ClienteEncontrado = repositorioCliente.SelecionarPorId(ClientePessoaJuridica.Id);
+            var ClienteEncontrado = repositorioCliente.SelecionarPorId(ClientePessoaJuridica.Id);
 
-        //    Assert.IsNotNull(ClienteEncontrado);
-        //    Assert.AreEqual(ClientePessoaJuridica, ClienteEncontrado);
-        //}
+            Assert.IsNotNull(ClienteEncontrado);
+            Assert.AreEqual(ClientePessoaJuridica, ClienteEncontrado);
+        }
 
         [TestMethod]
         public void Deve_Editar_Cliente_PessoaFisica()
         {
             repositorioCliente.Inserir(clientePessoaFisica);
 
-            clientePessoaFisica.Nome = "Tio Home";
+            clientePessoaFisica.Nome = "seu zé";
 
             repositorioCliente.Editar(clientePessoaFisica);
 

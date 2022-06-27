@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
             comando.Parameters.AddWithValue("ENDERECO", registro.Endereco);
             comando.Parameters.AddWithValue("EMAIL", registro.Email);
             comando.Parameters.AddWithValue("TELEFONE", registro.Telefone);
-            comando.Parameters.AddWithValue("CNH", registro.CNH);
+            comando.Parameters.AddWithValue("CNH", string.IsNullOrEmpty(registro.CNH) ? DBNull.Value : registro.CNH);
             comando.Parameters.AddWithValue("TIPOCLIENTE", registro.ClienteFisico);
         }
 
@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
             var email = Convert.ToString(leitorRegistro["EMAIL"]);
             var telefone = Convert.ToString(leitorRegistro["TELEFONE"]);
             var tipoCliente = Convert.ToBoolean(leitorRegistro["TIPOCLIENTE"]);
-            string cnh = null;
+            string cnh = "";
 
             if(leitorRegistro["CNH"] != DBNull.Value)
             {
