@@ -13,17 +13,19 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
 
         public ValidadorFuncionario()
         {
+            Regex padraoNome = new Regex("^[A-Z a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]*$");
+
             RuleFor(x => x.Nome)
                 .NotNull().WithMessage("Nome não pode ser nulo")
                 .NotEmpty().WithMessage("Nome não pode ser vazio")
-                .MinimumLength(2).WithMessage("Nome deve ter no mínimo 2 caracteres");
-            Regex padraoNome = new Regex("^[A-Z a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]*$");
+                .MinimumLength(2).WithMessage("Nome deve ter no mínimo 2 caracteres").Matches(padraoNome);
+            
 
             RuleFor(x => x.Salario)
                 .GreaterThan(0).WithMessage("Salario não pode ser menor que zero");
 
             RuleFor(x => x.DataAdmissao)
-                .LessThan(DateTime.Today).WithMessage("Data de Admissão não pode ser Maior que hoje");
+                .LessThanOrEqualTo(DateTime.Today).WithMessage("Data de Admissão não pode ser Maior que hoje");
 
             RuleFor(x => x.Senha)
                .NotNull().WithMessage("Senha não pode ser nulo")

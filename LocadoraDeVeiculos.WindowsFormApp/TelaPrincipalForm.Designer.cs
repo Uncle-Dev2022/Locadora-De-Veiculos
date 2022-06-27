@@ -236,11 +236,7 @@
             this.taxasMenuItem.Text = "Taxas";
             // 
             // FuncionarioSubMenuItem
-            // 
-            this.contatosMenuItem.Name = "contatosMenuItem";
-            this.contatosMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.contatosMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.contatosMenuItem.Text = "Contatos";
+            //             
             this.FuncionarioSubMenuItem.Name = "FuncionarioSubMenuItem";
             this.FuncionarioSubMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.FuncionarioSubMenuItem.Size = new System.Drawing.Size(291, 34);
