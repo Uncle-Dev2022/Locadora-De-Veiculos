@@ -28,17 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtBoxNome = new System.Windows.Forms.TextBox();
-            this.LabelCPF_Cnpj = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,88 +58,12 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nome :";
-            // 
             // txtBoxNome
             // 
             this.txtBoxNome.Location = new System.Drawing.Point(81, 20);
             this.txtBoxNome.Name = "txtBoxNome";
             this.txtBoxNome.Size = new System.Drawing.Size(125, 27);
             this.txtBoxNome.TabIndex = 1;
-            // 
-            // LabelCPF_Cnpj
-            // 
-            this.LabelCPF_Cnpj.AutoSize = true;
-            this.LabelCPF_Cnpj.Location = new System.Drawing.Point(7, 189);
-            this.LabelCPF_Cnpj.Name = "LabelCPF_Cnpj";
-            this.LabelCPF_Cnpj.Size = new System.Drawing.Size(75, 20);
-            this.LabelCPF_Cnpj.TabIndex = 2;
-            this.LabelCPF_Cnpj.Text = "Cpf_Cnpj :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(81, 186);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(95, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 0;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(95, 327);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 1;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(95, 274);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 27);
-            this.textBox4.TabIndex = 2;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(95, 174);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 27);
-            this.textBox5.TabIndex = 3;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(95, 131);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(125, 27);
-            this.textBox6.TabIndex = 4;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(95, 82);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(125, 27);
-            this.textBox7.TabIndex = 5;
             // 
             // label3
             // 
@@ -341,6 +255,7 @@
             this.btnGravar.TabIndex = 15;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click_1);
             // 
             // btnCancelar
             // 
@@ -355,6 +270,7 @@
             // 
             // maskedTextBoxCPF
             // 
+            this.maskedTextBoxCPF.Culture = new System.Globalization.CultureInfo("pt-BR");
             this.maskedTextBoxCPF.Location = new System.Drawing.Point(110, 252);
             this.maskedTextBoxCPF.Mask = "000.000.000-00";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
@@ -363,6 +279,7 @@
             // 
             // maskedTextBoxCNPJ
             // 
+            this.maskedTextBoxCNPJ.Culture = new System.Globalization.CultureInfo("pt-BR");
             this.maskedTextBoxCNPJ.Location = new System.Drawing.Point(110, 252);
             this.maskedTextBoxCNPJ.Mask = "00.000.000/0000-00";
             this.maskedTextBoxCNPJ.Name = "maskedTextBoxCNPJ";

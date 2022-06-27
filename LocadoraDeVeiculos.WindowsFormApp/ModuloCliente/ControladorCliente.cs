@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
             if (resultado == DialogResult.OK)
             {
-                CarregarCliente();
+                CarregarClientes();
             }
         }
 
@@ -41,8 +41,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
             if (ClienteSelecionado == null)
             {
-                MessageBox.Show("Selecione um grupo de veículo primeiro",
-                "Edição de grupo de veículo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Cliente primeiro",
+                "Edição de Cliente", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -56,7 +56,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
             if (resultado == DialogResult.OK)
             {
-                CarregarCliente();
+                CarregarClientes();
             }
         }
 
@@ -77,7 +77,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             if (resultado == DialogResult.OK)
             {
                 repositorioCliente.Excluir(ClienteSelecionado);
-                CarregarCliente();
+                CarregarClientes();
             }
         }
 
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             if (tabelaCliente == null)
                 tabelaCliente = new TabelaClienteControl();
 
-            CarregarCliente();
+            CarregarClientes();
 
             return tabelaCliente;
         }
@@ -105,7 +105,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
         }
 
 
-        private void CarregarCliente()
+        private void CarregarClientes()
         {
 
             List<Cliente> Clientes = repositorioCliente.SelecionarTodos();

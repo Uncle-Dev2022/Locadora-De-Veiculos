@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             {
                 cliente = value;
 
-                txtBoxNome.Text = cliente.Nome;
+                txtNome.Text = cliente.Nome;
                 txtBoxEndereço.Text = cliente.Endereco;
                 txtBoxEmail.Text = cliente.Email;
                 txtBoxTelefone.Text = cliente.Telefone;
@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 if(cliente.ClienteFisico == true)
                 {
                     radioButtonPessoaFiscia.Checked = true;
-                    LabelCPF_Cnpj.Text = "CPF";
+                    cpfEcnpj.Text = "CPF";
                     maskedTextBoxCNPJ.Visible = false;
                     maskedTextBoxCPF.Visible = true;
                     labelCnh.Visible = true;
@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 else
                 {
                     radioButtonPessoaJuridica.Checked = true;
-                    LabelCPF_Cnpj.Text = "CNPJ";
+                    cpfEcnpj.Text = "CNPJ";
                     maskedTextBoxCNPJ.Visible = true;
                     maskedTextBoxCPF.Visible = false;
                     labelCnh.Visible = false;
@@ -56,16 +56,45 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             }
 
         }
-        private void btnGravar_Click(object sender, EventArgs e)
+
+        private void radioButtonPessoaFiscia_CheckedChanged(object sender, EventArgs e)
         {
-            cliente.Nome = txtBoxNome.Text;
+            ConfigurarCamposPessoaFisica();
+        }
+
+        private void radioButtonPessoaJuridica_CheckedChanged(object sender, EventArgs e)
+        {
+            ConfigurarCamposPessoaJuridica();
+        }
+
+        private void ConfigurarCamposPessoaFisica()
+        {
+            cpfEcnpj.Text = "CPF";
+            maskedTextBoxCNPJ.Visible = false;
+            maskedTextBoxCPF.Visible = true;
+            labelCnh.Visible = true;
+            txtBoxCNH.Visible = true;
+        }
+
+        private void ConfigurarCamposPessoaJuridica()
+        {
+            cpfEcnpj.Text = "CNPJ";
+            maskedTextBoxCNPJ.Visible = true;
+            maskedTextBoxCPF.Visible = false;
+            labelCnh.Visible = false;
+            txtBoxCNH.Visible = false;
+        }
+
+        private void btnGravar_Click_1(object sender, EventArgs e)
+        {
+            cliente.Nome = txtNome.Text;
             cliente.Endereco = txtBoxEndereço.Text;
             cliente.Email = txtBoxEmail.Text;
             cliente.Telefone = txtBoxTelefone.Text;
 
             if (radioButtonPessoaFiscia.Checked)
             {
-                cliente.ClienteFisico=true;
+                cliente.ClienteFisico = true;
                 cliente.CNH = txtBoxCNH.Text;
                 cliente.CPF_CNPJ = maskedTextBoxCPF.Text;
             }
@@ -86,36 +115,5 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 DialogResult = DialogResult.None;
             }
         }
-
-        private void radioButtonPessoaFiscia_CheckedChanged(object sender, EventArgs e)
-        {
-            ConfigurarCamposPessoaFisica();
-        }
-
-        private void radioButtonPessoaJuridica_CheckedChanged(object sender, EventArgs e)
-        {
-            ConfigurarCamposPessoaJuridica();
-        }
-
-        private void ConfigurarCamposPessoaFisica()
-        {
-            radioButtonPessoaFiscia.Checked = true;
-            LabelCPF_Cnpj.Text = "CPF";
-            maskedTextBoxCNPJ.Visible = false;
-            maskedTextBoxCPF.Visible = true;
-            labelCnh.Visible = true;
-            txtBoxCNH.Visible = true;
-        }
-
-        private void ConfigurarCamposPessoaJuridica()
-        {
-            radioButtonPessoaJuridica.Checked = true;
-            LabelCPF_Cnpj.Text = "CNPJ";
-            maskedTextBoxCNPJ.Visible = true;
-            maskedTextBoxCPF.Visible = false;
-            labelCnh.Visible = false;
-            txtBoxCNH.Visible = false;
-        }
-     
     }
 }
