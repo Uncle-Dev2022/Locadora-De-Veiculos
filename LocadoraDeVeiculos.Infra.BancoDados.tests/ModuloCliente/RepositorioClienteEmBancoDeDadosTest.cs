@@ -10,34 +10,32 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
 {
+   
+
     [TestClass]
     public class RepositorioClienteEmBancoDeDadosTest
     {
-        private PessoaFisica pessoaFisica;
-        private PessoaJuridica pessoaJuridica;
-        private Cliente clienteFisico;
-        private Cliente clienteJuridico;
+        Cliente cliente;
+
         private RepositorioClienteEmBancoDeDados repositorioCliente;
         public RepositorioClienteEmBancoDeDadosTest()
         {
             DB.executarSql("DELETE FROM TBCLIENTE; DBCC CHECKIDENT (TBCLIENTE, RESEED, 0)");
 
-            pessoaFisica = new PessoaFisica("Thiago","rua","Email@email.com","32254784","04125735409","324578698742");
-            pessoaJuridica = new PessoaJuridica();
-            clienteFisico = pessoaFisica;
-            clienteJuridico = pessoaJuridica;
+            cliente = new Cliente("Thiaguera","Rua Rua","Email@email.com","34521867",true,"12457865920","014257846521");
+
             repositorioCliente = new RepositorioClienteEmBancoDeDados();
         }
         
         [TestMethod]
         public void Deve_inserir_Cliente_PessoaFisica()
         {
-            repositorioCliente.Inserir(pessoaFisica);
+            repositorioCliente.Inserir(cliente);
 
-            var PessoaFissicaEncontrada = repositorioCliente.SelecionarPorId(pessoaFisica.Id);
+            var ClienteEncontrado = repositorioCliente.SelecionarPorId(cliente.Id);
 
-            Assert.IsNotNull(PessoaFissicaEncontrada);
-            Assert.AreEqual(pessoaFisica, PessoaFissicaEncontrada);
+            Assert.IsNotNull(ClienteEncontrado);
+            Assert.AreEqual(cliente, ClienteEncontrado);
         }
 
     }

@@ -6,6 +6,6 @@
     [Endereco] VARCHAR(50) NOT NULL, 
     [Email] VARCHAR(50) NOT NULL, 
     [Telefone] VARCHAR(50) NOT NULL, 
-    [CNH] VARCHAR(50) NOT NULL, 
+    [CNH] VARCHAR(50) NULL, 
     [TipoCliente] BIT NOT NULL
 )
