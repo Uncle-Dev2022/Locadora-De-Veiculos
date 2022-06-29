@@ -1,7 +1,9 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -45,12 +47,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
-
-        private void taxasMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
-        }
-
         private void despesasMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
@@ -60,7 +56,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
-
+        private void taxasMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -155,13 +154,12 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         {
             var repositorioGrupoVeiuculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
 
+            var repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
 
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo(repositorioGrupoVeiuculo));
-
+            controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
         }
-
-       
     }
 }
