@@ -19,6 +19,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
         public TelaCadastroFuncionarioForm()
         {
             InitializeComponent();
+            DefinirDataAdmissao();
         }
 
         
@@ -28,6 +29,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 
         public Funcionario _funcionario
         {
+            
+
             get { return funcionario; }
             set
             {
@@ -38,7 +41,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 
                 txtBoxFuncionarioSalario.Text = funcionario.Salario.ToString();
 
-                maskedTextBox.Text = funcionario.DataAdmissao.ToString();
+                
+                dateTimePickerDataAdmissao.Value = funcionario.DataAdmissao;
 
                 txtBoxFuncionarioSenha.Text = funcionario.Senha;
 
@@ -55,7 +59,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 
             funcionario.Salario = Decimal.Parse(txtBoxFuncionarioSalario.Text);
 
-            funcionario.DataAdmissao = DateTime.Parse(maskedTextBox.Text);
+            funcionario.DataAdmissao = dateTimePickerDataAdmissao.Value;
 
             funcionario.Senha = txtBoxFuncionarioSenha.Text;
 
@@ -75,6 +79,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
             }
         }
 
-        
+        private void DefinirDataAdmissao()
+        {
+            dateTimePickerDataAdmissao.MaxDate = DateTime.Today;
+        }
     }
 }

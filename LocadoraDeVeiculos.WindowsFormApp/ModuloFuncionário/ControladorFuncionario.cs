@@ -26,6 +26,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
             TelaCadastroFuncionarioForm tela = new TelaCadastroFuncionarioForm();
             tela._funcionario = new Funcionario();
 
+            
+
             tela.GravarRegistro = repositorioFuncionario.Inserir;
 
             DialogResult resultado = tela.ShowDialog();
