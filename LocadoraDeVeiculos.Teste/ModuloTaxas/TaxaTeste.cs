@@ -10,7 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
     {
         [TestMethod]
         public void Descricao_nao_Pode_Ser_Nula()
-        {
+        { 
             Taxa taxa = new(0.3 , "");
 
             ValidadorTaxa validacao = new();
