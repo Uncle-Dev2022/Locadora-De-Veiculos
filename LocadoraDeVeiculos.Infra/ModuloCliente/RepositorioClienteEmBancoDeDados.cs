@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
 			    @CPF_CNPJ,
 			    @ENDERECO,
 			    @EMAIL,
-			    TELEFONE
+			    @TELEFONE,
 			    @CNH,
 			    @TIPOCLIENTE
 			    ); SELECT SCOPE_IDENTITY();";

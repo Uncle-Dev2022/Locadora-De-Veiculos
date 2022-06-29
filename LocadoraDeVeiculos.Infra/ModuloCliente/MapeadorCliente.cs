@@ -13,12 +13,38 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
     {
         public override void ConfigurarParametros(Cliente registro, SqlCommand comando)
         {
-            throw new NotImplementedException();
+            comando.Parameters.AddWithValue("ID", registro.Id);
+            comando.Parameters.AddWithValue("NOME", registro.Nome);
+            comando.Parameters.AddWithValue("CPF_CNPJ", registro.CPF_CNPJ);
+            comando.Parameters.AddWithValue("ENDERECO", registro.Endereco);
+            comando.Parameters.AddWithValue("EMAIL", registro.Email);
+            comando.Parameters.AddWithValue("TELEFONE", registro.Telefone);
+            comando.Parameters.AddWithValue("CNH", string.IsNullOrEmpty(registro.CNH) ? DBNull.Value : registro.CNH);
+            comando.Parameters.AddWithValue("TIPOCLIENTE", registro.ClienteFisico);
         }
 
         public override Cliente ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            throw new NotImplementedException();
+            var id = Convert.ToInt32(leitorRegistro["ID"]);
+            var nome = Convert.ToString(leitorRegistro["NOME"]);
+            var Cpf_cnpj = Convert.ToString(leitorRegistro["CPF_CNPJ"]);
+            var enderco = Convert.ToString(leitorRegistro["ENDERECO"]);
+            var email = Convert.ToString(leitorRegistro["EMAIL"]);
+            var telefone = Convert.ToString(leitorRegistro["TELEFONE"]);
+            var tipoCliente = Convert.ToBoolean(leitorRegistro["TIPOCLIENTE"]);
+            string cnh = "";
+
+            if(leitorRegistro["CNH"] != DBNull.Value)
+            {
+                cnh = Convert.ToString(leitorRegistro["CNH"]);
+            }
+
+            var cliente = new Cliente(nome, enderco, email, telefone, tipoCliente, Cpf_cnpj, cnh)
+            {
+                Id = id,
+            };
+
+            return cliente;
         }
     }
 }

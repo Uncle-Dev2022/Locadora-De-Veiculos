@@ -48,8 +48,8 @@
             this.toolbox = new System.Windows.Forms.ToolStrip();
             this.GrupoDeVeiculosSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taxasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contatosMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tarefasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FuncionarioSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClienteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.statusStrip1.SuspendLayout();
@@ -60,7 +60,8 @@
             // panelRegistros
             // 
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 49);
+            this.panelRegistros.Location = new System.Drawing.Point(0, 67);
+            this.panelRegistros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelRegistros.Name = "panelRegistros";
             this.panelRegistros.Size = new System.Drawing.Size(700, 267);
             this.panelRegistros.TabIndex = 7;
@@ -92,7 +93,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 37);
             // 
             // btnAgrupar
             // 
@@ -106,7 +107,7 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 37);
             // 
             // btnVisualizar
             // 
@@ -120,7 +121,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 37);
             // 
             // btnFiltrar
             // 
@@ -134,7 +135,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 37);
             // 
             // btnAtualizarItens
             // 
@@ -152,7 +153,7 @@
             this.btnAdicionarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdicionarItens.Name = "btnAdicionarItens";
             this.btnAdicionarItens.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAdicionarItens.Size = new System.Drawing.Size(23, 22);
+            this.btnAdicionarItens.Size = new System.Drawing.Size(29, 34);
             // 
             // toolStripSeparator2
             // 
@@ -161,18 +162,18 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
-            this.btnExcluir.Size = new System.Drawing.Size(23, 22);
+            this.btnExcluir.Size = new System.Drawing.Size(66, 34);
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
@@ -183,12 +184,13 @@
             // 
             // btnInserir
             // 
-            this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnInserir.AccessibleName = "";
+            this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnInserir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnInserir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Padding = new System.Windows.Forms.Padding(5);
-            this.btnInserir.Size = new System.Drawing.Size(23, 22);
+            this.btnInserir.Size = new System.Drawing.Size(63, 34);
             this.btnInserir.Text = "Inserir";
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
@@ -221,7 +223,7 @@
             // 
             this.GrupoDeVeiculosSubMenuItem.Name = "GrupoDeVeiculosSubMenuItem";
             this.GrupoDeVeiculosSubMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.GrupoDeVeiculosSubMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.GrupoDeVeiculosSubMenuItem.Size = new System.Drawing.Size(238, 26);
             this.GrupoDeVeiculosSubMenuItem.Text = "Grupo De Veículos";
             this.GrupoDeVeiculosSubMenuItem.Click += new System.EventHandler(this.GrupoDeVeiculosSubMenuItem_Click);
             // 
@@ -233,29 +235,30 @@
             this.taxasMenuItem.Text = "Taxas";
             this.taxasMenuItem.Click += new System.EventHandler(this.taxasMenuItem_Click);
             // 
-            // contatosMenuItem
+            // FuncionarioSubMenuItem
             // 
-            this.contatosMenuItem.Name = "contatosMenuItem";
-            this.contatosMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.contatosMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.contatosMenuItem.Text = "Contatos";
+            this.FuncionarioSubMenuItem.Name = "FuncionarioSubMenuItem";
+            this.FuncionarioSubMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.FuncionarioSubMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.FuncionarioSubMenuItem.Text = "Funcionario";
+            this.FuncionarioSubMenuItem.Click += new System.EventHandler(this.FuncionarioSubMenuItem_Click);
             // 
-            // tarefasMenuItem
+            // ClienteMenuItem            
             // 
-            this.tarefasMenuItem.Name = "tarefasMenuItem";
-            this.tarefasMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tarefasMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.tarefasMenuItem.Text = "Tarefas";
-            // 
+            this.ClienteMenuItem.Name = "ClienteMenuItem";
+            this.ClienteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.ClienteMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.ClienteMenuItem.Text = "Cliente";
+            this.ClienteMenuItem.Click += new System.EventHandler(this.ClienteMenuItem_Click);
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tarefasMenuItem,
-            this.contatosMenuItem,
+            this.ClienteMenuItem,
+            this.FuncionarioSubMenuItem,
             this.taxasMenuItem,
             this.GrupoDeVeiculosSubMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // menu
@@ -316,8 +319,8 @@
         private System.Windows.Forms.ToolStripMenuItem despesasMenuItem;
         private System.Windows.Forms.ToolStripMenuItem despesasSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taxasMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contatosMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tarefasMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FuncionarioSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClienteMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menu;
     }

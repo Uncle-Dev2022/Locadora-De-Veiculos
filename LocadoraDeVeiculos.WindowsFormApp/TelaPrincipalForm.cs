@@ -1,7 +1,11 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.ModuloCliente;
+using LocadoraDeVeiculos.Infra.ModuloFuncionário;
 using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using System;
@@ -38,12 +42,12 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             labelRodape.Text = mensagem;
         }
 
-        private void tarefasMenuItem_Click(object sender, EventArgs e)
+        private void ClienteMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
 
-        private void contatosMenuItem_Click(object sender, EventArgs e)
+        private void FuncionarioSubMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
@@ -153,12 +157,16 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         private void InicializarControladores()
         {
             var repositorioGrupoVeiuculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
+            var repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
+            var repositorioCliente = new RepositorioClienteEmBancoDeDados();
 
             var repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
 
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo(repositorioGrupoVeiuculo));
+            controladores.Add("Funcionario", new ControladorFuncionario(repositorioFuncionario));
+            controladores.Add("Cliente", new ControladorCliente(repositorioCliente));
             controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
         }
     }

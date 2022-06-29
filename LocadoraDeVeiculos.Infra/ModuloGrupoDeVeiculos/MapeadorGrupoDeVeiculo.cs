@@ -18,10 +18,10 @@ namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 
         }
 
-        public override GrupoDeVeiculo ConverterRegistro(SqlDataReader leitorPaciente)
+        public override GrupoDeVeiculo ConverterRegistro(SqlDataReader leitorGrupoDeVeiculo)
         {
-            int id = Convert.ToInt32(leitorPaciente["ID"]);
-            string nome = Convert.ToString(leitorPaciente["NOME"]);
+            int id = Convert.ToInt32(leitorGrupoDeVeiculo["ID"]);
+            string nome = Convert.ToString(leitorGrupoDeVeiculo["NOME"]);
 
 
             return new GrupoDeVeiculo()

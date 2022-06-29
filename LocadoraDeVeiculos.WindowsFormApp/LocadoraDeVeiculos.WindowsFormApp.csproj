@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloFuncionário\" />
+    <Folder Include="ModuloCliente\" />
   </ItemGroup>
 
   <ItemGroup>
