@@ -23,9 +23,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
         {
             DB.executarSql("DELETE FROM TBCLIENTE; DBCC CHECKIDENT (TBCLIENTE, RESEED, 0)");
 
-            clientePessoaFisica = new Cliente("Thiaguera","Rua Rua","Email@email.com","34521867",true,"12457865920","014257846521");
+            clientePessoaFisica = new Cliente("Thiago", "rua", "Thiago@gmail.com", "(49) 98547-4512", true, "245.457.458-12", "012457896");
 
-            ClientePessoaJuridica = new Cliente("auto.cia", "rua Alberto", "auto@email.com", "34521548", false, "021475896000112",null);
+            ClientePessoaJuridica = new Cliente("Empresa", "rua", "empresa@gmail.com", "(49) 98547-4215", false, "25.427.475/0001-00", null);
 
             repositorioCliente = new RepositorioClienteEmBancoDeDados();
         }

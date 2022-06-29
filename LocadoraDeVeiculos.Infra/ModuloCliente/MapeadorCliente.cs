@@ -20,7 +20,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
             comando.Parameters.AddWithValue("EMAIL", registro.Email);
             comando.Parameters.AddWithValue("TELEFONE", registro.Telefone);
             comando.Parameters.AddWithValue("CNH", string.IsNullOrEmpty(registro.CNH) ? DBNull.Value : registro.CNH);
-            comando.Parameters.AddWithValue("TIPOCLIENTE", registro.ClienteFisico);
+            comando.Parameters.AddWithValue("TIPOCLIENTE", registro.tipoCliente);
         }
 
         public override Cliente ConverterRegistro(SqlDataReader leitorRegistro)

@@ -9,7 +9,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 {
     public class Cliente : EntidadeBase<Cliente>
     {
-        public bool ClienteFisico;
+        public bool tipoCliente;
         public string Nome;
         public string Endereco;
         public string Email;
@@ -24,6 +24,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
             Email = email;
             Telefone = telefone;
             CPF_CNPJ = Cpf_cnpj;
+            tipoCliente = tipocliente;
 
             if (tipocliente== true)
             {
@@ -39,18 +40,14 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 
         public override bool Equals(object obj)
         {
-            Cliente cliente = obj as Cliente;
-
-            if (cliente == null)
-                return false;
-
-            return
-                cliente.Id.Equals(Id) &&
-                cliente.Nome.Equals(Nome) &&
-                cliente.Telefone.Equals(Telefone) &&
-                cliente.Email.Equals(Email) &&
-                cliente.Endereco.Equals(Endereco) &&
-                cliente.CPF_CNPJ.Equals(CPF_CNPJ);
+            return obj is Cliente cliente &&
+                Id==cliente.Id &&
+                Nome == cliente.Nome &&
+                Telefone== cliente.Telefone &&
+                Email == cliente.Email &&
+                Endereco == cliente.Endereco &&
+                CPF_CNPJ == cliente.CPF_CNPJ &&
+                CNH == cliente.CNH;
         }
     }
 }

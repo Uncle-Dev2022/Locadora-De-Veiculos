@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 txtBoxEmail.Text = cliente.Email;
                 txtBoxTelefone.Text = cliente.Telefone;
 
-                if(cliente.ClienteFisico == true)
+                if(cliente.tipoCliente == true)
                 {
                     radioButtonPessoaFiscia.Checked = true;
                     cpfEcnpj.Text = "CPF";
@@ -94,13 +94,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
             if (radioButtonPessoaFiscia.Checked)
             {
-                cliente.ClienteFisico = true;
+                cliente.tipoCliente = true;
                 cliente.CNH = txtBoxCNH.Text;
                 cliente.CPF_CNPJ = maskedTextBoxCPF.Text;
             }
             else
             {
-                cliente.ClienteFisico = false;
+                cliente.tipoCliente = false;
                 cliente.CPF_CNPJ = maskedTextBoxCNPJ.Text;
             }
 
