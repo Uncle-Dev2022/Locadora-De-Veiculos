@@ -2,10 +2,12 @@
 using LocadoraDeVeiculos.Infra.ModuloCliente;
 using LocadoraDeVeiculos.Infra.ModuloFuncionário;
 using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -49,12 +51,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
-
-        private void taxasMenuItem_Click(object sender, EventArgs e)
-        {
-            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
-        }
-
         private void despesasMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
@@ -64,7 +60,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
-
+        private void taxasMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -161,14 +160,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             var repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
             var repositorioCliente = new RepositorioClienteEmBancoDeDados();
 
+            var repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
 
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo(repositorioGrupoVeiuculo));
             controladores.Add("Funcionario", new ControladorFuncionario(repositorioFuncionario));
             controladores.Add("Cliente", new ControladorCliente(repositorioCliente));
-
+            controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
         }
-
     }
 }

@@ -13,8 +13,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
         protected override string sqlInserir =>
             @"INSERT INTO [TBGRUPOVEICULO] 
                 (
-                    [NOME]
-                   
+                    [NOME]                   
 	            )
 	            VALUES
                 (
