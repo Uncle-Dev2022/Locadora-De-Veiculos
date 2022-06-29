@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
             ValidationResult resultado = validacao.Validate(taxa);
 
             //assert
-            Assert.AreEqual("A Descrição não pode ser nula", resultado.Errors[0].ErrorMessage);
+            Assert.AreEqual("A Descrição não pode ser vazia", resultado.Errors[0].ErrorMessage);
         }
 
         [TestMethod]
@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
             ValidationResult resultado = valfor.Validate(taxa);
 
             //assert
-            Assert.AreEqual("A Descrição não pode ser vazia ou possui menos que 2 caracteres", resultado.Errors[0].ErrorMessage);
+            Assert.AreEqual("A Descrição não pode ser vazia ou possuir menos que 2 caracteres", resultado.Errors[0].ErrorMessage);
         }
         [TestMethod]
         public void Descricao_Nao_Pode_Conter_Numeros_Ou_Simbolos_Especiais()
