@@ -85,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 105);
+            this.label1.Location = new System.Drawing.Point(27, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 22;
@@ -103,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 176);
+            this.label4.Location = new System.Drawing.Point(27, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 25);
             this.label4.TabIndex = 26;
@@ -112,7 +112,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 216);
+            this.label5.Location = new System.Drawing.Point(27, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 25);
             this.label5.TabIndex = 27;
@@ -130,15 +130,17 @@
             // 
             // txtBoxFuncionarioSenha
             // 
-            this.txtBoxFuncionarioSenha.Location = new System.Drawing.Point(201, 170);
+            this.txtBoxFuncionarioSenha.Location = new System.Drawing.Point(201, 207);
             this.txtBoxFuncionarioSenha.MaxLength = 10;
             this.txtBoxFuncionarioSenha.Name = "txtBoxFuncionarioSenha";
+            this.txtBoxFuncionarioSenha.PasswordChar = '*';
             this.txtBoxFuncionarioSenha.Size = new System.Drawing.Size(268, 31);
             this.txtBoxFuncionarioSenha.TabIndex = 30;
+            this.txtBoxFuncionarioSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBoxFuncionarioLogin
             // 
-            this.txtBoxFuncionarioLogin.Location = new System.Drawing.Point(201, 207);
+            this.txtBoxFuncionarioLogin.Location = new System.Drawing.Point(201, 170);
             this.txtBoxFuncionarioLogin.MaxLength = 10;
             this.txtBoxFuncionarioLogin.Name = "txtBoxFuncionarioLogin";
             this.txtBoxFuncionarioLogin.Size = new System.Drawing.Size(268, 31);

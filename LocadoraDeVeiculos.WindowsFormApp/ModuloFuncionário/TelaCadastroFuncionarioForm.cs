@@ -83,5 +83,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
         {
             dateTimePickerDataAdmissao.MaxDate = DateTime.Today;
         }
+
     }
 }
