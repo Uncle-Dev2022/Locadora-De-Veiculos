@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
         [TestMethod]
         public void Descricao_Nao_Pode_Conter_Numeros_Ou_Simbolos_Especiais()
         {
-            Taxa taxa = new(0.3, "imposto#");
+            Taxa taxa = new(0.3, "imp#osto");
 
             ValidadorTaxa valfor = new();
 

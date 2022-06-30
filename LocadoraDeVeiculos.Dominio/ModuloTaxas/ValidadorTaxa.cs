@@ -20,12 +20,8 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
             RuleFor(x => x.descricao.Length)
                 .GreaterThan(2).WithMessage("A Descrição não pode ser vazia ou possuir menos que 2 caracteres");
 
-            RuleFor(x => x.descricao).Custom((descricao, validator) =>
-            {
-                if (!Regex.IsMatch(@"^[a-zA-z\d\s]+$", descricao))
-                    validator.AddFailure("A Descrição não pode conter números ou símbolos especiais");
-            });                
-
+            RuleFor(x => x.descricao).Matches(@"^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*$")
+                .WithMessage("A Descrição não pode conter números ou símbolos especiais");
             RuleFor(x => x.valor).NotNull().WithMessage("O valor não pode ser nulo");
 
         }

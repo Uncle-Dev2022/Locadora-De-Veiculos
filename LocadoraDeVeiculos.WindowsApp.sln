@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apresentação", "1 - Apresentação", "{1E5D8AA7-3875-4C7C-8306-D7E22A152FF5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{96CB60C2-F31E-4CB2-958A-4B1F21504F23}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Dominio", "3 - Dominio", "{96CB60C2-F31E-4CB2-958A-4B1F21504F23}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{B46CBBA2-BA24-46F8-861F-0D05684257BF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{B46CBBA2-BA24-46F8-861F-0D05684257BF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Testes", "4 - Testes", "{0E9CF790-770B-4CD9-80D1-F7B7FAC89B76}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Testes", "5 - Testes", "{0E9CF790-770B-4CD9-80D1-F7B7FAC89B76}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.WindowsFormApp", "LocadoraDeVeiculos.WindowsFormApp\LocadoraDeVeiculos.WindowsFormApp.csproj", "{101996EA-974C-49AA-88E0-4C09AE0061EE}"
 EndProject
@@ -19,13 +19,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Dominio.Tests", "LocadoraDeVeiculos.Teste\LocadoraDeVeiculos.Dominio.Tests.csproj", "{E4A4DB5E-23B6-494E-B656-9FB0EA3D4F5E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 Teste Unitário", "4.1 Teste Unitário", "{76D5F6F1-4AAB-4501-9FDD-2E975D9954E4}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 Teste Unitário", "5.1 Teste Unitário", "{76D5F6F1-4AAB-4501-9FDD-2E975D9954E4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 Testes De Integração", "4.2 Testes De Integração", "{6B7935E9-B689-4E80-BE15-517A25253295}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 Testes De Integração", "5.2 Testes De Integração", "{6B7935E9-B689-4E80-BE15-517A25253295}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.BancoDados.tests", "LocadoraDeVeiculos.Infra.BancoDados.tests\LocadoraDeVeiculos.Infra.BancoDados.tests.csproj", "{F1726F3E-D9F4-43FD-80A4-A2DC6C913803}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LocadoraVeiculos.Db", "LocadoraVeiculos.Db\LocadoraVeiculos.Db.sqlproj", "{E8405A76-D19A-433C-A265-8AA328DB5A7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Aplicação", "2 - Aplicação", "{FD988F8C-9C35-4C0A-B49B-C1F9656AC631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraVeiculos.Aplicacao", "LocadoraVeiculos.Aplicacao\LocadoraVeiculos.Aplicacao.csproj", "{E5EDE8F0-AF0C-4B73-B78D-E2F13A4C45CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,10 @@ Global
 		{E8405A76-D19A-433C-A265-8AA328DB5A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8405A76-D19A-433C-A265-8AA328DB5A7B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E8405A76-D19A-433C-A265-8AA328DB5A7B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E5EDE8F0-AF0C-4B73-B78D-E2F13A4C45CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5EDE8F0-AF0C-4B73-B78D-E2F13A4C45CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5EDE8F0-AF0C-4B73-B78D-E2F13A4C45CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5EDE8F0-AF0C-4B73-B78D-E2F13A4C45CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{6B7935E9-B689-4E80-BE15-517A25253295} = {0E9CF790-770B-4CD9-80D1-F7B7FAC89B76}
 		{F1726F3E-D9F4-43FD-80A4-A2DC6C913803} = {6B7935E9-B689-4E80-BE15-517A25253295}
 		{E8405A76-D19A-433C-A265-8AA328DB5A7B} = {B46CBBA2-BA24-46F8-861F-0D05684257BF}
+		{E5EDE8F0-AF0C-4B73-B78D-E2F13A4C45CA} = {FD988F8C-9C35-4C0A-B49B-C1F9656AC631}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDAB53D9-3E65-47B7-8B35-04F8FB3D762A}
