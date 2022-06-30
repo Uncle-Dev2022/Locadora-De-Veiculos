@@ -35,11 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.textBoxModelo = new System.Windows.Forms.TextBox();
@@ -47,10 +44,7 @@
             this.textBoxAno = new System.Windows.Forms.TextBox();
             this.textBoxTipoCombustivel = new System.Windows.Forms.TextBox();
             this.textBoxPlaca = new System.Windows.Forms.TextBox();
-            this.textBoxMunicipio = new System.Windows.Forms.TextBox();
-            this.textBoxUF = new System.Windows.Forms.TextBox();
-            this.textBoxRenavam = new System.Windows.Forms.TextBox();
-            this.textBoxAutonomia = new System.Windows.Forms.TextBox();
+            this.textBoxQuilometragem = new System.Windows.Forms.TextBox();
             this.textBoxCapacidade = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxMarca = new System.Windows.Forms.TextBox();
@@ -118,32 +112,14 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "Placa:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(112, 280);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 25);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Município:";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(112, 317);
+            this.label8.Location = new System.Drawing.Point(112, 268);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 25);
+            this.label8.Size = new System.Drawing.Size(141, 25);
             this.label8.TabIndex = 8;
-            this.label8.Text = "UF:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(112, 354);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 25);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Renavam:";
+            this.label8.Text = "Quilometragem:";
             // 
             // label10
             // 
@@ -153,15 +129,6 @@
             this.label10.Size = new System.Drawing.Size(192, 25);
             this.label10.TabIndex = 10;
             this.label10.Text = "Capacidade Tanque (L):";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(112, 428);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(161, 25);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Autonomia (Km/L):";
             // 
             // btnCancelar
             // 
@@ -220,33 +187,12 @@
             this.textBoxPlaca.Size = new System.Drawing.Size(150, 31);
             this.textBoxPlaca.TabIndex = 22;
             // 
-            // textBoxMunicipio
+            // textBoxQuilometragem
             // 
-            this.textBoxMunicipio.Location = new System.Drawing.Point(319, 280);
-            this.textBoxMunicipio.Name = "textBoxMunicipio";
-            this.textBoxMunicipio.Size = new System.Drawing.Size(150, 31);
-            this.textBoxMunicipio.TabIndex = 23;
-            // 
-            // textBoxUF
-            // 
-            this.textBoxUF.Location = new System.Drawing.Point(319, 317);
-            this.textBoxUF.Name = "textBoxUF";
-            this.textBoxUF.Size = new System.Drawing.Size(150, 31);
-            this.textBoxUF.TabIndex = 24;
-            // 
-            // textBoxRenavam
-            // 
-            this.textBoxRenavam.Location = new System.Drawing.Point(319, 354);
-            this.textBoxRenavam.Name = "textBoxRenavam";
-            this.textBoxRenavam.Size = new System.Drawing.Size(150, 31);
-            this.textBoxRenavam.TabIndex = 25;
-            // 
-            // textBoxAutonomia
-            // 
-            this.textBoxAutonomia.Location = new System.Drawing.Point(319, 428);
-            this.textBoxAutonomia.Name = "textBoxAutonomia";
-            this.textBoxAutonomia.Size = new System.Drawing.Size(150, 31);
-            this.textBoxAutonomia.TabIndex = 26;
+            this.textBoxQuilometragem.Location = new System.Drawing.Point(319, 280);
+            this.textBoxQuilometragem.Name = "textBoxQuilometragem";
+            this.textBoxQuilometragem.Size = new System.Drawing.Size(150, 31);
+            this.textBoxQuilometragem.TabIndex = 24;
             // 
             // textBoxCapacidade
             // 
@@ -279,10 +225,7 @@
             this.Controls.Add(this.textBoxMarca);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBoxCapacidade);
-            this.Controls.Add(this.textBoxAutonomia);
-            this.Controls.Add(this.textBoxRenavam);
-            this.Controls.Add(this.textBoxUF);
-            this.Controls.Add(this.textBoxMunicipio);
+            this.Controls.Add(this.textBoxQuilometragem);
             this.Controls.Add(this.textBoxPlaca);
             this.Controls.Add(this.textBoxTipoCombustivel);
             this.Controls.Add(this.textBoxAno);
@@ -290,11 +233,8 @@
             this.Controls.Add(this.textBoxModelo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -318,11 +258,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.TextBox textBoxModelo;
@@ -330,10 +267,7 @@
         private System.Windows.Forms.TextBox textBoxAno;
         private System.Windows.Forms.TextBox textBoxTipoCombustivel;
         private System.Windows.Forms.TextBox textBoxPlaca;
-        private System.Windows.Forms.TextBox textBoxMunicipio;
-        private System.Windows.Forms.TextBox textBoxUF;
-        private System.Windows.Forms.TextBox textBoxRenavam;
-        private System.Windows.Forms.TextBox textBoxAutonomia;
+        private System.Windows.Forms.TextBox textBoxQuilometragem;
         private System.Windows.Forms.TextBox textBoxCapacidade;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxMarca;
