@@ -39,7 +39,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 
                 txtBoxFuncionarioNome.Text = funcionario.Nome;
 
-                txtBoxFuncionarioSalario.Text = funcionario.Salario.ToString();
+                maskedTextBoxSalario.Text = funcionario.Salario.ToString();
 
                 
                 dateTimePickerDataAdmissao.Value = funcionario.DataAdmissao;
@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
         {
             funcionario.Nome = txtBoxFuncionarioNome.Text;
 
-            funcionario.Salario = Decimal.Parse(txtBoxFuncionarioSalario.Text);
+            funcionario.Salario = Decimal.Parse(maskedTextBoxSalario.Text);
 
             funcionario.DataAdmissao = dateTimePickerDataAdmissao.Value;
 
@@ -84,5 +84,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
             dateTimePickerDataAdmissao.MaxDate = DateTime.Today;
         }
 
+        private void Senha_CheckedChanged(object sender, EventArgs e)
+        {
+            if(SenhaBox.Checked == true)
+            {
+                txtBoxFuncionarioSenha.PasswordChar = default;
+            }
+            else
+                txtBoxFuncionarioSenha.PasswordChar = '*';
+        }
     }
 }
