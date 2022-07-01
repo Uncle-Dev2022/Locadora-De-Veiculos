@@ -1,1 +1,10 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="d83519bf-e4b8-49c9-a5f7-68ff286d8d33" ChangeDateTime="07/01/2022 18:49:15">
+    <Property Name="ElementName" Value="[DBO].[TBCONDUTOR].[ENDEREÇO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[DBO].[TBCONDUTOR]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ENDERECO" />
+  </Operation>
+</Operations>

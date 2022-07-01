@@ -38,16 +38,6 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             return resultadoValidacao;
         }
 
-        public ValidationResult Excluir(Cliente cliente)
-        {
-            ValidationResult resultadoValidacao = Validar(cliente);
-
-            if (resultadoValidacao.IsValid)
-                repositorioCliente.Excluir(cliente);
-
-            return resultadoValidacao;
-        }
-
         private ValidationResult Validar(Cliente cliente)
         {
             var validador = new ValidadorCliente();
