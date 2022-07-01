@@ -10,6 +10,7 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloCliente;
 using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
+using LocadoraVeiculos.Aplicacao.ModuloFuncinario;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -166,6 +167,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo);
 
             var servicoCliente = new ServicoCliente(repositorioCliente);
+
+            var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
 
             controladores = new Dictionary<string, ControladorBase>();
 
