@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +15,20 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
     {
         private readonly RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo;
         private TabelaGrupoDeVeiculoControl tabelaGrupoDeVeiculo;
+        private readonly ServicoGrupoDeVeiculo servicoGrupoDeVeiculo;
 
-        public ControladorGrupoDeVeiculo(RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo)
+        public ControladorGrupoDeVeiculo(RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo, ServicoGrupoDeVeiculo servicoGrupoDeVeiculo)
         {
             this.repositorioGrupoDeVeiculo = repositorioGrupoDeVeiculo;
+            this.servicoGrupoDeVeiculo = servicoGrupoDeVeiculo;
         }
 
         public override void Inserir()
         {
-            TelaCadastroGrupoDeVeiculoForm tela = new TelaCadastroGrupoDeVeiculoForm();
+            var tela = new TelaCadastroGrupoDeVeiculoForm();
             tela._grupoDeVeiculo = new GrupoDeVeiculo();
-
-            tela.GravarRegistro = repositorioGrupoDeVeiculo.Inserir;
-
-            DialogResult resultado = tela.ShowDialog();
+            tela.GravarRegistro = servicoGrupoDeVeiculo.Inserir;
+            DialogResult resultado = tela.ShowDialog();          
 
             if (resultado == DialogResult.OK)
             {
@@ -48,9 +49,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
 
             TelaCadastroGrupoDeVeiculoForm tela = new TelaCadastroGrupoDeVeiculoForm();
 
-            tela._grupoDeVeiculo = GrupoDeVeiculoSelecionado;
+            tela._grupoDeVeiculo = GrupoDeVeiculoSelecionado.Clone();
 
-            tela.GravarRegistro = repositorioGrupoDeVeiculo.Editar;
+            tela.GravarRegistro = servicoGrupoDeVeiculo.Editar;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -114,10 +115,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
 
             if (grupoDeVeiculo.Count > 1)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {grupoDeVeiculo.Count} Funcionario(s)");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {grupoDeVeiculo.Count} Grupos de Veículo(s)");
             }
             else
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {grupoDeVeiculo.Count} Funcionario");
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {grupoDeVeiculo.Count} Grupo de Veículo");
 
 
         }

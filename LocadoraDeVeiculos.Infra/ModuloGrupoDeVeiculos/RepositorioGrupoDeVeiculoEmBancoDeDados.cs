@@ -1,14 +1,13 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.Compartilhado;
-
+using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
-    public class RepositorioGrupoDeVeiculoEmBancoDeDados : 
-        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, ValidadorGrupoDeVeiculo, MapeadorGrupoDeVeiculo> 
-    {
-        
+    public class RepositorioGrupoDeVeiculoEmBancoDeDados : RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorGrupoDeVeiculo>,
+        IRepositorioGrupoDeVeiculo
+    {       
 
         protected override string sqlInserir =>
             @"INSERT INTO [TBGRUPOVEICULO] 
@@ -50,5 +49,21 @@ namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 		            [NOME]
 	            FROM 
 		            [TBGRUPOVEICULO]";
+
+        private string sqlSelecionarPorNome =>
+               @"SELECT 
+                   [ID],       
+                   [NOME] 
+            FROM
+                [TBGRUPOVEICULO]
+            WHERE 
+                [NOME] = @NOME";
+
+        public GrupoDeVeiculo SelecionarGrupoDeVeiculoPorNome(string nome)
+        {
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
+        }
+
+
     }
 }

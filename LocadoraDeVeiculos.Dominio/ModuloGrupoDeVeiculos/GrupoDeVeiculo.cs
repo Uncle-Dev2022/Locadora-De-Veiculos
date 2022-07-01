@@ -34,6 +34,10 @@ namespace LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos
                 gv.Nome.Equals(Nome);
         }
 
+        public GrupoDeVeiculo Clone()
+        {
+            return MemberwiseClone() as GrupoDeVeiculo;
+        }
         public override string ToString()
         {
             return "Nome: " + Nome;
