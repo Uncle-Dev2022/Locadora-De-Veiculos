@@ -9,6 +9,8 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloCliente;
+using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
+using LocadoraVeiculos.Aplicacao.ModuloFuncinario;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -157,17 +159,20 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
         private void InicializarControladores()
         {
-            var repositorioGrupoVeiuculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
+            var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
             var repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
             var repositorioCliente = new RepositorioClienteEmBancoDeDados();
-
             var repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
+
+            var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo);
 
             var servicoCliente = new ServicoCliente(repositorioCliente);
 
+            var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
+
             controladores = new Dictionary<string, ControladorBase>();
 
-            controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo(repositorioGrupoVeiuculo));
+            controladores.Add("Grupos de veículos", new ControladorGrupoDeVeiculo(repositorioGrupoDeVeiculo, servicoGrupoVeiculo));
             controladores.Add("Funcionario", new ControladorFuncionario(repositorioFuncionario));
             controladores.Add("Cliente", new ControladorCliente(repositorioCliente,servicoCliente));
             controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
