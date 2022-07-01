@@ -38,7 +38,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtBoxCNH = new System.Windows.Forms.TextBox();
-            this.txtBoxTelefone = new System.Windows.Forms.TextBox();
             this.txtBoxEmail = new System.Windows.Forms.TextBox();
             this.txtBoxEndereço = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,13 +127,6 @@
             this.txtBoxCNH.Name = "txtBoxCNH";
             this.txtBoxCNH.Size = new System.Drawing.Size(144, 27);
             this.txtBoxCNH.TabIndex = 1;
-            // 
-            // txtBoxTelefone
-            // 
-            this.txtBoxTelefone.Location = new System.Drawing.Point(110, 154);
-            this.txtBoxTelefone.Name = "txtBoxTelefone";
-            this.txtBoxTelefone.Size = new System.Drawing.Size(144, 27);
-            this.txtBoxTelefone.TabIndex = 2;
             // 
             // txtBoxEmail
             // 
@@ -270,25 +263,33 @@
             // 
             // maskedTextBoxCPF
             // 
-            this.maskedTextBoxCPF.Culture = new System.Globalization.CultureInfo("pt-BR");
             this.maskedTextBoxCPF.Location = new System.Drawing.Point(110, 252);
-            this.maskedTextBoxCPF.Mask = "000.000.000-00";
+            this.maskedTextBoxCPF.Mask = "999,999,999-99";
             this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
             this.maskedTextBoxCPF.Size = new System.Drawing.Size(144, 27);
             this.maskedTextBoxCPF.TabIndex = 17;
             // 
             // maskedTextBoxCNPJ
             // 
-            this.maskedTextBoxCNPJ.Culture = new System.Globalization.CultureInfo("pt-BR");
             this.maskedTextBoxCNPJ.Location = new System.Drawing.Point(110, 252);
-            this.maskedTextBoxCNPJ.Mask = "00.000.000/0000-00";
+            this.maskedTextBoxCNPJ.Mask = "99,999,999/9999-99";
             this.maskedTextBoxCNPJ.Name = "maskedTextBoxCNPJ";
             this.maskedTextBoxCNPJ.Size = new System.Drawing.Size(144, 27);
             this.maskedTextBoxCNPJ.TabIndex = 18;
+            this.maskedTextBoxCNPJ.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBoxCNPJ_MaskInputRejected);
+            // 
+            // maskedTextBoxTelefone
+            // 
+            this.maskedTextBoxTelefone.Location = new System.Drawing.Point(110, 157);
+            this.maskedTextBoxTelefone.Mask = "(00) 00000-0000";
+            this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
+            this.maskedTextBoxTelefone.Size = new System.Drawing.Size(144, 27);
+            this.maskedTextBoxTelefone.TabIndex = 19;
             // 
             // TelaCadastroClienteForm
             // 
             this.ClientSize = new System.Drawing.Size(650, 372);
+            this.Controls.Add(this.maskedTextBoxTelefone);
             this.Controls.Add(this.maskedTextBoxCNPJ);
             this.Controls.Add(this.maskedTextBoxCPF);
             this.Controls.Add(this.btnCancelar);
@@ -303,11 +304,11 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtBoxEndereço);
             this.Controls.Add(this.txtBoxEmail);
-            this.Controls.Add(this.txtBoxTelefone);
             this.Controls.Add(this.txtBoxCNH);
             this.Controls.Add(this.txtNome);
             this.Name = "TelaCadastroClienteForm";
             this.Text = "Tela De Cadastro De Cliente";
+            this.Load += new System.EventHandler(this.TelaCadastroClienteForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -337,7 +338,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.TextBox txtBoxCNH;
-        private System.Windows.Forms.TextBox txtBoxTelefone;
         private System.Windows.Forms.TextBox txtBoxEmail;
         private System.Windows.Forms.TextBox txtBoxEndereço;
         private System.Windows.Forms.Label label10;
@@ -354,5 +354,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCNPJ;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefone;
     }
 }

@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloFuncionário
         {
             DB.executarSql("DELETE FROM TBFUNCIONARIO; DBCC CHECKIDENT (TBFUNCIONARIO, RESEED, 0)");
 
-            funcionario = new Funcionario("Funcionario1", 1000 , DateTime.Parse("26/06/2022") , "Senha1", "Login1", true );
+            funcionario = new Funcionario("Funcionario", 1000 , DateTime.Parse("26/06/2022") , "Senha1", "Login1", true );
 
             repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
 

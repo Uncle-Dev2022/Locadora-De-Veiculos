@@ -8,7 +8,7 @@ using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 
 namespace LocadoraDeVeiculos.Infra.ModuloTaxas
 {
-    public class RepositorioTaxaEmBancoDeDados : RepositorioBaseEmBancoDeDados<Taxa, ValidadorTaxa, MapeadorTaxa>
+    public class RepositorioTaxaEmBancoDeDados : RepositorioBaseEmBancoDeDados<Taxa, MapeadorTaxa>
     {
         protected override string sqlInserir =>
             @"INSERT INTO [TBTAXA] 

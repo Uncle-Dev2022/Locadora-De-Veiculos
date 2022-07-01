@@ -19,6 +19,8 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
 
         public Funcionario()
         {
+            DataAdmissao = DateTime.Parse("01/01/2000");
+
         }
 
         public Funcionario(string nome, decimal salario, DateTime dataAdmissao, string senha, string login, bool gerente)

@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 txtNome.Text = cliente.Nome;
                 txtBoxEndereço.Text = cliente.Endereco;
                 txtBoxEmail.Text = cliente.Email;
-                txtBoxTelefone.Text = cliente.Telefone;
+                maskedTextBoxTelefone.Text = cliente.Telefone;
 
                 if(cliente.tipoCliente == true)
                 {
@@ -43,6 +43,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                     maskedTextBoxCPF.Visible = true;
                     labelCnh.Visible = true;
                     txtBoxCNH.Visible = true;
+                    maskedTextBoxCPF.Text = cliente.CPF_CNPJ;
                 }
                 else
                 {
@@ -52,6 +53,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                     maskedTextBoxCPF.Visible = false;
                     labelCnh.Visible = false;
                     txtBoxCNH.Visible = false;
+                    maskedTextBoxCNPJ.Text = cliente.CPF_CNPJ;
                 }
             }
 
@@ -90,7 +92,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             cliente.Nome = txtNome.Text;
             cliente.Endereco = txtBoxEndereço.Text;
             cliente.Email = txtBoxEmail.Text;
-            cliente.Telefone = txtBoxTelefone.Text;
+            cliente.Telefone = maskedTextBoxTelefone.Text;
 
             if (radioButtonPessoaFiscia.Checked)
             {
@@ -114,6 +116,16 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
                 DialogResult = DialogResult.None;
             }
+        }
+
+        private void maskedTextBoxCNPJ_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void TelaCadastroClienteForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

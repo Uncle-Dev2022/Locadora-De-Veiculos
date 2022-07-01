@@ -13,7 +13,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos
         public ValidadorGrupoDeVeiculo()
         {
             Regex padraoNome = new Regex("^[A-Z a-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]*$");
-
             RuleFor(x => x.Nome)
                 .NotNull().WithMessage("Nome não pode ser nulo")
                 .NotEmpty().WithMessage("Nome não pode ser vazio")

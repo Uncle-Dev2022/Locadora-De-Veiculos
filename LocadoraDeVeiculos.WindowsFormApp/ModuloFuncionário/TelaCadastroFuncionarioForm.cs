@@ -19,6 +19,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
         public TelaCadastroFuncionarioForm()
         {
             InitializeComponent();
+            DefinirDataAdmissao();
         }
 
         
@@ -28,6 +29,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 
         public Funcionario _funcionario
         {
+            
+
             get { return funcionario; }
             set
             {
@@ -36,9 +39,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 
                 txtBoxFuncionarioNome.Text = funcionario.Nome;
 
-                txtBoxFuncionarioSalario.Text = funcionario.Salario.ToString();
+                maskedTextBoxSalario.Text = funcionario.Salario.ToString();
 
-                maskedTextBox.Text = funcionario.DataAdmissao.ToString();
+                
+                dateTimePickerDataAdmissao.Value = funcionario.DataAdmissao;
 
                 txtBoxFuncionarioSenha.Text = funcionario.Senha;
 
@@ -53,9 +57,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
         {
             funcionario.Nome = txtBoxFuncionarioNome.Text;
 
-            funcionario.Salario = Decimal.Parse(txtBoxFuncionarioSalario.Text);
+            funcionario.Salario = Decimal.Parse(maskedTextBoxSalario.Text);
 
-            funcionario.DataAdmissao = DateTime.Parse(maskedTextBox.Text);
+            funcionario.DataAdmissao = dateTimePickerDataAdmissao.Value;
 
             funcionario.Senha = txtBoxFuncionarioSenha.Text;
 
@@ -75,6 +79,19 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
             }
         }
 
-        
+        private void DefinirDataAdmissao()
+        {
+            dateTimePickerDataAdmissao.MaxDate = DateTime.Today;
+        }
+
+        private void Senha_CheckedChanged(object sender, EventArgs e)
+        {
+            if(SenhaBox.Checked == true)
+            {
+                txtBoxFuncionarioSenha.PasswordChar = default;
+            }
+            else
+                txtBoxFuncionarioSenha.PasswordChar = '*';
+        }
     }
 }

@@ -60,7 +60,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void Salario_nao_Pode_Ser_menor_Zero()
         {
-            Funcionario funcionario = new("Funcionario1", default, DateTime.Parse("26/06/2022"), "Senha1", "Login1", true);
+            Funcionario funcionario = new("Funcionario", default, DateTime.Parse("26/06/2022"), "Senha1", "Login1", true);
 
             ValidadorFuncionario validacao = new();
 
@@ -74,7 +74,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void DataAdmissao_nao_Pode_Ser_menor_Hoje()
         {
-            Funcionario funcionario = new("Funcionario1", 1000, DateTime.Parse("26/07/2022"), "Senha1", "Login1", true);
+            Funcionario funcionario = new("Funcionario", 1000, DateTime.Parse("26/07/2022"), "Senha1", "Login1", true);
 
             ValidadorFuncionario validacao = new();
 
@@ -88,7 +88,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void Senha_nao_Pode_Ser_Nulo()
         {
-            Funcionario funcionario = new("Funcionario1", 1000, DateTime.Parse("26/06/2022"), null, "Login1", true);
+            Funcionario funcionario = new("Funcionario", 1000, DateTime.Parse("26/06/2022"), null, "Login1", true);
 
             ValidadorFuncionario validacao = new();
 
@@ -102,7 +102,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void Senha_nao_Pode_Ser_Vazio()
         {
-            Funcionario funcionario = new("Funcionario1", 1000, DateTime.Parse("26 /06/2022"), "", "Login1", true);
+            Funcionario funcionario = new("Funcionario", 1000, DateTime.Parse("26 /06/2022"), "", "Login1", true);
 
             ValidadorFuncionario validacao = new();
 
@@ -116,7 +116,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void Senha_Deve_Ter_Minimo_Dois_Caracteres()
         {
-            Funcionario funcionario = new("Funcionario1", 1000, DateTime.Parse("26/06/2022"), "S", "Login1", true);
+            Funcionario funcionario = new("Funcionario", 1000, DateTime.Parse("26/06/2022"), "S", "Login1", true);
 
             ValidadorFuncionario validacao = new();
 
@@ -131,7 +131,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void Login_nao_Pode_Ser_Nulo()
         {
-            Funcionario funcionario = new("Funcionario1", 1000, DateTime.Parse("26/06/2022"), "Senha1", null, true);
+            Funcionario funcionario = new("Funcionario", 1000, DateTime.Parse("26/06/2022"), "Senha1", null, true);
 
             ValidadorFuncionario validacao = new();
 
@@ -145,7 +145,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void Login_nao_Pode_Ser_Vazio()
         {
-            Funcionario funcionario = new("Funcionario1", 1000, DateTime.Parse("26 /06/2022"), "Senha1", "", true);
+            Funcionario funcionario = new("Funcionario", 1000, DateTime.Parse("26 /06/2022"), "Senha1", "", true);
 
             ValidadorFuncionario validacao = new();
 
@@ -159,7 +159,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloFuncionário
         [TestMethod]
         public void Login_Deve_Ter_Minimo_Dois_Caracteres()
         {
-            Funcionario funcionario = new("Funcionario1", 1000, DateTime.Parse("26/06/2022"), "Senha1", "L", true);
+            Funcionario funcionario = new("Funcionario", 1000, DateTime.Parse("26/06/2022"), "Senha1", "L", true);
 
             ValidadorFuncionario validacao = new();
 
