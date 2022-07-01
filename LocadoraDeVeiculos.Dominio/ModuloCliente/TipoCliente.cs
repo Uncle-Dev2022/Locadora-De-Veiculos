@@ -14,5 +14,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 
         [Description("Pessoa Juridica")]
         PessoaJuridica,
+        
     }
 }

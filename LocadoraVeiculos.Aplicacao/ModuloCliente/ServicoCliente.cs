@@ -84,7 +84,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.Nome==cliente.Nome &&
-                   ClienteEncontrado.Id!=cliente.Id;
+                   ClienteEncontrado.Id != cliente.Id;
         }
     }
 }

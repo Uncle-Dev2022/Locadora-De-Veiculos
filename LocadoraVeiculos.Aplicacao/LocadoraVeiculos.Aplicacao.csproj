@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="ModuloGrupoDeVeiculos\" />
-    <Folder Include="ModuloTaxas\" />
     <Folder Include="ModuloVeiculo\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloCliente\" />

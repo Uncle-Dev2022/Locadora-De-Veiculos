@@ -11,15 +11,17 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
     {
         public double valor;
         public string descricao;
+        public TipoCalculo tipoCalculo;
 
         public Taxa()
         {
         }
 
-        public Taxa(double valor, string descricao)
+        public Taxa(double valor, string descricao, TipoCalculo tipoCalculo)
         {
             this.valor = valor;
             this.descricao = descricao;
+            this.tipoCalculo = tipoCalculo;
         }
         public override bool Equals(object obj)
         {
@@ -27,7 +29,8 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
             if (t == null)
                 return false;
             
-            return t.descricao == this.descricao && t.valor == this.valor;
+            return t.descricao == this.descricao && 
+                t.valor == this.valor && t.tipoCalculo == this.tipoCalculo;
         }
     }
 }
