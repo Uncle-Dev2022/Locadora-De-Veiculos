@@ -15,16 +15,20 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
         public string Endereco;
         public string CPF;
         public string CNH;
-        public string EMAIL;
+        public string Email;
 
-        public Condutor(string nome,string endereco,string cpf,string cnh,string email,Cliente cliente)
+        public Condutor(string nome,string endereco,string cpf,string cnh,string email)
         {
             this.Nome = nome;
             this.Endereco=endereco;
             this.CPF = cpf;
             this.CNH = cnh;
-            this.EMAIL = email;
-            this.cliente = cliente;
+            this.Email = email;
+        }
+
+        public Condutor()
+        {
+
         }
 
         public override bool Equals(object obj)
@@ -35,8 +39,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
                    Endereco == condutor.Endereco &&
                    CPF == condutor.CPF &&
                    CNH == condutor.CNH &&
-                   EMAIL == condutor.EMAIL &&
-                   cliente == condutor.cliente ;
+                   Email == condutor.Email;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloCondutor;
+﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,44 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
     {
         public override void ConfigurarParametros(Condutor registro, SqlCommand comando)
         {
-            throw new NotImplementedException();
+            comando.Parameters.AddWithValue("ID", registro.Id);
+            comando.Parameters.AddWithValue("NOME", registro.Nome);
+            comando.Parameters.AddWithValue("ENDERECO", registro.Endereco);
+            comando.Parameters.AddWithValue("CPF", registro.CPF);
+            comando.Parameters.AddWithValue("CNH", registro.CNH);
+            comando.Parameters.AddWithValue("EMAIL", registro.Email);
+            comando.Parameters.AddWithValue("CLIENTE_ID", registro.cliente.Id);
         }
 
         public override Condutor ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            throw new NotImplementedException();
+            int condutorId = Convert.ToInt32(leitorRegistro["CONDUTOR_ID"]);
+            string condutorNome = Convert.ToString(leitorRegistro["CONDUTOR_NOME"]);
+            string condutorEndereco = Convert.ToString(leitorRegistro["CONDUTOR_ENDERECO"]);
+            string condutorCpf = Convert.ToString(leitorRegistro["CONDUTOR_CPF"]);
+            string condutorCnh = Convert.ToString(leitorRegistro["CONDUTOR_CNH"]);
+            string condutorEmail = Convert.ToString(leitorRegistro["CONDUTOR_EMAIL"]);
+
+            int ClienteId = Convert.ToInt32(leitorRegistro["CONDUTOR_CLIENTE_ID"]);
+            string ClienteNome = Convert.ToString(leitorRegistro["CLIENTE_NOME"]);
+            string ClienteCpf_Cnpj = Convert.ToString(leitorRegistro["CLIENTE_CPF_CNPJ"]);
+            string ClienteEndereco = Convert.ToString(leitorRegistro["CLIENTE_ENDERECO"]);
+            string ClienteEmail = Convert.ToString(leitorRegistro["CLIENTE_EMAIL"]);
+            string ClienteTelefone = Convert.ToString(leitorRegistro["CLIENTE_TELEFONE"]);
+            string ClienteCnh = Convert.ToString(leitorRegistro["CLIENTE_CNH"]);
+            bool ClienteTipoCliente = Convert.ToBoolean(leitorRegistro["CLIENTE_TIPOCLIENTE"]);
+
+            var condutor = new Condutor(condutorNome, condutorEndereco, condutorCpf, condutorCnh, condutorEmail)
+            {
+                Id = condutorId,
+            };
+
+            condutor.cliente = new Cliente(ClienteNome, ClienteEndereco, ClienteEmail, ClienteTelefone, ClienteTipoCliente, ClienteCpf_Cnpj, ClienteCnh)
+            {
+                Id = ClienteId,
+            };
+
+            return condutor;
         }
     }
 }
