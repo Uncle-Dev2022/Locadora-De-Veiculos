@@ -49,7 +49,8 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
             Assert.AreEqual(condutor, CondutorEncontrado);
         }
 
-        public void Deve_Editar_Cliente_PessoaFisica()
+        [TestMethod]
+        public void Deve_Editar_Condutor()
         {
             repositorioCliente.Inserir(cliente);
             repositorioCondutor.Inserir(condutor);
@@ -64,6 +65,51 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
             Assert.IsNotNull(CondutorEditado);
 
             Assert.AreEqual(condutor, CondutorEditado);
+        }
+
+        [TestMethod]
+        public void Deve_Excluir_Condutor()
+        {
+            repositorioCliente.Inserir(cliente);
+            repositorioCondutor.Inserir(condutor);
+
+            repositorioCondutor.Excluir(condutor);
+
+            var CondutorEncontrado = repositorioCondutor.SelecionarPorId(condutor.Id);
+
+            Assert.IsNull(CondutorEncontrado);
+
+        }
+
+        [TestMethod]
+        public void Deve_Selecionar_Um_Condutor()
+        {
+            repositorioCliente.Inserir(cliente);
+            repositorioCondutor.Inserir(condutor);
+
+            var CondutorEncontrado = repositorioCondutor.SelecionarPorId(condutor.Id);
+
+            Assert.IsNotNull(CondutorEncontrado);
+
+            Assert.AreEqual(condutor, CondutorEncontrado);
+        }
+
+        [TestMethod]
+        public void Deve_Selecionar_Todos_Os_Condutores()
+        {
+            int quantidade = 3;
+
+            for (int i = 0; i < quantidade; i++)
+            {
+                repositorioCliente.Inserir(cliente);
+                repositorioCondutor.Inserir(condutor);
+            }
+                
+
+            var Condutores = repositorioCondutor.SelecionarTodos();
+
+            Assert.AreEqual(quantidade, Condutores.Count);
+
         }
     }
 }
