@@ -12,7 +12,6 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 {
     public abstract class RepositorioBaseEmBancoDeDados<T,  TMapeador>
         where T : EntidadeBase<T>        
-        where TValidador : AbstractValidator<T>, new()
         where TMapeador : MapeadorBase<T>, new()
 
 
