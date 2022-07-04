@@ -61,12 +61,12 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
 
             repositorioCliente.Editar(clientePessoaFisica);
 
-            var GrupoDeVeiculoEditado = repositorioCliente.SelecionarPorId(clientePessoaFisica.Id);
+            var ClienteEditado = repositorioCliente.SelecionarPorId(clientePessoaFisica.Id);
 
 
-            Assert.IsNotNull(GrupoDeVeiculoEditado);
+            Assert.IsNotNull(ClienteEditado);
 
-            Assert.AreEqual(clientePessoaFisica, GrupoDeVeiculoEditado);
+            Assert.AreEqual(clientePessoaFisica, ClienteEditado);
         }
 
         [TestMethod]
@@ -77,9 +77,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
 
             repositorioCliente.Excluir(clientePessoaFisica);
 
-            var GrupoDeVeiculoEncontrado = repositorioCliente.SelecionarPorId(clientePessoaFisica.Id);
+            var ClienteEncontrado = repositorioCliente.SelecionarPorId(clientePessoaFisica.Id);
 
-            Assert.IsNull(GrupoDeVeiculoEncontrado);
+            Assert.IsNull(ClienteEncontrado);
 
         }
 

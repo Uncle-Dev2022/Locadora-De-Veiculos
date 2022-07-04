@@ -48,5 +48,22 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
             Assert.IsNotNull(CondutorEncontrado);
             Assert.AreEqual(condutor, CondutorEncontrado);
         }
+
+        public void Deve_Editar_Cliente_PessoaFisica()
+        {
+            repositorioCliente.Inserir(cliente);
+            repositorioCondutor.Inserir(condutor);
+
+            condutor.Nome = "Roanaldo O Fenomeno";
+
+            repositorioCondutor.Editar(condutor);
+
+            var CondutorEditado = repositorioCondutor.SelecionarPorId(condutor.Id);
+
+
+            Assert.IsNotNull(CondutorEditado);
+
+            Assert.AreEqual(condutor, CondutorEditado);
+        }
     }
 }
