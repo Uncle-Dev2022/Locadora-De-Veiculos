@@ -10,10 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloCliente
 {
     [TestClass]
     public class ValidadorClienteTeste
-    {
-        //Cliente ClienteFisico = new Cliente("Thiago", "rua", "Thiago@gmail.com", "(49) 98547-4512", true, "245.457.458-12", "012457896");
-        //Cliente ClienteJuridico = new Cliente("Empresa", "rua", "empresa@gmail.com", "(49) 98547-4215", false, "25.427.475/0001-00", null);
-
+    { 
         [TestMethod]
         public void Nome_Do_Cliente_Obrigatorio()
         {
