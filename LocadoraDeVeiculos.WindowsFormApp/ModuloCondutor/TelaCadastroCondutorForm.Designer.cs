@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -37,11 +37,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.textBoxEndereco = new System.Windows.Forms.TextBox();
-            this.textBoxCPF = new System.Windows.Forms.TextBox();
-            this.textBoxCNH = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
+            this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxCNH = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -53,13 +53,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente:";
             // 
-            // comboBox1
+            // comboBoxCliente
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 28);
-            this.comboBox1.TabIndex = 1;
+            this.comboBoxCliente.FormattingEnabled = true;
+            this.comboBoxCliente.Location = new System.Drawing.Point(120, 29);
+            this.comboBoxCliente.Name = "comboBoxCliente";
+            this.comboBoxCliente.Size = new System.Drawing.Size(187, 28);
+            this.comboBoxCliente.TabIndex = 1;
             // 
             // label2
             // 
@@ -120,20 +120,6 @@
             this.textBoxEndereco.Size = new System.Drawing.Size(187, 27);
             this.textBoxEndereco.TabIndex = 8;
             // 
-            // textBoxCPF
-            // 
-            this.textBoxCPF.Location = new System.Drawing.Point(120, 141);
-            this.textBoxCPF.Name = "textBoxCPF";
-            this.textBoxCPF.Size = new System.Drawing.Size(187, 27);
-            this.textBoxCPF.TabIndex = 9;
-            // 
-            // textBoxCNH
-            // 
-            this.textBoxCNH.Location = new System.Drawing.Point(120, 178);
-            this.textBoxCNH.Name = "textBoxCNH";
-            this.textBoxCNH.Size = new System.Drawing.Size(187, 27);
-            this.textBoxCNH.TabIndex = 10;
-            // 
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(120, 215);
@@ -162,17 +148,34 @@
             this.btnGravar.TabIndex = 17;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            // 
+            // maskedTextBoxCPF
+            // 
+            this.maskedTextBoxCPF.Location = new System.Drawing.Point(120, 140);
+            this.maskedTextBoxCPF.Mask = "999,999,999-99";
+            this.maskedTextBoxCPF.Name = "maskedTextBoxCPF";
+            this.maskedTextBoxCPF.Size = new System.Drawing.Size(187, 27);
+            this.maskedTextBoxCPF.TabIndex = 19;
+            // 
+            // maskedTextBoxCNH
+            // 
+            this.maskedTextBoxCNH.Location = new System.Drawing.Point(120, 177);
+            this.maskedTextBoxCNH.Mask = "00000000000";
+            this.maskedTextBoxCNH.Name = "maskedTextBoxCNH";
+            this.maskedTextBoxCNH.Size = new System.Drawing.Size(187, 27);
+            this.maskedTextBoxCNH.TabIndex = 20;
             // 
             // TelaCadastroCondutorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 337);
+            this.Controls.Add(this.maskedTextBoxCNH);
+            this.Controls.Add(this.maskedTextBoxCPF);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.textBoxEmail);
-            this.Controls.Add(this.textBoxCNH);
-            this.Controls.Add(this.textBoxCPF);
             this.Controls.Add(this.textBoxEndereco);
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.label6);
@@ -180,7 +183,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxCliente);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroCondutorForm";
             this.Text = "Tela De Cadastro de Condutores";
@@ -192,7 +195,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -200,10 +203,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxNome;
         private System.Windows.Forms.TextBox textBoxEndereco;
-        private System.Windows.Forms.TextBox textBoxCPF;
-        private System.Windows.Forms.TextBox textBoxCNH;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGravar;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCNH;
     }
 }

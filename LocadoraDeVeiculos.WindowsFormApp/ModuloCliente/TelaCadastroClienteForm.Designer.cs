@@ -37,7 +37,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.txtBoxCNH = new System.Windows.Forms.TextBox();
             this.txtBoxEmail = new System.Windows.Forms.TextBox();
             this.txtBoxEndereço = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxCNH = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,13 +120,6 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(144, 27);
             this.txtNome.TabIndex = 0;
-            // 
-            // txtBoxCNH
-            // 
-            this.txtBoxCNH.Location = new System.Drawing.Point(110, 304);
-            this.txtBoxCNH.Name = "txtBoxCNH";
-            this.txtBoxCNH.Size = new System.Drawing.Size(144, 27);
-            this.txtBoxCNH.TabIndex = 1;
             // 
             // txtBoxEmail
             // 
@@ -286,9 +279,18 @@
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(144, 27);
             this.maskedTextBoxTelefone.TabIndex = 19;
             // 
+            // maskedTextBoxCNH
+            // 
+            this.maskedTextBoxCNH.Location = new System.Drawing.Point(110, 301);
+            this.maskedTextBoxCNH.Mask = "00000000000";
+            this.maskedTextBoxCNH.Name = "maskedTextBoxCNH";
+            this.maskedTextBoxCNH.Size = new System.Drawing.Size(144, 27);
+            this.maskedTextBoxCNH.TabIndex = 21;
+            // 
             // TelaCadastroClienteForm
             // 
             this.ClientSize = new System.Drawing.Size(650, 372);
+            this.Controls.Add(this.maskedTextBoxCNH);
             this.Controls.Add(this.maskedTextBoxTelefone);
             this.Controls.Add(this.maskedTextBoxCNPJ);
             this.Controls.Add(this.maskedTextBoxCPF);
@@ -304,7 +306,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtBoxEndereço);
             this.Controls.Add(this.txtBoxEmail);
-            this.Controls.Add(this.txtBoxCNH);
             this.Controls.Add(this.txtNome);
             this.Name = "TelaCadastroClienteForm";
             this.Text = "Tela De Cadastro De Cliente";
@@ -337,7 +338,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.TextBox txtBoxCNH;
         private System.Windows.Forms.TextBox txtBoxEmail;
         private System.Windows.Forms.TextBox txtBoxEndereço;
         private System.Windows.Forms.Label label10;
@@ -355,5 +355,6 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCNPJ;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefone;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCNH;
     }
 }
