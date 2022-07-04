@@ -61,7 +61,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool CPF_CNPJDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorioCliente.SelecionarClientePorNome(cliente.CPF_CNPJ);
+            var ClienteEncontrado = repositorioCliente.SelecionarClientePorCPFOuCNPJ(cliente.CPF_CNPJ);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&

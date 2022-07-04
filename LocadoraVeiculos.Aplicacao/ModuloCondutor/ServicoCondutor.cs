@@ -38,13 +38,50 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
             return resultadoValidacao;
         }
 
-        private ValidationResult Validar(Condutor cliente)
+        private ValidationResult Validar(Condutor condutor)
         {
             var validador = new ValidadorCondutor();
 
-            var resultadoValidacao = validador.Validate(cliente);
+            var resultadoValidacao = validador.Validate(condutor);
+
+            if (NomeDuplicado(condutor))
+                resultadoValidacao.Errors.Add(new ValidationFailure("Nome", "Nome Duplicado"));
+
+            if(CPFDuplicado(condutor))
+                resultadoValidacao.Errors.Add(new ValidationFailure("CPF", "CPF Duplicado"));
+
+            if(CNHDuplicada(condutor))
+                resultadoValidacao.Errors.Add(new ValidationFailure("CNH", "CNH Duplicada"));
+
 
             return resultadoValidacao;
+        }
+
+        private bool CPFDuplicado(Condutor condutor)
+        {
+            var CondutorEncontrado = repositorioCondutor.SelecionarCondutorPorCPF(condutor.CPF);
+
+            return CondutorEncontrado != null &&
+                   CondutorEncontrado.CPF == condutor.CPF &&
+                   CondutorEncontrado.Id != condutor.Id;
+        }
+
+        private bool NomeDuplicado(Condutor condutor)
+        {
+            var CondutorEncontrado = repositorioCondutor.SelecionarCondutorPorNome(condutor.Nome);
+
+            return CondutorEncontrado != null &&
+                   CondutorEncontrado.Nome == condutor.Nome &&
+                   CondutorEncontrado.Id != condutor.Id;
+        }
+
+        private bool CNHDuplicada(Condutor condutor)
+        {
+            var CondutorEncontrado = repositorioCondutor.SelecionarCondutorPorCNH(condutor.CNH);
+
+            return CondutorEncontrado != null &&
+                   CondutorEncontrado.CNH == condutor.CNH &&
+                   CondutorEncontrado.Id != condutor.Id;
         }
     }
 }
