@@ -10,9 +10,8 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Compartilhado
 {
-    public abstract class RepositorioBaseEmBancoDeDados<T,  TMapeador>
-        where T : EntidadeBase<T>        
-        where TValidador : AbstractValidator<T>, new()
+    public abstract class RepositorioBaseEmBancoDeDados<T, TMapeador> : IRepositorio<T>
+        where T : EntidadeBase<T>
         where TMapeador : MapeadorBase<T>, new()
 
 
@@ -32,15 +31,8 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
         protected abstract string sqlSelecionarTodos { get; }
 
-        public ValidationResult Inserir(T registro)
+        public void Inserir(T registro)
         {
-            var validador = new TValidador();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
             SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
@@ -55,18 +47,11 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
             conexaoComBanco.Close();
 
-            
+
         }
 
-        public ValidationResult Editar(T registro)
+        public void Editar(T registro)
         {
-            var validador = new TValidador();
-
-            var resultadoValidacao = validador.Validate(registro);
-
-            if (resultadoValidacao.IsValid == false)
-                return resultadoValidacao;
-
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
             SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
@@ -78,8 +63,6 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             conexaoComBanco.Open();
             comandoEdicao.ExecuteNonQuery();
             conexaoComBanco.Close();
-
-            return resultadoValidacao;
         }
 
         public virtual void Excluir(T registro)
@@ -137,8 +120,26 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             return registros;
         }
 
+        public virtual T SelecionarPorParametro(string sqlSelecionarPorParametro, SqlParameter parametro)
+        {
+            SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
+
+            SqlCommand comandoSelecao = new SqlCommand(sqlSelecionarPorParametro, conexaoComBanco);
+
+            comandoSelecao.Parameters.Add(parametro);
+
+            conexaoComBanco.Open();
+            SqlDataReader leitorRegistro = comandoSelecao.ExecuteReader();
+
+            var mapeador = new TMapeador();
+            T registro = null;
+            if (leitorRegistro.Read())
+                registro = mapeador.ConverterRegistro(leitorRegistro);
+
+            conexaoComBanco.Close();
 
             return registro;
         }
     }
 }
+
