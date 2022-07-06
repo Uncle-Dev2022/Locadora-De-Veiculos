@@ -32,14 +32,22 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
                 txtNumero.Text = taxa.Id.ToString();
                 txtDescricao.Text = taxa.descricao;
                 txtValor.Text = taxa.valor.ToString();
-            }       
+                if (taxa.tipoCalculo == TipoCalculo.Diario)
+                    radioButton1.Checked = true;
+                else 
+                radioButton2.Checked = true;
+            }
         }
         private void btnGravar_Click(object sender, System.EventArgs e)
         {
             if (!double.TryParse(txtValor.Text, out taxa.valor))
                 DialogResult = DialogResult.Abort;
 
-            taxa.descricao = txtDescricao.Text;      
+            taxa.descricao = txtDescricao.Text;            
+            if (radioButton1.Checked)
+                taxa.tipoCalculo = Enum.Parse<TipoCalculo>(radioButton1.Text);
+            else
+                taxa.tipoCalculo = Enum.Parse<TipoCalculo>(radioButton2.Text);
 
             var resultadoValidacao = GravarRegistro(taxa);
 

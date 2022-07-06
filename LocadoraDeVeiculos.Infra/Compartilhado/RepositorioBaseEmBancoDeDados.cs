@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Compartilhado
 {
-    public abstract class RepositorioBaseEmBancoDeDados<T,  TMapeador>
-        where T : EntidadeBase<T>        
+    public abstract class RepositorioBaseEmBancoDeDados<T, TMapeador> : IRepositorio<T>
+        where T : EntidadeBase<T>
         where TMapeador : MapeadorBase<T>, new()
 
 
@@ -31,9 +31,8 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
         protected abstract string sqlSelecionarTodos { get; }
 
-        public virtual void Inserir(T registro)
+        public void Inserir(T registro)
         {
-           
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
             SqlCommand comandoInsercao = new SqlCommand(sqlInserir, conexaoComBanco);
@@ -48,11 +47,11 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
             conexaoComBanco.Close();
 
-            
+
         }
 
-        public virtual void Editar(T registro)
-        {            
+        public void Editar(T registro)
+        {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
             SqlCommand comandoEdicao = new SqlCommand(sqlEditar, conexaoComBanco);
@@ -64,7 +63,6 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             conexaoComBanco.Open();
             comandoEdicao.ExecuteNonQuery();
             conexaoComBanco.Close();
-           
         }
 
         public virtual void Excluir(T registro)
@@ -142,6 +140,6 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
             return registro;
         }
-
     }
 }
+

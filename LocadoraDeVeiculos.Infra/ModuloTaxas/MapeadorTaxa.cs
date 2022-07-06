@@ -17,6 +17,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloTaxas
             comando.Parameters.AddWithValue("ID", registro.Id);
             comando.Parameters.AddWithValue("VALOR", registro.valor);
             comando.Parameters.AddWithValue("DESCRICAO", registro.descricao);
+            comando.Parameters.AddWithValue("TIPO_CALCULO", registro.descricao);
         }
 
         public override Taxa ConverterRegistro(SqlDataReader leitorRegistro)
@@ -24,8 +25,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloTaxas
             int id = Convert.ToInt32(leitorRegistro["ID"]);
             double valor = (double)leitorRegistro["VALOR"];//double.Parse(leitorRegistro["VALOR"]);
             string descricao = leitorRegistro["DESCRICAO"].ToString();
-
-            Taxa taxa = new Taxa(valor, descricao)
+            TipoCalculo tipoCalculo = (TipoCalculo)leitorRegistro["TIPO_CALCULO"];
+            Taxa taxa = new Taxa(valor, descricao, tipoCalculo)
             {
                 Id = id
             };

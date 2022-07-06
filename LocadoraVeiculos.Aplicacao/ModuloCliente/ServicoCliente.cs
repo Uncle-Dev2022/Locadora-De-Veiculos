@@ -11,9 +11,9 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 {
     public class ServicoCliente
     {
-        private RepositorioClienteEmBancoDeDados repositorioCliente;
+        private IRepositorioCliente repositorioCliente;
 
-        public ServicoCliente(RepositorioClienteEmBancoDeDados repositorioCliente)
+        public ServicoCliente(IRepositorioCliente repositorioCliente)
         {
             this.repositorioCliente = repositorioCliente;
         }
@@ -74,7 +74,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.Nome==cliente.Nome &&
-                   ClienteEncontrado.Id!=cliente.Id;
+                   ClienteEncontrado.Id != cliente.Id;
         }
     }
 }
