@@ -58,6 +58,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
             Quilometragem = quilometragem;
             CapacidadeTanque = capacidadeTanque;
             Imagem = imagem;
+
         }
 
         public override bool Equals(object obj)

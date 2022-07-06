@@ -31,8 +31,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
         public void Deve_inserir_veiculo()
         {
             //arrange
+            var grupo = NovoGrupo1();
             var veiculo = NovoVeiculo1();
-            
+            repositorioGrupo.Inserir(grupo);
 
             //action
             repositorioVeiculo.Inserir(veiculo);
@@ -41,12 +42,18 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
             var resultado = repositorioVeiculo.SelecionarPorId(veiculo.Id);
 
             Assert.IsNotNull(resultado);
+            Assert.AreEqual(veiculo, resultado);
         }
 
+        private GrupoDeVeiculo NovoGrupo1()
+        {
+            var grupoDeVeiculo = new GrupoDeVeiculo("Economico");
+            return grupoDeVeiculo;
+        }
 
         private Veiculo NovoVeiculo1()
         {
-            var veiculo = new Veiculo("Economico","Ford", "Ka","Vermelho", "2020", "Gasolina", "BRA2E19", 100000 , 50 , new byte[] { });
+            var veiculo = new Veiculo("Ford", "Ka","Vermelho", "2020", "Gasolina", "BRA2E19", 100000 , 50 , new byte[] { });
 
             return veiculo;
         }

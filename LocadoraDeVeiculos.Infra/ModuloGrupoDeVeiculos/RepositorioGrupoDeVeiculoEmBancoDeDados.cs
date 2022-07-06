@@ -6,7 +6,7 @@ using LocadoraDeVeiculos.Infra.Compartilhado;
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
     public class RepositorioGrupoDeVeiculoEmBancoDeDados : 
-        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, ValidadorGrupoDeVeiculo, MapeadorGrupoDeVeiculo> 
+        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorGrupoDeVeiculo> , IRepositorioGrupoDeVeiculo 
     {
         
 
