@@ -8,10 +8,13 @@
     <Folder Include="ModuloFuncinario\" />
     <Folder Include="ModuloGrupoDeVeiculos\" />
     <Folder Include="ModuloTaxas\" />
-    <Folder Include="ModuloVeiculo\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloCondutor\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace LocadoraDeVeiculos.WindowsFormApp.Veiculo
+﻿namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
 {
     partial class TelaCadastroVeiculoForm
     {
@@ -48,6 +48,10 @@
             this.textBoxCapacidade = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxMarca = new System.Windows.Forms.TextBox();
+            this.pictureImagem = new System.Windows.Forms.PictureBox();
+            this.btnImagem = new System.Windows.Forms.Button();
+            this.openFileDialogAbrir = new System.Windows.Forms.OpenFileDialog();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureImagem)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -115,7 +119,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(112, 268);
+            this.label8.Location = new System.Drawing.Point(112, 280);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(141, 25);
             this.label8.TabIndex = 8;
@@ -124,7 +128,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(112, 391);
+            this.label10.Location = new System.Drawing.Point(112, 318);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(192, 25);
             this.label10.TabIndex = 10;
@@ -151,6 +155,7 @@
             this.btnGravar.TabIndex = 16;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // textBoxModelo
             // 
@@ -196,7 +201,7 @@
             // 
             // textBoxCapacidade
             // 
-            this.textBoxCapacidade.Location = new System.Drawing.Point(319, 391);
+            this.textBoxCapacidade.Location = new System.Drawing.Point(319, 318);
             this.textBoxCapacidade.Name = "textBoxCapacidade";
             this.textBoxCapacidade.Size = new System.Drawing.Size(150, 31);
             this.textBoxCapacidade.TabIndex = 27;
@@ -217,11 +222,33 @@
             this.textBoxMarca.Size = new System.Drawing.Size(150, 31);
             this.textBoxMarca.TabIndex = 29;
             // 
+            // pictureImagem
+            // 
+            this.pictureImagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureImagem.Location = new System.Drawing.Point(517, 133);
+            this.pictureImagem.Name = "pictureImagem";
+            this.pictureImagem.Size = new System.Drawing.Size(393, 251);
+            this.pictureImagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureImagem.TabIndex = 30;
+            this.pictureImagem.TabStop = false;
+            // 
+            // btnImagem
+            // 
+            this.btnImagem.Location = new System.Drawing.Point(798, 401);
+            this.btnImagem.Name = "btnImagem";
+            this.btnImagem.Size = new System.Drawing.Size(112, 34);
+            this.btnImagem.TabIndex = 31;
+            this.btnImagem.Text = "Inserir ";
+            this.btnImagem.UseVisualStyleBackColor = true;
+            this.btnImagem.Click += new System.EventHandler(this.btnImagem_Click);
+            // 
             // TelaCadastroVeiculoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 550);
+            this.ClientSize = new System.Drawing.Size(935, 550);
+            this.Controls.Add(this.btnImagem);
+            this.Controls.Add(this.pictureImagem);
             this.Controls.Add(this.textBoxMarca);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBoxCapacidade);
@@ -243,7 +270,8 @@
             this.Controls.Add(this.comboBoxGrupoVeiculo);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroVeiculoForm";
-            this.Text = "TelaCadastroVeiculoForm";
+            this.Text = "Tela Cadastro Veiculo";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureImagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +299,8 @@
         private System.Windows.Forms.TextBox textBoxCapacidade;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxMarca;
+        private System.Windows.Forms.PictureBox pictureImagem;
+        private System.Windows.Forms.Button btnImagem;
+        private System.Windows.Forms.OpenFileDialog openFileDialogAbrir;
     }
 }

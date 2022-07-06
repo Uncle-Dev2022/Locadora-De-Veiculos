@@ -8,11 +8,11 @@
     <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloTaxas\" />
-    <Folder Include="ModuloVeiculo\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

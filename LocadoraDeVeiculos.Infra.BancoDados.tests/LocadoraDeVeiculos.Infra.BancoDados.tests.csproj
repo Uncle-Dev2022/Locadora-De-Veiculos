@@ -27,7 +27,6 @@
     <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloTaxas\" />
-    <Folder Include="ModuloVeiculo\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
