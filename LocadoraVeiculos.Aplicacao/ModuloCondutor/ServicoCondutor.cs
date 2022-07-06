@@ -11,9 +11,9 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
 {
     public class ServicoCondutor
     {
-        private RepositorioCondutorEmBancoDeDados repositorioCondutor;
+        private IRepositorioCondutor repositorioCondutor;
 
-        public ServicoCondutor(RepositorioCondutorEmBancoDeDados repositorioCondutor)
+        public ServicoCondutor(IRepositorioCondutor repositorioCondutor)
         {
             this.repositorioCondutor = repositorioCondutor;
         }

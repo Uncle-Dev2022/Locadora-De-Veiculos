@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloCondutor;
+﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
 using LocadoraDeVeiculos.Infra.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
@@ -14,12 +15,12 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
 {
     public class ControladorCondutor : ControladorBase
     {
-        private readonly RepositorioCondutorEmBancoDeDados repositorioCondutor;
-        private readonly RepositorioClienteEmBancoDeDados repositorioCliente;
+        private readonly IRepositorioCondutor repositorioCondutor;
+        private readonly IRepositorioCliente repositorioCliente;
         private readonly ServicoCondutor servicoCondutor;
         private TabelaCondutorControl tabelaCondutor;
 
-        public ControladorCondutor(RepositorioCondutorEmBancoDeDados repositorioCondutor,ServicoCondutor servicoCondutor,RepositorioClienteEmBancoDeDados repositorioCliente)
+        public ControladorCondutor(IRepositorioCondutor repositorioCondutor,ServicoCondutor servicoCondutor,IRepositorioCliente repositorioCliente)
         {
             this.repositorioCondutor = repositorioCondutor;
             this.repositorioCliente = repositorioCliente;
