@@ -70,6 +70,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
+        private void CondutorMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -183,5 +187,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
             controladores.Add("Condutos", new ControladorCondutor(repositorioCondutor,servicoCondutor,repositorioCliente));
         }
+
     }
 }

@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
             CarregarCliente(clientes);
         }
 
-        private void CarregarCliente(Cliente clientes)
+        private void CarregarCliente(List<Cliente> clientes)
         {
             comboBoxCliente.Items.Clear();
 

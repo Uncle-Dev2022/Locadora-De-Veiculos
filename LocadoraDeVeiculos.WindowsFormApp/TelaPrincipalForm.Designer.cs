@@ -52,6 +52,7 @@
             this.ClienteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
+            this.CondutorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.toolbox.SuspendLayout();
             this.menu.SuspendLayout();
@@ -61,9 +62,9 @@
             // 
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRegistros.Location = new System.Drawing.Point(0, 67);
-            this.panelRegistros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelRegistros.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(700, 267);
+            this.panelRegistros.Size = new System.Drawing.Size(800, 358);
             this.panelRegistros.TabIndex = 7;
             // 
             // statusStrip1
@@ -71,23 +72,24 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelRodape});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 316);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 425);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(700, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(800, 26);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // labelRodape
             // 
             this.labelRodape.Name = "labelRodape";
-            this.labelRodape.Size = new System.Drawing.Size(52, 17);
+            this.labelRodape.Size = new System.Drawing.Size(67, 20);
             this.labelRodape.Text = "[rodapé]";
             // 
             // labelTipoCadastro
             // 
             this.labelTipoCadastro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(90, 22);
+            this.labelTipoCadastro.Size = new System.Drawing.Size(121, 34);
             this.labelTipoCadastro.Text = "[tipoCadastro]";
             // 
             // toolStripSeparator4
@@ -102,7 +104,7 @@
             this.btnAgrupar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAgrupar.Name = "btnAgrupar";
             this.btnAgrupar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAgrupar.Size = new System.Drawing.Size(23, 22);
+            this.btnAgrupar.Size = new System.Drawing.Size(29, 34);
             // 
             // toolStripSeparator5
             // 
@@ -116,7 +118,7 @@
             this.btnVisualizar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnVisualizar.Name = "btnVisualizar";
             this.btnVisualizar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnVisualizar.Size = new System.Drawing.Size(23, 22);
+            this.btnVisualizar.Size = new System.Drawing.Size(29, 34);
             // 
             // toolStripSeparator3
             // 
@@ -130,7 +132,7 @@
             this.btnFiltrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnFiltrar.Size = new System.Drawing.Size(23, 22);
+            this.btnFiltrar.Size = new System.Drawing.Size(29, 34);
             // 
             // toolStripSeparator1
             // 
@@ -144,7 +146,7 @@
             this.btnAtualizarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAtualizarItens.Name = "btnAtualizarItens";
             this.btnAtualizarItens.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAtualizarItens.Size = new System.Drawing.Size(23, 22);
+            this.btnAtualizarItens.Size = new System.Drawing.Size(29, 34);
             // 
             // btnAdicionarItens
             // 
@@ -158,7 +160,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 37);
             // 
             // btnExcluir
             // 
@@ -178,7 +180,7 @@
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Padding = new System.Windows.Forms.Padding(5);
-            this.btnEditar.Size = new System.Drawing.Size(23, 22);
+            this.btnEditar.Size = new System.Drawing.Size(62, 34);
             this.btnEditar.Text = "Editar";
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -213,9 +215,9 @@
             this.btnAgrupar,
             this.toolStripSeparator4,
             this.labelTipoCadastro});
-            this.toolbox.Location = new System.Drawing.Point(0, 24);
+            this.toolbox.Location = new System.Drawing.Point(0, 30);
             this.toolbox.Name = "toolbox";
-            this.toolbox.Size = new System.Drawing.Size(700, 25);
+            this.toolbox.Size = new System.Drawing.Size(800, 37);
             this.toolbox.TabIndex = 5;
             this.toolbox.Text = "toolStrip1";
             // 
@@ -231,7 +233,7 @@
             // 
             this.taxasMenuItem.Name = "taxasMenuItem";
             this.taxasMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.taxasMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.taxasMenuItem.Size = new System.Drawing.Size(238, 26);
             this.taxasMenuItem.Text = "Taxas";
             this.taxasMenuItem.Click += new System.EventHandler(this.taxasMenuItem_Click);
             // 
@@ -243,20 +245,22 @@
             this.FuncionarioSubMenuItem.Text = "Funcionario";
             this.FuncionarioSubMenuItem.Click += new System.EventHandler(this.FuncionarioSubMenuItem_Click);
             // 
-            // ClienteMenuItem            
+            // ClienteMenuItem
             // 
             this.ClienteMenuItem.Name = "ClienteMenuItem";
             this.ClienteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.ClienteMenuItem.Size = new System.Drawing.Size(238, 26);
             this.ClienteMenuItem.Text = "Cliente";
             this.ClienteMenuItem.Click += new System.EventHandler(this.ClienteMenuItem_Click);
+            // 
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ClienteMenuItem,
             this.FuncionarioSubMenuItem,
             this.taxasMenuItem,
-            this.GrupoDeVeiculosSubMenuItem});
+            this.GrupoDeVeiculosSubMenuItem,
+            this.CondutorMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
@@ -268,20 +272,28 @@
             this.cadastrosToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(700, 24);
+            this.menu.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.menu.Size = new System.Drawing.Size(800, 30);
             this.menu.TabIndex = 4;
             this.menu.Text = "menuStrip1";
             // 
+            // CondutorMenuItem
+            // 
+            this.CondutorMenuItem.Name = "CondutorMenuItem";
+            this.CondutorMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.CondutorMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.CondutorMenuItem.Text = "Condutor";
+            this.CondutorMenuItem.Click += new System.EventHandler(this.CondutorMenuItem_Click);
+            // 
             // TelaPrincipalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.ClientSize = new System.Drawing.Size(800, 451);
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolbox);
             this.Controls.Add(this.menu);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TelaPrincipalForm";
             this.Text = "TelaPrincipalForm";
             this.statusStrip1.ResumeLayout(false);
@@ -323,5 +335,6 @@
         private System.Windows.Forms.ToolStripMenuItem ClienteMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.ToolStripMenuItem CondutorMenuItem;
     }
 }
