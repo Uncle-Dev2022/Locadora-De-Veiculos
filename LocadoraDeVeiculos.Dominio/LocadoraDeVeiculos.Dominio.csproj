@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloCondutor\" />
+    <Folder Include="ModuloPlanoDeCobranca\" />
+    <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloVeiculo\" />
   </ItemGroup>
 

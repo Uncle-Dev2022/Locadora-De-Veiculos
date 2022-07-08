@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloFuncionário\" />
     <Folder Include="ModuloCliente\" />
   </ItemGroup>
