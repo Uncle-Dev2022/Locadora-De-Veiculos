@@ -13,6 +13,8 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
     public abstract class RepositorioBaseEmBancoDeDados<T, TMapeador> : IRepositorio<T>
         where T : EntidadeBase<T>
         where TMapeador : MapeadorBase<T>, new()
+
+
     {
         protected string enderecoBanco =
            @"Data Source=(LocalDB)\MSSqlLocalDB;
@@ -137,5 +139,8 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             return registro;
         }
 
+            return registro;
+        }
     }
 }
+

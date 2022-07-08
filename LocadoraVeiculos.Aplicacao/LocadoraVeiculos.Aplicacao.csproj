@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloFuncinario\" />
     <Folder Include="ModuloGrupoDeVeiculos\" />
+    <Folder Include="ModuloFuncinario\" />
     <Folder Include="ModuloTaxas\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloCliente\" />
@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+    <ProjectReference Include="..\LocadoraDeVeiculos.Infra\LocadoraDeVeiculos.Infra.csproj" />
   </ItemGroup>
 
 </Project>

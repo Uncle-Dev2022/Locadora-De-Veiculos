@@ -2,5 +2,6 @@
 (
 	[ID] INT NOT NULL PRIMARY KEY IDENTITY, 
     [Descricao] VARCHAR(100) NOT NULL, 
-    [Valor] FLOAT NOT NULL
+    [Valor] FLOAT NOT NULL, 
+    [Tipo_Calculo] VARCHAR(50) NOT NULL
 )

@@ -39,8 +39,10 @@
             this.checkBoxGerente = new System.Windows.Forms.CheckBox();
             this.txtBoxFuncionarioSenha = new System.Windows.Forms.TextBox();
             this.txtBoxFuncionarioLogin = new System.Windows.Forms.TextBox();
-            this.txtBoxFuncionarioSalario = new System.Windows.Forms.TextBox();
             this.dateTimePickerDataAdmissao = new System.Windows.Forms.DateTimePicker();
+            this.SenhaBox = new System.Windows.Forms.CheckBox();
+            this.maskedTextBoxSalario = new System.Windows.Forms.MaskedTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtBoxFuncionarioNome
@@ -85,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 105);
+            this.label1.Location = new System.Drawing.Point(27, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 25);
             this.label1.TabIndex = 22;
@@ -103,7 +105,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 176);
+            this.label4.Location = new System.Drawing.Point(27, 213);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 25);
             this.label4.TabIndex = 26;
@@ -112,7 +114,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 216);
+            this.label5.Location = new System.Drawing.Point(27, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 25);
             this.label5.TabIndex = 27;
@@ -130,27 +132,21 @@
             // 
             // txtBoxFuncionarioSenha
             // 
-            this.txtBoxFuncionarioSenha.Location = new System.Drawing.Point(201, 170);
+            this.txtBoxFuncionarioSenha.Location = new System.Drawing.Point(201, 207);
             this.txtBoxFuncionarioSenha.MaxLength = 10;
             this.txtBoxFuncionarioSenha.Name = "txtBoxFuncionarioSenha";
+            this.txtBoxFuncionarioSenha.PasswordChar = '*';
             this.txtBoxFuncionarioSenha.Size = new System.Drawing.Size(268, 31);
             this.txtBoxFuncionarioSenha.TabIndex = 30;
+            this.txtBoxFuncionarioSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBoxFuncionarioLogin
             // 
-            this.txtBoxFuncionarioLogin.Location = new System.Drawing.Point(201, 207);
+            this.txtBoxFuncionarioLogin.Location = new System.Drawing.Point(201, 170);
             this.txtBoxFuncionarioLogin.MaxLength = 10;
             this.txtBoxFuncionarioLogin.Name = "txtBoxFuncionarioLogin";
             this.txtBoxFuncionarioLogin.Size = new System.Drawing.Size(268, 31);
             this.txtBoxFuncionarioLogin.TabIndex = 31;
-            // 
-            // txtBoxFuncionarioSalario
-            // 
-            this.txtBoxFuncionarioSalario.Location = new System.Drawing.Point(201, 96);
-            this.txtBoxFuncionarioSalario.MaxLength = 10;
-            this.txtBoxFuncionarioSalario.Name = "txtBoxFuncionarioSalario";
-            this.txtBoxFuncionarioSalario.Size = new System.Drawing.Size(268, 31);
-            this.txtBoxFuncionarioSalario.TabIndex = 23;
             // 
             // dateTimePickerDataAdmissao
             // 
@@ -162,11 +158,42 @@
             this.dateTimePickerDataAdmissao.Size = new System.Drawing.Size(267, 31);
             this.dateTimePickerDataAdmissao.TabIndex = 32;
             // 
+            // SenhaBox
+            // 
+            this.SenhaBox.AutoSize = true;
+            this.SenhaBox.Location = new System.Drawing.Point(485, 207);
+            this.SenhaBox.Name = "SenhaBox";
+            this.SenhaBox.Size = new System.Drawing.Size(161, 29);
+            this.SenhaBox.TabIndex = 33;
+            this.SenhaBox.Text = "Mostrar Senha?";
+            this.SenhaBox.UseVisualStyleBackColor = true;
+            this.SenhaBox.CheckedChanged += new System.EventHandler(this.Senha_CheckedChanged);
+            // 
+            // maskedTextBoxSalario
+            // 
+            this.maskedTextBoxSalario.Location = new System.Drawing.Point(201, 96);
+            this.maskedTextBoxSalario.Mask = "999999,99";
+            this.maskedTextBoxSalario.Name = "maskedTextBoxSalario";
+            this.maskedTextBoxSalario.Size = new System.Drawing.Size(150, 31);
+            this.maskedTextBoxSalario.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(162, 99);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 25);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "R$";
+            // 
             // TelaCadastroFuncionarioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 386);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.maskedTextBoxSalario);
+            this.Controls.Add(this.SenhaBox);
             this.Controls.Add(this.dateTimePickerDataAdmissao);
             this.Controls.Add(this.txtBoxFuncionarioLogin);
             this.Controls.Add(this.txtBoxFuncionarioSenha);
@@ -174,7 +201,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtBoxFuncionarioSalario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxFuncionarioNome);
             this.Controls.Add(this.label2);
@@ -200,7 +226,9 @@
         private System.Windows.Forms.CheckBox checkBoxGerente;
         private System.Windows.Forms.TextBox txtBoxFuncionarioSenha;
         private System.Windows.Forms.TextBox txtBoxFuncionarioLogin;
-        private System.Windows.Forms.TextBox txtBoxFuncionarioSalario;
         private System.Windows.Forms.DateTimePicker dateTimePickerDataAdmissao;
+        private System.Windows.Forms.CheckBox SenhaBox;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxSalario;
+        private System.Windows.Forms.Label label6;
     }
 }
