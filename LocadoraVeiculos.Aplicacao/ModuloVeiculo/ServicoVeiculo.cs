@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +20,45 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
 
         public ValidationResult Inserir(Veiculo veiculo)
         {
+            Log.Logger.Debug("Tentando inserir veiculo... {@v}", veiculo);
             ValidationResult resultadoValidacao = Validar(veiculo);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioVeiculo.Inserir(veiculo);
+                Log.Logger.Debug("Veiculo {VeiculoModelo} inserido com sucesso", veiculo.Modelo);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir um Veiculo {VeiculoModelo} - {Motivo}",
+                        veiculo.Marca, erro.ErrorMessage);
+                }
+            }
 
             return resultadoValidacao;
         }
 
         public ValidationResult Editar(Veiculo veiculo)
         {
+            Log.Logger.Debug("Tentando editar veiculo... {@v}", veiculo);
             ValidationResult resultadoValidacao = Validar(veiculo);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioVeiculo.Editar(veiculo);
+                Log.Logger.Debug("Veiculo {VeiculoModelo} editado com sucesso", veiculo.Modelo);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar editar um Veiculo {VeiculoModelo} - {Motivo}",
+                        veiculo.Marca, erro.ErrorMessage);
+                }
+            }
+
 
             return resultadoValidacao;
         }
@@ -44,7 +70,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
             var resultadoValidacao = validador.Validate(veiculo);
 
             if (PlacaDuplicado(veiculo))
-                resultadoValidacao.Errors.Add(new ValidationFailure("Placa", "Placa duplicada"));            
+                resultadoValidacao.Errors.Add(new ValidationFailure("Placa", "Placa duplicada"));
 
             return resultadoValidacao;
         }

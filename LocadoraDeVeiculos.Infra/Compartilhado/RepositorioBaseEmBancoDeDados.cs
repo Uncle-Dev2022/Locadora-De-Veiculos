@@ -139,8 +139,8 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             return registro;
         }
 
-            return registro;
-        }
+            
+        
     }
 }
 
