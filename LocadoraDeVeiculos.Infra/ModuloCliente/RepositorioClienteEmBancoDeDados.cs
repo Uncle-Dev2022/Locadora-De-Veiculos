@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
                 [ID],
 		        [NOME],
 		        [CPF_CNPJ],
-                [ENDERECO],
+                [ENDERECO], 
                 [EMAIL],
                 [TELEFONE],
                 [CNH],
