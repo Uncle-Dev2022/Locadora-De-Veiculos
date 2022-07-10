@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 namespace LocadoraDeVeiculos.Infra.Compartilhado
 {
     public abstract class RepositorioBaseEmBancoDeDados<T, TMapeador> : IRepositorio<T>
-        where T : EntidadeBase<T>
-        where TValidador : AbstractValidator<T>, new()
+        where T : EntidadeBase<T>        
         where TMapeador : MapeadorBase<T>, new()
 
 
@@ -51,7 +50,7 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
         }
 
-        public ValidationResult Editar(T registro)
+        public void Editar(T registro)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 

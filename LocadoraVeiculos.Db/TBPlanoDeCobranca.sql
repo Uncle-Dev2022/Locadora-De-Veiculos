@@ -1,9 +1,12 @@
 ﻿CREATE TABLE [dbo].[TBPlanoDeControle]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
+    [Nome] VARCHAR(50) NOT NULL,
     [grupoDeVeiculo_id] INT NOT NULL,
-    [tipoPlano] VARCHAR(20) NOT NULL,
-    [valorDiario] DECIMAL(11, 4) NOT NULL , 
-    [valorKm] DECIMAL(11, 4) NULL DEFAULT 0, 
-    [limiteKm] DECIMAL(11, 4) NULL DEFAULT 0
+    [PlanoDiario_ValorDiario] DECIMAL(11, 4) NOT NULL, 
+    [PlanoDiario_ValorKm] DECIMAL(11, 4) NOT NULL , 
+    [PlanoLivre_ValorDiario] DECIMAL(11, 4) NOT NULL, 
+    [PlanoControlado_ValorDiario] DECIMAL(11, 4) NOT NULL, 
+    [PlanoControlado_ValorKm] DECIMAL(11, 4) NOT NULL, 
+    [PlanoControlado_LimiteKm] DECIMAL(11, 4) NOT NULL 
 )

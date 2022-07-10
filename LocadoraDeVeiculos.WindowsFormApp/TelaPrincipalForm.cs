@@ -17,6 +17,10 @@ using LocadoraVeiculos.Aplicacao.ModuloCondutor;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using LocadoraVeiculos.Aplicacao.ModuloTaxas;
+using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
 
 namespace LocadoraDeVeiculos.WindowsFormApp
 {
@@ -171,21 +175,24 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             var repositorioCliente = new RepositorioClienteEmBancoDeDados();
             var repositorioCondutor = new RepositorioCondutorEmBancoDeDados();
             var repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
+            var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
 
             var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo);
-
             var servicoCliente = new ServicoCliente(repositorioCliente);
             var servicoCondutor = new ServicoCondutor(repositorioCondutor);
-
             var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
+            var servicoTaxa = new ServicoTaxa(repositorioTaxa);
+            var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca);
+
 
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Grupos de veículos", new ControladorGrupoDeVeiculo(repositorioGrupoDeVeiculo, servicoGrupoVeiculo));
             controladores.Add("Funcionario", new ControladorFuncionario(repositorioFuncionario));
             controladores.Add("Cliente", new ControladorCliente(repositorioCliente,servicoCliente));
-            controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa));
+            controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa, servicoTaxa));
             controladores.Add("Condutos", new ControladorCondutor(repositorioCondutor,servicoCondutor,repositorioCliente));
+            controladores.Add("Plano De Cobranca", new ControladorPlanoDeCobranca(repositorioPlanoDeCobranca, servicoPlanoDeCobranca));
         }
 
     }

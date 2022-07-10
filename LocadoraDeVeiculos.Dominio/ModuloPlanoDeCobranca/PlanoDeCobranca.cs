@@ -22,7 +22,12 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
             this.grupoDeVeiculo = grupoDeVeiculo;
             this.planoDiario = planoDiario;
             this.planoLivre = planoLivre;
-            this.planoControlado = planoControlado;
+            this.planoControlado = planoControlado;            
+        }
+
+        public PlanoDeCobranca()
+        {
+
         }
 
         public override bool Equals(object obj)
@@ -38,9 +43,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
             return grupoDeVeiculoIgual && planoLivreIgual && planoDiarioIgual && planoControladoIgual;
         }
     }
-
-
-
     public class PlanoLivre
     {
         public decimal valorDiario;

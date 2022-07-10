@@ -14,11 +14,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 {
     internal class ControladorTaxa : ControladorBase
     {
-        private readonly RepositorioTaxaEmBancoDeDados repositorioTaxa;
+        private readonly IRepositorioTaxa repositorioTaxa;
         private readonly ServicoTaxa servicoTaxa;
         private TabelaTaxasControl tabelaTaxas;
 
-        public ControladorTaxa(RepositorioTaxaEmBancoDeDados repositorioTaxa, ServicoTaxa servicoTaxa)
+        public ControladorTaxa(IRepositorioTaxa repositorioTaxa, ServicoTaxa servicoTaxa)
         {
             this.servicoTaxa = servicoTaxa;
             this.repositorioTaxa = repositorioTaxa;
@@ -86,7 +86,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 
         public override ConfiguracaoToolBoxBase ObtemConfiguracaoToolbox()
         {
-            return new ConfiguracaoToolboxTaxa();
+            return new ConfiguracaoToolBoxTaxa();
         }
 
         public override UserControl ObtemListagem()

@@ -6,7 +6,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
 {
     public class ServicoPlanoDeCobranca
     {
-        private IRepositorioPlanoCobranca repositorioPlanoDeCobranca;
+        private IRepositorioPlanoDeCobranca repositorioPlanoDeCobranca;
 
         public ServicoPlanoDeCobranca(IRepositorioPlanoDeCobranca repositorioGrupoDeVeiuculo)
         {

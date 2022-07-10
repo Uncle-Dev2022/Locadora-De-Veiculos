@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
         [TestMethod]
         public void Descricao_nao_Pode_Ser_Nula()
         { 
-            Taxa taxa = new(0.3 , "");
+            Taxa taxa = new(0.3 , "", TipoCalculo.Diario);
 
             ValidadorTaxa validacao = new();
 
@@ -25,7 +25,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
         [TestMethod]
         public void Descricao_Deve_Ter_Minimo_Dois_Caracteres()
         {
-            Taxa taxa = new(0.3, "i");
+            Taxa taxa = new(0.3, "i", TipoCalculo.Fixo);
 
             ValidadorTaxa valfor = new();
 
@@ -38,7 +38,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
         [TestMethod]
         public void Descricao_Nao_Pode_Conter_Numeros_Ou_Simbolos_Especiais()
         {
-            Taxa taxa = new(0.3, "imp#osto");
+            Taxa taxa = new(0.3, "imp#osto", TipoCalculo.Diario);
 
             ValidadorTaxa valfor = new();
 
@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
         }
         public void Valor_Nao_Pode_Ser_Nulo()
         {
-            Taxa taxa = new(default, "imposto");
+            Taxa taxa = new(default, "imposto", TipoCalculo.Fixo);
 
             ValidadorTaxa valfor = new();
 
@@ -63,9 +63,9 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
         }
         public void Valor_Nao_Pode_Inserir_Itens_Duplicados()
         {
-            Taxa taxa = new(0.3, "imposto");
+            Taxa taxa = new(0.3, "imposto", TipoCalculo.Diario);
 
-            Taxa taxa1 = new(0.3, "imposto");
+            Taxa taxa1 = new(0.3, "imposto", TipoCalculo.Diario);
 
             List<Taxa> taxas = new List<Taxa>()
             {
