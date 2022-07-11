@@ -54,8 +54,12 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
             RuleFor(x => x.CPF)
             .Custom((cpf, context) =>
             {
-                if (Regex.IsMatch(cpf, @"^[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[\-][0-9]{2}", RegexOptions.IgnoreCase) == false)
-                    context.AddFailure("'CPF' inválido, tente novamente");
+                if (string.IsNullOrEmpty(cpf) == false)
+                {
+                    if (Regex.IsMatch(cpf, @"^[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[\-][0-9]{2}", RegexOptions.IgnoreCase) == false)
+                        context.AddFailure("'CPF' inválido, tente novamente");
+                }
+                    
             });
 
             RuleFor(x => x.CNH)
@@ -65,9 +69,12 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
             RuleFor(x => x.CNH)
           .Custom((cnh, context) =>
           {
-              if ((Regex.IsMatch(cnh, @"^[0-9]{11}")) == false)
-                  context.AddFailure("'CNH' Inválida, tente novamente");
-
+              if (string.IsNullOrEmpty(cnh) == false)
+              {
+                  if ((Regex.IsMatch(cnh, @"^[0-9]{11}")) == false)
+                      context.AddFailure("'CNH' Inválida, tente novamente");
+              }
+                  
           });
         }
     }
