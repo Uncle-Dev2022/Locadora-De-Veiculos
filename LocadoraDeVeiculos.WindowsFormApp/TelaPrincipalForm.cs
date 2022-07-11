@@ -11,7 +11,7 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloCliente;
-using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
+using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos; 
 using LocadoraVeiculos.Aplicacao.ModuloFuncinario;
 using LocadoraVeiculos.Aplicacao.ModuloCondutor;
 using System;
