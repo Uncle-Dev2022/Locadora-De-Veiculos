@@ -12,6 +12,8 @@
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloTaxas\" />
     <Folder Include="ModuloVeiculo\" />
+	<Folder Include="ModuloCondutor\" />
+
   </ItemGroup>
 
   <ItemGroup>

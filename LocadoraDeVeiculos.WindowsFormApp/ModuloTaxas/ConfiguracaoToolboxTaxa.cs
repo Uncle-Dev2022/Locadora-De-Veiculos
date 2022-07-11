@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 {
-    public class ConfiguracaoToolboxTaxa : ConfiguracaoToolBoxBase
+    public class ConfiguracaoToolBoxTaxa : ConfiguracaoToolBoxBase
     {
         public override string TipoCadastro => "Cadastro de Taxas";
 

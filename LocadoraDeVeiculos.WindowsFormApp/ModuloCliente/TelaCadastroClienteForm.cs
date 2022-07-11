@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
         public TelaCadastroClienteForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         public Func<Cliente, ValidationResult> GravarRegistro { get; set; }
@@ -124,6 +124,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
         }
 
         private void TelaCadastroClienteForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
 
         }

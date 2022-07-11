@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="ModuloFuncionário\" />
     <Folder Include="ModuloCliente\" />
-    <Folder Include="ModuloPlanoDeCobranca\" />
   </ItemGroup>
 
   <ItemGroup>

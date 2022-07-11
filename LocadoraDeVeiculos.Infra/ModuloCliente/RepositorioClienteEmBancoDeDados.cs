@@ -107,7 +107,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
                 [ID],
 		        [NOME],
 		        [CPF_CNPJ],
-                [ENDERECO],
+                [ENDERECO], 
                 [EMAIL],
                 [TELEFONE],
                 [CNH],
@@ -120,7 +120,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
 
         public Cliente SelecionarClientePorNome(string nome)
         {
-            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
+            return  SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }
 
         public Cliente SelecionarClientePorCPFOuCNPJ(string CPF_CNPJ)

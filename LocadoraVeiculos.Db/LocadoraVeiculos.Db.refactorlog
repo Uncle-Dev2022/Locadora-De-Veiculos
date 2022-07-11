@@ -7,4 +7,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ENDERECO" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="13b66f6f-6109-4abc-a944-62ce4d32bfe0" ChangeDateTime="07/09/2022 19:59:31">
+    <Property Name="ElementName" Value="[dbo].[TBPlanoDeControle].[valorDiario]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBPlanoDeControle]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PlanoDiario_ValorDiario" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9fafa74e-5da8-46d0-8de8-2314a9846c05" ChangeDateTime="07/09/2022 19:59:55">
+    <Property Name="ElementName" Value="[dbo].[TBPlanoDeControle].[valorKm]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBPlanoDeControle]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PlanoDiario_ValorKm" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2a0b49a0-e813-4efa-97e7-6ce8d56090ec" ChangeDateTime="07/09/2022 20:00:26">
+    <Property Name="ElementName" Value="[dbo].[TBPlanoDeControle].[limiteKm]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TBPlanoDeControle]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PlanoLivre_ValorDiario" />
+  </Operation>
 </Operations>
