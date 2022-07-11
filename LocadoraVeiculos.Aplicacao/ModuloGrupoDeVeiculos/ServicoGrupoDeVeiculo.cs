@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
-
+using Serilog;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos
 {
@@ -17,21 +17,42 @@ namespace LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos
 
         public ValidationResult Inserir(GrupoDeVeiculo grupoDeVeiculo)
         {
+            Log.Logger.Debug("Tentando inserir grupo de veículo... {@g}", grupoDeVeiculo);
             ValidationResult resultadoValidacao = Validar(grupoDeVeiculo);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioGrupoDeVeiculo.Inserir(grupoDeVeiculo);
-
+                Log.Logger.Debug("Grupo de veículo {grupoVeiculoNome} inserido com sucesso", grupoDeVeiculo.Nome);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir um grupo de veículo {grupoVeiculoNome} - {Motivo}",
+                        grupoDeVeiculo.Nome, erro.ErrorMessage);
+                }
+            }
             return resultadoValidacao;
         }
 
         public ValidationResult Editar(GrupoDeVeiculo grupoDeVeiculo)
         {
+            Log.Logger.Debug("Tentando editar grupo de veículo... {@g}", grupoDeVeiculo);
             ValidationResult resultadoValidacao = Validar(grupoDeVeiculo);
 
-            if (resultadoValidacao.IsValid)
+            if (resultadoValidacao.IsValid) { 
                 repositorioGrupoDeVeiculo.Editar(grupoDeVeiculo);
-
+                Log.Logger.Debug("Grupo de veículo {grupoVeiculoNome} editado com sucesso", grupoDeVeiculo.Nome);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar editar um grupo de veículo {grupoVeiculoNome} - {Motivo}",
+                        grupoDeVeiculo.Nome, erro.ErrorMessage);
+                }
+            }
             return resultadoValidacao;
         }
 
