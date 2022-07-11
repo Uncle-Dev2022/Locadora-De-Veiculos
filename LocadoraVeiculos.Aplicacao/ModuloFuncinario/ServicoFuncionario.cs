@@ -1,5 +1,6 @@
 ﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,22 +20,45 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
 
         public ValidationResult Inserir(Funcionario funcionario)
         {
+            Log.Logger.Debug("Tentando inserir funcionário... {@f}", funcionario);
             ValidationResult resultadoValidacao = Validar(funcionario);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioFuncionario.Inserir(funcionario);
+                Log.Logger.Debug("Funcionário {FuncionarioNome} inserido com sucesso", funcionario.Nome);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir um Funcionário {FuncionarioNome} - {Motivo}",
+                        funcionario.Nome, erro.ErrorMessage);
+                }
+            }
 
             return resultadoValidacao;
         }
 
         public ValidationResult Editar(Funcionario funcionario)
         {
+            Log.Logger.Debug("Tentando editar funcionário... {@f}", funcionario);
             ValidationResult resultadoValidacao = Validar(funcionario);
 
-            if (resultadoValidacao.IsValid)
+            if (resultadoValidacao.IsValid) { 
                 repositorioFuncionario.Editar(funcionario);
+            Log.Logger.Debug("Funcionário {FuncionarioNome} inserido com sucesso", funcionario.Nome);
+        }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir um Funcionário {FuncionarioNome} - {Motivo}",
+                        funcionario.Nome, erro.ErrorMessage);
+                }
+}
 
-            return resultadoValidacao;
+return resultadoValidacao;
         }
 
         private ValidationResult Validar(Funcionario funcionario)
