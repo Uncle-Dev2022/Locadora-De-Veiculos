@@ -17,8 +17,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
             comando.Parameters.AddWithValue("ID", registro.Id);
             comando.Parameters.AddWithValue("NOME", registro.Nome);
             comando.Parameters.AddWithValue("ENDERECO", registro.Endereco);
-            comando.Parameters.AddWithValue("CPF", registro.CPF);
-            comando.Parameters.AddWithValue("CNH", registro.CNH);
+            comando.Parameters.AddWithValue("CPF", string.IsNullOrEmpty(registro.CPF) ? DBNull.Value : registro.CPF);
+            comando.Parameters.AddWithValue("CNH", string.IsNullOrEmpty(registro.CNH) ? DBNull.Value : registro.CNH);
             comando.Parameters.AddWithValue("EMAIL", registro.Email);
             comando.Parameters.AddWithValue("CLIENTE_ID", registro.cliente.Id);
         }
@@ -28,8 +28,20 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
             int condutorId = Convert.ToInt32(leitorRegistro["CONDUTOR_ID"]);
             string condutorNome = Convert.ToString(leitorRegistro["CONDUTOR_NOME"]);
             string condutorEndereco = Convert.ToString(leitorRegistro["CONDUTOR_ENDERECO"]);
-            string condutorCpf = Convert.ToString(leitorRegistro["CONDUTOR_CPF"]);
-            string condutorCnh = Convert.ToString(leitorRegistro["CONDUTOR_CNH"]);
+            string condutorCpf = "";
+
+            if (leitorRegistro["CONDUTOR_CPF"] != DBNull.Value)
+            {
+               condutorCpf = Convert.ToString(leitorRegistro["CONDUTOR_CPF"]);
+            }
+
+            string condutorCnh = "";
+
+            if(leitorRegistro["CONDUTOR_CNH"] != DBNull.Value)
+            {
+                condutorCnh = Convert.ToString(leitorRegistro["CONDUTOR_CNH"]);
+
+            }
             string condutorEmail = Convert.ToString(leitorRegistro["CONDUTOR_EMAIL"]);
 
             int ClienteId = Convert.ToInt32(leitorRegistro["CONDUTOR_CLIENTE_ID"]);
