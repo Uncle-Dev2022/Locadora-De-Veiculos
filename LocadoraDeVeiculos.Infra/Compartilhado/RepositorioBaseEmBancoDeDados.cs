@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
         protected abstract string sqlSelecionarTodos { get; }
 
-        public void Inserir(T registro)
+        public virtual void Inserir(T registro)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
@@ -46,11 +46,9 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             registro.Id = Convert.ToInt32(id);
 
             conexaoComBanco.Close();
-
-
         }
 
-        public void Editar(T registro)
+        public virtual void Editar(T registro)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 
@@ -140,6 +138,9 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
             return registro;
         }
+
+            
+        
     }
 }
 

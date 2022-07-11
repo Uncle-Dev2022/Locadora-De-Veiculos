@@ -5,9 +5,10 @@ using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
-    public class RepositorioGrupoDeVeiculoEmBancoDeDados : RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorGrupoDeVeiculo>,
-        IRepositorioGrupoDeVeiculo
-    {       
+    public class RepositorioGrupoDeVeiculoEmBancoDeDados : 
+        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorGrupoDeVeiculo> , IRepositorioGrupoDeVeiculo 
+    {
+        
 
         protected override string sqlInserir =>
             @"INSERT INTO [TBGRUPOVEICULO] 

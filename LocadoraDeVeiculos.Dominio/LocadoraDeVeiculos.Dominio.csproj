@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <Folder Include="ModuloVeiculo\" />
+    <Folder Include="ModuloTaxas\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
 
 </Project>

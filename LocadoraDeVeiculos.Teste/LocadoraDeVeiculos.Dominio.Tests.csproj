@@ -23,7 +23,6 @@
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloTaxas\" />
-    <Folder Include="ModuloVeiculo\" />
   </ItemGroup>
 
   <ItemGroup>
