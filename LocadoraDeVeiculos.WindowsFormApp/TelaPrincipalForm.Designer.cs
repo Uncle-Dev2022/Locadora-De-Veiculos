@@ -262,7 +262,7 @@
             this.FuncionarioSubMenuItem,
             this.taxasMenuItem,
             this.GrupoDeVeiculosSubMenuItem,
-            this.VeiculoMenuItem});            
+            this.VeiculoMenuItem,            
             this.CondutorMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(107, 29);

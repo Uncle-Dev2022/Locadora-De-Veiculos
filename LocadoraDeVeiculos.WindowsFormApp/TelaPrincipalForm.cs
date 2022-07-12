@@ -188,7 +188,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
 
             var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo);
-            var servicoCliente = new ServicoCliente(repositorioCliente);       
+                  
 
 
             var servicoCliente = new ServicoCliente(repositorioCliente);
