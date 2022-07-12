@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,23 +19,48 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
             this.repositorioTaxa = repositorioTaxa;
         }
 
-        public ValidationResult Inserir(Taxa Taxa)
+        public ValidationResult Inserir(Taxa taxa)
         {
-            ValidationResult resultadoValidacao = Validar(Taxa);
+            Log.Logger.Debug("Tentando inserir Taxa... {@t}", taxa);
+
+            ValidationResult resultadoValidacao = Validar(taxa);
 
             if (resultadoValidacao.IsValid)
-                repositorioTaxa.Inserir(Taxa);
+            {
+                repositorioTaxa.Inserir(taxa);
+                Log.Logger.Debug("Taxa {TaxaDescricao} inserida com sucesso", taxa.descricao);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir uma Taxa{TaxaDescricao} - {Motivo}",
+                        taxa.descricao, erro.ErrorMessage);
+                }
 
+            }
             return resultadoValidacao;
         }
 
-        public ValidationResult Editar(Taxa Taxa)
+        public ValidationResult Editar(Taxa taxa)
         {
-            ValidationResult resultadoValidacao = Validar(Taxa);
+            Log.Logger.Debug("Tentando editar Taxa... {@t}", taxa);
+
+            ValidationResult resultadoValidacao = Validar(taxa);
 
             if (resultadoValidacao.IsValid)
-                repositorioTaxa.Editar(Taxa);
-
+            {
+                repositorioTaxa.Editar(taxa);
+                Log.Logger.Debug("Taxa {TaxaDescricao} editada com sucesso", taxa.descricao);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar editar uma Taxa {TaxaDescricao} - {Motivo}",
+                        taxa.descricao, erro.ErrorMessage);
+                }
+            }
             return resultadoValidacao;
         }
         private ValidationResult Validar(Taxa Taxa)
