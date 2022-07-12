@@ -15,6 +15,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
             @"INSERT INTO [DBO].[TBCLIENTE]
                 (
 
+                [ID],
                 [NOME],
                 [CPF_CNPJ],
                 [ENDERECO],
@@ -25,6 +26,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
                 )
               VALUES
                 (
+			    @ID,
 			    @NOME,
 			    @CPF_CNPJ,
 			    @ENDERECO,
@@ -32,7 +34,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
 			    @TELEFONE,
 			    @CNH,
 			    @TIPOCLIENTE
-			    ); SELECT SCOPE_IDENTITY();";
+			    );";
 
         protected override string sqlEditar =>
             @"UPDATE [DBO].[TBCLIENTE]

@@ -37,10 +37,10 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
 
         public override PlanoDeCobranca ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            var id = Convert.ToInt32(leitorRegistro["ID"]);
+            var id = Guid.Parse(leitorRegistro["ID"].ToString());
             string nome = leitorRegistro["NOME"].ToString();
 
-            var grupoDeVeiculoId = Convert.ToInt32(leitorRegistro["GRUPODEVEICULO_ID"]);
+            var grupoDeVeiculoId = Guid.Parse(leitorRegistro["GRUPODEVEICULO_ID"].ToString());
             var grupoVeiculoNome = leitorRegistro["GRUPODEVEICULO_NOME"].ToString();
 
             decimal planoDiarioValorDiario = Convert.ToDecimal(leitorRegistro["PLANODIARIO_VALORDIARIO"]);

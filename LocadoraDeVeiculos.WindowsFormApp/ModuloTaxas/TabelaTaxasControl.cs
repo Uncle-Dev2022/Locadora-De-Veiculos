@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using System.Windows.Forms;
+using System;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 {
@@ -14,9 +15,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
             grid.ConfigurarGridSomenteLeitura();
             grid.Columns.AddRange(ObterColunas());
         }
-        public int ObtemNumeroTaxaSelecionado()
+        public Guid ObtemNumeroTaxaSelecionado()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<Taxa> taxas)

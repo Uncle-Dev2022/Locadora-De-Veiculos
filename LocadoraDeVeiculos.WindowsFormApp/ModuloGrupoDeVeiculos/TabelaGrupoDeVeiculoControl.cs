@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -29,9 +30,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos
             return colunas;
         }
 
-        public int ObtemNumeroGrupoDeVeiculoSelecionada()
+        public Guid ObtemNumeroGrupoDeVeiculoSelecionada()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<GrupoDeVeiculo> grupoDeVeiculo)

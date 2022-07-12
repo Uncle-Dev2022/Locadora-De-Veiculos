@@ -38,7 +38,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
             set
             {
                 veiculo = value;
-                if (veiculo.Id != 0)
                     PreencherDadosNaTela();
             }
         }

@@ -31,7 +31,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloVeiculo
 
         public override Veiculo ConverterRegistro(SqlDataReader leitorVeiculo)
         {
-            int id = Convert.ToInt32(leitorVeiculo["ID"]);
+            var id = Guid.Parse(leitorVeiculo["ID"].ToString());
             string marca = Convert.ToString(leitorVeiculo["MARCA"]);
             string modelo = Convert.ToString(leitorVeiculo["MODELO"]);
             string cor = Convert.ToString(leitorVeiculo["COR"]);
@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloVeiculo
             int capacidadeTanque = Convert.ToInt32(leitorVeiculo["CAPACIDADETANQUE"]);
             byte[] imagem = (byte[])leitorVeiculo["IMAGEM"];
 
-            int numeroGrupo = Convert.ToInt32(leitorVeiculo["GRUPODEVEICULO_ID"]);
+            var numeroGrupo = Guid.Parse(leitorVeiculo["GRUPODEVEICULO_ID"].ToString());
             string nomeGrupo = Convert.ToString(leitorVeiculo["GRUPODEVEICULO_NOME"]);
 
 

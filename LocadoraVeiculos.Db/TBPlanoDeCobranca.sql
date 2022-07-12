@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[TBPlanoDeControle]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [Nome] VARCHAR(50) NOT NULL,
     [grupoDeVeiculo_id] INT NOT NULL,
     [PlanoDiario_ValorDiario] DECIMAL(11, 4) NOT NULL, 

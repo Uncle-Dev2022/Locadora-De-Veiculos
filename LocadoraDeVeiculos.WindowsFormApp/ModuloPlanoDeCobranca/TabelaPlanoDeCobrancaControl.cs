@@ -35,9 +35,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
 
             return colunas;
         }
-        public int ObtemNumeroPlanoDeCobrancaSelecionado()
+        public Guid ObtemNumeroPlanoDeCobrancaSelecionado()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
         public void AtualizarRegistros(List<PlanoDeCobranca> planosDeCobranca)
         {

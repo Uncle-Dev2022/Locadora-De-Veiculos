@@ -9,6 +9,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
         protected override string sqlInserir =>
     @"INSERT INTO [DBO].[TBPlanoDeCobranca]
             (
+                [ID],
                 [NOME],
                 [GRUPODEVEICULO_ID],
                 [PLANODIARIO_VALORDIARIO],
@@ -20,6 +21,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
             )
               VALUES
             (
+                @ID,
                 @NOME,
 			    @GRUPODEVEICULO_ID,
 			    @PLANODIARIO_VALORDIARIO,
@@ -28,7 +30,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
 			    @PLANOCONTROLADO_VALORDIARIO,
                 @PLANOCONTROLADO_VALORKM,
                 @PLANOCONTROLADO_LIMITEKM
-			); SELECT SCOPE_IDENTITY();";
+			);";
 
         protected override string sqlEditar =>
             @"UPDATE [DBO].[TBPlanoDeCobranca]
