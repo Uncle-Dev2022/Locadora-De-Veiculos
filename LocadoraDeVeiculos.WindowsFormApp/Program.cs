@@ -1,7 +1,9 @@
 
 using LocadoraDeVeiculo.Infra.Logging;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp
@@ -19,9 +21,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaPrincipalForm());
-
-
-
         }
     }
 }
