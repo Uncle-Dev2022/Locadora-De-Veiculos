@@ -25,8 +25,8 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
 
         public RepositorioCondutorEmBancoDeDadosTest()
         {
-            DB.executarSql("DELETE FROM TBCONDUTOR; DBCC CHECKIDENT (TBCONDUTOR, RESEED, 0)");
-            DB.executarSql("DELETE FROM TBCLIENTE; DBCC CHECKIDENT (TBCLIENTE, RESEED, 0)");
+            DB.executarSql("DELETE FROM TBCONDUTOR;");
+            DB.executarSql("DELETE FROM TBCLIENTE;");
 
             cliente = new Cliente("Thiago", "rua", "Thiago@gmail.com", "(49) 98547 - 4512", true, "245.457.458 - 12", "012457896");
             

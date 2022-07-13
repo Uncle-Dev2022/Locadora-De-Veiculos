@@ -19,7 +19,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloTaxas
 
         public RepositorioTaxaEmBancoDeDadosTest()
         {
-            DB.executarSql("DELETE FROM TBTAXA; DBCC CHECKIDENT (TBTAXA, RESEED, 0)");
+            DB.executarSql("DELETE FROM TBTAXA;");
 
             taxa = new Taxa(0.3, "imposto", TipoCalculo.Diario);
 

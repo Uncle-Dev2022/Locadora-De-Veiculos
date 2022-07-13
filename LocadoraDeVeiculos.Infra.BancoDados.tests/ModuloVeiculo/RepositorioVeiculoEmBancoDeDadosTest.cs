@@ -20,7 +20,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
 
         public RepositorioVeiculoEmBancoDeDadosTest()
         {
-            DB.executarSql("DELETE FROM TBVEICULO; DBCC CHECKIDENT (TBVEICULO, RESEED, 0)");
+            DB.executarSql("DELETE FROM TBVEICULO;");
 
             repositorioVeiculo = new RepositorioVeiculoEmBancoDeDados();
             repositorioGrupo = new RepositorioGrupoDeVeiculoEmBancoDeDados();

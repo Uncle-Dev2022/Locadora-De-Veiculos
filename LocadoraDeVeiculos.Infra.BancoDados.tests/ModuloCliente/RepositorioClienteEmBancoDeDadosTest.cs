@@ -16,15 +16,22 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
     public class RepositorioClienteEmBancoDeDadosTest
     {
         Cliente clientePessoaFisica;
+        Cliente clientePessoaFisica1;
+        Cliente clientePessoaFisica2;
+
         Cliente ClientePessoaJuridica;
 
         private RepositorioClienteEmBancoDeDados repositorioCliente;
         public RepositorioClienteEmBancoDeDadosTest()
         {
-            DB.executarSql("DELETE FROM TBCONDUTOR; DBCC CHECKIDENT (TBCONDUTOR, RESEED, 0)");
-            DB.executarSql("DELETE FROM TBCLIENTE; DBCC CHECKIDENT (TBCLIENTE, RESEED, 0)");
+            DB.executarSql("DELETE FROM TBCONDUTOR;");
+            DB.executarSql("DELETE FROM TBCLIENTE;");
 
             clientePessoaFisica = new Cliente("Thiago", "rua", "Thiago@gmail.com", "(49) 98547-4512", true, "245.457.458-12", "012457896");
+
+            clientePessoaFisica1 = new Cliente("Alvaro", "rua", "Thiago@gmail.com", "(49) 98747-4512", true, "245.657.458-12", "012757896");
+
+            clientePessoaFisica2 = new Cliente("Thiago", "rua", "Thiago@gmail.com", "(49) 98547-4512", true, "245.487.458-12", "012457696");
 
             ClientePessoaJuridica = new Cliente("Empresa", "rua", "empresa@gmail.com", "(49) 98547-4215", false, "25.427.475/0001-00", null);
 
@@ -101,8 +108,10 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
         {
             int quantidade = 3;
 
-            for (int i = 0; i < quantidade; i++)
-                repositorioCliente.Inserir(clientePessoaFisica);
+            repositorioCliente.Inserir(clientePessoaFisica);
+            repositorioCliente.Inserir(clientePessoaFisica1);
+            repositorioCliente.Inserir(clientePessoaFisica2);
+
 
             var Clientes = repositorioCliente.SelecionarTodos();
 
