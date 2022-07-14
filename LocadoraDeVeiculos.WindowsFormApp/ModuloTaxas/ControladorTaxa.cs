@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+using LocadoraVeiculos.Aplicacao.ModuloTaxas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 {
     internal class ControladorTaxa : ControladorBase
     {
-        RepositorioTaxaEmBancoDeDados repositorioTaxa;
+        private readonly IRepositorioTaxa repositorioTaxa;
+        private readonly ServicoTaxa servicoTaxa;
         private TabelaTaxasControl tabelaTaxas;
 
-        public ControladorTaxa(RepositorioTaxaEmBancoDeDados repositorioTaxa)
+        public ControladorTaxa(IRepositorioTaxa repositorioTaxa, ServicoTaxa servicoTaxa)
         {
+            this.servicoTaxa = servicoTaxa;
             this.repositorioTaxa = repositorioTaxa;
         }
         public override void Editar()
@@ -35,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 
             tela.Taxa = taxaSelecionada.Clonar();
 
-            tela.GravarRegistro = repositorioTaxa.Editar;
+            tela.GravarRegistro = servicoTaxa.Editar;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -71,7 +74,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
             TelaCadastroTaxasForm tela = new TelaCadastroTaxasForm();
             tela.Taxa = new Taxa();
 
-            tela.GravarRegistro = repositorioTaxa.Inserir;
+            tela.GravarRegistro = servicoTaxa.Inserir;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -83,13 +86,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 
         public override ConfiguracaoToolBoxBase ObtemConfiguracaoToolbox()
         {
-            return new ConfiguracaoToolboxTaxa();
+            return new ConfiguracaoToolBoxTaxa();
         }
 
         public override UserControl ObtemListagem()
         {
-            //if (tabelaContatos == null)
-            tabelaTaxas = new TabelaTaxasControl();
+            if (tabelaTaxas == null)
+                tabelaTaxas = new TabelaTaxasControl();
 
             CarregarTaxas();
 

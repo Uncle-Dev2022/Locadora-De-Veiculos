@@ -17,15 +17,16 @@ namespace LocadoraDeVeiculos.Infra.ModuloTaxas
             comando.Parameters.AddWithValue("ID", registro.Id);
             comando.Parameters.AddWithValue("VALOR", registro.valor);
             comando.Parameters.AddWithValue("DESCRICAO", registro.descricao);
+            comando.Parameters.AddWithValue("TIPO_CALCULO", registro.descricao);
         }
 
         public override Taxa ConverterRegistro(SqlDataReader leitorRegistro)
         {
-            int id = Convert.ToInt32(leitorRegistro["ID"]);
+            var id = Guid.Parse(leitorRegistro["ID"].ToString());
             double valor = (double)leitorRegistro["VALOR"];//double.Parse(leitorRegistro["VALOR"]);
             string descricao = leitorRegistro["DESCRICAO"].ToString();
-
-            Taxa taxa = new Taxa(valor, descricao)
+            TipoCalculo tipoCalculo = (TipoCalculo)leitorRegistro["TIPO_CALCULO"];
+            Taxa taxa = new Taxa(valor, descricao, tipoCalculo)
             {
                 Id = id
             };

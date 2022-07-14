@@ -29,7 +29,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloFuncionário
                     @LOGIN,
                     @GERENTE
                     
-                );SELECT SCOPE_IDENTITY();";
+                );";
 
         protected override string sqlEditar =>
             @"UPDATE [TBFUNCIONARIO]	

@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
         public TelaCadastroClienteForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         public Func<Cliente, ValidationResult> GravarRegistro { get; set; }
@@ -42,7 +42,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                     maskedTextBoxCNPJ.Visible = false;
                     maskedTextBoxCPF.Visible = true;
                     labelCnh.Visible = true;
-                    txtBoxCNH.Visible = true;
+                    maskedTextBoxCNH.Visible = true;
                     maskedTextBoxCPF.Text = cliente.CPF_CNPJ;
                 }
                 else
@@ -52,7 +52,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                     maskedTextBoxCNPJ.Visible = true;
                     maskedTextBoxCPF.Visible = false;
                     labelCnh.Visible = false;
-                    txtBoxCNH.Visible = false;
+                    maskedTextBoxCNH.Visible = false;
                     maskedTextBoxCNPJ.Text = cliente.CPF_CNPJ;
                 }
             }
@@ -75,7 +75,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             maskedTextBoxCNPJ.Visible = false;
             maskedTextBoxCPF.Visible = true;
             labelCnh.Visible = true;
-            txtBoxCNH.Visible = true;
+            maskedTextBoxCNH.Visible = true;
         }
 
         private void ConfigurarCamposPessoaJuridica()
@@ -84,7 +84,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             maskedTextBoxCNPJ.Visible = true;
             maskedTextBoxCPF.Visible = false;
             labelCnh.Visible = false;
-            txtBoxCNH.Visible = false;
+            maskedTextBoxCNH.Visible = false;
         }
 
         private void btnGravar_Click_1(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
             if (radioButtonPessoaFiscia.Checked)
             {
                 cliente.tipoCliente = true;
-                cliente.CNH = txtBoxCNH.Text;
+                cliente.CNH = maskedTextBoxCNH.Text;
                 cliente.CPF_CNPJ = maskedTextBoxCPF.Text;
             }
             else
@@ -124,6 +124,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
         }
 
         private void TelaCadastroClienteForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
 
         }

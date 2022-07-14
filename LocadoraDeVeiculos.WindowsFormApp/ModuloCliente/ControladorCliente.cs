@@ -13,11 +13,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 {
     public class ControladorCliente :ControladorBase
     {
-        private readonly RepositorioClienteEmBancoDeDados repositorioCliente;
+        private readonly IRepositorioCliente repositorioCliente;
         private readonly ServicoCliente servicoCliente;
         private TabelaClienteControl tabelaCliente;
 
-        public ControladorCliente(RepositorioClienteEmBancoDeDados repositorioCliente,ServicoCliente servicoCliente)
+        public ControladorCliente(IRepositorioCliente repositorioCliente,ServicoCliente servicoCliente)
         {
             this.repositorioCliente = repositorioCliente;
             this.servicoCliente = servicoCliente;

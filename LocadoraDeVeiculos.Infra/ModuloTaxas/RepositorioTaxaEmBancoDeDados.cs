@@ -8,26 +8,30 @@ using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 
 namespace LocadoraDeVeiculos.Infra.ModuloTaxas
 {
-    public class RepositorioTaxaEmBancoDeDados : RepositorioBaseEmBancoDeDados<Taxa, MapeadorTaxa>
+    public class RepositorioTaxaEmBancoDeDados : RepositorioBaseEmBancoDeDados<Taxa, MapeadorTaxa>, IRepositorioTaxa
     {
         protected override string sqlInserir =>
             @"INSERT INTO [TBTAXA] 
                 (
+                    [ID],
                     [DESCRICAO],
-                    [VALOR]                   
+                    [VALOR],
+                    [TIPO_CALCULO]
 	            )
 	            VALUES
                 (
+                    @ID,
                     @DESCRICAO,
-                    @VALOR                    
-                );SELECT SCOPE_IDENTITY();";
+                    @VALOR,
+                    @TIPO_CALCULO
+                );";
 
         protected override string sqlEditar =>
             @"UPDATE [TBTAXA]	
 		        SET
                     [DESCRICAO] = @DESCRICAO,
-                    [VALOR] = @VALOR     
-
+                    [VALOR] = @VALOR,
+                    [TIPO_CALCULO] = @TIPO_CALCULO     
 		        WHERE
 			        [ID] = @ID";
 
@@ -41,7 +45,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloTaxas
             @"SELECT 
 		            [ID], 
                     [DESCRICAO],
-                    [VALOR]     
+                    [VALOR],
+                    [TIPO_CALCULO]
 
 	            FROM 
 		            [TBTAXA]
@@ -52,7 +57,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloTaxas
             @"SELECT 
 		            [ID], 
                     [DESCRICAO],
-                    [VALOR]     
+                    [VALOR],
+                    [TIPO_CALCULO]
 	            FROM 
 		            [TBTAXA]";
     }

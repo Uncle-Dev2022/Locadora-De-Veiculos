@@ -1,6 +1,7 @@
 ﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,40 +12,52 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 {
     public class ServicoCliente
     {
-        private RepositorioClienteEmBancoDeDados repositorioCliente;
+        private IRepositorioCliente repositorioCliente;
 
-        public ServicoCliente(RepositorioClienteEmBancoDeDados repositorioCliente)
+        public ServicoCliente(IRepositorioCliente repositorioCliente)
         {
             this.repositorioCliente = repositorioCliente;
         }
 
         public ValidationResult Inserir(Cliente cliente)
         {
+            Log.Logger.Debug("Tentando inserir Cliente... {@c}", cliente);
             ValidationResult resultadoValidacao = Validar(cliente);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioCliente.Inserir(cliente);
-
+                Log.Logger.Debug("Cliente {clienteID} inserido com sucesso", cliente.Id);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar inserir um cliente {clienteID} - {Motivo}",
+                        cliente.Id, erro.ErrorMessage);
+                }
+            }
             return resultadoValidacao;
         }
 
         public ValidationResult Editar(Cliente cliente)
         {
+            Log.Logger.Debug("Tentando editar cliente... {@c}", cliente);
             ValidationResult resultadoValidacao = Validar(cliente);
 
             if (resultadoValidacao.IsValid)
+            {
                 repositorioCliente.Editar(cliente);
-
-            return resultadoValidacao;
-        }
-
-        public ValidationResult Excluir(Cliente cliente)
-        {
-            ValidationResult resultadoValidacao = Validar(cliente);
-
-            if (resultadoValidacao.IsValid)
-                repositorioCliente.Excluir(cliente);
-
+                Log.Logger.Debug("cliente {clienteID} editado com sucesso", cliente.Id);
+            }
+            else
+            {
+                foreach (var erro in resultadoValidacao.Errors)
+                {
+                    Log.Logger.Warning("Falha ao tentar editar um cliente {clienteID} - {Motivo}",
+                        cliente.Id, erro.ErrorMessage);
+                }
+            }
             return resultadoValidacao;
         }
 
@@ -71,7 +84,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool CPF_CNPJDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorioCliente.SelecionarClientePorNome(cliente.CPF_CNPJ);
+            var ClienteEncontrado = repositorioCliente.SelecionarClientePorCPFOuCNPJ(cliente.CPF_CNPJ);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&
@@ -84,7 +97,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.Nome==cliente.Nome &&
-                   ClienteEncontrado.Id!=cliente.Id;
+                   ClienteEncontrado.Id != cliente.Id;
         }
     }
 }

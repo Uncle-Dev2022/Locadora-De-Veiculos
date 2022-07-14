@@ -47,9 +47,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
             return colunas;
         }
 
-        public int ObtemNumeroFuncionarioSelecionado()
+        public Guid ObtemNumeroFuncionarioSelecionado()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<Funcionario> funcionarios)

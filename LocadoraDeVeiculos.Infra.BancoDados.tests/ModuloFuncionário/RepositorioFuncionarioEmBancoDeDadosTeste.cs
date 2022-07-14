@@ -18,11 +18,11 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloFuncionário
 
         public RepositorioFuncionarioEmBancoDeDadosTeste()
         {
-            DB.executarSql("DELETE FROM TBFUNCIONARIO; DBCC CHECKIDENT (TBFUNCIONARIO, RESEED, 0)");
+            DB.executarSql("DELETE FROM TBFUNCIONARIO;");
 
             funcionario = new Funcionario("Funcionario", 1000 , DateTime.Parse("26/06/2022") , "Senha1", "Login1", true );
-            funcionario1 = new Funcionario("FuncionarioUm", 500 , DateTime.Parse("27/06/2022") , "Senha2", "Login2", true );
-            funcionario2 = new Funcionario("FuncionarioDois", 900 , DateTime.Parse("28/06/2022") , "Senha3", "Login3", true );
+            funcionario1 = new Funcionario("FuncionarioDois", 900 , DateTime.Parse("26/06/2022") , "Senha2", "Login2", true );
+            funcionario2 = new Funcionario("FuncionarioTres", 800 , DateTime.Parse("26/06/2022") , "Senha3", "Login3", true );
 
             repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
 

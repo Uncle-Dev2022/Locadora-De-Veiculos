@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dbo].[TBGrupoVeiculo]
 (
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Nome] VARCHAR(50) NOT NULL
+    [id] UNIQUEIDENTIFIER NOT NULL, 
+    [Nome] VARCHAR(50) NOT NULL, 
+    CONSTRAINT [PK_TBGrupoVeiculo] PRIMARY KEY ([id])
 )

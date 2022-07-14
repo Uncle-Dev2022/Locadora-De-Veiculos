@@ -8,14 +8,15 @@
     <Folder Include="ModuloGrupoDeVeiculos\" />
     <Folder Include="ModuloFuncinario\" />
     <Folder Include="ModuloTaxas\" />
-    <Folder Include="ModuloVeiculo\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
+    <Folder Include="ModuloVeiculo\" />
     <Folder Include="ModuloCliente\" />
     <Folder Include="ModuloCondutor\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Serilog" Version="2.11.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>

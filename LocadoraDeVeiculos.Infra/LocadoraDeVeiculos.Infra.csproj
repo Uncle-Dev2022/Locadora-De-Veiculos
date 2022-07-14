@@ -9,20 +9,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ModuloCondutor\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
     <Folder Include="ModuloTaxas\" />
     <Folder Include="ModuloVeiculo\" />
+	<Folder Include="ModuloCondutor\" />
+
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
-    <ProjectReference Include="..\LocadoraVeiculos.Db\LocadoraVeiculos.Db.sqlproj" />
   </ItemGroup>
 
 </Project>

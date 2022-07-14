@@ -84,7 +84,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
               {
                   if (string.IsNullOrEmpty(cnh) == false)
                   {
-                      if ((Regex.IsMatch(cnh, @"^[0-9]{9}")) == false)
+                      if ((Regex.IsMatch(cnh, @"^[0-9]{11}")) == false)
                           context.AddFailure("'CNH' Inválida, tente novamente");
                   }
               });

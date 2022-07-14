@@ -8,7 +8,12 @@ namespace LocadoraDeVeiculos.Dominio.Compartilhado
 {
     public  class EntidadeBase<T> where T : class
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+
+        public EntidadeBase()
+        {
+            Id = Guid.NewGuid();
+        }
 
         public T Clonar()
         {

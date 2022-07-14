@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using System.Windows.Forms;
+using System;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 {
@@ -14,9 +15,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
             grid.ConfigurarGridSomenteLeitura();
             grid.Columns.AddRange(ObterColunas());
         }
-        public int ObtemNumeroTaxaSelecionado()
+        public Guid ObtemNumeroTaxaSelecionado()
         {
-            return grid.SelecionarNumero<int>();
+            return grid.SelecionarNumero<Guid>();
         }
 
         public void AtualizarRegistros(List<Taxa> taxas)
@@ -25,7 +26,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
             
             foreach (var taxa in taxas)
             {
-                grid.Rows.Add(taxa.Id, taxa.descricao, taxa.valor * 100);
+                grid.Rows.Add(taxa.Id, taxa.descricao, taxa.valor * 100, taxa.tipoCalculo);
             }
         }
         private DataGridViewColumn[] ObterColunas()
@@ -38,6 +39,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Taxa", HeaderText = "Taxa(%)"},
 
+                new DataGridViewTextBoxColumn { DataPropertyName = "Tipo_Calculo", HeaderText = "Tipo Cálculo"},
             };
 
             return colunas;
