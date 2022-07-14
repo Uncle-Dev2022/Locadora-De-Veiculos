@@ -23,14 +23,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos
             if (resultadoValidacao.IsValid)
             {
                 repositorioGrupoDeVeiculo.Inserir(grupoDeVeiculo);
-                Log.Logger.Debug("Grupo de veículo {grupoVeiculoNome} inserido com sucesso", grupoDeVeiculo.Nome);
+                Log.Logger.Debug("Grupo de veículo {grupoVeiculoID} inserido com sucesso", grupoDeVeiculo.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar inserir um grupo de veículo {grupoVeiculoNome} - {Motivo}",
-                        grupoDeVeiculo.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar inserir um grupo de veículo {grupoVeiculoID} - {Motivo}",
+                        grupoDeVeiculo.Id, erro.ErrorMessage);
                 }
             }
             return resultadoValidacao;
@@ -43,14 +43,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos
 
             if (resultadoValidacao.IsValid) { 
                 repositorioGrupoDeVeiculo.Editar(grupoDeVeiculo);
-                Log.Logger.Debug("Grupo de veículo {grupoVeiculoNome} editado com sucesso", grupoDeVeiculo.Nome);
+                Log.Logger.Debug("Grupo de veículo {grupoVeiculoID} editado com sucesso", grupoDeVeiculo.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar editar um grupo de veículo {grupoVeiculoNome} - {Motivo}",
-                        grupoDeVeiculo.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar editar um grupo de veículo {grupoVeiculoID} - {Motivo}",
+                        grupoDeVeiculo.Id, erro.ErrorMessage);
                 }
             }
             return resultadoValidacao;

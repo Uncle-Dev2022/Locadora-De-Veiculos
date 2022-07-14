@@ -26,14 +26,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
             if (resultadoValidacao.IsValid)
             {
                 repositorioVeiculo.Inserir(veiculo);
-                Log.Logger.Debug("Veiculo {VeiculoModelo} inserido com sucesso", veiculo.Modelo);
+                Log.Logger.Debug("Veiculo {VeiculoID} inserido com sucesso", veiculo.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar inserir um Veiculo {VeiculoModelo} - {Motivo}",
-                        veiculo.Marca, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar inserir um Veiculo {VeiculoID} - {Motivo}",
+                        veiculo.Id, erro.ErrorMessage);
                 }
             }
 
@@ -48,14 +48,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
             if (resultadoValidacao.IsValid)
             {
                 repositorioVeiculo.Editar(veiculo);
-                Log.Logger.Debug("Veiculo {VeiculoModelo} editado com sucesso", veiculo.Modelo);
+                Log.Logger.Debug("Veiculo {VeiculoID} editado com sucesso", veiculo.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar editar um Veiculo {VeiculoModelo} - {Motivo}",
-                        veiculo.Marca, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar editar um Veiculo {VeiculoID} - {Motivo}",
+                        veiculo.Id, erro.ErrorMessage);
                 }
             }
 

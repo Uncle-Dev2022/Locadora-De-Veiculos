@@ -22,14 +22,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
             if (resultadoValidacao.IsValid)
             {
                 repositorioPlanoDeCobranca.Inserir(planoDeCobranca);
-                Log.Logger.Debug("Plano De Cobrança {PlanoDeCobrancaNome} inserido com sucesso", planoDeCobranca.Nome);
+                Log.Logger.Debug("Plano De Cobrança {PlanoDeCobrancaID} inserido com sucesso", planoDeCobranca.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar inserir um Plano De Cobrança {PlanoDeCobrancaNome} - {Motivo}",
-                        planoDeCobranca.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar inserir um Plano De Cobrança {PlanoDeCobrancaID} - {Motivo}",
+                        planoDeCobranca.Id, erro.ErrorMessage);
                 }
 
             }
@@ -45,14 +45,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
             if (resultadoValidacao.IsValid)
             {
                 repositorioPlanoDeCobranca.Editar(planoDeCobranca);
-                Log.Logger.Debug("Plano De Cobrança {PlanoDeCobrancaNome} editado com sucesso", planoDeCobranca.Nome);
+                Log.Logger.Debug("Plano De Cobrança {PlanoDeCobrancaID} editado com sucesso", planoDeCobranca.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar editar um Plano de Cobrança {PlanoDeCobrancaNome} - {Motivo}",
-                        planoDeCobranca.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar editar um Plano de Cobrança {PlanoDeCobrancaID} - {Motivo}",
+                        planoDeCobranca.Id, erro.ErrorMessage);
                 }
             }
             return resultadoValidacao;

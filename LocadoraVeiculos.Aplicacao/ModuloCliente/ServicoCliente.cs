@@ -27,14 +27,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             if (resultadoValidacao.IsValid)
             {
                 repositorioCliente.Inserir(cliente);
-                Log.Logger.Debug("Cliente {clientenome} inserido com sucesso", cliente.Nome);
+                Log.Logger.Debug("Cliente {clienteID} inserido com sucesso", cliente.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar inserir um cliente {clientenome} - {Motivo}",
-                        cliente.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar inserir um cliente {clienteID} - {Motivo}",
+                        cliente.Id, erro.ErrorMessage);
                 }
             }
             return resultadoValidacao;
@@ -48,14 +48,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             if (resultadoValidacao.IsValid)
             {
                 repositorioCliente.Editar(cliente);
-                Log.Logger.Debug("cliente {clienteNome} editado com sucesso", cliente.Nome);
+                Log.Logger.Debug("cliente {clienteID} editado com sucesso", cliente.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar editar um cliente {clienteNome} - {Motivo}",
-                        cliente.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar editar um cliente {clienteID} - {Motivo}",
+                        cliente.Id, erro.ErrorMessage);
                 }
             }
             return resultadoValidacao;

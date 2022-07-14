@@ -27,14 +27,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
             if (resultadoValidacao.IsValid)
             {
                 repositorioCondutor.Inserir(condutor);
-                Log.Logger.Debug("Condutor {condutornome} inserido com sucesso", condutor.Nome);
+                Log.Logger.Debug("Condutor {condutorID} inserido com sucesso", condutor.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar inserir um condutor {condutornome} - {Motivo}",
-                        condutor.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar inserir um condutor {condutorID} - {Motivo}",
+                        condutor.Id, erro.ErrorMessage);
                 }
             }
             return resultadoValidacao;
@@ -48,14 +48,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
             if (resultadoValidacao.IsValid)
             {
                 repositorioCondutor.Editar(condutor);
-                Log.Logger.Debug("condutor {condutorNome} editado com sucesso", condutor.Nome);
+                Log.Logger.Debug("condutor {condutorID} editado com sucesso", condutor.Id);
             }
             else
             {
                 foreach (var erro in resultadoValidacao.Errors)
                 {
-                    Log.Logger.Warning("Falha ao tentar editar um condutor {condutoreNome} - {Motivo}",
-                        condutor.Nome, erro.ErrorMessage);
+                    Log.Logger.Warning("Falha ao tentar editar um condutor {condutoreID} - {Motivo}",
+                        condutor.Id, erro.ErrorMessage);
                 }
             }
             return resultadoValidacao;
