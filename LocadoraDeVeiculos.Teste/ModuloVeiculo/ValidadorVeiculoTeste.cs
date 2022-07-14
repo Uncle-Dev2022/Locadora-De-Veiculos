@@ -178,7 +178,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
         [TestMethod]
         public void Placa_nao_Pode_Ser_Vazio()
         {
-            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19" , 1000000, 50, new byte[] { });
+            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "" , 1000000, 50, new byte[] { });
 
             ValidadorVeiculo validacao = new();
 
