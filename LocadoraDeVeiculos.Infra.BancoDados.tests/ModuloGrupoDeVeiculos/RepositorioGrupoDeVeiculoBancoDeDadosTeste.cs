@@ -9,6 +9,8 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
     public class RepositorioGrupoDeVeiculoBancoDeDadosTeste
     {
         GrupoDeVeiculo grupoVeiculo;
+        GrupoDeVeiculo grupoVeiculo1;
+        GrupoDeVeiculo grupoVeiculo2;
 
         RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo;
 
@@ -17,6 +19,8 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
             DB.executarSql("DELETE FROM TBGRUPOVEICULO;");
 
             grupoVeiculo = new GrupoDeVeiculo("GrupoDeVeiculo");
+            grupoVeiculo1 = new GrupoDeVeiculo("GrupoDeVeiculoUm");
+            grupoVeiculo2 = new GrupoDeVeiculo("GrupoDeVeiculoDois");
 
             repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
 
@@ -83,8 +87,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
         {
             int quantidade = 3;
 
-            for (int i = 0; i < quantidade; i++)
-                repositorioGrupoDeVeiculo.Inserir(grupoVeiculo);
+            repositorioGrupoDeVeiculo.Inserir(grupoVeiculo);
+            repositorioGrupoDeVeiculo.Inserir(grupoVeiculo1);
+            repositorioGrupoDeVeiculo.Inserir(grupoVeiculo2);
 
             var grupoVeiculos = repositorioGrupoDeVeiculo.SelecionarTodos();
 
