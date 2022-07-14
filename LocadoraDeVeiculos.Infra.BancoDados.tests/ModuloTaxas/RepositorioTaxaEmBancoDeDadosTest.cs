@@ -14,6 +14,8 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloTaxas
     public class RepositorioTaxaEmBancoDeDadosTest
     {
         Taxa taxa;
+        Taxa taxa1;
+        Taxa taxa2;
 
         RepositorioTaxaEmBancoDeDados repositorioTaxa;
 
@@ -22,7 +24,8 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloTaxas
             DB.executarSql("DELETE FROM TBTAXA;");
 
             taxa = new Taxa(0.3, "imposto", TipoCalculo.Diario);
-
+            taxa1 = new Taxa(0.25, "ipva", TipoCalculo.Fixo);
+            taxa2 = new Taxa(0.05, "taxa de limpeza", TipoCalculo.Diario);
             repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
 
         }
@@ -88,8 +91,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloTaxas
         {
             int quantidade = 3;
 
-            for (int i = 0; i < quantidade; i++)
-                repositorioTaxa.Inserir(this.taxa);
+            repositorioTaxa.Inserir(taxa);
+            repositorioTaxa.Inserir(taxa1);
+            repositorioTaxa.Inserir(taxa2);
 
             var taxas = repositorioTaxa.SelecionarTodos();
 
