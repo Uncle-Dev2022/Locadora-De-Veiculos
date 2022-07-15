@@ -49,5 +49,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
                 CPF_CNPJ == cliente.CPF_CNPJ &&
                 CNH == cliente.CNH;
         }
+
     }
 }

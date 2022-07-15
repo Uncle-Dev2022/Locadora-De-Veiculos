@@ -186,6 +186,7 @@
             this.Controls.Add(this.comboBoxCliente);
             this.Controls.Add(this.label1);
             this.Name = "TelaCadastroCondutorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela De Cadastro de Condutores";
             this.ResumeLayout(false);
             this.PerformLayout();
