@@ -167,8 +167,6 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
                 erros.Add(new Error(item.ErrorMessage));
             }
 
-            
-
             if (NomeDuplicado(condutor))
                 erros.Add(new Error("Nome Duplicado"));
 
