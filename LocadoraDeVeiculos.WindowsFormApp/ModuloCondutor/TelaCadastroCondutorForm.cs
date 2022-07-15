@@ -61,6 +61,25 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
             condutor.CPF= maskedTextBoxCPF.Text;
             condutor.CNH = maskedTextBoxCNH.Text;
             condutor.Email= textBoxEmail.Text;
+
+            var resultadoValidacao = GravarRegistro(condutor);
+
+            if (resultadoValidacao.IsFailed)
+            {
+                string erro = resultadoValidacao.Errors[0].Message;
+
+                if (erro.StartsWith("Falha no sistema"))
+                {
+                    MessageBox.Show(erro,
+                    "Inserção de Condutor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+
+                    DialogResult = DialogResult.None;
+                }
+            }
         }
     }
 }

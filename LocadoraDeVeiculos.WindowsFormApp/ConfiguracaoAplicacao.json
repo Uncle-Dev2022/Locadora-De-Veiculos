@@ -1,6 +1,6 @@
 {
   "ConfiguracaoLogs": {
-    "DiretorioSaida": "logs"
+    "DiretorioSaida": "..\\..\\..\\..\\logs"
   },
 
   "ConnectionStrings": {
