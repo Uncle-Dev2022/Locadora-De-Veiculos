@@ -83,10 +83,22 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             SqlCommand comandoExclusao = new SqlCommand(sqlExcluir, conexaoComBanco);
 
             comandoExclusao.Parameters.AddWithValue("ID", registro.Id);
+            try
+            {
+                conexaoComBanco.Open();
+                comandoExclusao.ExecuteNonQuery();
+                conexaoComBanco.Close();
+            }
+            catch(Exception ex)
+            {
+                if(ex!= null && ex.Message.Contains("The DELETE statement conflicted with the REFERENCE constraint"))
+                {
+                    throw new NaoPodeExcluirEsteRegistroException(ex);
+                }
 
-            conexaoComBanco.Open();
-            comandoExclusao.ExecuteNonQuery();
-            conexaoComBanco.Close();
+                throw;
+            }
+           
         }
 
         public virtual T SelecionarPorId(Guid id)
@@ -152,8 +164,7 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             return registro;
         }
 
-
-
     }
+    
 }
 
