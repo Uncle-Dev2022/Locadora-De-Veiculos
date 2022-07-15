@@ -129,5 +129,6 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
         {
             return SelecionarPorParametro(sqlSelecionarPorCPF_CNPJ, new SqlParameter("CPF_CNPJ", CPF_CNPJ));
         }
+
     }
 }

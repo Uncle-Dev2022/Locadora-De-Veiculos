@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
+using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloTaxas
 {
@@ -61,5 +62,21 @@ namespace LocadoraDeVeiculos.Infra.ModuloTaxas
                     [TIPO_CALCULO]
 	            FROM 
 		            [TBTAXA]";
+
+        protected string sqlSelecionarPorDescricao =>
+            @"SELECT 
+		            [ID], 
+                    [DESCRICAO],
+                    [VALOR],
+                    [TIPO_CALCULO]
+	            FROM 
+		            [TBTAXA]
+                WHERE [DESCRICAO] = @DESCRICAO";
+
+        public Taxa SelecionarPorDescricao(string descricao)
+        {
+            return SelecionarPorParametro
+                (sqlSelecionarPorDescricao, new SqlParameter("DESCRICAO", descricao));
+        }
     }
 }

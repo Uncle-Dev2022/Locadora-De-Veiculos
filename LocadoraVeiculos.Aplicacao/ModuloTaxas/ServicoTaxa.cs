@@ -77,7 +77,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
 
         private bool DescricaoDuplicada(Taxa taxa)
         {
-            var taxaEncontrada = repositorioTaxa.SelecionarPorId(taxa.Id);
+            var taxaEncontrada = repositorioTaxa.SelecionarPorDescricao(taxa.descricao);
 
             return taxaEncontrada != null &&
                    taxaEncontrada.descricao == taxa.descricao &&

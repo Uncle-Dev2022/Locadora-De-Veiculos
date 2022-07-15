@@ -13,9 +13,24 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
     {
         public ValidadorPlanoDeCobranca()
         {            
-            RuleFor(x => x.grupoDeVeiculo).NotNull().WithMessage("O Grupo De Veículo não pode ser vazio / Nulo!");
-            
-            RuleFor(x => x.grupoDeVeiculo).Must((plano, grupoVeiculo, context) => {
+            RuleFor(x => x.planoControlado).NotNull()
+                .WithMessage("O Plano Controlado não pode ser vazio / Nulo!")
+            .Must(x => x.valorKm <= 0 && x.valorDiario <= 0 && x.limiteKm <= 0)
+                .WithMessage("O Plano Controlado não pode conter planos que custam 0 ou menos / Limite De KM menor igual 0"); ;
+
+            RuleFor(x => x.planoDiario).NotNull()
+                .WithMessage("O Plano Diário não pode ser vazio / Nulo!")
+            .Must(x => x.valorKm <= 0 && x.valorDiario <= 0)
+                .WithMessage("O Plano Diário não pode conter planos que custam 0 ou menos");
+
+            RuleFor(x => x.planoLivre).NotNull()
+                .WithMessage("O Plano Livre não pode ser vazio / Nulo!")
+            .Must(x => x.valorDiario <= 0)
+                .WithMessage("O Plano Livre não pode conter planos que custam 0 ou menos");
+
+            RuleFor(x => x.grupoDeVeiculo).NotNull()
+                .WithMessage("O Grupo De Veículo não pode ser vazio / Nulo!")
+            .Must((plano, grupoVeiculo, context) => {
                 
                 ValidadorGrupoDeVeiculo validador = new ValidadorGrupoDeVeiculo();
                 ValidationResult resultado = validador.Validate(grupoVeiculo);
@@ -25,10 +40,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
                     context.AddFailure(item);
                 }
                 return resultado.IsValid;                                
-            });    
-            
-
-
+            }).WithMessage("Resultado Da Validação Grupo De Veículo Falhou !");                
         }
     }
 }
