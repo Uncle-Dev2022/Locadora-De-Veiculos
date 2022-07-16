@@ -36,8 +36,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
                 new DataGridViewTextBoxColumn { DataPropertyName = "Quilometragem", HeaderText = "Quilometragem"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "CapacidadeTanque", HeaderText = "Capacidade Tanque"},
                 new DataGridViewImageColumn { DataPropertyName = "Imagem", HeaderText = "Imagem", ImageLayout = DataGridViewImageCellLayout.Stretch, Width = 50}
-            };
-
+            };        
             return colunas;
         }
 

@@ -13,30 +13,50 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
     {
         public ValidadorPlanoDeCobranca()
         {
-            RuleFor(x => x.Nome).NotNull().NotEmpty()
-                .WithMessage("O Nome do Plano não pode ser vazio / Nulo!")
-            .Must(x => x.Length < 3)
+            RuleFor(x => x.Nome).Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                    .WithMessage("O Nome do Plano não pode ser Nulo!")
+                .NotEmpty()
+                    .WithMessage("O Nome do Plano não pode ser Vazio!")
+            .Must(x => x.Length > 2)
                 .WithMessage("O Nome do Plano não pode ter menos de 3 caracteres!")
+
             .Matches(@"^[A-Za-záàâãéêíóôõúçÀÁÂÃÉÍÓÔÕÚÇ ]*$")
                 .WithMessage("Caracteres especiais não são permitidos no campo 'Nome'");
 
-            RuleFor(x => x.planoControlado).NotNull().NotEmpty()
-                .WithMessage("O Plano Controlado não pode ser vazio / Nulo!")
-            .Must(x => x.valorKm <= 0 && x.valorDiario <= 0 && x.limiteKm <= 0)
+            RuleFor(x => x.planoControlado).Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                    .WithMessage("O Plano Controlado não pode ser Nulo!")
+                .NotEmpty()
+                    .WithMessage("O Plano Controlado não pode ser Vazio!")
+
+            .Must(x => x.valorKm > 0 && x.valorDiario > 0 && x.limiteKm > 0)
                 .WithMessage("O Plano Controlado não pode conter planos que custam 0 ou menos / Limite De KM menor igual 0");
 
-            RuleFor(x => x.planoDiario).NotNull().NotEmpty()
-                .WithMessage("O Plano Diário não pode ser vazio / Nulo!")
-            .Must(x => x.valorKm <= 0 && x.valorDiario <= 0)
+            RuleFor(x => x.planoDiario).Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                    .WithMessage("O Plano Diário não pode ser Nulo!")
+                .NotEmpty()
+                    .WithMessage("O Plano Diário não pode ser Vazio!")
+
+            .Must(x => x.valorKm > 0 && x.valorDiario > 0)
                 .WithMessage("O Plano Diário não pode conter planos que custam 0 ou menos");
 
-            RuleFor(x => x.planoLivre).NotNull().NotEmpty()
-                .WithMessage("O Plano Livre não pode ser vazio / Nulo!")
-            .Must(x => x.valorDiario <= 0)
+            RuleFor(x => x.planoLivre).Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                    .WithMessage("O Plano Livre não pode ser Nulo!")
+                .NotEmpty()
+                    .WithMessage("O Plano Livre não pode ser Vazio!")
+
+            .Must(x => x.valorDiario > 0)
                 .WithMessage("O Plano Livre não pode conter planos que custam 0 ou menos");
 
-            RuleFor(x => x.grupoDeVeiculo).NotNull().NotEmpty()
-                .WithMessage("O Grupo De Veículo não pode ser vazio / Nulo!")
+            RuleFor(x => x.grupoDeVeiculo).Cascade(CascadeMode.StopOnFirstFailure)
+                .NotNull()
+                    .WithMessage("O Grupo De Veículo não pode ser Nulo!")                    
+                .NotEmpty()
+                    .WithMessage("O Grupo De Veículo não pode ser Vazio!")
+
             .Must((plano, grupoVeiculo, context) => {
                 
                 ValidadorGrupoDeVeiculo validador = new ValidadorGrupoDeVeiculo();

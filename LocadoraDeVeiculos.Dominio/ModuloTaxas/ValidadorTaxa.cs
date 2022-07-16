@@ -27,18 +27,5 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
             RuleFor(x => x.tipoCalculo).NotNull().NotEmpty()
                 .WithMessage("O tipo do Cálculo deve ser Diário ou Fixo");
         }
-        public ValidadorTaxa(List<Taxa> taxas)
-        {
-            RuleFor(x => x.descricao).NotNull().WithMessage("A Descrição não pode ser nula")
-            .When(x => x.descricao.Length < 2)
-                .WithMessage("A Descrição não pode ser vazia ou possui menos que 2 caracteres")
-            .When(x => Regex.IsMatch(@"^[a-zA-z\d\s]+$", x.descricao))
-                .WithMessage("A Descrição deve conter letras e números apenas");
-
-            RuleFor(x => x.valor).NotNull().WithMessage("O valor não pode ser nulo");
-
-            RuleFor(x => x).Equal(x => taxas.Find(y => y.Equals(x)))
-                .WithMessage("Não Pode inserir itens duplicados no banco");
-        }
     }
 }
