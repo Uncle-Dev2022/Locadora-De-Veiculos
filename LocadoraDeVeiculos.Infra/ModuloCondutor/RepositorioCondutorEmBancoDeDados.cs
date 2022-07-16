@@ -126,7 +126,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 					[TBCONDUTOR] AS CONDUTOR LEFT JOIN
 					[TBCLIENTE] AS CLIENTE
 				ON
-					CONDUTOR.[NOME] = @CONDUTOR.[NOME]";
+					CONDUTOR.[NOME] = @CONDUTOR_NOME";
 
 		protected string sqlSelecionarPorCPF =>
 			@"SELECT 
@@ -150,7 +150,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 					[TBCONDUTOR] AS CONDUTOR LEFT JOIN
 					[TBCLIENTE] AS CLIENTE
 				ON
-					CONDUTOR.[CPF] = @CONDUTOR.[CPF]";
+					CONDUTOR.[CPF] = @CONDUTOR_CPF";
 
 		protected string sqlSelecionarPorCNH =>
 			@"SELECT 
@@ -174,21 +174,21 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 					[TBCONDUTOR] AS CONDUTOR LEFT JOIN
 					[TBCLIENTE] AS CLIENTE
 				ON
-					CONDUTOR.[CNH] = @CONDUTOR.[CNH]";
+					CONDUTOR.[CNH] = @CONDUTOR_CNH";
 
 		public Condutor SelecionarCondutorPorNome(string nome)
 		{
-			return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("@CONDUTOR.[NOME]", nome));
+			return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("CONDUTOR_NOME", nome));
 		}
 
 		public Condutor SelecionarCondutorPorCPF(string CPF)
 		{
-			return SelecionarPorParametro(sqlSelecionarPorCPF, new SqlParameter("CONDUTOR.[CPF]", CPF));
+			return SelecionarPorParametro(sqlSelecionarPorCPF, new SqlParameter("CONDUTOR_CPF", CPF));
 		}
 
 		public Condutor SelecionarCondutorPorCNH(string CNH)
         {
-			return SelecionarPorParametro(sqlSelecionarPorCNH,new SqlParameter("CONDUTOR.[CNH]",CNH));
+			return SelecionarPorParametro(sqlSelecionarPorCNH,new SqlParameter("CONDUTOR_CNH", CNH));
         }
 	}
 }

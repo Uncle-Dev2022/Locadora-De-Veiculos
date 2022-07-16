@@ -50,5 +50,10 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
                 CNH == cliente.CNH;
         }
 
+        public override string ToString()
+        {
+            return Nome;       
+        }
+
     }
 }

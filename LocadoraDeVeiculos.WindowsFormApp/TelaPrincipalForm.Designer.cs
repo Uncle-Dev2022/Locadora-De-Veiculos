@@ -51,9 +51,9 @@
             this.FuncionarioSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClienteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu = new System.Windows.Forms.MenuStrip();
             this.VeiculoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CondutorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu = new System.Windows.Forms.MenuStrip();
             this.statusStrip1.SuspendLayout();
             this.toolbox.SuspendLayout();
             this.menu.SuspendLayout();
@@ -96,7 +96,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 44);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 37);
             // 
             // btnAgrupar
             // 
@@ -110,7 +110,7 @@
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 44);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 37);
             // 
             // btnVisualizar
             // 
@@ -124,7 +124,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 44);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 37);
             // 
             // btnFiltrar
             // 
@@ -138,7 +138,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 44);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 37);
             // 
             // btnAtualizarItens
             // 
@@ -156,7 +156,7 @@
             this.btnAdicionarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdicionarItens.Name = "btnAdicionarItens";
             this.btnAdicionarItens.Padding = new System.Windows.Forms.Padding(5);
-            this.btnAdicionarItens.Size = new System.Drawing.Size(34, 39);
+            this.btnAdicionarItens.Size = new System.Drawing.Size(29, 34);
             // 
             // toolStripSeparator2
             // 
@@ -170,7 +170,7 @@
             this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Padding = new System.Windows.Forms.Padding(5);
-            this.btnExcluir.Size = new System.Drawing.Size(75, 39);
+            this.btnExcluir.Size = new System.Drawing.Size(66, 34);
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
@@ -193,7 +193,7 @@
             this.btnInserir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Padding = new System.Windows.Forms.Padding(5);
-            this.btnInserir.Size = new System.Drawing.Size(74, 39);
+            this.btnInserir.Size = new System.Drawing.Size(63, 34);
             this.btnInserir.Text = "Inserir";
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
@@ -216,10 +216,10 @@
             this.btnAgrupar,
             this.toolStripSeparator4,
             this.labelTipoCadastro});
-            this.toolbox.Location = new System.Drawing.Point(0, 35);
+            this.toolbox.Location = new System.Drawing.Point(0, 30);
             this.toolbox.Name = "toolbox";
             this.toolbox.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolbox.Size = new System.Drawing.Size(1000, 44);
+            this.toolbox.Size = new System.Drawing.Size(800, 37);
             this.toolbox.TabIndex = 5;
             this.toolbox.Text = "toolStrip1";
             // 
@@ -227,7 +227,7 @@
             // 
             this.GrupoDeVeiculosSubMenuItem.Name = "GrupoDeVeiculosSubMenuItem";
             this.GrupoDeVeiculosSubMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.GrupoDeVeiculosSubMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.GrupoDeVeiculosSubMenuItem.Size = new System.Drawing.Size(238, 26);
             this.GrupoDeVeiculosSubMenuItem.Text = "Grupo De Veículos";
             this.GrupoDeVeiculosSubMenuItem.Click += new System.EventHandler(this.GrupoDeVeiculosSubMenuItem_Click);
             // 
@@ -243,7 +243,7 @@
             // 
             this.FuncionarioSubMenuItem.Name = "FuncionarioSubMenuItem";
             this.FuncionarioSubMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.FuncionarioSubMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.FuncionarioSubMenuItem.Size = new System.Drawing.Size(238, 26);
             this.FuncionarioSubMenuItem.Text = "Funcionario";
             this.FuncionarioSubMenuItem.Click += new System.EventHandler(this.FuncionarioSubMenuItem_Click);
             // 
@@ -251,7 +251,7 @@
             // 
             this.ClienteMenuItem.Name = "ClienteMenuItem";
             this.ClienteMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.ClienteMenuItem.Size = new System.Drawing.Size(291, 34);
+            this.ClienteMenuItem.Size = new System.Drawing.Size(238, 26);
             this.ClienteMenuItem.Text = "Cliente";
             this.ClienteMenuItem.Click += new System.EventHandler(this.ClienteMenuItem_Click);
             // 
@@ -262,11 +262,27 @@
             this.FuncionarioSubMenuItem,
             this.taxasMenuItem,
             this.GrupoDeVeiculosSubMenuItem,
-            this.VeiculoMenuItem,            
+            this.VeiculoMenuItem,
             this.CondutorMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(107, 29);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
+            // 
+            // VeiculoMenuItem
+            // 
+            this.VeiculoMenuItem.Name = "VeiculoMenuItem";
+            this.VeiculoMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.VeiculoMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.VeiculoMenuItem.Text = "Veiculo";
+            this.VeiculoMenuItem.Click += new System.EventHandler(this.VeiculoMenuItem_Click);
+            // 
+            // CondutorMenuItem
+            // 
+            this.CondutorMenuItem.Name = "CondutorMenuItem";
+            this.CondutorMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.CondutorMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.CondutorMenuItem.Text = "Condutor";
+            this.CondutorMenuItem.Click += new System.EventHandler(this.CondutorMenuItem_Click);
             // 
             // menu
             // 
@@ -280,22 +296,6 @@
             this.menu.TabIndex = 4;
             this.menu.Text = "menuStrip1";
             // 
-            // CondutorMenuItem
-            // 
-            this.CondutorMenuItem.Name = "CondutorMenuItem";
-            this.CondutorMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.CondutorMenuItem.Size = new System.Drawing.Size(238, 26);
-            this.CondutorMenuItem.Text = "Condutor";
-            this.CondutorMenuItem.Click += new System.EventHandler(this.CondutorMenuItem_Click);
-            // 
-            // VeiculoMenuItem
-            // 
-            this.VeiculoMenuItem.Name = "VeiculoMenuItem";
-            this.VeiculoMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.VeiculoMenuItem.Size = new System.Drawing.Size(291, 34);
-            this.VeiculoMenuItem.Text = "Veiculo";
-            this.VeiculoMenuItem.Click += new System.EventHandler(this.VeiculoMenuItem_Click);
-            // 
             // TelaPrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -307,7 +307,8 @@
             this.Controls.Add(this.menu);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "TelaPrincipalForm";
-            this.Text = "TelaPrincipalForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tela Principal";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolbox.ResumeLayout(false);

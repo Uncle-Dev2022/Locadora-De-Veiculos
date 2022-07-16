@@ -47,27 +47,29 @@
             // 
             // txtBoxFuncionarioNome
             // 
-            this.txtBoxFuncionarioNome.Location = new System.Drawing.Point(201, 59);
+            this.txtBoxFuncionarioNome.Location = new System.Drawing.Point(161, 47);
+            this.txtBoxFuncionarioNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBoxFuncionarioNome.Name = "txtBoxFuncionarioNome";
-            this.txtBoxFuncionarioNome.Size = new System.Drawing.Size(268, 31);
+            this.txtBoxFuncionarioNome.Size = new System.Drawing.Size(215, 27);
             this.txtBoxFuncionarioNome.TabIndex = 21;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 62);
+            this.label2.Location = new System.Drawing.Point(22, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 25);
+            this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.TabIndex = 20;
             this.label2.Text = "Nome:";
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(601, 299);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancelar.Location = new System.Drawing.Point(481, 239);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(103, 65);
+            this.btnCancelar.Size = new System.Drawing.Size(82, 52);
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -75,10 +77,10 @@
             // btnGravar
             // 
             this.btnGravar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnGravar.Location = new System.Drawing.Point(485, 299);
-            this.btnGravar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnGravar.Location = new System.Drawing.Point(388, 239);
+            this.btnGravar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(103, 65);
+            this.btnGravar.Size = new System.Drawing.Size(82, 52);
             this.btnGravar.TabIndex = 18;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
@@ -87,83 +89,91 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 102);
+            this.label1.Location = new System.Drawing.Point(22, 82);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 25);
+            this.label1.Size = new System.Drawing.Size(58, 20);
             this.label1.TabIndex = 22;
             this.label1.Text = "Salário:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 142);
+            this.label3.Location = new System.Drawing.Point(22, 114);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 25);
+            this.label3.Size = new System.Drawing.Size(134, 20);
             this.label3.TabIndex = 24;
             this.label3.Text = "Data de Admissão:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 213);
+            this.label4.Location = new System.Drawing.Point(22, 170);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 25);
+            this.label4.Size = new System.Drawing.Size(52, 20);
             this.label4.TabIndex = 26;
             this.label4.Text = "Senha:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 176);
+            this.label5.Location = new System.Drawing.Point(22, 141);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 25);
+            this.label5.Size = new System.Drawing.Size(49, 20);
             this.label5.TabIndex = 27;
             this.label5.Text = "Login:";
             // 
             // checkBoxGerente
             // 
             this.checkBoxGerente.AutoSize = true;
-            this.checkBoxGerente.Location = new System.Drawing.Point(201, 254);
+            this.checkBoxGerente.Location = new System.Drawing.Point(161, 203);
+            this.checkBoxGerente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBoxGerente.Name = "checkBoxGerente";
-            this.checkBoxGerente.Size = new System.Drawing.Size(248, 29);
+            this.checkBoxGerente.Size = new System.Drawing.Size(206, 24);
             this.checkBoxGerente.TabIndex = 29;
             this.checkBoxGerente.Text = "FUNCIONARIO É GERENTE";
             this.checkBoxGerente.UseVisualStyleBackColor = true;
             // 
             // txtBoxFuncionarioSenha
             // 
-            this.txtBoxFuncionarioSenha.Location = new System.Drawing.Point(201, 207);
+            this.txtBoxFuncionarioSenha.Location = new System.Drawing.Point(161, 166);
+            this.txtBoxFuncionarioSenha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBoxFuncionarioSenha.MaxLength = 10;
             this.txtBoxFuncionarioSenha.Name = "txtBoxFuncionarioSenha";
             this.txtBoxFuncionarioSenha.PasswordChar = '*';
-            this.txtBoxFuncionarioSenha.Size = new System.Drawing.Size(268, 31);
+            this.txtBoxFuncionarioSenha.Size = new System.Drawing.Size(215, 27);
             this.txtBoxFuncionarioSenha.TabIndex = 30;
             this.txtBoxFuncionarioSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtBoxFuncionarioLogin
             // 
-            this.txtBoxFuncionarioLogin.Location = new System.Drawing.Point(201, 170);
+            this.txtBoxFuncionarioLogin.Location = new System.Drawing.Point(161, 136);
+            this.txtBoxFuncionarioLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBoxFuncionarioLogin.MaxLength = 10;
             this.txtBoxFuncionarioLogin.Name = "txtBoxFuncionarioLogin";
-            this.txtBoxFuncionarioLogin.Size = new System.Drawing.Size(268, 31);
+            this.txtBoxFuncionarioLogin.Size = new System.Drawing.Size(215, 27);
             this.txtBoxFuncionarioLogin.TabIndex = 31;
             // 
             // dateTimePickerDataAdmissao
             // 
             this.dateTimePickerDataAdmissao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataAdmissao.Location = new System.Drawing.Point(201, 133);
-            this.dateTimePickerDataAdmissao.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dateTimePickerDataAdmissao.Location = new System.Drawing.Point(161, 106);
+            this.dateTimePickerDataAdmissao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerDataAdmissao.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dateTimePickerDataAdmissao.Name = "dateTimePickerDataAdmissao";
-            this.dateTimePickerDataAdmissao.Size = new System.Drawing.Size(267, 31);
+            this.dateTimePickerDataAdmissao.Size = new System.Drawing.Size(214, 27);
             this.dateTimePickerDataAdmissao.TabIndex = 32;
             // 
             // SenhaBox
             // 
             this.SenhaBox.AutoSize = true;
-            this.SenhaBox.Location = new System.Drawing.Point(485, 207);
+            this.SenhaBox.Location = new System.Drawing.Point(388, 166);
+            this.SenhaBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SenhaBox.Name = "SenhaBox";
-            this.SenhaBox.Size = new System.Drawing.Size(161, 29);
+            this.SenhaBox.Size = new System.Drawing.Size(133, 24);
             this.SenhaBox.TabIndex = 33;
             this.SenhaBox.Text = "Mostrar Senha?";
             this.SenhaBox.UseVisualStyleBackColor = true;
@@ -171,26 +181,28 @@
             // 
             // maskedTextBoxSalario
             // 
-            this.maskedTextBoxSalario.Location = new System.Drawing.Point(201, 96);
+            this.maskedTextBoxSalario.Location = new System.Drawing.Point(161, 77);
+            this.maskedTextBoxSalario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.maskedTextBoxSalario.Mask = "999999,99";
             this.maskedTextBoxSalario.Name = "maskedTextBoxSalario";
-            this.maskedTextBoxSalario.Size = new System.Drawing.Size(150, 31);
+            this.maskedTextBoxSalario.Size = new System.Drawing.Size(121, 27);
             this.maskedTextBoxSalario.TabIndex = 34;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(162, 99);
+            this.label6.Location = new System.Drawing.Point(130, 79);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 25);
+            this.label6.Size = new System.Drawing.Size(26, 20);
             this.label6.TabIndex = 35;
             this.label6.Text = "R$";
             // 
             // TelaCadastroFuncionarioForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 386);
+            this.ClientSize = new System.Drawing.Size(584, 309);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.maskedTextBoxSalario);
             this.Controls.Add(this.SenhaBox);
@@ -206,7 +218,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TelaCadastroFuncionarioForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Cadastro Funcionario";
             this.ResumeLayout(false);
             this.PerformLayout();

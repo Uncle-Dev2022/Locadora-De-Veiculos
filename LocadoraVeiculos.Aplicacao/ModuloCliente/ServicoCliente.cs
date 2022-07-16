@@ -1,6 +1,8 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
 using Serilog;
 using System;
@@ -100,6 +102,14 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
                 Log.Logger.Information("Cliente {ClienteId} excluído com sucesso", cliente.Id);
 
                 return Result.Ok();
+            }
+            catch(NaoPodeExcluirEsteRegistroException ex)
+            {
+                string msgErro = $"O Cliente: {cliente.Nome}, esta relacionado com um condutor e não pode ser excluido";
+
+                Log.Logger.Error(ex, msgErro + "{ClienteId}", cliente.Id);
+
+                return Result.Fail(msgErro);
             }
             catch (Exception ex)
             {

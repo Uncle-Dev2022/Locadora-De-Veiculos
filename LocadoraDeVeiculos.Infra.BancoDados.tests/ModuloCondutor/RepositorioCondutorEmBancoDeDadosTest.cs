@@ -18,6 +18,8 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
     public class RepositorioCondutorEmBancoDeDadosTest
     {
         Condutor condutor;
+        Condutor condutor1;
+        Condutor condutor2;
         Cliente cliente;
         
         private RepositorioCondutorEmBancoDeDados repositorioCondutor;
@@ -33,6 +35,16 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
             condutor = new Condutor("Thiago", "rua", "013.421.157-24", "123456789546", "thiago@gmail.com")
             {
                cliente = cliente,
+            };
+
+            condutor1 = new Condutor("Thiago", "rua", "013.421.157-24", "123456789546", "thiago@gmail.com")
+            {
+                cliente = cliente,
+            };
+
+            condutor2 = new Condutor("Thiago", "rua", "013.421.157-24", "123456789546", "thiago@gmail.com")
+            {
+                cliente = cliente,
             };
 
             repositorioCliente = new RepositorioClienteEmBancoDeDados();
@@ -99,18 +111,16 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
         [TestMethod]
         public void Deve_Selecionar_Todos_Os_Condutores()
         {
-            int quantidade = 3;
-
-            for (int i = 0; i < quantidade; i++)
-            {
+            
                 repositorioCliente.Inserir(cliente);
                 repositorioCondutor.Inserir(condutor);
-            }
-                
+                repositorioCondutor.Inserir(condutor1);
+                repositorioCondutor.Inserir(condutor2);
+           
 
             var Condutores = repositorioCondutor.SelecionarTodos();
 
-            Assert.AreEqual(quantidade, Condutores.Count);
+            Assert.AreEqual(3, Condutores.Count);
 
         }
     }
