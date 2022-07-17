@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentResults;
+using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using System;
@@ -22,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
             InitializeComponent();
         }
 
-        public Func<PlanoDeCobranca, ValidationResult> GravarRegistro { get; set; }
+        public Func<PlanoDeCobranca, Result<PlanoDeCobranca>> GravarRegistro { get; set; }
 
         public PlanoDeCobranca Plano
         {
@@ -60,13 +61,21 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
 
             var resultadoValidacao = GravarRegistro(plano);
 
-            if (resultadoValidacao.IsValid == false)
+            if (resultadoValidacao.IsFailed)
             {
-                string erro = resultadoValidacao.Errors[0].ErrorMessage;
+                string erro = resultadoValidacao.Errors[0].Message;
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                if (erro.StartsWith("Falha no sistema"))
+                {
+                    MessageBox.Show(erro,
+                    "Inserção de Plano De CObrança", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    TelaPrincipalForm.Instancia.AtualizarRodape(erro);
 
-                DialogResult = DialogResult.None;
+                    DialogResult = DialogResult.None;
+                }
             }
         }
 

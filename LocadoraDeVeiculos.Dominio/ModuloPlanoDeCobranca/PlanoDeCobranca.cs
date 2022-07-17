@@ -35,9 +35,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
             PlanoDeCobranca planoDeCobranca = obj as PlanoDeCobranca;
 
             bool grupoDeVeiculoIgual = this.grupoDeVeiculo.Equals(planoDeCobranca.grupoDeVeiculo);
-                        
-            bool planoLivreIgual = this.planoLivre.Equals(planoDeCobranca.planoLivre);                        
-            bool planoDiarioIgual = this.planoDiario.Equals(planoDeCobranca.planoDiario);                          
+
+            bool planoLivreIgual = this.planoLivre.Equals(planoDeCobranca.planoLivre);
+            bool planoDiarioIgual = this.planoDiario.Equals(planoDeCobranca.planoDiario);
             bool planoControladoIgual = this.planoControlado.Equals(planoDeCobranca.planoControlado);
 
             return grupoDeVeiculoIgual && planoLivreIgual && planoDiarioIgual && planoControladoIgual;

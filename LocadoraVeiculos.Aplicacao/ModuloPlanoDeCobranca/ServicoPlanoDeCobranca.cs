@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using Serilog;
 using System;
@@ -85,7 +86,70 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
                 return Result.Fail(msgErro);
             }
         }
+        public Result Excluir(PlanoDeCobranca planoDeCobranca)
+        {
+            Log.Logger.Debug("Tentando excluir Plano De Cobrança... {@c}", planoDeCobranca);
 
+            try
+            {
+                repositorioPlanoDeCobranca.Excluir(planoDeCobranca);
+
+                Log.Logger.Information("Plano De Cobrança{PlanoDeCobrancaId} excluído com sucesso", planoDeCobranca.Id);
+
+                return Result.Ok();
+            }
+            /*
+            catch (NaoPodeExcluirEsteRegistroException ex)
+            {
+                string msgErro = $"O Plano De Cobrança: {planoDeCobranca.Nome}, esta relacionado com um condutor e não pode ser excluido";
+
+                Log.Logger.Error(ex, msgErro + "{PlanoDeCobrancaId}", planoDeCobranca.Id);
+
+                return Result.Fail(msgErro);
+            }*/
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar excluir o Plano De Cobrança";
+
+                Log.Logger.Error(ex, msgErro + "{PlanoDeCobrancaId}", planoDeCobranca.Id);
+
+                return Result.Fail(msgErro);
+            }
+        }
+        public Result<List<PlanoDeCobranca>> SelecionarTodos()
+        {
+
+            try
+            {
+                return Result.Ok(repositorioPlanoDeCobranca.SelecionarTodos());
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar Selecionar todos os Planos De Cobrança";
+
+                Log.Logger.Error(ex, msgErro);
+
+                return Result.Fail(msgErro);
+            }
+
+        }
+        public Result<PlanoDeCobranca> SelecionarPorId(Guid id)
+        {
+
+            try
+            {
+                return Result.Ok(repositorioPlanoDeCobranca.SelecionarPorId(id));
+            }
+            catch (Exception ex)
+            {
+                string msgErro = "Falha no sistema ao tentar Selecionar o Plano De Cobrança";
+
+                Log.Logger.Error(ex, msgErro + "{PlanoDeCobrancaID}", id);
+
+                return Result.Fail(msgErro);
+            }
+
+        }
         private Result Validar(PlanoDeCobranca PlanoDeCobranca)
         {
             var validador = new ValidadorPlanoDeCobranca();

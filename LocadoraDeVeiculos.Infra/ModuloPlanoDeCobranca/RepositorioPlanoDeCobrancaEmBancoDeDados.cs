@@ -48,16 +48,15 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
 
         protected override string sqlExcluir =>
             @"DELETE 
-	             FROM [DBO].[TBPlanoDeCobranc]
+	             FROM [DBO].[TBPlanoDeCobranca]
               WHERE
-	             ID=@ID";
-
+	             ID=@ID";        
         protected override string sqlSelecionarPorId =>
             @"SELECT
-                [ID],
-                [NOME],
+                PL.[ID] AS ID,
+                PL.[NOME] AS NOME,
                 [GRUPODEVEICULO_ID],
-                [(SELECT [NOME] FROM [DBO].[TBGrupoVeiculo] WHERE TBGrupoVeiculo.Id = [GRUPODEVEICULO_ID])] AS GRUPODEVEICULO_NOME,
+                GP.[NOME] AS GRUPODEVEICULO_NOME, 
                 [PLANODIARIO_VALORDIARIO],
                 [PLANODIARIO_VALORKM],
                 [PLANOLIVRE_VALORDIARIO],
@@ -66,16 +65,18 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
                 [PLANOCONTROLADO_LIMITEKM]
 
                 FROM
-                    [DBO].[TBPlanoDeCobranca]
+                    [TBPlanoDeCobranca] AS PL inner join [TBGRUPOVEICULO] AS GP
+                ON
+                    PL.GRUPODEVEICULO_ID = GP.ID 
                 WHERE
-                    [ID]=@ID";
+                    PL.[ID]=@ID";
 
         protected override string sqlSelecionarTodos =>
             @"SELECT
-                [ID],
-                [NOME],
+                PL.[ID] AS ID,
+                PL.[NOME] AS NOME,
                 [GRUPODEVEICULO_ID],
-                [(SELECT [NOME] FROM [DBO].[TBGrupoVeiculo] WHERE TBGrupoVeiculo.Id = [GRUPODEVEICULO_ID])] AS GRUPODEVEICULO_NOME,
+                GP.[NOME] AS GRUPODEVEICULO_NOME, 
                 [PLANODIARIO_VALORDIARIO],
                 [PLANODIARIO_VALORKM],
                 [PLANOLIVRE_VALORDIARIO],
@@ -84,14 +85,16 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
                 [PLANOCONTROLADO_LIMITEKM]
 
                 FROM
-                    [DBO].[TBPlanoDeCobranca]";
+                    [TBPlanoDeCobranca] AS PL inner join [TBGRUPOVEICULO] AS GP
+                ON
+                    PL.GRUPODEVEICULO_ID = GP.ID ";
 
         protected string sqlSelecionarPorNome =>
             @"SELECT
-                [ID],
-                [NOME],
+                PL.[ID] AS ID,
+                PL.[NOME] AS NOME,                
                 [GRUPODEVEICULO_ID],
-                [(SELECT [NOME] FROM [DBO].[TBGrupoVeiculo] WHERE TBGrupoVeiculo.Id = [GRUPODEVEICULO_ID])] AS GRUPODEVEICULO_NOME,
+                GP.NOME AS GRUPODEVEICULO_NOME, 
                 [PLANODIARIO_VALORDIARIO],
                 [PLANODIARIO_VALORKM],
                 [PLANOLIVRE_VALORDIARIO],
@@ -100,8 +103,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
                 [PLANOCONTROLADO_LIMITEKM]
 
                 FROM
-                    [DBO].[TBPlanoDeCobranca]
-                WHERE [NOME] = @NOME";
+                    [DBO].[TBPlanoDeCobranca] inner join [GRUPODEVEICULO] AS GP
+                    WHERE [NOME] = @NOME";
 
         public PlanoDeCobranca SelecionarPlanoDeCobrancaPorNome(string nome)
         {
