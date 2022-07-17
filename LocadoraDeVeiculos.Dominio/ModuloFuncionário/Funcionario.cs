@@ -50,6 +50,11 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
                 funcionario.Gerente.Equals(Gerente);
         }
 
+        public Funcionario Clone()
+        {
+            return MemberwiseClone() as Funcionario;
+        }
+
         public override string ToString()
         {
             return "Nome: " + Nome + " - Salario: " + Salario + " - Data de Admissão: " + DataAdmissao +

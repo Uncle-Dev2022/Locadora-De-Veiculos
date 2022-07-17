@@ -203,7 +203,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
             controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo(repositorioGrupoDeVeiculo, servicoGrupoVeiculo));           
             controladores.Add("Veiculo", new ControladorVeiculo(repositorioVeiculo, repositorioGrupoDeVeiculo, servicoVeiculo));
-            controladores.Add("Funcionario", new ControladorFuncionario(repositorioFuncionario));
+            controladores.Add("Funcionario", new ControladorFuncionario(servicoFuncionario));
             controladores.Add("Cliente", new ControladorCliente(servicoCliente));
             controladores.Add("Taxas", new ControladorTaxa(servicoTaxa));
             controladores.Add("Condutor", new ControladorCondutor(servicoCondutor,servicoCliente));
