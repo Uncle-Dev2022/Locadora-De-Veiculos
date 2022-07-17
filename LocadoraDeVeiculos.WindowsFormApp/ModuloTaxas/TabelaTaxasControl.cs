@@ -15,7 +15,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
             grid.ConfigurarGridSomenteLeitura();
             grid.Columns.AddRange(ObterColunas());
         }
-        public Guid ObtemNumeroTaxaSelecionado()
+        public Guid ObtemNumeroTaxaSelecionada()
         {
             return grid.SelecionarNumero<Guid>();
         }

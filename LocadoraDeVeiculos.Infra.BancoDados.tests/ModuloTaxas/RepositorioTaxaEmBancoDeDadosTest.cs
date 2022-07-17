@@ -98,7 +98,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloTaxas
             var taxas = repositorioTaxa.SelecionarTodos();
 
             Assert.AreEqual(quantidade, taxas.Count);
-
+            Assert.AreEqual(Taxa.Equals(taxas[2], taxa), true);
+            Assert.AreEqual(Taxa.Equals(taxas[1], taxa1), true);
+            Assert.AreEqual(Taxa.Equals(taxas[0], taxa2), true);
         }
     }
 }
