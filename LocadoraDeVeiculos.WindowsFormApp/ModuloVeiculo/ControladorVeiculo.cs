@@ -17,7 +17,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
         private readonly ServicoVeiculo servicoVeiculo;
         private readonly ServicoGrupoDeVeiculo servicoGrupoVeiculo;
 
-        private TabelaVeiculoControl? tabelaVeiculoControl;
+        private TabelaVeiculoControl tabelaVeiculoControl;
 
         public ControladorVeiculo(ServicoVeiculo servicoVeiculo, ServicoGrupoDeVeiculo servicoGrupoVeiculo)
         {
@@ -37,9 +37,12 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
                 return;
             }
 
-            var tela = new TelaCadastroVeiculoForm(grupoVeiculo);
+            var tela = new TelaCadastroVeiculoForm(grupoVeiculo.Value);
+
             tela.Veiculo = new Veiculo();
+
             tela.GravarRegistro = servicoVeiculo.Inserir;
+
             if (tela.ShowDialog() == DialogResult.OK)
             {
                 CarregarVeiculos();
@@ -52,17 +55,17 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
 
             if (id == Guid.Empty)
             {
-                MessageBox.Show("Selecione um veículo primeiro",
-                "Edição de veículo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione um Veículo primeiro",
+                "Edição de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            var selecaoveiculo = servicoVeiculo.SelecionarTodos();
+            var selecaoClientes = servicoVeiculo.SelecionarTodos();
 
-            if (selecaoveiculo.IsFailed)
+            if (selecaoClientes.IsFailed)
             {
-                MessageBox.Show(selecaoveiculo.Errors[0].Message,
-               "Edição de veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(selecaoClientes.Errors[0].Message,
+               "Edição de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }
@@ -72,13 +75,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
             if (resultado.IsFailed)
             {
                 MessageBox.Show(resultado.Errors[0].Message,
-               "Edição de veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               "Edição de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             var veiculoSelecionado = resultado.Value;
 
-            TelaCadastroVeiculoForm tela = new TelaCadastroVeiculoForm(selecaoveiculo.Value);
+            TelaCadastroVeiculoForm tela = new TelaCadastroVeiculoForm(selecaoClientes.Value);
 
             tela.Veiculo = veiculoSelecionado;
 

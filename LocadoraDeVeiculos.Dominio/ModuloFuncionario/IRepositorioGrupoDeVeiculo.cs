@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
 {
-    public interface IRepositorioFuncionario : IRepositorio<GrupoDeVeiculo>
+    public interface IRepositorioFuncionario : IRepositorio<Funcionario>
     {
-        GrupoDeVeiculo SelecionarFuncionarioPorNome(string nome);
+        Funcionario SelecionarFuncionarioPorNome(string nome);
 
-        GrupoDeVeiculo SelecionarFuncionarioPorLogin(string usuario);
+        Funcionario SelecionarFuncionarioPorLogin(string usuario);
 
     }
 }

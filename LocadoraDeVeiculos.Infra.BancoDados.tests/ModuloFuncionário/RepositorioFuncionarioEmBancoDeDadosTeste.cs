@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloFuncionário;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,9 +11,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloFuncionário
     [TestClass]
     public class RepositorioFuncionarioEmBancoDeDadosTeste
     {
-        GrupoDeVeiculo funcionario;
-        GrupoDeVeiculo funcionario1;
-        GrupoDeVeiculo funcionario2;
+        Funcionario funcionario;
+        Funcionario funcionario1;
+        Funcionario funcionario2;
 
         RepositorioFuncionarioEmBancoDeDados repositorioFuncionario;
 
@@ -20,9 +21,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloFuncionário
         {
             DB.executarSql("DELETE FROM TBFUNCIONARIO;");
 
-            funcionario = new GrupoDeVeiculo("Funcionario", 1000 , DateTime.Parse("26/06/2022") , "Senha1", "Login1", true );
-            funcionario1 = new GrupoDeVeiculo("FuncionarioDois", 900 , DateTime.Parse("26/06/2022") , "Senha2", "Login2", true );
-            funcionario2 = new GrupoDeVeiculo("FuncionarioTres", 800 , DateTime.Parse("26/06/2022") , "Senha3", "Login3", true );
+            funcionario = new Funcionario("Funcionario", 1000 , DateTime.Parse("26/06/2022") , "Senha1", "Login1", true );
+            funcionario1 = new Funcionario("FuncionarioDois", 900 , DateTime.Parse("26/06/2022") , "Senha2", "Login2", true );
+            funcionario2 = new Funcionario("FuncionarioTres", 800 , DateTime.Parse("26/06/2022") , "Senha3", "Login3", true );
 
             repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
 

@@ -121,8 +121,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             }
         }
         public Result<List<Cliente>> SelecionarTodos()
-        {
-            
+        {            
             try
             {
                 return Result.Ok(repositorioCliente.SelecionarTodos());

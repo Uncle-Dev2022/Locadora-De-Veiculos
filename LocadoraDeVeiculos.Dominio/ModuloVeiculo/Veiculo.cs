@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
 {
     public class Veiculo : EntidadeBase<Veiculo>
     {
-        public Funcionario GrupoDeVeiculo { get; set; }
+        public GrupoDeVeiculo GrupoDeVeiculo { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string  Cor { get; set; }

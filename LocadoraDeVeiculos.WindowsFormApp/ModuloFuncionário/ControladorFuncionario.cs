@@ -1,4 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraVeiculos.Aplicacao.ModuloFuncinario;

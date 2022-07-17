@@ -57,7 +57,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
             PlanoLivre planoLivre = new PlanoLivre(planoLivreValorDiario);
             PlanoDiario planoDiario = new PlanoDiario(planoDiarioValorDiario, planoDiarioValorKm);
 
-            Funcionario grupoDeVeiculo = new Funcionario(grupoVeiculoNome)
+            GrupoDeVeiculo grupoDeVeiculo = new GrupoDeVeiculo(grupoVeiculoNome)
             {
                 Id = grupoDeVeiculoId
             };

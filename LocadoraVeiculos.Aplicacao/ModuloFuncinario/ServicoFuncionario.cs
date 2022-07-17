@@ -1,6 +1,7 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
+using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -168,7 +169,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
             return Result.Ok();
         }
 
-        private bool NomeDuplicado(GrupoDeVeiculo funcionario)
+        private bool NomeDuplicado(Funcionario funcionario)
         {
             var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorNome(funcionario.Nome);
 
@@ -177,7 +178,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                    funcionarioEncontrado.Id != funcionario.Id;
         }
 
-        private bool LoginDuplicado(GrupoDeVeiculo funcionario)
+        private bool LoginDuplicado(Funcionario funcionario)
         {
             var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorLogin(funcionario.Login);
 

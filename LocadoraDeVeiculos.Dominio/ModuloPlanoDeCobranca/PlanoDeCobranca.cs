@@ -11,12 +11,12 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
     public class PlanoDeCobranca : EntidadeBase<PlanoDeCobranca>
     {
         public string Nome;
-        public Funcionario grupoDeVeiculo;
+        public GrupoDeVeiculo grupoDeVeiculo;
         public PlanoLivre planoLivre;
         public PlanoControlado planoControlado;
         public PlanoDiario planoDiario;
      
-        public PlanoDeCobranca(string nome, Funcionario grupoDeVeiculo, PlanoLivre planoLivre, PlanoDiario planoDiario, PlanoControlado planoControlado)
+        public PlanoDeCobranca(string nome, GrupoDeVeiculo grupoDeVeiculo, PlanoLivre planoLivre, PlanoDiario planoDiario, PlanoControlado planoControlado)
         {
             this.Nome = nome;
             this.grupoDeVeiculo = grupoDeVeiculo;
