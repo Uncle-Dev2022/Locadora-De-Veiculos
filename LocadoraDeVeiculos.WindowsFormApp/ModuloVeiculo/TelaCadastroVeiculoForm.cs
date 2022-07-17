@@ -16,13 +16,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
 
         private Veiculo veiculo;
 
-        public TelaCadastroVeiculoForm(List<GrupoDeVeiculo> grupoVeiculo)
+        public TelaCadastroVeiculoForm(List<Funcionario> grupoVeiculo)
         {
             InitializeComponent();
             CarregarGrupoDeVeiculo(grupoVeiculo);
         }
 
-        private void CarregarGrupoDeVeiculo(List<GrupoDeVeiculo> grupoVeiculo)
+        private void CarregarGrupoDeVeiculo(List<Funcionario> grupoVeiculo)
         {
             comboBoxGrupoVeiculo.Items.Clear();
 
@@ -84,7 +84,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
 
         private void ObterDadosTela()
         {
-            Veiculo.GrupoDeVeiculo = (GrupoDeVeiculo)comboBoxGrupoVeiculo.SelectedItem;
+            Veiculo.GrupoDeVeiculo = (Funcionario)comboBoxGrupoVeiculo.SelectedItem;
             Veiculo.Marca = textBoxMarca.Text;
             Veiculo.Modelo = textBoxModelo.Text;
             Veiculo.Cor = textBoxCor.Text;

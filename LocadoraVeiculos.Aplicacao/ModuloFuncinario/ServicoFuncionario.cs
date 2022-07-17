@@ -168,7 +168,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
             return Result.Ok();
         }
 
-        private bool NomeDuplicado(Funcionario funcionario)
+        private bool NomeDuplicado(GrupoDeVeiculo funcionario)
         {
             var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorNome(funcionario.Nome);
 
@@ -177,7 +177,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                    funcionarioEncontrado.Id != funcionario.Id;
         }
 
-        private bool LoginDuplicado(Funcionario funcionario)
+        private bool LoginDuplicado(GrupoDeVeiculo funcionario)
         {
             var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorLogin(funcionario.Login);
 

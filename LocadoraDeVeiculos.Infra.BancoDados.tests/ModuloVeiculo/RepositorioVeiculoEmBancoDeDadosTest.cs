@@ -18,7 +18,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
         Veiculo veiculo;
         Veiculo veiculo1;
         Veiculo veiculo2;
-        GrupoDeVeiculo grupoDeVeiculo;
+        Funcionario grupoDeVeiculo;
 
         private RepositorioVeiculoEmBancoDeDados repositorioVeiculo;
         private RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupo;
@@ -30,7 +30,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
             DB.executarSql("DELETE FROM TBGRUPOVEICULO;");
 
 
-            grupoDeVeiculo = new GrupoDeVeiculo("Economico");
+            grupoDeVeiculo = new Funcionario("Economico");
             veiculo = new Veiculo("Ford", "Ka", "Vermelho", "2020", "Gasolina", "BRA2E19", 100000, 50, new byte[] { })
             {
                 GrupoDeVeiculo = grupoDeVeiculo,

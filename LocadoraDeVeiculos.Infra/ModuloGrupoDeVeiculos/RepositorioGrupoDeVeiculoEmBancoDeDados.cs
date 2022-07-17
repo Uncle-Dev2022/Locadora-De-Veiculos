@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
     public class RepositorioGrupoDeVeiculoEmBancoDeDados : 
-        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorGrupoDeVeiculo> , IRepositorioGrupoDeVeiculo 
+        RepositorioBaseEmBancoDeDados<Funcionario, MapeadorGrupoDeVeiculo> , IRepositorioGrupoDeVeiculo 
     {
         
 
@@ -62,7 +62,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
             WHERE 
                 [NOME] = @NOME";
 
-        public GrupoDeVeiculo SelecionarGrupoDeVeiculoPorNome(string nome)
+        public Funcionario SelecionarGrupoDeVeiculoPorNome(string nome)
         {
             return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }

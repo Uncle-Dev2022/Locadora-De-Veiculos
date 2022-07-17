@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
+namespace LocadoraDeVeiculos.Dominio.ModuloFuncionario
 {
     public class Funcionario : EntidadeBase<Funcionario>
     {
