@@ -188,9 +188,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
 
             var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo);
-                  
-
-
             var servicoCliente = new ServicoCliente(repositorioCliente);
             var servicoCondutor = new ServicoCondutor(repositorioCondutor);
             var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
@@ -202,8 +199,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             controladores = new Dictionary<string, ControladorBase>();
 
             controladores.Add("Grupos de veículos", new ControladorGrupoDeVeiculo(repositorioGrupoDeVeiculo, servicoGrupoVeiculo));           
-            controladores.Add("Veiculo", new ControladorVeiculo(repositorioVeiculo, repositorioGrupoDeVeiculo, servicoVeiculo));
-            controladores.Add("Funcionario", new ControladorFuncionario(repositorioFuncionario));
+            controladores.Add("Veiculo", new ControladorVeiculo(servicoVeiculo, servicoGrupoVeiculo));
+            controladores.Add("Funcionario", new ControladorFuncionario(servicoFuncionario));
             controladores.Add("Cliente", new ControladorCliente(repositorioCliente,servicoCliente));
             controladores.Add("Taxas", new ControladorTaxa(repositorioTaxa, servicoTaxa));
             controladores.Add("Condutos", new ControladorCondutor(repositorioCondutor,servicoCondutor,repositorioCliente));
