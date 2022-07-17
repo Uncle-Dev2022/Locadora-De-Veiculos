@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
 {
-    public interface IRepositorioFuncionario : IRepositorio<Funcionario>
+    public interface IRepositorioFuncionario : IRepositorio<GrupoDeVeiculo>
     {
-        Funcionario SelecionarFuncionarioPorNome(string nome);
+        GrupoDeVeiculo SelecionarFuncionarioPorNome(string nome);
 
-        Funcionario SelecionarFuncionarioPorLogin(string usuario);
+        GrupoDeVeiculo SelecionarFuncionarioPorLogin(string usuario);
 
     }
 }

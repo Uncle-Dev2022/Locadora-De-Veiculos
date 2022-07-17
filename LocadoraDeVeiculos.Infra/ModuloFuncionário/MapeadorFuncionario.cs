@@ -8,9 +8,9 @@ using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloFuncionário
 {
-    public class MapeadorFuncionario : MapeadorBase<Funcionario>
+    public class MapeadorFuncionario : MapeadorBase<Dominio.ModuloFuncionário.GrupoDeVeiculo>
     {
-        public override void ConfigurarParametros(Funcionario funcionario, SqlCommand comando)
+        public override void ConfigurarParametros(Dominio.ModuloFuncionário.GrupoDeVeiculo funcionario, SqlCommand comando)
         {
             comando.Parameters.AddWithValue("ID", funcionario.Id);
             comando.Parameters.AddWithValue("NOME", funcionario.Nome);
@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloFuncionário
 
         }
 
-        public override Funcionario ConverterRegistro(SqlDataReader leitorFuncionario)
+        public override Dominio.ModuloFuncionário.GrupoDeVeiculo ConverterRegistro(SqlDataReader leitorFuncionario)
         {
             var id = Guid.Parse(leitorFuncionario["ID"].ToString());
             string nome = Convert.ToString(leitorFuncionario["NOME"]);
@@ -33,7 +33,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloFuncionário
             bool gerente = Convert.ToBoolean(leitorFuncionario["GERENTE"]);
 
 
-            return new Funcionario()
+            return new Dominio.ModuloFuncionário.GrupoDeVeiculo()
             {
                 Id = id,
                 Nome = nome,

@@ -18,7 +18,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
             this.repositorioFuncionario = repositorioFuncionario;
         }
 
-        public ValidationResult Inserir(Funcionario funcionario)
+        public ValidationResult Inserir(GrupoDeVeiculo funcionario)
         {
             Log.Logger.Debug("Tentando inserir funcionário... {@f}", funcionario);
             ValidationResult resultadoValidacao = Validar(funcionario);
@@ -40,7 +40,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
             return resultadoValidacao;
         }
 
-        public ValidationResult Editar(Funcionario funcionario)
+        public ValidationResult Editar(GrupoDeVeiculo funcionario)
         {
             Log.Logger.Debug("Tentando editar funcionário... {@f}", funcionario);
             ValidationResult resultadoValidacao = Validar(funcionario);
@@ -62,7 +62,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
             return resultadoValidacao;
         }
 
-        private ValidationResult Validar(Funcionario funcionario)
+        private ValidationResult Validar(GrupoDeVeiculo funcionario)
         {
             var validador = new ValidadorFuncionario();
 
@@ -77,7 +77,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
             return resultadoValidacao;
         }
 
-        private bool NomeDuplicado(Funcionario funcionario)
+        private bool NomeDuplicado(GrupoDeVeiculo funcionario)
         {
             var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorNome(funcionario.Nome);
 
@@ -86,7 +86,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                    funcionarioEncontrado.Id != funcionario.Id;
         }
 
-        private bool LoginDuplicado(Funcionario funcionario)
+        private bool LoginDuplicado(GrupoDeVeiculo funcionario)
         {
             var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorLogin(funcionario.Login);
 

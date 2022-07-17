@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
-    public class MapeadorGrupoDeVeiculo : MapeadorBase<GrupoDeVeiculo> 
+    public class MapeadorGrupoDeVeiculo : MapeadorBase<Funcionario> 
     {
-        public override void ConfigurarParametros(GrupoDeVeiculo gv, SqlCommand comando)
+        public override void ConfigurarParametros(Funcionario gv, SqlCommand comando)
         {
             comando.Parameters.AddWithValue("ID", gv.Id);
             comando.Parameters.AddWithValue("NOME", gv.Nome);
 
         }
 
-        public override GrupoDeVeiculo ConverterRegistro(SqlDataReader leitorGrupoDeVeiculo)
+        public override Funcionario ConverterRegistro(SqlDataReader leitorGrupoDeVeiculo)
         {
             var id = Guid.Parse(leitorGrupoDeVeiculo["ID"].ToString());
             string nome = Convert.ToString(leitorGrupoDeVeiculo["NOME"]);

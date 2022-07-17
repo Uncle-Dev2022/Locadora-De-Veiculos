@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloGrupoDeVeiculos
         [TestMethod]
         public void Nome_nao_Pode_Ser_Nulo()
         {
-            GrupoDeVeiculo gv = new(null);
+            Funcionario gv = new(null);
 
             ValidadorGrupoDeVeiculo validacao = new();
 
@@ -26,7 +26,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloGrupoDeVeiculos
         [TestMethod]
         public void Nome_nao_Pode_Ser_Vazio()
         {
-            GrupoDeVeiculo gv = new("");
+            Funcionario gv = new("");
 
             ValidadorGrupoDeVeiculo validacao = new();
 
@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloGrupoDeVeiculos
         [TestMethod]
         public void Nome_Deve_Ter_Minimo_Dois_Caracteres()
         {
-            GrupoDeVeiculo gv = new("N");
+            Funcionario gv = new("N");
 
             ValidadorGrupoDeVeiculo valfor = new();
 

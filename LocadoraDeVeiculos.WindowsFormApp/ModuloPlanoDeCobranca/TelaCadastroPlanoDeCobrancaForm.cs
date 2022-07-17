@@ -47,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
         {
             plano.Nome = textBoxNome.Text;
 
-            plano.grupoDeVeiculo = comboBox1.SelectedItem as GrupoDeVeiculo;
+            plano.grupoDeVeiculo = comboBox1.SelectedItem as Funcionario;
 
             plano.planoLivre.valorDiario = Convert.ToDecimal(TextBoxLivreValorDiario.Text);
 

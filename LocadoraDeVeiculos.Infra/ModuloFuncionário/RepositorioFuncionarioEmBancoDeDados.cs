@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 namespace LocadoraDeVeiculos.Infra.ModuloFuncionário
 {
     public class RepositorioFuncionarioEmBancoDeDados :
-        RepositorioBaseEmBancoDeDados<Funcionario, MapeadorFuncionario>, IRepositorioFuncionario
+        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorFuncionario>, IRepositorioFuncionario
     {
         protected override string sqlInserir =>
            @"INSERT INTO [TBFUNCIONARIO] 
@@ -105,12 +105,12 @@ namespace LocadoraDeVeiculos.Infra.ModuloFuncionário
                 [LOGIN] = @LOGIN";
 
 
-        public Funcionario SelecionarFuncionarioPorNome(string nome)
+        public GrupoDeVeiculo SelecionarFuncionarioPorNome(string nome)
         {
             return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }
 
-        public Funcionario SelecionarFuncionarioPorLogin(string login)
+        public GrupoDeVeiculo SelecionarFuncionarioPorLogin(string login)
         {
             return SelecionarPorParametro(sqlSelecionarPorLogin, new SqlParameter("LOGIN", login));
         }

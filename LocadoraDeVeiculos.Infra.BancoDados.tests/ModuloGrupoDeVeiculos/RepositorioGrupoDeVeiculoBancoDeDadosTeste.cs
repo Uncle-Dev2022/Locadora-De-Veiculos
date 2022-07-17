@@ -8,9 +8,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
     [TestClass]
     public class RepositorioGrupoDeVeiculoBancoDeDadosTeste
     {
-        GrupoDeVeiculo grupoVeiculo;
-        GrupoDeVeiculo grupoVeiculo1;
-        GrupoDeVeiculo grupoVeiculo2;
+        Funcionario grupoVeiculo;
+        Funcionario grupoVeiculo1;
+        Funcionario grupoVeiculo2;
 
         RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo;
 
@@ -18,9 +18,9 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
         {
             DB.executarSql("DELETE FROM TBGRUPOVEICULO;");
 
-            grupoVeiculo = new GrupoDeVeiculo("GrupoDeVeiculo");
-            grupoVeiculo1 = new GrupoDeVeiculo("GrupoDeVeiculoUm");
-            grupoVeiculo2 = new GrupoDeVeiculo("GrupoDeVeiculoDois");
+            grupoVeiculo = new Funcionario("GrupoDeVeiculo");
+            grupoVeiculo1 = new Funcionario("GrupoDeVeiculoUm");
+            grupoVeiculo2 = new Funcionario("GrupoDeVeiculoDois");
 
             repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
 

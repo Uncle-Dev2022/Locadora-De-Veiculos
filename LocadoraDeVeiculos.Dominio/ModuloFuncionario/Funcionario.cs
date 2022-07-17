@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
+namespace LocadoraDeVeiculos.Dominio.ModuloFuncionario
 {
     public class Funcionario : EntidadeBase<Funcionario>
     {
@@ -48,6 +48,11 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
                 funcionario.Senha.Equals(Senha) &&
                 funcionario.Login.Equals(Login) &&
                 funcionario.Gerente.Equals(Gerente);
+        }
+
+        public Funcionario Clone()
+        {
+            return MemberwiseClone() as Funcionario;
         }
 
         public override string ToString()
