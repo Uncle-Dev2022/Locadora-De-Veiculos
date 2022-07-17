@@ -60,11 +60,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
                 return;
             }
 
-            var selecaoClientes = servicoVeiculo.SelecionarTodos();
+            var selecaoGrupoVeiculos = servicoGrupoVeiculo.SelecionarTodos();
 
-            if (selecaoClientes.IsFailed)
+            if (selecaoGrupoVeiculos.IsFailed)
             {
-                MessageBox.Show(selecaoClientes.Errors[0].Message,
+                MessageBox.Show(selecaoGrupoVeiculos.Errors[0].Message,
                "Edição de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
@@ -81,7 +81,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
 
             var veiculoSelecionado = resultado.Value;
 
-            TelaCadastroVeiculoForm tela = new TelaCadastroVeiculoForm(selecaoClientes.Value);
+            TelaCadastroVeiculoForm tela = new TelaCadastroVeiculoForm(selecaoGrupoVeiculos.Value);
 
             tela.Veiculo = veiculoSelecionado;
 
