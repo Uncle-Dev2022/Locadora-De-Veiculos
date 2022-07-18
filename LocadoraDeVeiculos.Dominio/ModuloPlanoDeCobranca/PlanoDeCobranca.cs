@@ -27,7 +27,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
 
         public PlanoDeCobranca()
         {
-
+            this.planoDiario = new PlanoDiario();
+            this.planoControlado = new PlanoControlado();
+            this.planoLivre = new PlanoLivre();
         }
 
         public override bool Equals(object obj)
@@ -50,6 +52,10 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
         {
             this.valorDiario = valorDiario;
         }
+        public PlanoLivre()
+        {
+
+        }
         public override bool Equals(object obj)
         {
             PlanoLivre plano = obj as PlanoLivre;
@@ -64,6 +70,10 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
         {
             this.valorDiario = valorDiario;
             this.valorKm = valorKm;
+        }
+        public PlanoDiario()
+        {
+
         }
         public override bool Equals(object obj)
         {
@@ -82,6 +92,10 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
             this.valorDiario = valorDiario;
             this.valorKm= valorKm;
             this.limiteKm = limiteKm;
+        }
+        public PlanoControlado()
+        {
+
         }
         public override bool Equals(object obj)
         {

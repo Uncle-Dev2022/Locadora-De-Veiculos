@@ -1,5 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
 using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,19 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
     public class ControladorPlanoDeCobranca : ControladorBase
     {
         private readonly ServicoPlanoDeCobranca servicoPlanoDeCobranca;
+        private readonly ServicoGrupoDeVeiculo servicoGrupoDeVeiculo;
         private TabelaPlanoDeCobrancaControl tabelaPlanoDeCobranca;
 
-        public ControladorPlanoDeCobranca(ServicoPlanoDeCobranca servicoPlanoDeCobranca)
+        public ControladorPlanoDeCobranca(ServicoPlanoDeCobranca servicoPlanoDeCobranca, ServicoGrupoDeVeiculo servicoGrupoDeVeiculo)
         {     
             this.servicoPlanoDeCobranca = servicoPlanoDeCobranca;
+            this.servicoGrupoDeVeiculo = servicoGrupoDeVeiculo;
         }
         public override void Inserir()
         {
-            TelaCadastroPlanoDeCobrancaForm tela = new TelaCadastroPlanoDeCobrancaForm();
+            var grupos = servicoGrupoDeVeiculo.SelecionarTodos();
+
+            TelaCadastroPlanoDeCobrancaForm tela = new TelaCadastroPlanoDeCobrancaForm(grupos.Value);
             tela.Plano = new PlanoDeCobranca();
 
             tela.GravarRegistro = servicoPlanoDeCobranca.Inserir;
@@ -56,8 +61,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
             }
 
             var PlanoDeCobrancaSelecionado = resultado.Value;
+            
+            var grupos = servicoGrupoDeVeiculo.SelecionarTodos();
 
-            TelaCadastroPlanoDeCobrancaForm tela = new TelaCadastroPlanoDeCobrancaForm();
+            TelaCadastroPlanoDeCobrancaForm tela = new TelaCadastroPlanoDeCobrancaForm(grupos.Value);
 
             tela.Plano = PlanoDeCobrancaSelecionado;
 

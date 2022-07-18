@@ -9,5 +9,6 @@
     [PlanoControlado_ValorDiario] DECIMAL(11, 4) NOT NULL, 
     [PlanoControlado_ValorKm] DECIMAL(11, 4) NOT NULL, 
     [PlanoControlado_LimiteKm] DECIMAL(11, 4) NOT NULL, 
-    CONSTRAINT [PK_TBPlanoDeCobranca] PRIMARY KEY ([Id])
+    CONSTRAINT [PK_TBPlanoDeCobranca] PRIMARY KEY ([Id]), 
+    CONSTRAINT [FK_TBPlanoDeCobranca_ToTable] FOREIGN KEY ([grupoDeVeiculo_id]) REFERENCES [TBGrupoVeiculo]([Id])       
 )

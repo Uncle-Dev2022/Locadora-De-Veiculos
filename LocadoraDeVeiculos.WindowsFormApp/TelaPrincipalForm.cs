@@ -87,6 +87,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         {
             ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
         }
+        private void planoDeCobrançaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal((ToolStripMenuItem)sender);
+        }
         private void btnInserir_Click(object sender, EventArgs e)
         {
             controlador.Inserir();
@@ -204,8 +208,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             controladores.Add("Cliente", new ControladorCliente(servicoCliente));
             controladores.Add("Taxas", new ControladorTaxa(servicoTaxa));
             controladores.Add("Condutor", new ControladorCondutor(servicoCondutor, servicoCliente));
-            controladores.Add("Plano De Cobranca", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca));
+            controladores.Add("Plano De Cobrança", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca, servicoGrupoVeiculo));
         }
-
     }
 }

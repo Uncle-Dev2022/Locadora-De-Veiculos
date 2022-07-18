@@ -18,11 +18,21 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
     {
         PlanoDeCobranca plano;
 
-        public TelaCadastroPlanoDeCobrancaForm()
+        public TelaCadastroPlanoDeCobrancaForm(List<GrupoDeVeiculo> gruposDeVeiculo)
         {
             InitializeComponent();
+            CarregarGrupoDeVeiculo(gruposDeVeiculo);
         }
 
+        private void CarregarGrupoDeVeiculo(List<GrupoDeVeiculo> gruposDeVeiculo)
+        {
+            comboBoxGrupoDeVeiculo.Items.Clear();
+
+            foreach (var grupodeveiculo in gruposDeVeiculo)
+            {
+                comboBoxGrupoDeVeiculo.Items.Add(grupodeveiculo);
+            }
+        }
         public Func<PlanoDeCobranca, Result<PlanoDeCobranca>> GravarRegistro { get; set; }
 
         public PlanoDeCobranca Plano
@@ -41,14 +51,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
                 TextBoxControladoValorKM.Text = plano.planoControlado.valorKm.ToString();
                 TextBoxLimiteKM.Text = plano.planoControlado.limiteKm.ToString();
 
-                comboBox1.SelectedItem = plano.grupoDeVeiculo;
+                comboBoxGrupoDeVeiculo.SelectedItem = plano.grupoDeVeiculo;
             }
         }
         private void button1_Click(object sender, EventArgs e)
         {
             plano.Nome = textBoxNome.Text;
 
-            plano.grupoDeVeiculo = comboBox1.SelectedItem as GrupoDeVeiculo;
+            plano.grupoDeVeiculo = comboBoxGrupoDeVeiculo.SelectedItem as GrupoDeVeiculo;
 
             plano.planoLivre.valorDiario = Convert.ToDecimal(TextBoxLivreValorDiario.Text);
 
@@ -56,7 +66,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
             plano.planoDiario.valorKm = Convert.ToDecimal(TextBoxDiarioValorKM.Text);
 
             plano.planoControlado.valorKm = Convert.ToDecimal(TextBoxControladoValorKM.Text);
-            plano.planoControlado.limiteKm = Convert.ToDecimal(TextBoxLimiteKM);
+            plano.planoControlado.limiteKm = Convert.ToDecimal(TextBoxLimiteKM.Text);
             plano.planoControlado.valorDiario = Convert.ToDecimal(TextBoxControladoValorDiario.Text);
 
             var resultadoValidacao = GravarRegistro(plano);
