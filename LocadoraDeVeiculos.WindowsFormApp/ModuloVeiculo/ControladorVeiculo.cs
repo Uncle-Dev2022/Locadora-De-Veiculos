@@ -32,7 +32,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
             if (grupoVeiculo.IsFailed)
             {
                 MessageBox.Show(grupoVeiculo.Errors[0].Message,
-               "Inserção de Condutor", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               "Inserção de Veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return;
             }

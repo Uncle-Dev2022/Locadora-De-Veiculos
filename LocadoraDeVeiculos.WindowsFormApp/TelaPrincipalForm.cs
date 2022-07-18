@@ -198,12 +198,12 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
             controladores = new Dictionary<string, ControladorBase>();
 
-            controladores.Add("Grupos de veículos", new ControladorGrupoDeVeiculo(servicoGrupoVeiculo));           
+            controladores.Add("Grupo De Veículos", new ControladorGrupoDeVeiculo(servicoGrupoVeiculo));           
             controladores.Add("Veiculo", new ControladorVeiculo(servicoVeiculo, servicoGrupoVeiculo));
             controladores.Add("Funcionario", new ControladorFuncionario(servicoFuncionario));
             controladores.Add("Cliente", new ControladorCliente(servicoCliente));
             controladores.Add("Taxas", new ControladorTaxa(servicoTaxa));
-            controladores.Add("Condutos", new ControladorCondutor(servicoCondutor, servicoCliente));
+            controladores.Add("Condutor", new ControladorCondutor(servicoCondutor, servicoCliente));
             controladores.Add("Plano De Cobranca", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca));
         }
 

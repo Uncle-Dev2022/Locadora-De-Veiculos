@@ -9,13 +9,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
 {
     public class ConfiguracaoToolBoxVeiculo : ConfiguracaoToolBoxBase
     {
-        public override string TipoCadastro => "Controle de funcionario";
+        public override string TipoCadastro => "Controle de Veículo";
 
-        public override string TooltipInserir => "Inserir um novo funcionario";
+        public override string TooltipInserir => "Inserir um novo Veículo";
 
-        public override string TooltipEditar => "Editar um funcionario existente";
+        public override string TooltipEditar => "Editar um Veículo existente";
 
-        public override string TooltipExcluir => "Excluir um funcionario existente";
+        public override string TooltipExcluir => "Excluir um Veículo existente";
 
 
 
