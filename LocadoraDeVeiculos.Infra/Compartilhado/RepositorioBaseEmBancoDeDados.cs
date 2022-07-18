@@ -165,6 +165,29 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
         }
 
     }
-    
+    /*  "   SELECT  PL.[ID] AS ID,                
+     *              PL.[NOME] AS NOME,
+     *              [GRUPODEVEICULO_ID],
+     *              GP.NOME AS GRUPODEVEICULO_NOME,
+     *              [PLANODIARIO_VALORDIARIO],
+     *              [PLANODIARIO_VALORKM],
+     *              [PLANOLIVRE_VALORDIARIO],
+     *              [PLANOCONTROLADO_VALORDIARIO],
+     *              [PLANOCONTROLADO_VALORKM],
+     *              [PLANOCONTROLADO_LIMITEKM]
+     *      FROM
+     *              [DBO].[TBPlanoDeCobranca] inner join [GRUPODEVEICULO] AS GP
+     *      WHERE 
+     *              [NOME] = @NOME"
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * */
+
 }
 

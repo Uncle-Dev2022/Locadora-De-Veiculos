@@ -103,12 +103,16 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
                 [PLANOCONTROLADO_LIMITEKM]
 
                 FROM
-                    [DBO].[TBPlanoDeCobranca] inner join [GRUPODEVEICULO] AS GP
-                    WHERE [NOME] = @NOME";
+                    [DBO].[TBPlanoDeCobranca] AS PL left join [TBGrupoVeiculo] AS GP
+                ON 
+                    PL.[NOME] = @NOME";
+
+                //HAVING 
+                //PL.NOME = @NOME";
 
         public PlanoDeCobranca SelecionarPlanoDeCobrancaPorNome(string nome)
         {
-            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("[NOME]", nome));
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }
     }
 
