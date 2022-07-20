@@ -67,64 +67,75 @@ namespace LocadoraDeVeiculos.Infra.ModuloVeiculo
 
         protected override string sqlSelecionarPorId =>
           @"SELECT 
-                   VEICULO.[ID] AS ID,
-                   VEICULO.[MARCA] AS MARCA,
-                   VEICULO.[MODELO] AS MODELO,
-                   VEICULO.[COR] AS COR,
-                   VEICULO.[ANOMODELO] AS ANOMODELO,
-                   VEICULO.[TIPOCOMBUSTIVEL] AS TIPOCOMBUSTIVEL,
-                   VEICULO.[PLACA] AS PLACA,
-                   VEICULO.[QUILOMETRAGEM] AS QUILOMETRAGEM,
-                   VEICULO.[CAPACIDADETANQUE] AS CAPACIDADETANQUE,
-                   VEICULO.[IMAGEM] AS IMAGEM,
-                   VEICULO.[GRUPODEVEICULO_ID] AS GRUPODEVEICULO_ID,
+                   VEICULO.[ID] AS VEICULO_ID,
+                   VEICULO.[MARCA] AS VEICULO_MARCA,
+                   VEICULO.[MODELO] AS VEICULO_MODELO,
+                   VEICULO.[COR] AS VEICULO_COR,
+                   VEICULO.[ANOMODELO] AS VEICULO_ANOMODELO,
+                   VEICULO.[TIPOCOMBUSTIVEL] AS VEICULO_TIPOCOMBUSTIVEL,
+                   VEICULO.[PLACA] AS VEICULO_PLACA,
+                   VEICULO.[QUILOMETRAGEM] AS VEICULO_QUILOMETRAGEM,
+                   VEICULO.[CAPACIDADETANQUE] AS VEICULO_CAPACIDADETANQUE,
+                   VEICULO.[IMAGEM] AS VEICULO_IMAGEM,
+                   VEICULO.[GRUPODEVEICULO_ID] AS VEICULO_GRUPODEVEICULO_ID,
                    
-                   GRUPODEVEICULO.[NOME] AS GRUPODEVEICULO_NOME
+                   GRUPOVEICULO.[NOME] AS GRUPOVEICULO_NOME
 
 
             FROM
-                TBVEICULO AS VEICULO INNER JOIN TBGRUPOVEICULO AS GRUPODEVEICULO ON VEICULO.[GRUPODEVEICULO_ID] = GRUPODEVEICULO.[ID]
+                TBVEICULO AS VEICULO LEFT JOIN 
+                TBGRUPOVEICULO AS GRUPOVEICULO
+            ON
+                VEICULO.[GRUPODEVEICULO_ID] = GRUPOVEICULO.[ID]
+
             WHERE 
-             VEICULO.[ID] = @ID";
+                VEICULO.[ID] = @ID";
 
         protected override string sqlSelecionarTodos =>
             @"SELECT 
-                   VEICULO.[ID],
-                   VEICULO.[MARCA],
-                   VEICULO.[MODELO],
-                   VEICULO.[COR],
-                   VEICULO.[ANOMODELO],
-                   VEICULO.[TIPOCOMBUSTIVEL],
-                   VEICULO.[PLACA],
-                   VEICULO.[QUILOMETRAGEM],
-                   VEICULO.[CAPACIDADETANQUE],
-                   VEICULO.[IMAGEM],
-                   VEICULO.[GRUPODEVEICULO_ID],
-
+                   VEICULO.[ID] AS VEICULO_ID,
+                   VEICULO.[MARCA] AS VEICULO_MARCA,
+                   VEICULO.[MODELO] AS VEICULO_MODELO,
+                   VEICULO.[COR] AS VEICULO_COR,
+                   VEICULO.[ANOMODELO] AS VEICULO_ANOMODELO,
+                   VEICULO.[TIPOCOMBUSTIVEL] AS VEICULO_TIPOCOMBUSTIVEL,
+                   VEICULO.[PLACA] AS VEICULO_PLACA,
+                   VEICULO.[QUILOMETRAGEM] AS VEICULO_QUILOMETRAGEM,
+                   VEICULO.[CAPACIDADETANQUE] AS VEICULO_CAPACIDADETANQUE,
+                   VEICULO.[IMAGEM] AS VEICULO_IMAGEM,
+                   VEICULO.[GRUPODEVEICULO_ID] AS VEICULO_GRUPODEVEICULO_ID,
                    
-                   GRUPOVEICULO.[NOME] AS GRUPODEVEICULO_NOME
+                   GRUPOVEICULO.[NOME] AS GRUPOVEICULO_NOME
 
 
             FROM
-                TBVEICULO AS VEICULO inner JOIN 
-                TBGRUPOVEICULO AS GRUPOVEICULO ON VEICULO.[GRUPODEVEICULO_ID] = GRUPOVEICULO.[ID]";
+                TBVEICULO AS VEICULO LEFT JOIN 
+                TBGRUPOVEICULO AS GRUPOVEICULO
+            ON 
+                VEICULO.[GRUPODEVEICULO_ID] = GRUPOVEICULO.[ID]";
 
         private string sqlSelecionarPorPlaca =>
                 @"SELECT 
-                   [MARCA],
-                   [MODELO],
-                   [COR],
-                   [ANOMODELO],
-                   [TIPOCOMBUSTIVEL],
-                   [PLACA],
-                   [QUILOMETRAGEM],
-                   [CAPACIDADETANQUE],
-                   [IMAGEM],
-                   [GRUPODEVEICULO_ID]
+                   VEICULO.[ID] AS VEICULO_ID,
+                   VEICULO.[MARCA] AS VEICULO_MARCA,
+                   VEICULO.[MODELO] AS VEICULO_MODELO,
+                   VEICULO.[COR] AS VEICULO_COR,
+                   VEICULO.[ANOMODELO] AS VEICULO_ANOMODELO,
+                   VEICULO.[TIPOCOMBUSTIVEL] AS VEICULO_TIPOCOMBUSTIVEL,
+                   VEICULO.[PLACA] AS VEICULO_PLACA,
+                   VEICULO.[QUILOMETRAGEM] AS VEICULO_QUILOMETRAGEM,
+                   VEICULO.[CAPACIDADETANQUE] AS VEICULO_CAPACIDADETANQUE,
+                   VEICULO.[IMAGEM] AS VEICULO_IMAGEM,
+                   VEICULO.[GRUPODEVEICULO_ID] AS VEICULO_GRUPODEVEICULO_ID,
+
+                   GRUPOVEICULO.[NOME] AS GRUPOVEICULO_NOME
+
+
             FROM
-                [TBVEICULO]
-            WHERE 
-                [PLACA] = @PLACA";
+                TBVEICULO AS VEICULO LEFT JOIN 
+                TBGRUPOVEICULO AS GRUPOVEICULO 
+            ON 
+                VEICULO.[PLACA] = @PLACA";
 
         
 

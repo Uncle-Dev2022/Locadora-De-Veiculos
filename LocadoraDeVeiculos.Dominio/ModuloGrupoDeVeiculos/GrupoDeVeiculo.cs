@@ -40,7 +40,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos
         }
         public override string ToString()
         {
-            return "Nome: " + Nome;
+            return Nome;
 
         }
 

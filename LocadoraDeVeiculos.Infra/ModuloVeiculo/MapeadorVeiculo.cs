@@ -31,19 +31,20 @@ namespace LocadoraDeVeiculos.Infra.ModuloVeiculo
 
         public override Veiculo ConverterRegistro(SqlDataReader leitorVeiculo)
         {
-            var id = Guid.Parse(leitorVeiculo["ID"].ToString());
-            string marca = Convert.ToString(leitorVeiculo["MARCA"]);
-            string modelo = Convert.ToString(leitorVeiculo["MODELO"]);
-            string cor = Convert.ToString(leitorVeiculo["COR"]);
-            string anoModelo = Convert.ToString(leitorVeiculo["ANOMODELO"]);
-            string tipoCombustivel = Convert.ToString(leitorVeiculo["TIPOCOMBUSTIVEL"]);
-            string placa = Convert.ToString(leitorVeiculo["PLACA"]);
-            decimal quilometragem = Convert.ToDecimal(leitorVeiculo["QUILOMETRAGEM"]);
-            int capacidadeTanque = Convert.ToInt32(leitorVeiculo["CAPACIDADETANQUE"]);
-            byte[] imagem = (byte[])leitorVeiculo["IMAGEM"];
+            var id = Guid.Parse(leitorVeiculo["VEICULO_ID"].ToString());
+            string marca = Convert.ToString(leitorVeiculo["VEICULO_MARCA"]);
+            string modelo = Convert.ToString(leitorVeiculo["VEICULO_MODELO"]);
+            string cor = Convert.ToString(leitorVeiculo["VEICULO_COR"]);
+            string anoModelo = Convert.ToString(leitorVeiculo["VEICULO_ANOMODELO"]);
+            string tipoCombustivel = Convert.ToString(leitorVeiculo["VEICULO_TIPOCOMBUSTIVEL"]);
+            string placa = Convert.ToString(leitorVeiculo["VEICULO_PLACA"]);
+            decimal quilometragem = Convert.ToDecimal(leitorVeiculo["VEICULO_QUILOMETRAGEM"]);
+            int capacidadeTanque = Convert.ToInt32(leitorVeiculo["VEICULO_CAPACIDADETANQUE"]);
+            byte[] imagem = (byte[])leitorVeiculo["VEICULO_IMAGEM"];
 
-            var numeroGrupo = Guid.Parse(leitorVeiculo["GRUPODEVEICULO_ID"].ToString());
-            string nomeGrupo = Convert.ToString(leitorVeiculo["GRUPODEVEICULO_NOME"]);
+            var numeroGrupo = Guid.Parse(leitorVeiculo["VEICULO_GRUPODEVEICULO_ID"].ToString());
+
+            string nomeGrupo = Convert.ToString(leitorVeiculo["GRUPOVEICULO_NOME"]);
 
 
             return new Veiculo()
