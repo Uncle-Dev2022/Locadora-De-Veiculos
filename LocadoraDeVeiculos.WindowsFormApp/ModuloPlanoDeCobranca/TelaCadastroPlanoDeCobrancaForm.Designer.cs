@@ -166,6 +166,7 @@
             // 
             // comboBoxGrupoDeVeiculo
             // 
+            this.comboBoxGrupoDeVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGrupoDeVeiculo.FormattingEnabled = true;
             this.comboBoxGrupoDeVeiculo.Location = new System.Drawing.Point(132, 59);
             this.comboBoxGrupoDeVeiculo.Name = "comboBoxGrupoDeVeiculo";
@@ -374,9 +375,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCadastroPlanoDeCobrancaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TelaCadastroPlanoDeCobranca";
+            this.Text = "Plano De Cobrança";
             this.panelDiario.ResumeLayout(false);
             this.panelDiario.PerformLayout();
             this.tabControlDiario.ResumeLayout(false);
