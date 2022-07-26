@@ -14,9 +14,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
     public class ServicoTaxa
     {
         private IRepositorioTaxa repositorioTaxa;
-
-        public ServicoTaxa(IRepositorioTaxa repositorioTaxa)
+        //private IContextoPersistencia contexto;
+        public ServicoTaxa(IRepositorioTaxa repositorioTaxa /*,IContextoPresistencia contexto*/)
         {
+            //this.contexto = contexto;
             this.repositorioTaxa = repositorioTaxa;
         }
 
@@ -40,7 +41,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
             try
             {
                 repositorioTaxa.Inserir(taxa);
-
+                //contexto.GravarDados();
                 Log.Logger.Information("taxa {taxaId} inserida com sucesso", taxa.Id);
 
                 return Result.Ok(taxa);
