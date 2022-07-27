@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
+using LocadoraVeiculos.Aplicacao.Compartilhado;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -13,151 +14,9 @@ using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 {
-    public class ServicoCliente
+    public class ServicoCliente : ServicoBase<Cliente>
     {
-        private IRepositorioCliente repositorioCliente;
-        private IContextoPersistencia contextoPersistencia;
-
-        public ServicoCliente(IRepositorioCliente repositorioCliente, IContextoPersistencia contextoPersistencia)
-        {
-            this.repositorioCliente = repositorioCliente;
-            this.contextoPersistencia = contextoPersistencia;
-        }
-
-        public Result<Cliente> Inserir(Cliente cliente)
-        {
-            Log.Logger.Debug("Tentando inserir cliente... {@c}", cliente);
-
-            Result resultadoValidacao = Validar(cliente);
-
-            if (resultadoValidacao.IsFailed)
-            {
-                foreach (var erro in resultadoValidacao.Errors)
-                {
-                    Log.Logger.Warning("Falha ao tentar inserir o Cliente {ClienteId} - {Motivo}",
-                       cliente.Id, erro.Message);
-                }
-
-                return Result.Fail(resultadoValidacao.Errors);
-            }
-
-            try
-            {
-                repositorioCliente.Inserir(cliente);
-
-                Log.Logger.Information("Cliente {ClienteId} inserido com sucesso", cliente.Id);
-
-                return Result.Ok(cliente);
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar inserir o cliente";
-
-                Log.Logger.Error(ex, msgErro + "{ClienteId}", cliente.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-        public Result<Cliente> Editar(Cliente cliente)
-        {
-            Log.Logger.Debug("Tentando editar cliente... {@c}", cliente);
-
-            Result resultadoValidacao = Validar(cliente);
-
-            if (resultadoValidacao.IsFailed)
-            {
-                foreach (var erro in resultadoValidacao.Errors)
-                {
-                    Log.Logger.Warning("Falha ao tentar editar o cliente {ClienteId} - {Motivo}",
-                       cliente.Id, erro.Message);
-                }
-
-                return Result.Fail(resultadoValidacao.Errors);
-            }
-
-            try
-            {
-                repositorioCliente.Editar(cliente);
-
-                Log.Logger.Information("Cliente {ClienteId} editado com sucesso", cliente.Id);
-
-                return Result.Ok(cliente);
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar editar o cliente";
-
-                Log.Logger.Error(ex, msgErro + "{ClienteId}", cliente.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-        public Result Excluir(Cliente cliente)
-        {
-            Log.Logger.Debug("Tentando excluir cliente... {@c}", cliente);
-
-            try
-            {
-                repositorioCliente.Excluir(cliente);
-
-                Log.Logger.Information("Cliente {ClienteId} excluído com sucesso", cliente.Id);
-
-                return Result.Ok();
-            }
-            catch(NaoPodeExcluirEsteRegistroException ex)
-            {
-                string msgErro = $"O Cliente: {cliente.Nome}, esta relacionado com um condutor e não pode ser excluido";
-
-                Log.Logger.Error(ex, msgErro + "{ClienteId}", cliente.Id);
-
-                return Result.Fail(msgErro);
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar excluir o Cliente";
-
-                Log.Logger.Error(ex, msgErro + "{ClienteId}", cliente.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-        public Result<List<Cliente>> SelecionarTodos()
-        {            
-            try
-            {
-                return Result.Ok(repositorioCliente.SelecionarTodos());
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar Selecionar todos os Cliente";
-
-                Log.Logger.Error(ex,msgErro);
-
-                return Result.Fail(msgErro);
-            }
-
-        }
-
-        public Result<Cliente> SelecionarPorId(Guid id)
-        {
-
-            try
-            {
-                return Result.Ok(repositorioCliente.SelecionarPorId(id));
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar Selecionar o Cliente";
-
-                Log.Logger.Error(ex, msgErro + "{ClienteID}",id);
-
-                return Result.Fail(msgErro);
-            }
-
-        }
-
-        private Result Validar(Cliente cliente)
+        public override Result Validar(Cliente cliente)
         {
             var validador = new ValidadorCliente();
 
@@ -190,7 +49,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool CPF_CNPJDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorioCliente.SelecionarClientePorCPFOuCNPJ(cliente.CPF_CNPJ);
+            var ClienteEncontrado = repositorio.SelecionarClientePorCPFOuCNPJ(cliente.CPF_CNPJ);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&
@@ -199,7 +58,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool NomeDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorioCliente.SelecionarClientePorNome(cliente.Nome);
+            var ClienteEncontrado = repositorio.(cliente.Nome);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.Nome == cliente.Nome &&
