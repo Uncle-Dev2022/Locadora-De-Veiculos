@@ -17,27 +17,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloTaxa
             this.db = db;
             Dados = db.Set<Taxa>();
         }
-        public override void Editar(Taxa registro)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Excluir(Taxa registro)
-        {
-            throw new NotImplementedException();
-        }
-
         public Taxa SelecionarPorDescricao(string descricao)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override Taxa SelecionarPorId(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<Taxa> SelecionarTodos()
         {
             throw new NotImplementedException();
         }
