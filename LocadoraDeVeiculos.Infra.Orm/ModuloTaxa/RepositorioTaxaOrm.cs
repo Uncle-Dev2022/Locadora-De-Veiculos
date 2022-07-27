@@ -11,7 +11,6 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloTaxa
 {
     public class RepositorioTaxaOrm : RepositorioBaseOrm<Taxa, MapeadorTaxaOrm>
     {
-
         public RepositorioTaxaOrm(LocadoraDeVeiculosDbContext db)
         {
             this.db = db;

@@ -1,7 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using System;
 using System.Collections.Generic;
-using LocadoraDeVeiculos.Dominio.Compartilhado;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
