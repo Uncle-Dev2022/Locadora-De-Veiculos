@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
 
         public void Editar(T registro)
         {
-            
+             
         }
         public void Excluir(T registro)
         {
