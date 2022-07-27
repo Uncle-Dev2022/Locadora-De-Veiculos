@@ -10,9 +10,8 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente
 {
     public class RepositorioClienteOrm : RepositorioBaseOrm<Cliente,MapeadorClienteOrm>
     {
-        public RepositorioClienteOrm(LocadoraDeVeiculosDbContext db)
+        public RepositorioClienteOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
-            this.db = db;
             Dados = db.Set<Cliente>();
         }
     }
