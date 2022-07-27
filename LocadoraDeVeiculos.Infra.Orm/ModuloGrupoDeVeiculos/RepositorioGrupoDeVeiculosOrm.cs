@@ -10,10 +10,8 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloGrupoDeVeiculos
 {
     public class RepositorioGrupoDeVeiculosOrm : RepositorioBaseOrm<GrupoDeVeiculo, MapeadorGrupoDeVeiculosOrm>
     {
-        public RepositorioGrupoDeVeiculosOrm(LocadoraDeVeiculosDbContext db)
+        public RepositorioGrupoDeVeiculosOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
-            this.db = db;
-            Dados = db.Set<GrupoDeVeiculo>();
         }
 
         public GrupoDeVeiculo SelecionarGrupoDeVeiculoPorNome(string nome)

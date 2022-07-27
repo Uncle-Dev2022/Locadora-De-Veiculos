@@ -13,8 +13,8 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloTaxa
     {
         public RepositorioTaxaOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
-            Dados = db.Set<Taxa>();
         }
+
         public Taxa SelecionarPorDescricao(string descricao)
         {
             return Dados.FirstOrDefault(x => x.descricao == descricao);

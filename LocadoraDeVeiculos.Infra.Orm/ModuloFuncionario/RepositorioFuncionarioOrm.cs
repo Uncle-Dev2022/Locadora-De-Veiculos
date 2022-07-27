@@ -11,10 +11,8 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario
     public class RepositorioFuncionarioOrm : RepositorioBaseOrm<Funcionario,
         MapeadorFuncionarioOrm>
     {
-        public RepositorioFuncionarioOrm(LocadoraDeVeiculosDbContext db)
+        public RepositorioFuncionarioOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
-            this.db = db;
-            Dados = db.Set<Funcionario>();
         }
 
         public Funcionario SelecionarFuncionarioPorLogin(string login)

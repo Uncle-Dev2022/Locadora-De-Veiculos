@@ -71,7 +71,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
 
             // foi mechido
             var repositorioTaxa = new RepositorioTaxaOrm(contextoDadosOrm);
-            var servicoTaxa = new ServicoTaxa(repositorioTaxa, contextoDadosOrm);
+            var servicoTaxa = new ServicoTaxa(repositorioTaxa);
             controladores.Add("ControladorTaxa", new ControladorTaxa(servicoTaxa));
 
             var repositorioVeiculo = new RepositorioVeiculoEmBancoDeDados();

@@ -11,12 +11,13 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
     public abstract class RepositorioBaseOrm<T, Mapeador> : IRepositorio<T>
         where T : EntidadeBase<T> where Mapeador : MapeadorBaseOrm<T>
     {
-        protected LocadoraDeVeiculosDbContext db;
+        LocadoraDeVeiculosDbContext db;
         protected DbSet<T> Dados;
 
         public RepositorioBaseOrm(LocadoraDeVeiculosDbContext db)
         {
             this.db = db;
+            Dados = db.Set<T>();
         }
 
         public void Editar(T registro)
@@ -39,6 +40,10 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
         public List<T> SelecionarTodos()
         {
             return Dados.ToList();
+        }
+        public void GravarDados()
+        {
+            db.GravarDados();
         }
     }
 }
