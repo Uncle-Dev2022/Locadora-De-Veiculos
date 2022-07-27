@@ -28,7 +28,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
             optionsBuilder.UseSqlServer(enderecoConexaoComBanco);
             ILoggerFactory loggerFactory = LoggerFactory.Create(x =>
             {
-                // pacote Serilog.Extensions.Logging
+                // pacote Serilog.Extensions.Logging                
                 x.AddSerilog(Log.Logger);
             });
             //optionsBuilder.LogTo(Console.WriteLine);

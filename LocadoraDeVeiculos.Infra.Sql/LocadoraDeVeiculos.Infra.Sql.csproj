@@ -5,12 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ModuloFuncionario\**" />
+    <Compile Remove="ModuloGrupoDeVeiculo\**" />
+    <Compile Remove="ModuloTaxa\**" />
+    <EmbeddedResource Remove="ModuloFuncionario\**" />
+    <EmbeddedResource Remove="ModuloGrupoDeVeiculo\**" />
+    <EmbeddedResource Remove="ModuloTaxa\**" />
+    <None Remove="ModuloFuncionario\**" />
+    <None Remove="ModuloGrupoDeVeiculo\**" />
+    <None Remove="ModuloTaxa\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Compartilhado\" />
     <Folder Include="ModuloCliente\" />
-    <Folder Include="ModuloFuncionario\" />
-    <Folder Include="ModuloGrupoDeVeiculo\" />
     <Folder Include="ModuloPlanoDeCobranca\" />
-    <Folder Include="ModuloTaxa\" />
     <Folder Include="ModuloVeiculo\" />
   </ItemGroup>
 
