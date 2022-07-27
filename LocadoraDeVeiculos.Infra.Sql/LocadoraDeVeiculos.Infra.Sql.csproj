@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Compartilhado\" />
+    <Folder Include="ModuloCliente\" />
+    <Folder Include="ModuloFuncionario\" />
+    <Folder Include="ModuloGrupoDeVeiculo\" />
+    <Folder Include="ModuloPlanoDeCobranca\" />
+    <Folder Include="ModuloTaxa\" />
+    <Folder Include="ModuloVeiculo\" />
+  </ItemGroup>
+
+</Project>

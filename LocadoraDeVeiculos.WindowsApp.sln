@@ -39,22 +39,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql", "Sql", "{609F7B34-9F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orm", "Orm", "{C3378B7B-6EA0-4BCF-933B-3B0177E82C84}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compartilhado", "Compartilhado", "{AD0EEAC2-FCB4-48D2-90FB-E444D08F25F9}"
-	ProjectSection(SolutionItems) = preProject
-		LocadoraDeVeiculos.Infra.Orm\Compartilhado\LocadoraDeVeiculosDbContext.cs = LocadoraDeVeiculos.Infra.Orm\Compartilhado\LocadoraDeVeiculosDbContext.cs
-		LocadoraDeVeiculos.Infra.Orm\Compartilhado\MapeadorBaseOrm.cs = LocadoraDeVeiculos.Infra.Orm\Compartilhado\MapeadorBaseOrm.cs
-		LocadoraDeVeiculos.Infra.Orm\Compartilhado\RepositorioBaseOrm.cs = LocadoraDeVeiculos.Infra.Orm\Compartilhado\RepositorioBaseOrm.cs
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.Orm", "LocadoraDeVeiculos.Infra.Orm\LocadoraDeVeiculos.Infra.Orm.csproj", "{85AEEFD6-0D0E-4726-9CA4-76C74C36B295}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModuloTaxa", "ModuloTaxa", "{84EAFA74-D985-4885-8E58-7979E909E0E1}"
-	ProjectSection(SolutionItems) = preProject
-		LocadoraDeVeiculos.Infra.Orm\ModuloTaxa\MapeadorTaxaOrm.cs = LocadoraDeVeiculos.Infra.Orm\ModuloTaxa\MapeadorTaxaOrm.cs
-		LocadoraDeVeiculos.Infra.Orm\ModuloTaxa\RepositorioTaxaOrm.cs = LocadoraDeVeiculos.Infra.Orm\ModuloTaxa\RepositorioTaxaOrm.cs
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Compartilhado", "Compartilhado", "{6C1044A6-3B9A-43D2-934A-4709CF92C950}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ModuloCliente", "ModuloCliente", "{2C05513E-EF3E-46F2-B764-B8E1EC8066DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.Sql", "LocadoraDeVeiculos.Infra.Sql\LocadoraDeVeiculos.Infra.Sql.csproj", "{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,6 +83,14 @@ Global
 		{853F05A8-DED9-44AD-8F1D-7196B42B8AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{853F05A8-DED9-44AD-8F1D-7196B42B8AD6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{853F05A8-DED9-44AD-8F1D-7196B42B8AD6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{85AEEFD6-0D0E-4726-9CA4-76C74C36B295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85AEEFD6-0D0E-4726-9CA4-76C74C36B295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85AEEFD6-0D0E-4726-9CA4-76C74C36B295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85AEEFD6-0D0E-4726-9CA4-76C74C36B295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,10 +109,8 @@ Global
 		{853F05A8-DED9-44AD-8F1D-7196B42B8AD6} = {B46CBBA2-BA24-46F8-861F-0D05684257BF}
 		{609F7B34-9F8D-4B91-A90E-777B1ED50D55} = {B46CBBA2-BA24-46F8-861F-0D05684257BF}
 		{C3378B7B-6EA0-4BCF-933B-3B0177E82C84} = {B46CBBA2-BA24-46F8-861F-0D05684257BF}
-		{AD0EEAC2-FCB4-48D2-90FB-E444D08F25F9} = {C3378B7B-6EA0-4BCF-933B-3B0177E82C84}
-		{84EAFA74-D985-4885-8E58-7979E909E0E1} = {C3378B7B-6EA0-4BCF-933B-3B0177E82C84}
-		{6C1044A6-3B9A-43D2-934A-4709CF92C950} = {609F7B34-9F8D-4B91-A90E-777B1ED50D55}
-		{2C05513E-EF3E-46F2-B764-B8E1EC8066DA} = {C3378B7B-6EA0-4BCF-933B-3B0177E82C84}
+		{85AEEFD6-0D0E-4726-9CA4-76C74C36B295} = {C3378B7B-6EA0-4BCF-933B-3B0177E82C84}
+		{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794} = {609F7B34-9F8D-4B91-A90E-777B1ED50D55}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDAB53D9-3E65-47B7-8B35-04F8FB3D762A}
