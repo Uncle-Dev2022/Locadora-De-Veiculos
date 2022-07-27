@@ -5,6 +5,9 @@ using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.ModuloVeiculo;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
+using LocadoraDeVeiculos.LocadoraDeVeiculos.WindowsFormApp.Compartilhado.Ioc;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
@@ -46,6 +49,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
 
         private void InicializarControladores()
         {
+            var contextoDadosOrm = new LocadoraDeVeiculosDbContext();
+
             controladores = new Dictionary<string, ControladorBase>();
 
             var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
@@ -64,8 +69,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
             var servicoCondutor = new ServicoCondutor(repositorioCondutor);
             controladores.Add("ControladorCondutor", new ControladorCondutor(servicoCondutor, servicoCliente));
 
-            var repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
-            var servicoTaxa = new ServicoTaxa(repositorioTaxa);
+            // foi mechido
+            var repositorioTaxa = new RepositorioTaxaOrm(contextoDadosOrm);
+            var servicoTaxa = new ServicoTaxa(repositorioTaxa, contextoDadosOrm);
             controladores.Add("ControladorTaxa", new ControladorTaxa(servicoTaxa));
 
             var repositorioVeiculo = new RepositorioVeiculoEmBancoDeDados();
@@ -75,6 +81,46 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
             var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
             var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca);
             controladores.Add("ControladorPlanoDeCobranca", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca, servicoGrupoVeiculo));
+
+            /*
+             * 
+            var serializador = new SerializadorDadosEmJsonDotnet();
+
+            var contextoDados = new GeradorTesteJsonContext(serializador);
+
+            IConfiguration configuracao = new ConfigurationBuilder()
+                 .SetBasePath(Directory.GetCurrentDirectory())
+                 .AddJsonFile("ConfiguracaoAplicacao.json")
+                 .Build();
+
+            var connectionString = configuracao.GetConnectionString("SqlServer");
+
+            var contextoDadosOrm = new GeradorTesteDbContext(connectionString);
+
+            //var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
+            var repositorioDisciplina = new RepositorioDisciplinaOrm(contextoDadosOrm);            
+            var servicoDisciplina = new ServicoDisciplina(repositorioDisciplina, contextoDadosOrm);
+            controladores.Add("ControladorDisciplina", new ControladorDisciplina(servicoDisciplina));
+
+            //var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
+            var repositorioMateria = new RepositorioMateriaOrm(contextoDadosOrm);
+            var servicoMateria = new ServicoMateria(repositorioMateria, contextoDadosOrm);
+            controladores.Add("ControladorMateria", new ControladorMateria(servicoMateria, servicoDisciplina));
+
+            //var repositorioQuestao = new RepositorioQuestaoEmArquivo(contextoDados);
+            var repositorioQuestao = new RepositorioQuestaoOrm(contextoDadosOrm);
+            var servicoQuestao = new ServicoQuestao(repositorioQuestao, contextoDadosOrm);
+            controladores.Add("ControladorQuestao", new ControladorQuestao(servicoQuestao, servicoDisciplina));
+
+            //var repositorioTeste = new RepositorioTesteEmArquivo(contextoDados);
+            var repositorioTeste = new RepositorioTesteOrm(contextoDadosOrm);
+            var servicoTeste = new ServicoTeste(repositorioTeste, contextoDadosOrm);
+            controladores.Add("ControladorTeste", new ControladorTeste(servicoTeste, servicoDisciplina));
+
+            controladores.Add("ControladorConfiguracao", new ControladorConfiguracao());
+             
+             * 
+             */
         }
     }
 }

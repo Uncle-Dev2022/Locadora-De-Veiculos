@@ -14,6 +14,11 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
         protected LocadoraDeVeiculosDbContext db;
         protected DbSet<T> Dados;
 
+        public RepositorioBaseOrm(LocadoraDeVeiculosDbContext db)
+        {
+            this.db = db;
+        }
+
         public void Editar(T registro)
         {
             Dados.Update(registro);

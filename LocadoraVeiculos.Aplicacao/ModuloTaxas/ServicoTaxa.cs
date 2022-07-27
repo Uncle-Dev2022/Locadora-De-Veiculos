@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using Serilog;
@@ -14,11 +15,11 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
     public class ServicoTaxa
     {
         private IRepositorioTaxa repositorioTaxa;
-        //private IContextoPersistencia contexto;
+        private IContextoPersistencia contexto;
         public ServicoTaxa(IRepositorioTaxa repositorioTaxa /*,IContextoPresistencia contexto*/)
         {
-            //this.contexto = contexto;
             this.repositorioTaxa = repositorioTaxa;
+            //this.contexto = repositorioTaxa.db;
         }
 
         public Result<Taxa> Inserir(Taxa taxa)

@@ -11,14 +11,13 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloTaxa
 {
     public class RepositorioTaxaOrm : RepositorioBaseOrm<Taxa, MapeadorTaxaOrm>
     {
-        public RepositorioTaxaOrm(LocadoraDeVeiculosDbContext db)
+        public RepositorioTaxaOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
-            this.db = db;
             Dados = db.Set<Taxa>();
         }
         public Taxa SelecionarPorDescricao(string descricao)
         {
-            throw new NotImplementedException();
+            return Dados.FirstOrDefault(x => x.descricao == descricao);
         }
     }
 }
