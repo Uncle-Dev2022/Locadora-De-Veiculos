@@ -15,5 +15,20 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloCondutor
         {
             Dados = db.Set<Condutor>();
         }
+
+        public Condutor SelecionarCondutorPorNome(string nome)
+        {
+            return Dados.FirstOrDefault(x => x.Nome == nome);
+        }
+
+        public Condutor SelecionarCondutorPorCPF(string CPF)
+        {
+            return Dados.FirstOrDefault(x => x.CPF == CPF);
+        }
+
+        public Condutor SelecionarCondutorPorCNH(string CNH)
+        {
+            return Dados.FirstOrDefault(x => x.CNH == CNH);
+        }
     }
 }

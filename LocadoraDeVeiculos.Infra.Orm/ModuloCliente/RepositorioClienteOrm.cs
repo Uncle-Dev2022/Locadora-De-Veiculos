@@ -14,5 +14,15 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente
         {
             Dados = db.Set<Cliente>();
         }
+
+        public Cliente SelecionarClientePorNome(string nome)
+        {
+            return Dados.FirstOrDefault(x => x.Nome == nome);
+        }
+
+        public Cliente SelecionarClientePorCPFOuCNPJ(string CPF_CNPJ)
+        {
+            return Dados.FirstOrDefault(x => x.CPF_CNPJ == CPF_CNPJ);
+        }
     }
 }
