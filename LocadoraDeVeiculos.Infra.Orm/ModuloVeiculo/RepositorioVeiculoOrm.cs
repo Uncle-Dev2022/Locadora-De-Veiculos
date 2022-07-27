@@ -11,7 +11,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo
     public class RepositorioVeiculoOrm : RepositorioBaseOrm<Veiculo,
         MapeadorVeiculoOrm>
     {
-        public RepositorioVeiculoOrm(LocadoraDeVeiculosDbContext db)
+        public RepositorioVeiculoOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
             this.db = db;
             Dados = db.Set<Veiculo>();
