@@ -15,10 +15,12 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
     public class ServicoCondutor
     {
         private IRepositorioCondutor repositorioCondutor;
+        private IContextoPersistencia ContextoPersistencia;
 
-        public ServicoCondutor(IRepositorioCondutor repositorioCondutor)
+        public ServicoCondutor(IRepositorioCondutor repositorioCondutor, IContextoPersistencia contextoPersistencia)
         {
             this.repositorioCondutor = repositorioCondutor;
+            ContextoPersistencia = contextoPersistencia;
         }
 
         public Result<Condutor> Inserir(Condutor condutor)

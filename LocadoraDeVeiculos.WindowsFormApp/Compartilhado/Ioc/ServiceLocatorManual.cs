@@ -6,6 +6,8 @@ using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.ModuloVeiculo;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
 using LocadoraDeVeiculos.LocadoraDeVeiculos.WindowsFormApp.Compartilhado.Ioc;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
@@ -61,12 +63,12 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
             var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(servicoFuncionario));
 
-            var repositorioCliente = new RepositorioClienteEmBancoDeDados();
-            var servicoCliente = new ServicoCliente(repositorioCliente);
+            var repositorioCliente = new RepositorioClienteOrm(contextoDadosOrm);
+            var servicoCliente = new ServicoCliente(repositorioCliente,contextoDadosOrm);
             controladores.Add("ControladorCliente", new ControladorCliente(servicoCliente));
 
-            var repositorioCondutor = new RepositorioCondutorEmBancoDeDados();
-            var servicoCondutor = new ServicoCondutor(repositorioCondutor);
+            var repositorioCondutor = new RepositorioCondutorOrm(contextoDadosOrm);
+            var servicoCondutor = new ServicoCondutor(repositorioCondutor,contextoDadosOrm);
             controladores.Add("ControladorCondutor", new ControladorCondutor(servicoCondutor, servicoCliente));
 
             // foi mechido
