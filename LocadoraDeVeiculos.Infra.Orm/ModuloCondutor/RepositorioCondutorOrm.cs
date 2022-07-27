@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloCondutor
 {
-    public class RepositorioCondutorOrm : RepositorioBaseOrm<Condutor, MapeadorCondutorOrm>
+    public class RepositorioCondutorOrm : RepositorioBaseOrm<Condutor, MapeadorCondutorOrm>,IRepositorioCondutor
     {
         public RepositorioCondutorOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
