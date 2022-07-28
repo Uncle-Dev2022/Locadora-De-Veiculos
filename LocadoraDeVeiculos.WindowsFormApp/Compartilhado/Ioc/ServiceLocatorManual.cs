@@ -80,7 +80,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
             var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo);
             controladores.Add("ControladorVeiculo", new ControladorVeiculo(servicoVeiculo, servicoGrupoVeiculo));
 
-            var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
+            var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaOrm(contextoDadosOrm);
             var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca);
             controladores.Add("ControladorPlanoDeCobranca", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca, servicoGrupoVeiculo));
 

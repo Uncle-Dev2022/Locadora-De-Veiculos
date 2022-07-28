@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
 {
     public abstract class RepositorioBaseOrm<T, Mapeador> : IRepositorio<T>
-        where T : EntidadeBase<T> where Mapeador : MapeadorBaseOrm<T>
+        where T : EntidadeBase<T> where Mapeador : MapeadorBaseOrm<T> 
     {
         LocadoraDeVeiculosDbContext db;
         protected DbSet<T> Dados;
