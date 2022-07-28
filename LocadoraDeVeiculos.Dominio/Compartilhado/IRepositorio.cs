@@ -21,7 +21,6 @@ namespace LocadoraDeVeiculos.Dominio.Compartilhado
         List<T> SelecionarTodos();
 
         T SelecionarPorId(Guid id);
-
-
+        T SelecionarPorParametro(Func<T> func);
     }
 }

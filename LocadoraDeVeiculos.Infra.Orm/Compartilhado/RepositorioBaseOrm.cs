@@ -45,5 +45,10 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
         {
             db.GravarDados();
         }
+        public T SelecionarPorParametro(Func<T, bool> func)
+        {
+            List<int> rer = new List<int>();
+            return Dados.FirstOrDefault(func);
+        }
     }
 }

@@ -139,6 +139,7 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             }
         }
         public abstract Result Validar(T registro);
-       
+     
+
     }
 }
