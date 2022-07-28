@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ModuloFuncionario\**" />
+    <Compile Remove="ModuloGrupoDeVeiculo\**" />
+    <Compile Remove="ModuloTaxa\**" />
+    <EmbeddedResource Remove="ModuloFuncionario\**" />
+    <EmbeddedResource Remove="ModuloGrupoDeVeiculo\**" />
+    <EmbeddedResource Remove="ModuloTaxa\**" />
+    <None Remove="ModuloFuncionario\**" />
+    <None Remove="ModuloGrupoDeVeiculo\**" />
+    <None Remove="ModuloTaxa\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Compartilhado\" />
+    <Folder Include="ModuloCliente\" />
+    <Folder Include="ModuloPlanoDeCobranca\" />
+    <Folder Include="ModuloVeiculo\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.Dominio\LocadoraDeVeiculos.Dominio.csproj" />
+  </ItemGroup>
+
+</Project>

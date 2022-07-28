@@ -15,8 +15,12 @@ namespace LocadoraDeVeiculos.Dominio.Compartilhado
 
         void Excluir(T registro);
 
+        //pode dar pau
+        void GravarDados();
+
         List<T> SelecionarTodos();
 
         T SelecionarPorId(Guid id);
+        T SelecionarPorParametro(Func<T, bool> func);
     }
 }

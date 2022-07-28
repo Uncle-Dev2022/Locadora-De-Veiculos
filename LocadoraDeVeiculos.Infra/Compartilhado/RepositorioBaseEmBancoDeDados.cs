@@ -15,8 +15,6 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
     public abstract class RepositorioBaseEmBancoDeDados<T, TMapeador> : IRepositorio<T>
         where T : EntidadeBase<T>
         where TMapeador : MapeadorBase<T>, new()
-
-
     {
 
         private readonly string enderecoBanco;

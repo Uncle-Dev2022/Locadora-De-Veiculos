@@ -1,6 +1,9 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
+using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
+using LocadoraVeiculos.Aplicacao.Compartilhado;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -10,143 +13,13 @@ using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
 {
-    public class ServicoVeiculo
+    public class ServicoVeiculo : ServicoBase<Veiculo>
     {
-        private IRepositorioVeiculo repositorioVeiculo;
-
-        public ServicoVeiculo(IRepositorioVeiculo repositorioVeiculo)
+        public ServicoVeiculo(RepositorioVeiculoOrm repositorio) : base(repositorio)
         {
-            this.repositorioVeiculo = repositorioVeiculo;
         }
 
-        public Result<Veiculo> Inserir(Veiculo veiculo)
-        {
-            Log.Logger.Debug("Tentando inserir veículo... {@v}", veiculo);
-
-            Result resultadoValidacao = Validar(veiculo);
-
-            if (resultadoValidacao.IsFailed)
-            {
-                foreach (var erro in resultadoValidacao.Errors)
-                {
-                    Log.Logger.Warning("Falha ao tentar inserir o veículo {VeiculoId} - {Motivo}",
-                       veiculo.Id, erro.Message);
-                }
-
-                return Result.Fail(resultadoValidacao.Errors);
-            }
-
-            try
-            {
-                repositorioVeiculo.Inserir(veiculo);
-
-                Log.Logger.Information("Veículo {VeiculoId} inserido com sucesso", veiculo.Id);
-
-                return Result.Ok(veiculo);
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar inserir o veículo";
-
-                Log.Logger.Error(ex, msgErro + "{VeiculoId}", veiculo.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-        public Result<Veiculo> Editar(Veiculo veiculo)
-        {
-            Log.Logger.Debug("Tentando editar veículo... {@v}", veiculo);
-
-            Result resultadoValidacao = Validar(veiculo);
-
-            if (resultadoValidacao.IsFailed)
-            {
-                foreach (var erro in resultadoValidacao.Errors)
-                {
-                    Log.Logger.Warning("Falha ao tentar editar o veículo {VeiculoId} - {Motivo}",
-                       veiculo.Id, erro.Message);
-                }
-
-                return Result.Fail(resultadoValidacao.Errors);
-            }
-
-            try
-            {
-                repositorioVeiculo.Editar(veiculo);
-
-                Log.Logger.Information("Veículo {VeiculoId} editado com sucesso", veiculo.Id);
-
-                return Result.Ok(veiculo);
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar editar o veículo";
-
-                Log.Logger.Error(ex, msgErro + "{VeiculoId}", veiculo.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-        public Result Excluir(Veiculo veiculo)
-        {
-            Log.Logger.Debug("Tentando excluir veículo... {@v}", veiculo);
-
-            try
-            {
-                repositorioVeiculo.Excluir(veiculo);
-
-                Log.Logger.Information("Veículo {VeiculoId} excluído com sucesso", veiculo.Id);
-
-                return Result.Ok();
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar excluir o veículo";
-
-                Log.Logger.Error(ex, msgErro + "{VeiculoId}", veiculo.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-
-        public Result<List<Veiculo>> SelecionarTodos()
-        {
-            try
-            {
-                return Result.Ok(repositorioVeiculo.SelecionarTodos());
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar selecionar todos os veículos";
-
-                Log.Logger.Error(ex, msgErro);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-
-        public Result<Veiculo> SelecionarPorId(Guid id)
-        {
-            try
-            {
-                return Result.Ok(repositorioVeiculo.SelecionarPorId(id));
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar selecionar o veículo";
-
-                Log.Logger.Error(ex, msgErro + "{VeiculoId}", id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-
-        private Result Validar(Veiculo veiculo)
+        public override Result Validar(Veiculo veiculo)
         {
             var validador = new ValidadorVeiculo();
 
@@ -168,7 +41,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
 
         private bool PlacaDuplicado(Veiculo veiculo)
         {
-            var funcionarioEncontrado = repositorioVeiculo.SelecionarVeiculoPorPlaca(veiculo.Placa);
+            var funcionarioEncontrado = repositorio.SelecionarPorParametro(x => x.Placa == veiculo.Placa);
 
             return funcionarioEncontrado != null &&
                    funcionarioEncontrado.Placa == veiculo.Placa &&

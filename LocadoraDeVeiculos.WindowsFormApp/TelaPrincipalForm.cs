@@ -9,6 +9,11 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using LocadoraVeiculos.Aplicacao.ModuloTaxas;
+using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.LocadoraDeVeiculos.WindowsFormApp.Compartilhado.Ioc;
 
 namespace LocadoraDeVeiculos.WindowsFormApp
 {
@@ -27,6 +32,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
             labelRodape.Text = string.Empty;
             labelTipoCadastro.Text = string.Empty;
+
+            InicializarControladores();
         }
 
         public static TelaPrincipalForm Instancia
@@ -48,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         private void FuncionarioSubMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorFuncionario>());
-        }
+       
 
         private void GrupoDeVeiculosSubMenuItem_Click(object sender, EventArgs e)
         {
@@ -123,9 +130,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
-        {
 
             this.controlador = controlador;
+            controlador = controladores[tipo];
 
             ConfigurarToolbox();
 
@@ -159,7 +166,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             listagemControl.Dock = DockStyle.Fill;
 
             panelRegistros.Controls.Add(listagemControl);
-        }
 
+        }
     }
 }
