@@ -14,13 +14,10 @@ using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
 {
-    public class ServicoCondutor :ServicoBase<Condutor>
+    public class ServicoCondutor : ServicoBase<Condutor>
     {
-        private IRepositorioCondutor repositorioCondutor;
-
-        public ServicoCondutor(RepositorioCondutorOrm repositorio) :base (repositorio)
+        public ServicoCondutor(IRepositorio<Condutor> repositorio) : base(repositorio)
         {
-            repositorioCondutor = repositorio;
         }
 
         public override Result Validar(Condutor condutor)
@@ -39,10 +36,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
             if (NomeDuplicado(condutor))
                 erros.Add(new Error("Nome Duplicado"));
 
-            if(CPFDuplicado(condutor))
+            if (CPFDuplicado(condutor))
                 erros.Add(new Error("CPF Duplicado"));
 
-            if(CNHDuplicada(condutor))
+            if (CNHDuplicada(condutor))
                 erros.Add(new Error("CNH Duplicada"));
 
             if (erros.Any())
@@ -53,7 +50,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
 
         private bool CPFDuplicado(Condutor condutor)
         {
-            var CondutorEncontrado = repositorioCondutor.SelecionarCondutorPorCPF(condutor.CPF);
+            var CondutorEncontrado = repositorio.SelecionarPorParametro(x => x.CPF == condutor.CPF);
 
             return CondutorEncontrado != null &&
                    CondutorEncontrado.CPF == condutor.CPF &&
@@ -62,7 +59,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
 
         private bool NomeDuplicado(Condutor condutor)
         {
-            var CondutorEncontrado = repositorioCondutor.SelecionarCondutorPorNome(condutor.Nome);
+            var CondutorEncontrado = repositorio.SelecionarPorParametro(x => x.Nome == condutor.Nome);
 
             return CondutorEncontrado != null &&
                    CondutorEncontrado.Nome == condutor.Nome &&
@@ -71,7 +68,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
 
         private bool CNHDuplicada(Condutor condutor)
         {
-            var CondutorEncontrado = repositorioCondutor.SelecionarCondutorPorCNH(condutor.CNH);
+            var CondutorEncontrado = repositorio.SelecionarPorParametro(x => x.CNH == condutor.CNH);
 
             return CondutorEncontrado != null &&
                    CondutorEncontrado.CNH == condutor.CNH &&

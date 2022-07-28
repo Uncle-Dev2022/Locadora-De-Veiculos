@@ -33,14 +33,14 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             {
                 repositorio.Inserir(registro);
                 repositorio.GravarDados();
-                Log.Logger.Information("{T} {T_Id} inserido(a) com sucesso", registro, registro.Id);
+                Log.Logger.Information("{@T} {@T_Id} inserido(a) com sucesso", registro, registro.Id);
                 return Result.Ok(registro);
             }
             catch (Exception ex)
             {
-                string msgErro = string.Format("Falha no sistema ao tentar inserir o/a {T}", registro);
+                string msgErro = string.Format("Falha no sistema ao tentar inserir o/a {@T}", registro);
 
-                Log.Logger.Error(ex, msgErro + " {T_Id}", registro.Id);
+                Log.Logger.Error(ex, msgErro + " {@T_Id}", registro.Id);
                 return Result.Fail(msgErro);
             }
         }
@@ -57,14 +57,14 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             {
                 repositorio.Editar(registro);
                 repositorio.GravarDados();
-                Log.Logger.Information("{T} {T_Id} editado(a) com sucesso", registro, registro.Id);
+                Log.Logger.Information("{@T} {@T_Id} editado(a) com sucesso", registro, registro.Id);
                 return Result.Ok(registro);
             }
             catch (Exception ex)
             {
-                string msgErro = string.Format("Falha no sistema ao tentar editar o/a {T}", registro);
+                string msgErro = string.Format("Falha no sistema ao tentar editar o/a {@T}", registro);
 
-                Log.Logger.Error(ex, msgErro + " {T_Id}", registro.Id);
+                Log.Logger.Error(ex, msgErro + " {@T_Id}", registro.Id);
                 return Result.Fail(msgErro);
             }
         }
@@ -81,14 +81,14 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             {
                 repositorio.Excluir(registro);
                 repositorio.GravarDados();
-                Log.Logger.Information("{T} {T_Id} excluído(a) com sucesso", registro, registro.Id);
+                Log.Logger.Information("{@T} {@T_Id} excluído(a) com sucesso", registro, registro.Id);
                 return Result.Ok();
             }
             catch (Exception ex)
             {
-                string msgErro = string.Format("Falha no sistema ao tentar excluir o/a {T}", registro);
+                string msgErro = string.Format("Falha no sistema ao tentar excluir o/a {@T}", registro);
 
-                Log.Logger.Error(ex, msgErro + " {T_Id}", registro.Id);
+                Log.Logger.Error(ex, msgErro + " {@T_Id}", registro.Id);
                 return Result.Fail(msgErro);
             }
         }
@@ -108,7 +108,7 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             {
                 string msgErro = string.Format("Falha no sistema ao tentar Selecionar todos os registros");
 
-                Log.Logger.Error(ex, msgErro + " {T_Id}");
+                Log.Logger.Error(ex, msgErro + " {@T_Id}");
                 return Result.Fail(msgErro);
             }
         }
@@ -120,12 +120,12 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
 
                 if (materia == null)
                 {
-                    Log.Logger.Warning("Registro {RegistroId} não encontrado", id);
+                    Log.Logger.Warning("Registro {@RegistroId} não encontrado", id);
 
                     return Result.Fail("Registro não encontrado");
                 }
 
-                Log.Logger.Information("Registro {RegistroId} selecionado com sucesso", id);
+                Log.Logger.Information("Registro {@RegistroId} selecionado com sucesso", id);
 
                 return Result.Ok(materia);
             }
@@ -133,7 +133,7 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             {
                 string msgErro = "Falha no sistema ao tentar selecionar o Registro";
 
-                Log.Logger.Error(ex, msgErro + " {RegistroId}", id);
+                Log.Logger.Error(ex, msgErro + " {@RegistroId}", id);
 
                 return Result.Fail(msgErro);
             }
