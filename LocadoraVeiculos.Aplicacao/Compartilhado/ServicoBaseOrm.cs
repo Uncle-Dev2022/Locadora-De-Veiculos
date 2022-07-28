@@ -64,7 +64,7 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             {
                 string msgErro = string.Format("Falha no sistema ao tentar editar o/a {@T}", registro);
 
-                Log.Logger.Error(ex, msgErro + " {T_Id}", registro.Id);
+                Log.Logger.Error(ex, msgErro + " {@T_Id}", registro.Id);
                 return Result.Fail(msgErro);
             }
         }

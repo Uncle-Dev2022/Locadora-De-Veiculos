@@ -18,11 +18,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 {
     public class ServicoCliente : ServicoBase<Cliente>
     {
-        private IRepositorioCliente repositorioCliente;
 
         public ServicoCliente(RepositorioClienteOrm repositorio) : base(repositorio)
         {
-            repositorioCliente = repositorio;
+
         }
 
         public override Result Validar(Cliente cliente)
@@ -37,7 +36,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             {
                 erros.Add(new Error(item.ErrorMessage));
             }
-                
+
 
             if (NomeDuplicado(cliente))
                 erros.Add(new Error("Nome Duplicado"));
@@ -58,7 +57,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool CPF_CNPJDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorioCliente.SelecionarClientePorCPFOuCNPJ(cliente.CPF_CNPJ);
+            var ClienteEncontrado = repositorio.SelecionarPorParametro(x => x.CPF_CNPJ == cliente.CPF_CNPJ);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&
@@ -67,7 +66,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool NomeDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorioCliente.SelecionarClientePorNome(cliente.Nome);
+            var ClienteEncontrado = repositorio.SelecionarPorParametro(x => x.Nome == cliente.Nome);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.Nome == cliente.Nome &&

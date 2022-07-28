@@ -168,6 +168,11 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
         {
             
         }
+
+        public T SelecionarPorParametro(Func<T, bool> func)
+        {
+            throw new NotImplementedException();
+        }
     }
     /*  "   SELECT  PL.[ID] AS ID,                
      *              PL.[NOME] AS NOME,
