@@ -8,7 +8,10 @@ using LocadoraDeVeiculos.Infra.ModuloVeiculo;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
+using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
+using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
 using LocadoraDeVeiculos.LocadoraDeVeiculos.WindowsFormApp.Compartilhado.Ioc;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
@@ -55,11 +58,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
 
             controladores = new Dictionary<string, ControladorBase>();
 
-            var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
+            var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculosOrm(contextoDadosOrm);
             var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo);
             controladores.Add("ControladorGrupoDeVeiculo", new ControladorGrupoDeVeiculo(servicoGrupoVeiculo));
 
-            var repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
+            var repositorioFuncionario = new RepositorioFuncionarioOrm(contextoDadosOrm);
             var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(servicoFuncionario));
 
@@ -76,7 +79,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
             var servicoTaxa = new ServicoTaxa(repositorioTaxa);
             controladores.Add("ControladorTaxa", new ControladorTaxa(servicoTaxa));
 
-            var repositorioVeiculo = new RepositorioVeiculoEmBancoDeDados();
+            var repositorioVeiculo = new RepositorioVeiculoOrm(contextoDadosOrm);
             var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo);
             controladores.Add("ControladorVeiculo", new ControladorVeiculo(servicoVeiculo, servicoGrupoVeiculo));
 

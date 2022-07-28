@@ -1,7 +1,10 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraVeiculos.Aplicacao.Compartilhado;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -11,142 +14,13 @@ using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
 {
-    public class ServicoFuncionario
+    public class ServicoFuncionario : ServicoBase<Funcionario>
     {
-        private IRepositorioFuncionario repositorioFuncionario;
-
-        public ServicoFuncionario(IRepositorioFuncionario repositorioFuncionario)
+        public ServicoFuncionario(RepositorioFuncionarioOrm repositorio) : base(repositorio)
         {
-            this.repositorioFuncionario = repositorioFuncionario;
         }
 
-        public Result<Funcionario> Inserir(Funcionario funcionario)
-        {
-            Log.Logger.Debug("Tentando inserir funcionário... {@f}", funcionario);
-
-            Result resultadoValidacao = Validar(funcionario);
-
-            if (resultadoValidacao.IsFailed)
-            {
-                foreach (var erro in resultadoValidacao.Errors)
-                {
-                    Log.Logger.Warning("Falha ao tentar inserir o Funcionário {FuncionarioId} - {Motivo}",
-                       funcionario.Id, erro.Message);
-                }
-
-                return Result.Fail(resultadoValidacao.Errors);
-            }
-
-            try
-            {
-                repositorioFuncionario.Inserir(funcionario);
-
-                Log.Logger.Information("Funcionário {FuncionarioId} inserido com sucesso", funcionario.Id);
-
-                return Result.Ok(funcionario);
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar inserir o funcionário";
-
-                Log.Logger.Error(ex, msgErro + "{FuncionarioId}", funcionario.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-        public Result<Funcionario> Editar(Funcionario funcionario)
-        {
-            Log.Logger.Debug("Tentando editar funcionário... {@f}", funcionario);
-
-            Result resultadoValidacao = Validar(funcionario);
-
-            if (resultadoValidacao.IsFailed)
-            {
-                foreach (var erro in resultadoValidacao.Errors)
-                {
-                    Log.Logger.Warning("Falha ao tentar editar o Funcionário {FuncionarioId} - {Motivo}",
-                       funcionario.Id, erro.Message);
-                }
-
-                return Result.Fail(resultadoValidacao.Errors);
-            }
-
-            try
-            {
-                repositorioFuncionario.Editar(funcionario);
-
-                Log.Logger.Information("Funcionário {FuncionarioId} editado com sucesso", funcionario.Id);
-
-                return Result.Ok(funcionario);
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar editar o funcionário";
-
-                Log.Logger.Error(ex, msgErro + "{FuncionarioId}", funcionario.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-        public Result Excluir(Funcionario funcionario)
-        {
-            Log.Logger.Debug("Tentando excluir funcionário... {@f}", funcionario);
-
-            try
-            {
-                repositorioFuncionario.Excluir(funcionario);
-
-                Log.Logger.Information("Funcionário {FuncionarioId} excluído com sucesso", funcionario.Id);
-
-                return Result.Ok();
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar excluir o funcionário";
-
-                Log.Logger.Error(ex, msgErro + "{FuncionarioId}", funcionario.Id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-
-        public Result<List<Funcionario>> SelecionarTodos()
-        {
-            try
-            {
-                return Result.Ok(repositorioFuncionario.SelecionarTodos());
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar selecionar todos os funcionários";
-
-                Log.Logger.Error(ex, msgErro);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-        public Result<Funcionario> SelecionarPorId(Guid id)
-        {
-            try
-            {
-                return Result.Ok(repositorioFuncionario.SelecionarPorId(id));
-            }
-            catch (Exception ex)
-            {
-                string msgErro = "Falha no sistema ao tentar selecionar o funcionário";
-
-                Log.Logger.Error(ex, msgErro + "{FuncionarioId}", id);
-
-                return Result.Fail(msgErro);
-            }
-        }
-
-
-        private Result Validar(Funcionario funcionario)
+        public override Result Validar(Funcionario funcionario)
         {
             var validador = new ValidadorFuncionario();
 
@@ -171,7 +45,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
 
         private bool NomeDuplicado(Funcionario funcionario)
         {
-            var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorNome(funcionario.Nome);
+            var funcionarioEncontrado = repositorio.SelecionarPorParametro(x => x.Nome == funcionario.Nome);
 
             return funcionarioEncontrado != null &&
                    funcionarioEncontrado.Nome == funcionario.Nome &&
@@ -180,7 +54,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
 
         private bool LoginDuplicado(Funcionario funcionario)
         {
-            var funcionarioEncontrado = repositorioFuncionario.SelecionarFuncionarioPorLogin(funcionario.Login);
+            var funcionarioEncontrado = repositorio.SelecionarPorParametro(x => x.Login == funcionario.Login);
 
             return funcionarioEncontrado != null &&
                    funcionarioEncontrado.Login == funcionario.Login &&
