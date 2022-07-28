@@ -31,11 +31,16 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
                 // pacote Serilog.Extensions.Logging                
                 x.AddSerilog(Log.Logger);
             });
-            //optionsBuilder.LogTo(Console.WriteLine);
+            
+            optionsBuilder.UseLoggerFactory(loggerFactory);
+
+            optionsBuilder.EnableSensitiveDataLogging();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            var dllComConfiguracoesOrm = typeof(LocadoraDeVeiculosDbContext).Assembly;
 
+            modelBuilder.ApplyConfigurationsFromAssembly(dllComConfiguracoesOrm);
         }
     }
 }

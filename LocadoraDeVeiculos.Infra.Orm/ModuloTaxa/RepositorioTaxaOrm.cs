@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloTaxa
 {
-    public class RepositorioTaxaOrm : RepositorioBaseOrm<Taxa, MapeadorTaxaOrm>
+    public class RepositorioTaxaOrm : RepositorioBaseOrm<Taxa, MapeadorTaxaOrm>,IRepositorioTaxa
     {
         public RepositorioTaxaOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {

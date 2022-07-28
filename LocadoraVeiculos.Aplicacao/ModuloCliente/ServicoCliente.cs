@@ -20,9 +20,9 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
     {
         private IRepositorioCliente repositorioCliente;
 
-        public ServicoCliente(RepositorioBaseOrm<Cliente, MapeadorClienteOrm> repositorio) : base(repositorio)
+        public ServicoCliente(RepositorioClienteOrm repositorio) : base(repositorio)
         {
-            repositorioCliente = (IRepositorioCliente)repositorio;
+            repositorioCliente = repositorio;
         }
 
         public override Result Validar(Cliente cliente)

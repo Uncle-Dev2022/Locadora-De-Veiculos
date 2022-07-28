@@ -164,6 +164,10 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
             return registro;
         }
 
+        public void GravarDados()
+        {
+            
+        }
     }
     /*  "   SELECT  PL.[ID] AS ID,                
      *              PL.[NOME] AS NOME,

@@ -106,7 +106,7 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             }
             catch (Exception ex)
             {
-                string msgErro = string.Format("Falha no sistema ao tentar todos os registros");
+                string msgErro = string.Format("Falha no sistema ao tentar Selecionar todos os registros");
 
                 Log.Logger.Error(ex, msgErro + " {T_Id}");
                 return Result.Fail(msgErro);

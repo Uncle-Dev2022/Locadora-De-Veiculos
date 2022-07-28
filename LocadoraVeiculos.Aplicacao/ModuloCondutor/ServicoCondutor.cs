@@ -3,6 +3,7 @@ using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.ModuloCondutor;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
 using Serilog;
 using System;
@@ -17,9 +18,9 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
     {
         private IRepositorioCondutor repositorioCondutor;
 
-        public ServicoCondutor(IRepositorio<Condutor> repositorio) : base(repositorio)
+        public ServicoCondutor(RepositorioCondutorOrm repositorio) :base (repositorio)
         {
-            repositorioCondutor = (IRepositorioCondutor)repositorio;
+            repositorioCondutor = repositorio;
         }
 
         public override Result Validar(Condutor condutor)
