@@ -64,11 +64,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(servicoFuncionario));
 
             var repositorioCliente = new RepositorioClienteOrm(contextoDadosOrm);
-            var servicoCliente = new ServicoCliente(repositorioCliente,contextoDadosOrm);
+            var servicoCliente = new ServicoCliente(repositorioCliente);
             controladores.Add("ControladorCliente", new ControladorCliente(servicoCliente));
 
             var repositorioCondutor = new RepositorioCondutorOrm(contextoDadosOrm);
-            var servicoCondutor = new ServicoCondutor(repositorioCondutor,contextoDadosOrm);
+            var servicoCondutor = new ServicoCondutor(repositorioCondutor);
             controladores.Add("ControladorCondutor", new ControladorCondutor(servicoCondutor, servicoCliente));
 
             // foi mechido

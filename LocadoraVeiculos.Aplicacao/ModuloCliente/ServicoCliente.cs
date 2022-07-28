@@ -4,6 +4,8 @@ using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
 using Serilog;
 using System;
@@ -16,6 +18,13 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 {
     public class ServicoCliente : ServicoBase<Cliente>
     {
+        private IRepositorioCliente repositorioCliente;
+
+        public ServicoCliente(RepositorioBaseOrm<Cliente, MapeadorClienteOrm> repositorio) : base(repositorio)
+        {
+            repositorioCliente = (IRepositorioCliente)repositorio;
+        }
+
         public override Result Validar(Cliente cliente)
         {
             var validador = new ValidadorCliente();
@@ -49,7 +58,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool CPF_CNPJDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorio.SelecionarClientePorCPFOuCNPJ(cliente.CPF_CNPJ);
+            var ClienteEncontrado = repositorioCliente.SelecionarClientePorCPFOuCNPJ(cliente.CPF_CNPJ);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.CPF_CNPJ == cliente.CPF_CNPJ &&
@@ -58,7 +67,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 
         private bool NomeDuplicado(Cliente cliente)
         {
-            var ClienteEncontrado = repositorio.(cliente.Nome);
+            var ClienteEncontrado = repositorioCliente.SelecionarClientePorNome(cliente.Nome);
 
             return ClienteEncontrado != null &&
                    ClienteEncontrado.Nome == cliente.Nome &&

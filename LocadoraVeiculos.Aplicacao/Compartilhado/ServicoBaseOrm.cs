@@ -14,9 +14,9 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
 {
     public abstract class ServicoBase<T> where T : EntidadeBase<T>
     {
-        protected RepositorioBaseOrm<T, MapeadorBaseOrm<T>> repositorio;
+        protected IRepositorio<T> repositorio;
 
-        public ServicoBase(RepositorioBaseOrm<T, MapeadorBaseOrm<T>> repositorio)
+        public ServicoBase(IRepositorio<T> repositorio)
         {
             this.repositorio = repositorio;
         }
@@ -139,5 +139,6 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             }
         }
         public abstract Result Validar(T registro);
+       
     }
 }
