@@ -1,9 +1,6 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
-using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
-using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+﻿using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 
 

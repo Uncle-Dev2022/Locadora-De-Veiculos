@@ -1,10 +1,7 @@
 
 using LocadoraDeVeiculo.Infra.Logging;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
-using Microsoft.Extensions.Configuration;
-using Serilog;
 using System;
-using System.IO;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp
@@ -21,6 +18,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var serviceLocatorAutofac = new ServiceLocatorAutofac();
+
+            Application.Run(new TelaPrincipalForm(serviceLocatorAutofac));
             var ServiceLocator = new ServiceLocatorManual();
             Application.Run(new TelaPrincipalForm(ServiceLocator));
         }

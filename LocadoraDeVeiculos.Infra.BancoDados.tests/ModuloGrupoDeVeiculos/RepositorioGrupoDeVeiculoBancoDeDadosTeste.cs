@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
             repositorioGrupoDeVeiculo.Inserir(grupoVeiculo);
 
             grupoVeiculo.Nome = "Tio Home";
-            
+
             repositorioGrupoDeVeiculo.Editar(grupoVeiculo);
 
             var GrupoDeVeiculoEditado = repositorioGrupoDeVeiculo.SelecionarPorId(grupoVeiculo.Id);

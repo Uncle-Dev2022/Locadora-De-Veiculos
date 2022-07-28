@@ -13,25 +13,25 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
         {
             InitializeComponent();
             DefinirDataAdmissao();
-        }              
+        }
 
         public Func<Funcionario, Result<Funcionario>> GravarRegistro { get; set; }
 
         public Funcionario _funcionario
         {
-            
+
 
             get { return funcionario; }
             set
             {
                 funcionario = value;
-                
+
 
                 txtBoxFuncionarioNome.Text = funcionario.Nome;
 
                 maskedTextBoxSalario.Text = funcionario.Salario.ToString();
 
-                
+
                 dateTimePickerDataAdmissao.Value = funcionario.DataAdmissao;
 
                 txtBoxFuncionarioSenha.Text = funcionario.Senha;
@@ -84,7 +84,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 
         private void Senha_CheckedChanged(object sender, EventArgs e)
         {
-            if(SenhaBox.Checked == true)
+            if (SenhaBox.Checked == true)
             {
                 txtBoxFuncionarioSenha.PasswordChar = default;
             }

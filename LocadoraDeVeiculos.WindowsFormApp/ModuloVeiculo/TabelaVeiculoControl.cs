@@ -2,12 +2,6 @@
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
@@ -37,7 +31,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
                 new DataGridViewTextBoxColumn { DataPropertyName = "Quilometragem", HeaderText = "Quilometragem"},
                 new DataGridViewTextBoxColumn { DataPropertyName = "CapacidadeTanque", HeaderText = "Capacidade Tanque"},
                 new DataGridViewImageColumn { DataPropertyName = "Imagem", HeaderText = "Imagem", ImageLayout = DataGridViewImageCellLayout.Stretch, Width = 50}
-            };        
+            };
             return colunas;
         }
 
@@ -53,7 +47,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
             foreach (var veiculo in veiculos)
             {
                 grid.Rows.Add(veiculo.Id, veiculo.GrupoDeVeiculo.Nome, veiculo.Marca, veiculo.Modelo, veiculo.Cor,
-                    veiculo.AnoModelo, veiculo.TipoCombustivel, veiculo.Placa, 
+                    veiculo.AnoModelo, veiculo.TipoCombustivel, veiculo.Placa,
                     veiculo.Quilometragem, veiculo.CapacidadeTanque, veiculo.Imagem);
             }
         }

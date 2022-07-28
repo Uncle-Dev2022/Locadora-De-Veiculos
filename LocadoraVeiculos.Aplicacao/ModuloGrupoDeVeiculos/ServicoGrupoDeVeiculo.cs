@@ -1,11 +1,8 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
-using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoDeVeiculos;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
-using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -29,7 +26,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos
                 erros.Add(new Error(item.ErrorMessage));
 
             if (NomeDuplicado(grupoVeiculo))
-                erros.Add(new Error("Nome duplicado"));            
+                erros.Add(new Error("Nome duplicado"));
 
             if (erros.Any())
                 return Result.Fail(erros);

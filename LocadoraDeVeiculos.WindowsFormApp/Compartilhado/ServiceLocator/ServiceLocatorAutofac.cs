@@ -27,11 +27,6 @@ using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
 using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
 using LocadoraVeiculos.Aplicacao.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloVeiculo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
 {

@@ -1,14 +1,9 @@
-﻿using FluentValidation;
-using FluentValidation.Results;
-using LocadoraDeVeiculos.Dominio.Compartilhado;
+﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Compartilhado
 {
@@ -32,7 +27,7 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
             enderecoBanco = configuracao.GetConnectionString("SqlServer");
 
-               
+
         }
 
         protected abstract string sqlInserir { get; }
@@ -89,16 +84,16 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
                 comandoExclusao.ExecuteNonQuery();
                 conexaoComBanco.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                if(ex!= null && ex.Message.Contains("The DELETE statement conflicted with the REFERENCE constraint"))
+                if (ex != null && ex.Message.Contains("The DELETE statement conflicted with the REFERENCE constraint"))
                 {
                     throw new NaoPodeExcluirEsteRegistroException(ex);
                 }
 
                 throw;
             }
-           
+
         }
 
         public virtual T SelecionarPorId(Guid id)
@@ -166,7 +161,7 @@ namespace LocadoraDeVeiculos.Infra.Compartilhado
 
         public void GravarDados()
         {
-            
+
         }
 
         public T SelecionarPorParametro(Func<T, bool> func)

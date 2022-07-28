@@ -4,11 +4,6 @@ using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
 {
@@ -51,7 +46,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
             var PlanoDeCobrancaEncontrado = repositorioPlanoDeCobranca.SelecionarPorId(planoDeCobranca.Id);
 
             Assert.IsNotNull(PlanoDeCobrancaEncontrado);
-            
+
             Assert.AreEqual(planoDeCobranca.Equals(PlanoDeCobrancaEncontrado), true);
         }
 

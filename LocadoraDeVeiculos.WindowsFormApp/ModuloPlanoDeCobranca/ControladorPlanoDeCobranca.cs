@@ -4,9 +4,6 @@ using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
 using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
@@ -18,7 +15,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
         private TabelaPlanoDeCobrancaControl tabelaPlanoDeCobranca;
 
         public ControladorPlanoDeCobranca(ServicoPlanoDeCobranca servicoPlanoDeCobranca, ServicoGrupoDeVeiculo servicoGrupoDeVeiculo)
-        {     
+        {
             this.servicoPlanoDeCobranca = servicoPlanoDeCobranca;
             this.servicoGrupoDeVeiculo = servicoGrupoDeVeiculo;
         }
@@ -61,7 +58,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
             }
 
             var PlanoDeCobrancaSelecionado = resultado.Value;
-            
+
             var grupos = servicoGrupoDeVeiculo.SelecionarTodos();
 
             TelaCadastroPlanoDeCobrancaForm tela = new TelaCadastroPlanoDeCobrancaForm(grupos.Value);

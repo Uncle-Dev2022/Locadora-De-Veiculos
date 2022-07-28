@@ -1,12 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
 {
@@ -15,7 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
         public GrupoDeVeiculo GrupoDeVeiculo { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
-        public string  Cor { get; set; }
+        public string Cor { get; set; }
         public string AnoModelo { get; set; }
         public string TipoCombustivel { get; set; }
         public string Placa { get; set; }
@@ -46,9 +41,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
         }
 
         public Veiculo(string marca, string modelo, string cor, string anoModelo, string tipoCombustivel, string placa
-            , decimal quilometragem, int capacidadeTanque,byte[] imagem)
+            , decimal quilometragem, int capacidadeTanque, byte[] imagem)
         {
-            
+
             Marca = marca;
             Modelo = modelo;
             Cor = cor;

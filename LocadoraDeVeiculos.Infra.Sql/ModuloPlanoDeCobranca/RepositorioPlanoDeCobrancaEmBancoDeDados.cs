@@ -1,5 +1,5 @@
-﻿using LocadoraDeVeiculos.Infra.Compartilhado;
-using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
+﻿using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.Infra.Compartilhado;
 using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
@@ -50,7 +50,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
             @"DELETE 
 	             FROM [DBO].[TBPlanoDeCobranca]
               WHERE
-	             ID=@ID";        
+	             ID=@ID";
         protected override string sqlSelecionarPorId =>
             @"SELECT
                 PL.[ID] AS ID,
@@ -107,8 +107,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
                 ON 
                     PL.[NOME] = @NOME";
 
-                //HAVING 
-                //PL.NOME = @NOME";
+        //HAVING 
+        //PL.NOME = @NOME";
 
         public PlanoDeCobranca SelecionarPlanoDeCobrancaPorNome(string nome)
         {

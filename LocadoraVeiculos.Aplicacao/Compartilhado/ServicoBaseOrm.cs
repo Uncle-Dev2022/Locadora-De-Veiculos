@@ -1,14 +1,8 @@
 ﻿using FluentResults;
 using LocadoraDeVeiculos.Dominio.Compartilhado;
-using FluentValidation.Results;
-using LocadoraDeVeiculos.Infra.Compartilhado;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 
 namespace LocadoraVeiculos.Aplicacao.Compartilhado
 {
@@ -139,6 +133,6 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             }
         }
         public abstract Result Validar(T registro);
-     
+
     }
 }

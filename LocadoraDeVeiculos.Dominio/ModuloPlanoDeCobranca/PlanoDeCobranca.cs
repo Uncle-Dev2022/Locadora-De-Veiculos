@@ -1,10 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
 {
@@ -15,14 +10,14 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
         public PlanoLivre planoLivre;
         public PlanoControlado planoControlado;
         public PlanoDiario planoDiario;
-     
+
         public PlanoDeCobranca(string nome, GrupoDeVeiculo grupoDeVeiculo, PlanoLivre planoLivre, PlanoDiario planoDiario, PlanoControlado planoControlado)
         {
             this.Nome = nome;
             this.grupoDeVeiculo = grupoDeVeiculo;
             this.planoDiario = planoDiario;
             this.planoLivre = planoLivre;
-            this.planoControlado = planoControlado;            
+            this.planoControlado = planoControlado;
         }
 
         public PlanoDeCobranca()
@@ -90,7 +85,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
         public PlanoControlado(decimal valorDiario, decimal valorKm, decimal limiteKm)
         {
             this.valorDiario = valorDiario;
-            this.valorKm= valorKm;
+            this.valorKm = valorKm;
             this.limiteKm = limiteKm;
         }
         public PlanoControlado()

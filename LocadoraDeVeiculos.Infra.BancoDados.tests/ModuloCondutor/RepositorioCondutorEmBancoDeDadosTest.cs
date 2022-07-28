@@ -4,13 +4,6 @@ using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
 using LocadoraDeVeiculos.Infra.ModuloCondutor;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using LocadoraDeVeiculos.Dominio.ModuloCondutor;
-using LocadoraDeVeiculos.Infra.ModuloCondutor;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
 {
@@ -21,7 +14,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
         Condutor condutor1;
         Condutor condutor2;
         Cliente cliente;
-        
+
         private RepositorioCondutorEmBancoDeDados repositorioCondutor;
         private RepositorioClienteEmBancoDeDados repositorioCliente;
 
@@ -31,10 +24,10 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
             DB.executarSql("DELETE FROM TBCLIENTE;");
 
             cliente = new Cliente("Thiago", "rua", "Thiago@gmail.com", "(49) 98547 - 4512", true, "245.457.458 - 12", "012457896");
-            
+
             condutor = new Condutor("Thiago", "rua", "013.421.157-24", "123456789546", "thiago@gmail.com")
             {
-               cliente = cliente,
+                cliente = cliente,
             };
 
             condutor1 = new Condutor("Thiago", "rua", "013.421.157-24", "123456789546", "thiago@gmail.com")
@@ -111,12 +104,12 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCondutor
         [TestMethod]
         public void Deve_Selecionar_Todos_Os_Condutores()
         {
-            
-                repositorioCliente.Inserir(cliente);
-                repositorioCondutor.Inserir(condutor);
-                repositorioCondutor.Inserir(condutor1);
-                repositorioCondutor.Inserir(condutor2);
-           
+
+            repositorioCliente.Inserir(cliente);
+            repositorioCondutor.Inserir(condutor);
+            repositorioCondutor.Inserir(condutor1);
+            repositorioCondutor.Inserir(condutor2);
+
 
             var Condutores = repositorioCondutor.SelecionarTodos();
 

@@ -1,9 +1,4 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 {
@@ -17,7 +12,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
         public string CPF_CNPJ;
         public string? CNH;
 
-        public Cliente(string nome, string endereco,string email, string telefone,bool tipocliente,string Cpf_cnpj,string? cnh)
+        public Cliente(string nome, string endereco, string email, string telefone, bool tipocliente, string Cpf_cnpj, string? cnh)
         {
             Nome = nome;
             Endereco = endereco;
@@ -26,7 +21,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
             CPF_CNPJ = Cpf_cnpj;
             tipoCliente = tipocliente;
 
-            if (tipocliente== true)
+            if (tipocliente == true)
             {
                 CNH = cnh;
             }
@@ -41,9 +36,9 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
         public override bool Equals(object obj)
         {
             return obj is Cliente cliente &&
-                Id==cliente.Id &&
+                Id == cliente.Id &&
                 Nome == cliente.Nome &&
-                Telefone== cliente.Telefone &&
+                Telefone == cliente.Telefone &&
                 Email == cliente.Email &&
                 Endereco == cliente.Endereco &&
                 CPF_CNPJ == cliente.CPF_CNPJ &&
@@ -52,7 +47,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCliente
 
         public override string ToString()
         {
-            return Nome;       
+            return Nome;
         }
 
     }

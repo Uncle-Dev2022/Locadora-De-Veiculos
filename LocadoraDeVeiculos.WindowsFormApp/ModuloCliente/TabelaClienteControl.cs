@@ -2,12 +2,6 @@
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
@@ -33,9 +27,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 new DataGridViewTextBoxColumn { DataPropertyName = "Endereco", HeaderText = "Endereço"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = "Email"},
-                
+
                 new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
-                
+
                 new DataGridViewTextBoxColumn { DataPropertyName = "CPFCNPJ", HeaderText = "CPF/CNPJ"},
 
             };
@@ -52,7 +46,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
             foreach (var cliente in Clientes)
             {
-                grid.Rows.Add(cliente.Id, cliente.Nome,cliente.Endereco,cliente.Email,cliente.Telefone,cliente.CPF_CNPJ);
+                grid.Rows.Add(cliente.Id, cliente.Nome, cliente.Endereco, cliente.Email, cliente.Telefone, cliente.CPF_CNPJ);
             }
         }
     }

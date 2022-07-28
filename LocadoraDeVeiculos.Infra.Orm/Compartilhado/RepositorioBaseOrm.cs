@@ -3,13 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
 {
     public abstract class RepositorioBaseOrm<T, Mapeador> : IRepositorio<T>
-        where T : EntidadeBase<T> where Mapeador : MapeadorBaseOrm<T> 
+        where T : EntidadeBase<T> where Mapeador : MapeadorBaseOrm<T>
     {
         LocadoraDeVeiculosDbContext db;
         protected DbSet<T> Dados;
@@ -46,7 +44,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
             db.GravarDados();
         }
         public T SelecionarPorParametro(Func<T, bool> func)
-        {           
+        {
             return Dados.FirstOrDefault(func);
         }
     }

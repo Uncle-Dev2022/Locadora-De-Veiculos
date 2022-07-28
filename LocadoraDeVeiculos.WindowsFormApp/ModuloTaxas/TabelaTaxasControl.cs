@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
-using LocadoraDeVeiculos.Dominio.ModuloTaxas;
-using System.Windows.Forms;
 using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
 {
@@ -23,7 +23,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
         public void AtualizarRegistros(List<Taxa> taxas)
         {
             grid.Rows.Clear();
-            
+
             foreach (var taxa in taxas)
             {
                 grid.Rows.Add(taxa.Id, taxa.descricao, taxa.valor, taxa.tipoCalculo);

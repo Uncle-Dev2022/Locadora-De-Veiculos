@@ -7,12 +7,7 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using LocadoraVeiculos.Aplicacao.ModuloTaxas;
-using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
-using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
-using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
 
 namespace LocadoraDeVeiculos.WindowsFormApp
 {
@@ -128,7 +123,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
-        { 
+        {
             this.controlador = controlador;
 
             ConfigurarToolbox();

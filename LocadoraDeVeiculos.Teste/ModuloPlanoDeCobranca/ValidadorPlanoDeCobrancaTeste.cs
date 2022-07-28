@@ -2,11 +2,6 @@
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.Tests.ModuloPlanoDeCobranca
 {
@@ -26,7 +21,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloPlanoDeCobranca
             {
                 Nome = "",
                 grupoDeVeiculo = grupoDeVeiculo,
-                planoLivre = planoLivre, 
+                planoLivre = planoLivre,
                 planoDiario = planoDiario,
                 planoControlado = planoControlado
             };
@@ -47,7 +42,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloPlanoDeCobranca
             ValidationResult resultado1 = validacao.Validate(planoDeCobranca1);
             //assert
             Assert.AreEqual("O Nome do Plano não pode ser Vazio!", resultado.Errors[0].ErrorMessage);
-            
+
             Assert.AreEqual("O Nome do Plano não pode ser Nulo!", resultado1.Errors[0].ErrorMessage);
         }
         [TestMethod]
@@ -121,7 +116,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloPlanoDeCobranca
                 planoDiario = planoDiario,
                 planoControlado = planoControlado
             };
-            
+
             ValidadorPlanoDeCobranca validacao = new ValidadorPlanoDeCobranca();
 
             //action
@@ -205,7 +200,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloPlanoDeCobranca
             Assert.AreEqual("Nome deve ter no mínimo 2 caracteres", resultado.Errors[0].ErrorMessage);
             Assert.AreEqual("Nome deve ter no mínimo 2 caracteres", resultado1.Errors[0].ErrorMessage);
             Assert.AreEqual("Nome deve ter no mínimo 2 caracteres", resultado2.Errors[0].ErrorMessage);
-            
+
         }
     }
 }

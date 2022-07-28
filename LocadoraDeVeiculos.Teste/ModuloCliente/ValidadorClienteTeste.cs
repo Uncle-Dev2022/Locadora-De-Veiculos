@@ -1,21 +1,16 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.Tests.ModuloCliente
 {
     [TestClass]
     public class ValidadorClienteTeste
-    { 
+    {
         [TestMethod]
         public void Nome_Do_Cliente_Obrigatorio()
         {
-            Cliente c1 = new Cliente("","rua","Thiago@gmail.com","(49) 98547-4512",true,"245.457.458-12","012457896");
-            Cliente c2=new Cliente(null, "rua", "Thiago@gmail.com", "(49) 98547-4512", true, "245.457.458-12", "012457896");
+            Cliente c1 = new Cliente("", "rua", "Thiago@gmail.com", "(49) 98547-4512", true, "245.457.458-12", "012457896");
+            Cliente c2 = new Cliente(null, "rua", "Thiago@gmail.com", "(49) 98547-4512", true, "245.457.458-12", "012457896");
 
             var validador = new ValidadorCliente();
 

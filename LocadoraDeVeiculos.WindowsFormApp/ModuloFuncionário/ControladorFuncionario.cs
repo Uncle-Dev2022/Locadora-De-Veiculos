@@ -1,25 +1,20 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
-using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
-using LocadoraDeVeiculos.Infra.ModuloFuncionário;
+﻿using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraVeiculos.Aplicacao.ModuloFuncinario;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
 {
-    public class ControladorFuncionario : ControladorBase  
-    {        
+    public class ControladorFuncionario : ControladorBase
+    {
         private TabelaFuncionarioControl tabelaFuncionario;
         private readonly ServicoFuncionario servicoFuncionario;
 
         public ControladorFuncionario(ServicoFuncionario servicoFuncionario)
         {
-            
+
             this.servicoFuncionario = servicoFuncionario;
         }
 
@@ -119,7 +114,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário
         {
             return new ConfiguracaoToolBoxFuncionario();
         }
-               
+
         private void CarregarFuncionario()
         {
 

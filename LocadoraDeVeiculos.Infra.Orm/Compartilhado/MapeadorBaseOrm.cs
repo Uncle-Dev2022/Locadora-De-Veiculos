@@ -1,7 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
 namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
 {

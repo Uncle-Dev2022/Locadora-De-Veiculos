@@ -2,11 +2,7 @@
 using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 {
@@ -32,12 +28,12 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 
             if (leitorRegistro["CONDUTOR_CPF"] != DBNull.Value)
             {
-               condutorCpf = Convert.ToString(leitorRegistro["CONDUTOR_CPF"]);
+                condutorCpf = Convert.ToString(leitorRegistro["CONDUTOR_CPF"]);
             }
 
             string condutorCnh = "";
 
-            if(leitorRegistro["CONDUTOR_CNH"] != DBNull.Value)
+            if (leitorRegistro["CONDUTOR_CNH"] != DBNull.Value)
             {
                 condutorCnh = Convert.ToString(leitorRegistro["CONDUTOR_CNH"]);
 

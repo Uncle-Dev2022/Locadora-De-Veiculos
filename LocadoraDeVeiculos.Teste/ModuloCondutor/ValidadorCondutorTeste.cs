@@ -1,10 +1,5 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.Tests.ModuloCondutor
 {
@@ -49,7 +44,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloCondutor
         {
             Condutor c1 = new Condutor("thiago", "", "456.210.857-15", "45123678940", "thiago@gmail.com");
             Condutor c2 = new Condutor("Matilda", null, "123.0245.0123-05", "12345678910", "matilda@hotmail.com");
-            
+
             var validador = new ValidadorCondutor();
 
             var resultado1 = validador.Validate(c1);
@@ -122,7 +117,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloCondutor
         [TestMethod]
         public void CNH_Condutor_Obrigatorio()
         {
-            Condutor c1 = new Condutor("thiago","ali","456.210.857-15","","thiago@gmail.com");
+            Condutor c1 = new Condutor("thiago", "ali", "456.210.857-15", "", "thiago@gmail.com");
             Condutor c2 = new Condutor("Matilda", "aqui", "123.0245.0123-05", null, "matilda@hotmail.com");
 
             var validador = new ValidadorCondutor();

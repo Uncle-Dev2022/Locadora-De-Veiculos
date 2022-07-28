@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
 {
@@ -59,7 +54,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
                     if (Regex.IsMatch(cpf, @"^[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[\-][0-9]{2}", RegexOptions.IgnoreCase) == false)
                         context.AddFailure("'CPF' inválido, tente novamente");
                 }
-                    
+
             });
 
             RuleFor(x => x.CNH)
@@ -74,7 +69,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
                   if ((Regex.IsMatch(cnh, @"^[0-9]{11}")) == false)
                       context.AddFailure("'CNH' Inválida, tente novamente");
               }
-                  
+
           });
         }
     }

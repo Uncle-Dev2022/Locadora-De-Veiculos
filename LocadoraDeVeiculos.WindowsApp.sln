@@ -39,9 +39,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql", "Sql", "{609F7B34-9F8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orm", "Orm", "{C3378B7B-6EA0-4BCF-933B-3B0177E82C84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.Orm", "LocadoraDeVeiculos.Infra.Orm\LocadoraDeVeiculos.Infra.Orm.csproj", "{85AEEFD6-0D0E-4726-9CA4-76C74C36B295}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.Orm", "LocadoraDeVeiculos.Infra.Orm\LocadoraDeVeiculos.Infra.Orm.csproj", "{85AEEFD6-0D0E-4726-9CA4-76C74C36B295}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infra.Sql", "LocadoraDeVeiculos.Infra.Sql\LocadoraDeVeiculos.Infra.Sql.csproj", "{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraDeVeiculos.Infra.Sql", "LocadoraDeVeiculos.Infra.Sql\LocadoraDeVeiculos.Infra.Sql.csproj", "{1E8E7F0F-6FB5-430E-BC8D-E3195DDD1794}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

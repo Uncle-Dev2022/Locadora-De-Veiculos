@@ -3,8 +3,6 @@ using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
-using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,7 +22,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
 
             List<Error> erros = new List<Error>();
 
-            foreach (ValidationFailure item in resultadoValidacao.Errors)       
+            foreach (ValidationFailure item in resultadoValidacao.Errors)
             {
                 erros.Add(new Error(item.ErrorMessage));
             }
@@ -34,7 +32,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
             if (erros.Any())
                 return Result.Fail(erros);
             return Result.Ok();
-            
+
         }
 
         private bool NomeDuplicado(PlanoDeCobranca planoDeCobranca)

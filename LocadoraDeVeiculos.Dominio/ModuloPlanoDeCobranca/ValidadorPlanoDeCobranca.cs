@@ -1,11 +1,7 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
 {
@@ -53,12 +49,13 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
 
             RuleFor(x => x.grupoDeVeiculo).Cascade(CascadeMode.StopOnFirstFailure)
                 .NotNull()
-                    .WithMessage("O Grupo De Veículo não pode ser Nulo!")                    
+                    .WithMessage("O Grupo De Veículo não pode ser Nulo!")
                 .NotEmpty()
                     .WithMessage("O Grupo De Veículo não pode ser Vazio!")
 
-            .Must((plano, grupoVeiculo, context) => {
-                
+            .Must((plano, grupoVeiculo, context) =>
+            {
+
                 ValidadorGrupoDeVeiculo validador = new ValidadorGrupoDeVeiculo();
                 ValidationResult resultado = validador.Validate(grupoVeiculo);
                 List<ValidationFailure> erros = resultado.Errors;
@@ -66,8 +63,8 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
                 {
                     context.AddFailure(item);
                 }
-                return resultado.IsValid;                                
-            }).WithMessage("Resultado Da Validação Grupo De Veículo Falhou !");                
+                return resultado.IsValid;
+            }).WithMessage("Resultado Da Validação Grupo De Veículo Falhou !");
         }
     }
 }

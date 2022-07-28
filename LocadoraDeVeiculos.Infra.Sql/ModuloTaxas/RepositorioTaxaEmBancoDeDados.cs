@@ -1,10 +1,5 @@
-﻿using System;
+﻿using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.Compartilhado;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloTaxas

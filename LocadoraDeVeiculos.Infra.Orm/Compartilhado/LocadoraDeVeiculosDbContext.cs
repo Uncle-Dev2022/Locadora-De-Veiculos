@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using System;
 
 namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
 {
@@ -31,7 +30,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
                 // pacote Serilog.Extensions.Logging                
                 x.AddSerilog(Log.Logger);
             });
-            
+
             optionsBuilder.UseLoggerFactory(loggerFactory);
 
             optionsBuilder.EnableSensitiveDataLogging();

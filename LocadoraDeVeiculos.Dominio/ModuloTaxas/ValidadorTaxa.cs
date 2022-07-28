@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
 {
     public class ValidadorTaxa : AbstractValidator<Taxa>
     {
-        
+
         public ValidadorTaxa()
         {
             RuleFor(x => x.descricao).NotNull().WithMessage("A Descrição não pode ser nula");

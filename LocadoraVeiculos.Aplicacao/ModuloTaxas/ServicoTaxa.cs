@@ -2,15 +2,9 @@
 using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
-using LocadoraDeVeiculos.Infra.ModuloTaxas;
-using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
-using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
 {
@@ -43,7 +37,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
         }
         private bool DescricaoDuplicada(Taxa taxa)
         {
-            var taxaEncontrada = repositorio.SelecionarPorParametro(x=> x.descricao == taxa.descricao);
+            var taxaEncontrada = repositorio.SelecionarPorParametro(x => x.descricao == taxa.descricao);
 
             return taxaEncontrada != null &&
                    taxaEncontrada.descricao == taxa.descricao &&

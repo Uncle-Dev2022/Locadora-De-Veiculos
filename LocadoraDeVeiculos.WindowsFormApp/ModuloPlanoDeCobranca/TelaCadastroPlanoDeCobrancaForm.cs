@@ -1,15 +1,8 @@
 ﻿using FluentResults;
-using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
@@ -71,7 +64,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
                 plano.planoControlado.valorDiario = Convert.ToDecimal(TextBoxControladoValorDiario.Text);
 
             }
-            catch(Exception exep)
+            catch (Exception exep)
             {
                 MessageBox.Show("Os Três Planos precisam estar cadastrados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //return;

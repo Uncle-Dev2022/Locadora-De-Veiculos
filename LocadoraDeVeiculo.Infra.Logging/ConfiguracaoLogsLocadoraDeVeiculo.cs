@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Serilog;
-using System;
 using System.IO;
 
 namespace LocadoraDeVeiculo.Infra.Logging
