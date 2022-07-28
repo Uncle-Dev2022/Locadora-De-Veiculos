@@ -134,6 +134,25 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                     b.ToTable("TBGrupoDeVeiculos");
                 });
 
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca.PlanoDeCobranca", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.Property<Guid?>("grupoDeVeiculoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("grupoDeVeiculoId");
+
+                    b.ToTable("TBPlanoDeCobranca");
+                });
+
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloTaxas.Taxa", b =>
                 {
                     b.Property<Guid>("Id")
@@ -211,6 +230,78 @@ namespace LocadoraDeVeiculos.Infra.Orm.Migrations
                         .HasForeignKey("clienteId");
 
                     b.Navigation("cliente");
+                });
+
+            modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca.PlanoDeCobranca", b =>
+                {
+                    b.HasOne("LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos.GrupoDeVeiculo", "grupoDeVeiculo")
+                        .WithMany()
+                        .HasForeignKey("grupoDeVeiculoId");
+
+                    b.OwnsOne("LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca.PlanoControlado", "planoControlado", b1 =>
+                        {
+                            b1.Property<Guid>("PlanoDeCobrancaId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("limiteKm")
+                                .HasColumnType("DECIMAL(11,4)");
+
+                            b1.Property<decimal>("valorDiario")
+                                .HasColumnType("DECIMAL(11,4)");
+
+                            b1.Property<decimal>("valorKm")
+                                .HasColumnType("DECIMAL(11,4)");
+
+                            b1.HasKey("PlanoDeCobrancaId");
+
+                            b1.ToTable("TBPlanoDeCobranca");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PlanoDeCobrancaId");
+                        });
+
+                    b.OwnsOne("LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca.PlanoDiario", "planoDiario", b1 =>
+                        {
+                            b1.Property<Guid>("PlanoDeCobrancaId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("valorDiario")
+                                .HasColumnType("DECIMAL(11,4)");
+
+                            b1.Property<decimal>("valorKm")
+                                .HasColumnType("DECIMAL(11,4)");
+
+                            b1.HasKey("PlanoDeCobrancaId");
+
+                            b1.ToTable("TBPlanoDeCobranca");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PlanoDeCobrancaId");
+                        });
+
+                    b.OwnsOne("LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca.PlanoLivre", "planoLivre", b1 =>
+                        {
+                            b1.Property<Guid>("PlanoDeCobrancaId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<decimal>("valorDiario")
+                                .HasColumnType("DECIMAL(11,4)");
+
+                            b1.HasKey("PlanoDeCobrancaId");
+
+                            b1.ToTable("TBPlanoDeCobranca");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PlanoDeCobrancaId");
+                        });
+
+                    b.Navigation("grupoDeVeiculo");
+
+                    b.Navigation("planoControlado");
+
+                    b.Navigation("planoDiario");
+
+                    b.Navigation("planoLivre");
                 });
 
             modelBuilder.Entity("LocadoraDeVeiculos.Dominio.ModuloVeiculo.Veiculo", b =>
