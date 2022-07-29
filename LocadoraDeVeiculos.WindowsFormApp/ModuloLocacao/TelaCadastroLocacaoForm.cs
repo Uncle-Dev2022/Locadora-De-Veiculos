@@ -8,6 +8,5 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao
         {
             InitializeComponent();
         }
-
     }
 }

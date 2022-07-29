@@ -6,7 +6,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
 {
     public class ValidadorFuncionario : AbstractValidator<Funcionario>
     {
-
         public ValidadorFuncionario()
         {
 
@@ -37,10 +36,5 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
 
 
         }
-
-
-
-
-
     }
 }
