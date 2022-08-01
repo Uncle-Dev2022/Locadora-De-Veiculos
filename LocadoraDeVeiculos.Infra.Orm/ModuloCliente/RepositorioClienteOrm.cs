@@ -6,6 +6,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente
 {
     public class RepositorioClienteOrm : RepositorioBaseOrm<Cliente, MapeadorClienteOrm>, IRepositorioCliente
     {
+
         public RepositorioClienteOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {
             Dados = db.Set<Cliente>();
