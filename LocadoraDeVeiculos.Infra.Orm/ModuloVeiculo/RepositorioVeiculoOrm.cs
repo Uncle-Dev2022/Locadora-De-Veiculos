@@ -5,7 +5,7 @@ using System.Linq;
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo
 {
     public class RepositorioVeiculoOrm : RepositorioBaseOrm<Veiculo,
-        MapeadorVeiculoOrm>
+        MapeadorVeiculoOrm>,IRepositorioVeiculo
     {
         public RepositorioVeiculoOrm(LocadoraDeVeiculosDbContext db) : base(db)
         {

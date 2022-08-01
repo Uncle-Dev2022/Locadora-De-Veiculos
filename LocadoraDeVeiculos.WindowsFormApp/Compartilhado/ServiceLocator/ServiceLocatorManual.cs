@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
+﻿using LocadoraDeVeiculos.infra.Config;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
@@ -45,6 +46,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
         {
             var contextoDadosOrm = new LocadoraDeVeiculosDbContext();
 
+            var config = new ConfiguracaoAplicacaoLocadoraDeVeiculos();
+            
             controladores = new Dictionary<string, ControladorBase>();
 
             var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculosOrm(contextoDadosOrm);

@@ -7,6 +7,7 @@ using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
+using LocadoraDeVeiculos.infra.Config;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
 using LocadoraDeVeiculos.Infra.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.ModuloFuncionário;
@@ -15,6 +16,12 @@ using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.ModuloVeiculo;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
+using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoDeCobrancaOrm;
+using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
+using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
@@ -40,34 +47,39 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<LocadoraDeVeiculosDbContext>().As<IContextoPersistencia>()
-                .InstancePerLifetimeScope();
+            var config = new ConfiguracaoAplicacaoLocadoraDeVeiculos();
 
-            builder.RegisterType<RepositorioGrupoDeVeiculoEmBancoDeDados>().As<IRepositorioGrupoDeVeiculo>();
+            var connectionstring = config.ConnectionStrings.SqlServer;
+
+            builder.RegisterType<LocadoraDeVeiculosDbContext>().As<IContextoPersistencia>()
+                .InstancePerLifetimeScope()
+                .WithParameter("connectionstring",connectionstring);
+
+            builder.RegisterType<RepositorioGrupoDeVeiculoOrm>().As<IRepositorioGrupoDeVeiculo>();
             builder.RegisterType<ServicoGrupoDeVeiculo>().AsSelf();
             builder.RegisterType<ControladorGrupoDeVeiculo>().AsSelf();
 
-            builder.RegisterType<RepositorioFuncionarioEmBancoDeDados>().As<IRepositorioFuncionario>();
+            builder.RegisterType<RepositorioFuncionarioOrm>().As<IRepositorioFuncionario>();
             builder.RegisterType<ServicoFuncionario>().AsSelf();
             builder.RegisterType<ControladorFuncionario>().AsSelf();
 
-            builder.RegisterType<RepositorioClienteEmBancoDeDados>().As<IRepositorioCliente>();
+            builder.RegisterType<RepositorioClienteOrm>().As<IRepositorioCliente>();
             builder.RegisterType<ServicoCliente>().AsSelf();
             builder.RegisterType<ControladorCliente>().AsSelf();
 
-            builder.RegisterType<RepositorioCondutorEmBancoDeDados>().As<IRepositorioCondutor>();
+            builder.RegisterType<RepositorioCondutorOrm>().As<IRepositorioCondutor>();
             builder.RegisterType<ServicoCondutor>().AsSelf();
             builder.RegisterType<ControladorCondutor>().AsSelf();
 
-            builder.RegisterType<RepositorioTaxaEmBancoDeDados>().As<IRepositorioTaxa>();
+            builder.RegisterType<RepositorioTaxaOrm>().As<IRepositorioTaxa>();
             builder.RegisterType<ServicoTaxa>().AsSelf();
             builder.RegisterType<ControladorTaxa>().AsSelf();
 
-            builder.RegisterType<RepositorioVeiculoEmBancoDeDados>().As<IRepositorioVeiculo>();
+            builder.RegisterType<RepositorioVeiculoOrm>().As<IRepositorioVeiculo>();
             builder.RegisterType<ServicoVeiculo>().AsSelf();
             builder.RegisterType<ControladorVeiculo>().AsSelf();
 
-            builder.RegisterType<RepositorioPlanoDeCobrancaEmBancoDeDados>().As<IRepositorioPlanoDeCobranca>();
+            builder.RegisterType<RepositorioPlanoDeCobrancaOrm>().As<IRepositorioPlanoDeCobranca>();
             builder.RegisterType<ServicoPlanoDeCobranca>().AsSelf();
             builder.RegisterType<ControladorPlanoDeCobranca>().AsSelf();
 

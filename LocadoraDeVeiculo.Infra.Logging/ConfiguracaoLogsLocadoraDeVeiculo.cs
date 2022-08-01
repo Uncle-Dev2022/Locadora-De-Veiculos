@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using LocadoraDeVeiculos.infra.Config;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using System.IO;
 
@@ -11,16 +12,9 @@ namespace LocadoraDeVeiculo.Infra.Logging
         //criação do arquivo TXT de LOG 
         public static void ConfigurarEscritaLogs()
         {
+            var config = new ConfiguracaoAplicacaoLocadoraDeVeiculos();
 
-            var configuracao = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("ConfiguracaoAplicacao.json")
-                .Build();
-
-
-            var diretoriosaida = configuracao.GetSection("ConfiguracaoLogs")
-                .GetSection("DiretorioSaida")
-                .Value;
+            var diretoriosaida = config.ConfiguracaoLogs.DiretorioSaida;
 
             /*             
             Log.Logger = new LoggerConfiguration()

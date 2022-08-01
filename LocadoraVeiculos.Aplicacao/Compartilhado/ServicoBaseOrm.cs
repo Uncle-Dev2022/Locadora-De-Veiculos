@@ -9,7 +9,6 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
     public abstract class ServicoBase<T> where T : EntidadeBase<T>
     {
         protected IRepositorio<T> repositorio;
-
         public ServicoBase(IRepositorio<T> repositorio)
         {
             this.repositorio = repositorio;
