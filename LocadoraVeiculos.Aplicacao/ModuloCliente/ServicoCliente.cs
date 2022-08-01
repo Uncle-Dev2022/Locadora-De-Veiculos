@@ -11,7 +11,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
     public class ServicoCliente : ServicoBase<Cliente>
     {
 
-        public ServicoCliente(RepositorioClienteOrm repositorio) : base(repositorio)
+        public ServicoCliente(IRepositorioCliente repositorio) : base(repositorio)
         {
 
         }

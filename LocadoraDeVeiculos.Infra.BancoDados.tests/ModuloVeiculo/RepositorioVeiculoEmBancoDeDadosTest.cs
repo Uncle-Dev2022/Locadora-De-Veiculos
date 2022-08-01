@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
         GrupoDeVeiculo grupoDeVeiculo;
 
         private RepositorioVeiculoEmBancoDeDados repositorioVeiculo;
-        private RepositorioGrupoDeVeiculoOrm repositorioGrupo;
+        private RepositorioGrupoDeVeiculo repositorioGrupo;
 
         public RepositorioVeiculoEmBancoDeDadosTest()
         {
@@ -43,7 +43,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
 
 
             repositorioVeiculo = new RepositorioVeiculoEmBancoDeDados();
-            repositorioGrupo = new RepositorioGrupoDeVeiculoOrm();
+            repositorioGrupo = new RepositorioGrupoDeVeiculo();
 
         }
 

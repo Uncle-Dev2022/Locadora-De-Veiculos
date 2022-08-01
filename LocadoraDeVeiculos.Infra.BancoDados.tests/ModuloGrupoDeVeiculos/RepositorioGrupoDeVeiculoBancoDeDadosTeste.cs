@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
         GrupoDeVeiculo grupoVeiculo1;
         GrupoDeVeiculo grupoVeiculo2;
 
-        RepositorioGrupoDeVeiculoOrm repositorioGrupoDeVeiculo;
+        RepositorioGrupoDeVeiculo repositorioGrupoDeVeiculo;
 
         public RepositorioGrupoDeVeiculoBancoDeDadosTeste()
         {
@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
             grupoVeiculo1 = new GrupoDeVeiculo("GrupoDeVeiculoUm");
             grupoVeiculo2 = new GrupoDeVeiculo("GrupoDeVeiculoDois");
 
-            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoOrm();
+            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculo();
 
         }
 

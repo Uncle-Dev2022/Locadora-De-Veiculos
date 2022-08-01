@@ -19,6 +19,7 @@ using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoDeCobrancaOrm;
 using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
 using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
@@ -55,30 +56,37 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
                 .InstancePerLifetimeScope()
                 .WithParameter("connectionstring",connectionstring);
 
-            builder.RegisterType<RepositorioGrupoDeVeiculoOrm>().As<IRepositorioGrupoDeVeiculo>();
+            //ok?
+            builder.RegisterType<RepositorioGrupoDeVeiculosOrm>().As<IRepositorioGrupoDeVeiculo>();
             builder.RegisterType<ServicoGrupoDeVeiculo>().AsSelf();
             builder.RegisterType<ControladorGrupoDeVeiculo>().AsSelf();
 
+            //ok?
             builder.RegisterType<RepositorioFuncionarioOrm>().As<IRepositorioFuncionario>();
             builder.RegisterType<ServicoFuncionario>().AsSelf();
             builder.RegisterType<ControladorFuncionario>().AsSelf();
 
+            //Ok
             builder.RegisterType<RepositorioClienteOrm>().As<IRepositorioCliente>();
             builder.RegisterType<ServicoCliente>().AsSelf();
             builder.RegisterType<ControladorCliente>().AsSelf();
 
+            //ok?
             builder.RegisterType<RepositorioCondutorOrm>().As<IRepositorioCondutor>();
             builder.RegisterType<ServicoCondutor>().AsSelf();
             builder.RegisterType<ControladorCondutor>().AsSelf();
 
+            //ok?
             builder.RegisterType<RepositorioTaxaOrm>().As<IRepositorioTaxa>();
             builder.RegisterType<ServicoTaxa>().AsSelf();
             builder.RegisterType<ControladorTaxa>().AsSelf();
 
+            //ok?
             builder.RegisterType<RepositorioVeiculoOrm>().As<IRepositorioVeiculo>();
             builder.RegisterType<ServicoVeiculo>().AsSelf();
             builder.RegisterType<ControladorVeiculo>().AsSelf();
 
+            //ok?
             builder.RegisterType<RepositorioPlanoDeCobrancaOrm>().As<IRepositorioPlanoDeCobranca>();
             builder.RegisterType<ServicoPlanoDeCobranca>().AsSelf();
             builder.RegisterType<ControladorPlanoDeCobranca>().AsSelf();

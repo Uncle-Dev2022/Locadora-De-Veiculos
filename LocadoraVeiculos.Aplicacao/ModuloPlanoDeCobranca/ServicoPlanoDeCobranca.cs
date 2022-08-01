@@ -10,7 +10,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
 {
     public class ServicoPlanoDeCobranca : ServicoBase<PlanoDeCobranca>
     {
-        public ServicoPlanoDeCobranca(IRepositorio<PlanoDeCobranca> repositorio) : base(repositorio)
+        public ServicoPlanoDeCobranca(IRepositorioPlanoDeCobranca repositorio) : base(repositorio)
         {
         }
 

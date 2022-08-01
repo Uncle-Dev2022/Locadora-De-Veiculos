@@ -10,7 +10,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
 {
     public class ServicoTaxa : ServicoBase<Taxa>
     {
-        public ServicoTaxa(IRepositorio<Taxa> repositorio) : base(repositorio)
+        public ServicoTaxa(IRepositorioTaxa repositorio) : base(repositorio)
         {
         }
         public override Result Validar(Taxa taxa)

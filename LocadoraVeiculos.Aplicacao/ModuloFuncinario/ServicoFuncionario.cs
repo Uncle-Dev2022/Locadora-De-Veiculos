@@ -11,7 +11,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
 {
     public class ServicoFuncionario : ServicoBase<Funcionario>
     {
-        public ServicoFuncionario(RepositorioFuncionarioOrm repositorio) : base(repositorio)
+        public ServicoFuncionario(IRepositorioFuncionario repositorio) : base(repositorio)
         {
         }
 

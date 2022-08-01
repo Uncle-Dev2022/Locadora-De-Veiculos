@@ -16,7 +16,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
         GrupoDeVeiculo grupo;
 
         private RepositorioPlanoDeCobrancaEmBancoDeDados repositorioPlanoDeCobranca;
-        private RepositorioGrupoDeVeiculoOrm repositorioGrupoDeVeiculo;
+        private RepositorioGrupoDeVeiculo repositorioGrupoDeVeiculo;
         public RepositorioPlanoDeCobrancaEmBancoDeDadosTest()
         {
             DB.executarSql("DELETE FROM TBPlanoDeCobranca;");
@@ -34,7 +34,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
             planoDeCobranca2 = new PlanoDeCobranca("plano3", grupo, livre, diario, controlado);
 
             repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
-            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoOrm();
+            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculo();
         }
 
         [TestMethod]

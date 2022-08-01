@@ -11,10 +11,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
     {
         LocadoraDeVeiculosDbContext db;
         protected DbSet<T> Dados;
-        public RepositorioBaseOrm()
-        {
-
-        }
+       
         public RepositorioBaseOrm(IContextoPersistencia db)
         {
             this.db = (LocadoraDeVeiculosDbContext)db;

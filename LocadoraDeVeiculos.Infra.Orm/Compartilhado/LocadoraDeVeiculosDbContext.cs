@@ -8,9 +8,9 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
     public class LocadoraDeVeiculosDbContext : DbContext, IContextoPersistencia
     {
         private string enderecoConexaoComBanco;
-        public LocadoraDeVeiculosDbContext()
+        public LocadoraDeVeiculosDbContext(string connectionstring)
         {
-
+            enderecoConexaoComBanco=connectionstring;
         }
 
         public void GravarDados()
@@ -20,10 +20,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            enderecoConexaoComBanco = @"Data Source = (LocalDB)\MSSqlLocalDB; 
-                Initial Catalog = LocadoraVeiculos.Db; 
-                Integrated Security = True; 
-                Pooling = False";
+           
             optionsBuilder.UseSqlServer(enderecoConexaoComBanco);
             ILoggerFactory loggerFactory = LoggerFactory.Create(x =>
             {

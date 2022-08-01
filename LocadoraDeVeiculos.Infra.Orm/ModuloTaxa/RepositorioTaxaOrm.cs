@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloTaxas;
+﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using System.Linq;
 
@@ -6,7 +7,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloTaxa
 {
     public class RepositorioTaxaOrm : RepositorioBaseOrm<Taxa, MapeadorTaxaOrm>, IRepositorioTaxa
     {
-        public RepositorioTaxaOrm(LocadoraDeVeiculosDbContext db) : base(db)
+        public RepositorioTaxaOrm(IContextoPersistencia db) : base(db)
         {
         }
 

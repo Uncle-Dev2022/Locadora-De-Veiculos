@@ -10,7 +10,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
 {
     public class ServicoVeiculo : ServicoBase<Veiculo>
     {
-        public ServicoVeiculo(RepositorioVeiculoOrm repositorio) : base(repositorio)
+        public ServicoVeiculo(IRepositorioVeiculo repositorio) : base(repositorio)
         {
         }
 
