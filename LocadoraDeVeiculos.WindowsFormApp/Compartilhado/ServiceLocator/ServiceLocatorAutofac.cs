@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
@@ -13,6 +14,7 @@ using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.ModuloVeiculo;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
@@ -37,6 +39,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
         public ServiceLocatorAutofac()
         {
             var builder = new ContainerBuilder();
+
+            builder.RegisterType<LocadoraDeVeiculosDbContext>().As<IContextoPersistencia>()
+                .InstancePerLifetimeScope();
 
             builder.RegisterType<RepositorioGrupoDeVeiculoEmBancoDeDados>().As<IRepositorioGrupoDeVeiculo>();
             builder.RegisterType<ServicoGrupoDeVeiculo>().AsSelf();
