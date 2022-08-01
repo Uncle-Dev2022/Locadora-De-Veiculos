@@ -1,8 +1,10 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.Dominio.Compartilhado.ModuloPDF;
+using PdfSharpCore.Pdf;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
 {
-    public class Taxa : EntidadeBase<Taxa>
+    public class Taxa : EntidadeBase<Taxa>, IContextoPDF
     {
         public double valor;
         public string descricao;
@@ -26,6 +28,15 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
 
             return t.descricao == this.descricao &&
                 t.valor == this.valor && t.tipoCalculo == this.tipoCalculo;
+        }
+
+        public PdfPage[] GerarDados()
+        {
+            PdfDictionary dictionaries = new PdfDictionary(new PdfDocument());
+
+            dictionaries.CreateStream(new byte[3]);
+            
+            throw new System.NotImplementedException();
         }
     }
 }

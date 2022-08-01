@@ -4,7 +4,6 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
 {
     public class ValidadorTaxa : AbstractValidator<Taxa>
     {
-
         public ValidadorTaxa()
         {
             RuleFor(x => x.descricao).NotNull().WithMessage("A Descrição não pode ser nula");

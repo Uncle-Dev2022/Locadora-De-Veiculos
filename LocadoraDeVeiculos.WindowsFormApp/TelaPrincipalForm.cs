@@ -8,6 +8,7 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
 using System;
 using System.Windows.Forms;
+using PdfSharp.Pdf;
 
 namespace LocadoraDeVeiculos.WindowsFormApp
 {
@@ -19,9 +20,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         public TelaPrincipalForm(IServiceLocator serviceLocator)
         {
             InitializeComponent();
-
-            this.serviceLocator = serviceLocator;
-
+            this.serviceLocator = serviceLocator;            
             Instancia = this;
 
             labelRodape.Text = string.Empty;
