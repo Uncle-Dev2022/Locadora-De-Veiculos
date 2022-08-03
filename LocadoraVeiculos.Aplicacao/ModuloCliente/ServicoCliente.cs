@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
@@ -11,7 +12,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
     public class ServicoCliente : ServicoBase<Cliente>
     {
 
-        public ServicoCliente(RepositorioClienteOrm repositorio) : base(repositorio)
+        public ServicoCliente(IRepositorioCliente repositorio,IContextoPersistencia contextoPersistencia) : base(repositorio,contextoPersistencia)
         {
 
         }
@@ -42,7 +43,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             }
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }

@@ -10,7 +10,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
 {
     public class ServicoPlanoDeCobranca : ServicoBase<PlanoDeCobranca>
     {
-        public ServicoPlanoDeCobranca(IRepositorio<PlanoDeCobranca> repositorio) : base(repositorio)
+        public ServicoPlanoDeCobranca(IRepositorioPlanoDeCobranca repositorio, IContextoPersistencia contextoPersistencia) : base(repositorio, contextoPersistencia)
         {
         }
 
@@ -29,8 +29,13 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
 
             if (NomeDuplicado(PlanoDeCobranca))
                 erros.Add(new Error("Nome duplicado"));
+
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
+
             return Result.Ok();
 
         }

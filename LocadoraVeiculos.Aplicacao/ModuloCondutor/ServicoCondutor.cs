@@ -10,7 +10,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
 {
     public class ServicoCondutor : ServicoBase<Condutor>
     {
-        public ServicoCondutor(IRepositorio<Condutor> repositorio) : base(repositorio)
+        public ServicoCondutor(IRepositorioCondutor repositorio,IContextoPersistencia contextoPersistencia) : base(repositorio, contextoPersistencia)
         {
         }
 
@@ -37,7 +37,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
                 erros.Add(new Error("CNH Duplicada"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }

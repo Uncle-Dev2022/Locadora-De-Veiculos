@@ -10,7 +10,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
 {
     public class ServicoTaxa : ServicoBase<Taxa>
     {
-        public ServicoTaxa(IRepositorio<Taxa> repositorio) : base(repositorio)
+        public ServicoTaxa(IRepositorioTaxa repositorio, IContextoPersistencia contextoPersistencia) : base(repositorio, contextoPersistencia)
         {
         }
         public override Result Validar(Taxa taxa)
@@ -31,7 +31,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
                 erros.Add(new Error("Nome Duplicado"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }

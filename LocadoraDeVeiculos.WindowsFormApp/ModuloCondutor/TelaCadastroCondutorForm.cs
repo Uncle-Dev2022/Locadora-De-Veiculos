@@ -80,6 +80,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
                 maskedTextBoxCNH.Text = clienteSelecionado.CNH;
                 textBoxEmail.Text = clienteSelecionado.Email;
             }
+            else
+            {
+                textBoxNome.Clear();
+                textBoxEndereco.Clear();
+                maskedTextBoxCPF.Clear();
+                maskedTextBoxCNH.Clear();
+                textBoxEmail.Clear();
+            }
         }
 
         private void CarregarCliente(List<Cliente> clientes)

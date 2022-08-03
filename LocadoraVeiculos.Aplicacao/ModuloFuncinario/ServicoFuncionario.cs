@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
@@ -11,7 +12,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
 {
     public class ServicoFuncionario : ServicoBase<Funcionario>
     {
-        public ServicoFuncionario(RepositorioFuncionarioOrm repositorio) : base(repositorio)
+        public ServicoFuncionario(IRepositorioFuncionario repositorio, IContextoPersistencia contextoPersistencia) : base(repositorio, contextoPersistencia)
         {
         }
 
@@ -33,7 +34,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                 erros.Add(new Error("Login duplicado"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }

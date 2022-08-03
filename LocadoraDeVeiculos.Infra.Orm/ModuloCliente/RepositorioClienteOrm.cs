@@ -1,4 +1,5 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
+﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using System.Linq;
 
@@ -6,9 +7,9 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente
 {
     public class RepositorioClienteOrm : RepositorioBaseOrm<Cliente, MapeadorClienteOrm>, IRepositorioCliente
     {
-        public RepositorioClienteOrm(LocadoraDeVeiculosDbContext db) : base(db)
+        public RepositorioClienteOrm(IContextoPersistencia contexto) : base(contexto)
         {
-            Dados = db.Set<Cliente>();
+            
         }
 
         public Cliente SelecionarClientePorNome(string nome)

@@ -290,7 +290,7 @@
             // 
             // TelaCadastroClienteForm
             // 
-            this.ClientSize = new System.Drawing.Size(650, 372);
+            this.ClientSize = new System.Drawing.Size(532, 372);
             this.Controls.Add(this.maskedTextBoxCNH);
             this.Controls.Add(this.maskedTextBoxTelefone);
             this.Controls.Add(this.maskedTextBoxCNPJ);
