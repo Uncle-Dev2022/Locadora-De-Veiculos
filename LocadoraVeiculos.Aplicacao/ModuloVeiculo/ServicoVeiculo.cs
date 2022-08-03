@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using FluentValidation.Results;
+using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
 using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
@@ -10,7 +11,7 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
 {
     public class ServicoVeiculo : ServicoBase<Veiculo>
     {
-        public ServicoVeiculo(IRepositorioVeiculo repositorio) : base(repositorio)
+        public ServicoVeiculo(IRepositorioVeiculo repositorio, IContextoPersistencia contextoPersistencia) : base(repositorio, contextoPersistencia)
         {
         }
 

@@ -9,9 +9,11 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
     public abstract class ServicoBase<T> where T : EntidadeBase<T>
     {
         protected IRepositorio<T> repositorio;
-        public ServicoBase(IRepositorio<T> repositorio)
+        protected IContextoPersistencia contextoPersistencia;
+        public ServicoBase(IRepositorio<T> repositorio, IContextoPersistencia contextoPersistencia)
         {
             this.repositorio = repositorio;
+            this.contextoPersistencia = contextoPersistencia;
         }
         public virtual Result<T> Inserir(T registro)
         {
@@ -25,12 +27,14 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             try
             {
                 repositorio.Inserir(registro);
-                repositorio.GravarDados();
+                contextoPersistencia.GravarDados();
                 Log.Logger.Information("{@T} {@T_Id} inserido(a) com sucesso", registro, registro.Id);
                 return Result.Ok(registro);
             }
             catch (Exception ex)
             {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 string msgErro = string.Format("Falha no sistema ao tentar inserir o/a {@T}", registro);
 
                 Log.Logger.Error(ex, msgErro + " {@T_Id}", registro.Id);
@@ -49,12 +53,14 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             try
             {
                 repositorio.Editar(registro);
-                repositorio.GravarDados();
+                contextoPersistencia.GravarDados();
                 Log.Logger.Information("{@T} {@T_Id} editado(a) com sucesso", registro, registro.Id);
                 return Result.Ok(registro);
             }
             catch (Exception ex)
             {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 string msgErro = string.Format("Falha no sistema ao tentar editar o/a {@T}", registro);
 
                 Log.Logger.Error(ex, msgErro + " {@T_Id}", registro.Id);
@@ -73,12 +79,14 @@ namespace LocadoraVeiculos.Aplicacao.Compartilhado
             try
             {
                 repositorio.Excluir(registro);
-                repositorio.GravarDados();
+                contextoPersistencia.GravarDados();
                 Log.Logger.Information("{@T} {@T_Id} excluído(a) com sucesso", registro, registro.Id);
                 return Result.Ok();
             }
             catch (Exception ex)
             {
+                contextoPersistencia.DesfazerAlteracoes();
+
                 string msgErro = string.Format("Falha no sistema ao tentar excluir o/a {@T}", registro);
 
                 Log.Logger.Error(ex, msgErro + " {Id}" + registro.Id);
