@@ -34,7 +34,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                 erros.Add(new Error("Login duplicado"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }

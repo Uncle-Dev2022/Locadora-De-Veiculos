@@ -113,9 +113,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 else
                 {
                     TelaPrincipalForm.Instancia.AtualizarRodape(erro);
-
-                    DialogResult = DialogResult.None;
+                    
                 }
+                DialogResult = DialogResult.None;
             }
         }
 

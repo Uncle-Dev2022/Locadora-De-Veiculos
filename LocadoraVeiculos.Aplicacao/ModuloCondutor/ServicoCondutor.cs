@@ -37,7 +37,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
                 erros.Add(new Error("CNH Duplicada"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }

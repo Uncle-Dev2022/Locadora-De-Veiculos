@@ -43,7 +43,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             }
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }

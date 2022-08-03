@@ -30,7 +30,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos
                 erros.Add(new Error("Nome duplicado"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }
