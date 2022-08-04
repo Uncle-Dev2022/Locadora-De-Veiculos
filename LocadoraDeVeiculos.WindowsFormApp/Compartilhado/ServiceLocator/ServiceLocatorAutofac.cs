@@ -4,6 +4,7 @@ using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Dominio.ModuloLocacao;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
@@ -20,6 +21,7 @@ using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.Orm.ModuloLocacao;
 using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoDeCobrancaOrm;
 using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
 using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
@@ -34,6 +36,7 @@ using LocadoraVeiculos.Aplicacao.ModuloCliente;
 using LocadoraVeiculos.Aplicacao.ModuloCondutor;
 using LocadoraVeiculos.Aplicacao.ModuloFuncinario;
 using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
+using LocadoraVeiculos.Aplicacao.ModuloLocacao;
 using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
 using LocadoraVeiculos.Aplicacao.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloVeiculo;
@@ -90,6 +93,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
             builder.RegisterType<RepositorioPlanoDeCobrancaOrm>().As<IRepositorioPlanoDeCobranca>();
             builder.RegisterType<ServicoPlanoDeCobranca>().AsSelf();
             builder.RegisterType<ControladorPlanoDeCobranca>().AsSelf();
+
+            //locacao
+            builder.RegisterType<RepositorioLocacaoOrm>().As<IRepositorioLocacao>();
+            builder.RegisterType<ServicoLocacao>().AsSelf();
+            builder.RegisterType<ControladorLocacao>().AsSelf();
 
             container = builder.Build();
 
