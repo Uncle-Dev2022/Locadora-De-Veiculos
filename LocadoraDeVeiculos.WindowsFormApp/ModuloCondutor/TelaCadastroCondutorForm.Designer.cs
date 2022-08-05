@@ -42,6 +42,7 @@
             this.btnGravar = new System.Windows.Forms.Button();
             this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxCNH = new System.Windows.Forms.MaskedTextBox();
+            this.CheckBoxClienteEhCondutor = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -55,11 +56,13 @@
             // 
             // comboBoxCliente
             // 
+            this.comboBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCliente.FormattingEnabled = true;
             this.comboBoxCliente.Location = new System.Drawing.Point(120, 29);
             this.comboBoxCliente.Name = "comboBoxCliente";
             this.comboBoxCliente.Size = new System.Drawing.Size(187, 28);
             this.comboBoxCliente.TabIndex = 1;
+            this.comboBoxCliente.SelectedIndexChanged += new System.EventHandler(this.comboBoxCliente_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -166,11 +169,24 @@
             this.maskedTextBoxCNH.Size = new System.Drawing.Size(187, 27);
             this.maskedTextBoxCNH.TabIndex = 20;
             // 
+            // CheckBoxClienteEhCondutor
+            // 
+            this.CheckBoxClienteEhCondutor.AutoSize = true;
+            this.CheckBoxClienteEhCondutor.Enabled = false;
+            this.CheckBoxClienteEhCondutor.Location = new System.Drawing.Point(313, 31);
+            this.CheckBoxClienteEhCondutor.Name = "CheckBoxClienteEhCondutor";
+            this.CheckBoxClienteEhCondutor.Size = new System.Drawing.Size(148, 24);
+            this.CheckBoxClienteEhCondutor.TabIndex = 21;
+            this.CheckBoxClienteEhCondutor.Text = "Cliente condutor?";
+            this.CheckBoxClienteEhCondutor.UseVisualStyleBackColor = true;
+            this.CheckBoxClienteEhCondutor.CheckedChanged += new System.EventHandler(this.ClienteEhCondutor_CheckedChanged);
+            // 
             // TelaCadastroCondutorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 337);
+            this.Controls.Add(this.CheckBoxClienteEhCondutor);
             this.Controls.Add(this.maskedTextBoxCNH);
             this.Controls.Add(this.maskedTextBoxCPF);
             this.Controls.Add(this.btnCancelar);
@@ -185,6 +201,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxCliente);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCadastroCondutorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela De Cadastro de Condutores";
@@ -209,5 +227,6 @@
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCNH;
+        private System.Windows.Forms.CheckBox CheckBoxClienteEhCondutor;
     }
 }

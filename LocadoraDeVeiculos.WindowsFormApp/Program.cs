@@ -21,8 +21,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var ServiceLocator = new ServiceLocatorManual();
-            Application.Run(new TelaPrincipalForm(ServiceLocator));
+
+            var serviceLocatorAutofac = new ServiceLocatorAutofac();
+            Application.Run(new TelaPrincipalForm(serviceLocatorAutofac));
         }
     }
 }

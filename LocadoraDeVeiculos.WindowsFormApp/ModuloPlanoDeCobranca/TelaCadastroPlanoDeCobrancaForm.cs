@@ -58,16 +58,24 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca
         {
             plano.Nome = textBoxNome.Text;
 
-            plano.grupoDeVeiculo = comboBoxGrupoDeVeiculo.SelectedItem as GrupoDeVeiculo;
+            try
+            {
+                plano.grupoDeVeiculo = comboBoxGrupoDeVeiculo.SelectedItem as GrupoDeVeiculo;
+                plano.planoLivre.valorDiario = Convert.ToDecimal(TextBoxLivreValorDiario.Text);
 
-            plano.planoLivre.valorDiario = Convert.ToDecimal(TextBoxLivreValorDiario.Text);
+                plano.planoDiario.valorDiario = Convert.ToDecimal(TextBoxDiarioValorDiario.Text);
+                plano.planoDiario.valorKm = Convert.ToDecimal(TextBoxDiarioValorKM.Text);
 
-            plano.planoDiario.valorDiario = Convert.ToDecimal(TextBoxDiarioValorDiario.Text);
-            plano.planoDiario.valorKm = Convert.ToDecimal(TextBoxDiarioValorKM.Text);
+                plano.planoControlado.valorKm = Convert.ToDecimal(TextBoxControladoValorKM.Text);
+                plano.planoControlado.limiteKm = Convert.ToDecimal(TextBoxLimiteKM.Text);
+                plano.planoControlado.valorDiario = Convert.ToDecimal(TextBoxControladoValorDiario.Text);
 
-            plano.planoControlado.valorKm = Convert.ToDecimal(TextBoxControladoValorKM.Text);
-            plano.planoControlado.limiteKm = Convert.ToDecimal(TextBoxLimiteKM.Text);
-            plano.planoControlado.valorDiario = Convert.ToDecimal(TextBoxControladoValorDiario.Text);
+            }
+            catch(Exception exep)
+            {
+                MessageBox.Show("Os Três Planos precisam estar cadastrados", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //return;
+            }
 
             var resultadoValidacao = GravarRegistro(plano);
 

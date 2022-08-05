@@ -1,22 +1,11 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
-using LocadoraDeVeiculos.Infra.ModuloCliente;
-using LocadoraDeVeiculos.Infra.ModuloCondutor;
-using LocadoraDeVeiculos.Infra.ModuloFuncionário;
-using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
-using LocadoraDeVeiculos.Infra.ModuloTaxas;
-using LocadoraDeVeiculos.Infra.ModuloVeiculo;
-using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+﻿using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
-using LocadoraVeiculos.Aplicacao.ModuloCliente;
-using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos; 
-using LocadoraVeiculos.Aplicacao.ModuloFuncinario;
-using LocadoraVeiculos.Aplicacao.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
-using LocadoraVeiculos.Aplicacao.ModuloVeiculo;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -37,6 +26,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         public TelaPrincipalForm(IServiceLocator serviceLocator)
         {
             InitializeComponent();
+
+            this.serviceLocator = serviceLocator;
 
             Instancia = this;
 
@@ -140,6 +131,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
         {
+
             this.controlador = controlador;
 
             ConfigurarToolbox();

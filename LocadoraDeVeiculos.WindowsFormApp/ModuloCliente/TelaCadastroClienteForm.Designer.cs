@@ -308,6 +308,8 @@
             this.Controls.Add(this.txtBoxEndereço);
             this.Controls.Add(this.txtBoxEmail);
             this.Controls.Add(this.txtNome);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TelaCadastroClienteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela De Cadastro De Cliente";
