@@ -71,5 +71,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCondutor
                    CondutorEncontrado.CNH == condutor.CNH &&
                    CondutorEncontrado.Id != condutor.Id;
         }
+
+        public List<Condutor> SelecionarTodosOsCondutores()
+        {
+            return repositorio.SelecionarTodos();
+        }
     }
 }

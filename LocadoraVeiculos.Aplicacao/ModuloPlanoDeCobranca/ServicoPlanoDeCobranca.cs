@@ -48,5 +48,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca
                    PlanoDeCobrancaEncontrado.Nome == planoDeCobranca.Nome &&
                    PlanoDeCobrancaEncontrado.Id != planoDeCobranca.Id;
         }
+
+        public List<PlanoDeCobranca> SelecionarTodosOsPlanosDeCobranca()
+        {
+            return repositorio.SelecionarTodos();
+        }
     }
 }

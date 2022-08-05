@@ -12,6 +12,11 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
         {
         }
 
+        public override string ToString()
+        {
+            return descricao;
+        }
+
         public Taxa(double valor, string descricao, TipoCalculo tipoCalculo)
         {
             this.valor = valor;

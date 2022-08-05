@@ -47,5 +47,9 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
                    funcionarioEncontrado.Id != veiculo.Id;
         }
 
+        public List<Veiculo> SelecionarTodosOsVeiculos()
+        {
+            return repositorio.SelecionarTodos();
+        }
     }
 }

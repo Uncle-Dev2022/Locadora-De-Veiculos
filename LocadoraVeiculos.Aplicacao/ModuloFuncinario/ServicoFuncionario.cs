@@ -60,7 +60,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                    funcionarioEncontrado.Id != funcionario.Id;
         }
 
-
+        public List<Funcionario> SelecionarTodosOsFuncionario()
+        {
+            return repositorio.SelecionarTodos();
+        }
 
 
     }

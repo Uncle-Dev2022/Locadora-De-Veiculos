@@ -46,5 +46,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloTaxas
                    taxaEncontrada.descricao == taxa.descricao &&
                    taxaEncontrada.Id != taxa.Id;
         }
+
+        public List<Taxa> SelecionarTodasAsTaxas()
+        {
+            return repositorio.SelecionarTodos();
+        }
     }
 }

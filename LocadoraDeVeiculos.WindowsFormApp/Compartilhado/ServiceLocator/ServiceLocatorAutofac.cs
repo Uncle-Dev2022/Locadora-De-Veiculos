@@ -29,6 +29,7 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
@@ -51,13 +52,15 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
         {
             var builder = new ContainerBuilder();
 
-            var config = new ConfiguracaoAplicacaoLocadoraDeVeiculos();
+            builder.Register((x) => new ConfiguracaoAplicacaoLocadoraDeVeiculos().ConnectionStrings)
+             .As<ConnectionStrings>()
+             .SingleInstance(); //Singleton
 
-            var connectionstring = config.ConnectionStrings.SqlServer;
+            builder.RegisterType<ConfiguracaoAplicacaoLocadoraDeVeiculos>()
+                .SingleInstance(); //Singleton
 
             builder.RegisterType<LocadoraDeVeiculosDbContext>().As<IContextoPersistencia>()
-                .InstancePerLifetimeScope()
-                .WithParameter("connectionstring",connectionstring);
+                .InstancePerLifetimeScope(); //Scoped
 
             //ok?
             builder.RegisterType<RepositorioGrupoDeVeiculosOrm>().As<IRepositorioGrupoDeVeiculo>();

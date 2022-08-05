@@ -1,8 +1,10 @@
-﻿using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+﻿using LocadoraDeVeiculos.Dominio.ModuloLocacao;
+using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
@@ -71,6 +73,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         private void planoDeCobrançaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorPlanoDeCobranca>());
+        }
+        private void LocacaoMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(serviceLocator.Get<ControladorLocacao>());
         }
         private void btnInserir_Click(object sender, EventArgs e)
         {
@@ -157,8 +163,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
             listagemControl.Dock = DockStyle.Fill;
 
+
             panelRegistros.Controls.Add(listagemControl);
 
         }
+
     }
 }

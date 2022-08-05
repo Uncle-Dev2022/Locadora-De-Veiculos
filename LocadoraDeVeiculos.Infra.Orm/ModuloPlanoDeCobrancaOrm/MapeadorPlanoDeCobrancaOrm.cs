@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloPlanoDeCobrancaOrm
 {
-    public class MapeadorPlanoDeCobrancaOrm : MapeadorBaseOrm<PlanoDeCobranca>
+    public class MapeadorPlanoDeCobrancaOrm : MapeadorBaseOrm<PlanoDeCobranca>, IEntityTypeConfiguration<PlanoDeCobranca>
     {
         public override void Configure(EntityTypeBuilder<PlanoDeCobranca> builder)
         {

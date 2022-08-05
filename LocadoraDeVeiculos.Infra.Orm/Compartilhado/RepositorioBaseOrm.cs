@@ -35,7 +35,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
         {
             return Dados.FirstOrDefault(x => x.Id == id);
         }
-        public List<T> SelecionarTodos()
+        public virtual List<T> SelecionarTodos()
         {
             return Dados.ToList();
         }

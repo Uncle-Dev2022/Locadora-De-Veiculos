@@ -1,4 +1,16 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.infra.Config;
+using LocadoraDeVeiculos.Infra.ModuloCondutor;
+using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.Infra.ModuloVeiculo;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
+using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.Orm.ModuloLocacao;
+using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoDeCobrancaOrm;
+using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
+using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -9,9 +21,9 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
     public class LocadoraDeVeiculosDbContext : DbContext, IContextoPersistencia
     {
         private string enderecoConexaoComBanco;
-        public LocadoraDeVeiculosDbContext(string connectionstring)
+        public LocadoraDeVeiculosDbContext(ConnectionStrings connectionstring)
         {
-            enderecoConexaoComBanco=connectionstring;
+            enderecoConexaoComBanco=connectionstring.SqlServer;
         }
 
         public void GravarDados()
@@ -65,6 +77,14 @@ namespace LocadoraDeVeiculos.Infra.Orm.Compartilhado
             var dllComConfiguracoesOrm = typeof(LocadoraDeVeiculosDbContext).Assembly;
 
             modelBuilder.ApplyConfigurationsFromAssembly(dllComConfiguracoesOrm);
+            modelBuilder.ApplyConfiguration(new MapeadorPlanoDeCobrancaOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorTaxaOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorVeiculoOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorLocacaoOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorGrupoDeVeiculosOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorFuncionarioOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorCondutorOrm());
+            modelBuilder.ApplyConfiguration(new MapeadorClienteOrm());
         }
     }
 }

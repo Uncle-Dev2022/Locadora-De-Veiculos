@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente

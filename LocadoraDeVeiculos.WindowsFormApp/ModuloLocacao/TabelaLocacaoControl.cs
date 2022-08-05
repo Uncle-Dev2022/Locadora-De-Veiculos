@@ -50,14 +50,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao
             return grid.SelecionarNumero<Guid>();
         }
 
-        public void AtualizarRegistros(List<Locacao> locacao)
+        public void AtualizarRegistros(List<Locacao> locacoes)
         {
             grid.Rows.Clear();
 
-            foreach (var funcionario in locacao)
+            foreach (var locacao in locacoes)
             {
-                grid.Rows.Add(funcionario.Id, funcionario.Cliente.Nome, funcionario.veiculo.Marca, funcionario.Condutor.Nome, funcionario.planoDeCobranca.Nome,
-                    funcionario.dataDeLocacao, funcionario.dataDeDevolucaoPrevista);
+                grid.Rows.Add(locacao.Id, locacao.Cliente.Nome, locacao.veiculo.Marca, locacao.Condutor.Nome, locacao.planoDeCobranca.Nome,
+                    locacao.dataDeLocacao, locacao.dataDeDevolucaoPrevista);
             }
         }
     }

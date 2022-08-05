@@ -83,13 +83,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
 
         public override string ToString()
         {
-            return "Grupo de Veículo: " + GrupoDeVeiculo + " Marca: " + Marca + " Modelo: " + Modelo + "Cor: " + Cor +
-            "Ano Modelo: " + AnoModelo + " Tipo Combustivel: " + TipoCombustivel + " Placa: " + Placa + "Quilometragem: " + Quilometragem +
-            "Capacidade do Tanque: " + CapacidadeTanque;
+            return Modelo;
         }
-
-
-
-
     }
 }

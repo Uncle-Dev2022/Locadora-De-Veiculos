@@ -1,6 +1,13 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloLocacao;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+using LocadoraVeiculos.Aplicacao.ModuloCliente;
+using LocadoraVeiculos.Aplicacao.ModuloCondutor;
+using LocadoraVeiculos.Aplicacao.ModuloFuncinario;
+using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
 using LocadoraVeiculos.Aplicacao.ModuloLocacao;
+using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
+using LocadoraVeiculos.Aplicacao.ModuloTaxas;
+using LocadoraVeiculos.Aplicacao.ModuloVeiculo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,18 +21,32 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao
     {
         private TabelaLocacaoControl tabelaLocacao;
         private readonly ServicoLocacao servicoLocacao;
+        private readonly ServicoCliente servicoCliente;
+        private readonly ServicoCondutor servicoCondutor;
+        private readonly ServicoGrupoDeVeiculo servicoGrupoDeVeiculo;
+        private readonly ServicoVeiculo servicoVeiculo;
+        private readonly ServicoPlanoDeCobranca servicoPlanoDeCobranca;
+        private readonly ServicoTaxa servicoTaxa;
+        private readonly ServicoFuncionario servicoFuncionario;
 
-        public ControladorLocacao(ServicoLocacao servicoLocacao)
+        public ControladorLocacao(ServicoLocacao servicoLocacao,ServicoCliente servicoCliente, ServicoCondutor servicoCondutor,ServicoGrupoDeVeiculo servicoGrupoDeVeiculo,ServicoVeiculo servicoVeiculo,ServicoPlanoDeCobranca servicoPlanoDeCobranca,ServicoTaxa servicoTaxa,ServicoFuncionario servicoFuncionario)
         {
-
             this.servicoLocacao = servicoLocacao;
+            this.servicoCliente = servicoCliente;
+            this.servicoCondutor = servicoCondutor;
+            this.servicoGrupoDeVeiculo = servicoGrupoDeVeiculo;
+            this.servicoVeiculo = servicoVeiculo;
+            this.servicoPlanoDeCobranca = servicoPlanoDeCobranca;
+            this.servicoTaxa = servicoTaxa;
+            this.servicoFuncionario = servicoFuncionario;
+            
         }
 
         public override void Inserir()
         {
-            var tela = new TelaCadastroLocacaoForm();
+            var tela = new TelaCadastroLocacaoForm(servicoCliente,servicoCondutor,servicoGrupoDeVeiculo,servicoVeiculo,servicoPlanoDeCobranca,servicoTaxa,servicoFuncionario);
 
-            tela._funcionario = new Funcionario();
+            tela._locacao = new Locacao();
 
             tela.GravarRegistro = servicoLocacao.Inserir;
 
@@ -57,9 +78,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao
 
             var LocacaoSelecionada = resultado.Value;
 
-            var tela = new TelaCadastroLocacaoForm();
+            var tela = new TelaCadastroLocacaoForm(servicoCliente, servicoCondutor, servicoGrupoDeVeiculo, servicoVeiculo, servicoPlanoDeCobranca, servicoTaxa, servicoFuncionario);
 
-            tela._funcionario = LocacaoSelecionada;
+            tela._locacao = LocacaoSelecionada;
 
             tela.GravarRegistro = servicoLocacao.Editar;
 

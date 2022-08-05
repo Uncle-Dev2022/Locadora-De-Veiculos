@@ -68,5 +68,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
                    ClienteEncontrado.Nome == cliente.Nome &&
                    ClienteEncontrado.Id != cliente.Id;
         }
+
+        public List<Cliente> SelecionarTodosOsClientes()
+        {
+            return repositorio.SelecionarTodos();
+        }
     }
 }

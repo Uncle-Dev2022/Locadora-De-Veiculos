@@ -1,6 +1,7 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Infra.Compartilhado;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Data.SqlClient;
 

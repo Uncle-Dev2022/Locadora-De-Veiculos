@@ -49,6 +49,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos
                    GrupoDeVeiculoEncontrado.Id != grupoDeVeiculo.Id;
         }
 
+        public List<GrupoDeVeiculo> SelecionarTodosOsGruposDeVeiculo()
+        {
+            return repositorio.SelecionarTodos();
+        }
 
     }
 }

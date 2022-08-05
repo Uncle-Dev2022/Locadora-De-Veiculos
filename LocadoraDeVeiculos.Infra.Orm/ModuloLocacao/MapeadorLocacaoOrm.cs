@@ -24,7 +24,8 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloLocacao
             builder.HasOne(x => x.GrupoDeVeiculo);
             builder.HasOne(x => x.veiculo);
             builder.HasOne(x => x.planoDeCobranca);
-            builder.HasOne(x => x.Taxas);
+            builder.HasOne(x => x.funcionario);
+            builder.HasMany(x => x.Taxas);
         }
     }
 }

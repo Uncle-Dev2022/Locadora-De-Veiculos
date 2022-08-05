@@ -26,6 +26,11 @@ namespace LocadoraDeVeiculos.Dominio.ModuloCondutor
 
         }
 
+        public override string ToString()
+        {
+            return Nome;
+        }
+
         public override bool Equals(object obj)
         {
             return obj is Condutor condutor &&

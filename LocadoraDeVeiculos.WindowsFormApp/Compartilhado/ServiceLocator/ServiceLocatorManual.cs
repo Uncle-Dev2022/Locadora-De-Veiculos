@@ -46,9 +46,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
         {
             var config = new ConfiguracaoAplicacaoLocadoraDeVeiculos();
 
-            var connectionstring = config.ConnectionStrings.SqlServer;
+            //var connectionstring = config.ConnectionStrings.SqlServer;
 
-            var contextoDadosOrm = new LocadoraDeVeiculosDbContext(connectionstring);
+            var contextoDadosOrm = new LocadoraDeVeiculosDbContext(config.ConnectionStrings);
             controladores = new Dictionary<string, ControladorBase>();
 
             var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculosOrm(contextoDadosOrm);
