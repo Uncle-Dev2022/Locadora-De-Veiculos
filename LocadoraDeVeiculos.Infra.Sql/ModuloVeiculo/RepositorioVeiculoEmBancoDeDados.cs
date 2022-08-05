@@ -1,12 +1,6 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
 using LocadoraDeVeiculos.Infra.Compartilhado;
-using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ModuloVeiculo
 {
@@ -137,14 +131,14 @@ namespace LocadoraDeVeiculos.Infra.ModuloVeiculo
             ON 
                 VEICULO.[PLACA] = @PLACA";
 
-        
+
 
         public Veiculo SelecionarVeiculoPorPlaca(string placa)
         {
             return SelecionarPorParametro(sqlSelecionarPorPlaca, new SqlParameter("PLACA", placa));
         }
 
-        
+
 
     }
 

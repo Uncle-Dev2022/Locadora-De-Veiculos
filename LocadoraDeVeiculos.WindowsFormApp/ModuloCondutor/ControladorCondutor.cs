@@ -1,15 +1,9 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
-using LocadoraDeVeiculos.Dominio.ModuloCondutor;
-using LocadoraDeVeiculos.Infra.ModuloCliente;
-using LocadoraDeVeiculos.Infra.ModuloCondutor;
+﻿using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraVeiculos.Aplicacao.ModuloCliente;
 using LocadoraVeiculos.Aplicacao.ModuloCondutor;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
@@ -20,22 +14,22 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
         private readonly ServicoCliente servicoCliente;
         private TabelaCondutorControl tabelaCondutor;
 
-        public ControladorCondutor(ServicoCondutor servicoCondutor,ServicoCliente servicoCliente)
+        public ControladorCondutor(ServicoCondutor servicoCondutor, ServicoCliente servicoCliente)
         {
             this.servicoCliente = servicoCliente;
-            this.servicoCondutor=servicoCondutor;
+            this.servicoCondutor = servicoCondutor;
         }
 
         public override void Inserir()
         {
-            
+
             var selecaoClientes = servicoCliente.SelecionarTodos();
-            
+
             if (selecaoClientes.IsFailed)
             {
                 MessageBox.Show(selecaoClientes.Errors[0].Message,
                "Inserção de Condutor", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               
+
                 return;
             }
 
@@ -61,7 +55,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
                 "Edição de Condutor", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            
+
             var selecaoClientes = servicoCliente.SelecionarTodos();
 
             if (selecaoClientes.IsFailed)

@@ -1,5 +1,4 @@
-﻿using FluentValidation;
-using FluentValidation.Results;
+﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -7,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LocadoraDeVeiculos.Dominio.Tests.ModuloGrupoDeVeiculos
 {
     [TestClass]
-    public class ValidadorGrupoDeVeiculoTeste 
+    public class ValidadorGrupoDeVeiculoTeste
     {
         [TestMethod]
         public void Nome_nao_Pode_Ser_Nulo()

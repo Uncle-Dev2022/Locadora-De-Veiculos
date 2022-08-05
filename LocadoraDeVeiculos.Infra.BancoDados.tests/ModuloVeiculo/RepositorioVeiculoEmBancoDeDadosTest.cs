@@ -4,11 +4,6 @@ using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloVeiculo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
 {
@@ -21,7 +16,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
         GrupoDeVeiculo grupoDeVeiculo;
 
         private RepositorioVeiculoEmBancoDeDados repositorioVeiculo;
-        private RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupo;
+        private RepositorioGrupoDeVeiculo repositorioGrupo;
 
         public RepositorioVeiculoEmBancoDeDadosTest()
         {
@@ -48,7 +43,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloVeiculo
 
 
             repositorioVeiculo = new RepositorioVeiculoEmBancoDeDados();
-            repositorioGrupo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
+            repositorioGrupo = new RepositorioGrupoDeVeiculo();
 
         }
 

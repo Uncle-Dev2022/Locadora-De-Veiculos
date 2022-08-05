@@ -1,11 +1,6 @@
 ﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
 {
@@ -15,7 +10,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
         [TestMethod]
         public void Marca_nao_Pode_Ser_Nulo()
         {
-            Veiculo veiculo = new(null, "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", 1000000, 50,new byte[]{});
+            Veiculo veiculo = new(null, "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", 1000000, 50, new byte[] { });
 
             ValidadorVeiculo validacao = new();
 
@@ -26,11 +21,11 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
             Assert.AreEqual("Marca não pode ser nulo", resultado.Errors[0].ErrorMessage);
         }
 
-        
+
         [TestMethod]
         public void Marca_nao_Pode_Ser_Vazio()
         {
-            Veiculo veiculo = new("", "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", 1000000, 50,new byte[]{});
+            Veiculo veiculo = new("", "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", 1000000, 50, new byte[] { });
 
             ValidadorVeiculo validacao = new();
 
@@ -133,7 +128,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
         [TestMethod]
         public void TipoCombustivel_nao_Pode_Ser_Nulo()
         {
-            Veiculo veiculo = new("Ford", "Ka", "Vermelho","2015", null, "BRA2E19", 1000000, 50, new byte[] { });
+            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", null, "BRA2E19", 1000000, 50, new byte[] { });
 
             ValidadorVeiculo validacao = new();
 
@@ -178,7 +173,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
         [TestMethod]
         public void Placa_nao_Pode_Ser_Vazio()
         {
-            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "" , 1000000, 50, new byte[] { });
+            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "", 1000000, 50, new byte[] { });
 
             ValidadorVeiculo validacao = new();
 
@@ -188,11 +183,11 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
             //assert
             Assert.AreEqual("Placa não pode ser vazio", resultado.Errors[0].ErrorMessage);
         }
-               
+
         [TestMethod]
         public void Quilometragem_nao_Pode_Ser_Nulo()
         {
-            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", default , 50, new byte[] { });
+            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", default, 50, new byte[] { });
 
             ValidadorVeiculo validacao = new();
 
@@ -220,7 +215,7 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloVeiculo
         [TestMethod]
         public void Imagem_nao_Pode_Ser_Nulo()
         {
-            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", 100000, 50,null);
+            Veiculo veiculo = new("Ford", "Ka", "Vermelho", "2015", "Gasolina", "BRA2E19", 100000, 50, null);
 
             ValidadorVeiculo validacao = new();
 

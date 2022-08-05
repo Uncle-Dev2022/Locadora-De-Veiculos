@@ -1,15 +1,16 @@
-﻿using System;
-using System.Data.SqlClient;
-using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.Infra.Compartilhado;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca
 {
     public class MapeadorPlanoDeCobranca : MapeadorBase<PlanoDeCobranca>
     {
         public override void ConfigurarParametros(PlanoDeCobranca registro, SqlCommand comando)
-        {                                    
+        {
             decimal planoDiarioValorDiario = registro.planoDiario.valorDiario;
             decimal planoDiarioValorKm = registro.planoDiario.valorKm;
 

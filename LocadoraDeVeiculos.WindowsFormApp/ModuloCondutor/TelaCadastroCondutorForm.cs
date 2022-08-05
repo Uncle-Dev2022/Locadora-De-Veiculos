@@ -1,15 +1,8 @@
 ﻿using FluentResults;
-using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
@@ -86,6 +79,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor
                 maskedTextBoxCPF.Text = clienteSelecionado.CPF_CNPJ;
                 maskedTextBoxCNH.Text = clienteSelecionado.CNH;
                 textBoxEmail.Text = clienteSelecionado.Email;
+            }
+            else
+            {
+                textBoxNome.Clear();
+                textBoxEndereco.Clear();
+                maskedTextBoxCPF.Clear();
+                maskedTextBoxCNH.Clear();
+                textBoxEmail.Clear();
             }
         }
 

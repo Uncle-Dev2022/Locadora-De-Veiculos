@@ -2,15 +2,10 @@
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloCliente;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
 {
-   
+
 
     [TestClass]
     public class RepositorioClienteEmBancoDeDadosTest
@@ -37,7 +32,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloCliente
 
             repositorioCliente = new RepositorioClienteEmBancoDeDados();
         }
-        
+
         [TestMethod]
         public void Deve_inserir_Cliente_PessoaFisica()
         {

@@ -1,10 +1,12 @@
-﻿using LocadoraDeVeiculos.Infra.ModuloCliente;
-using LocadoraDeVeiculos.Infra.ModuloCondutor;
-using LocadoraDeVeiculos.Infra.ModuloFuncionário;
-using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
-using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
-using LocadoraDeVeiculos.Infra.ModuloTaxas;
-using LocadoraDeVeiculos.Infra.ModuloVeiculo;
+﻿using LocadoraDeVeiculos.infra.Config;
+using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
+using LocadoraDeVeiculos.Infra.Orm.ModuloCondutor;
+using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
+using LocadoraDeVeiculos.Infra.Orm.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.Infra.Orm.ModuloPlanoDeCobrancaOrm;
+using LocadoraDeVeiculos.Infra.Orm.ModuloTaxa;
+using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
@@ -19,11 +21,7 @@ using LocadoraVeiculos.Aplicacao.ModuloGrupoDeVeiculos;
 using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
 using LocadoraVeiculos.Aplicacao.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloVeiculo;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
 {
@@ -46,34 +44,40 @@ namespace LocadoraDeVeiculos.WindowsFormApp.Compartilhado
 
         private void InicializarControladores()
         {
+            var config = new ConfiguracaoAplicacaoLocadoraDeVeiculos();
+
+            //var connectionstring = config.ConnectionStrings.SqlServer;
+
+            var contextoDadosOrm = new LocadoraDeVeiculosDbContext(config.ConnectionStrings);
             controladores = new Dictionary<string, ControladorBase>();
 
-            var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
-            var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo);
+            var repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculosOrm(contextoDadosOrm);
+            var servicoGrupoVeiculo = new ServicoGrupoDeVeiculo(repositorioGrupoDeVeiculo, contextoDadosOrm);
             controladores.Add("ControladorGrupoDeVeiculo", new ControladorGrupoDeVeiculo(servicoGrupoVeiculo));
 
-            var repositorioFuncionario = new RepositorioFuncionarioEmBancoDeDados();
-            var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario);
+            var repositorioFuncionario = new RepositorioFuncionarioOrm(contextoDadosOrm);
+            var servicoFuncionario = new ServicoFuncionario(repositorioFuncionario, contextoDadosOrm);
             controladores.Add("ControladorFuncionario", new ControladorFuncionario(servicoFuncionario));
 
-            var repositorioCliente = new RepositorioClienteEmBancoDeDados();
-            var servicoCliente = new ServicoCliente(repositorioCliente);
+            var repositorioCliente = new RepositorioClienteOrm(contextoDadosOrm);
+            var servicoCliente = new ServicoCliente(repositorioCliente, contextoDadosOrm);
             controladores.Add("ControladorCliente", new ControladorCliente(servicoCliente));
 
-            var repositorioCondutor = new RepositorioCondutorEmBancoDeDados();
-            var servicoCondutor = new ServicoCondutor(repositorioCondutor);
+            var repositorioCondutor = new RepositorioCondutorOrm(contextoDadosOrm);
+            var servicoCondutor = new ServicoCondutor(repositorioCondutor, contextoDadosOrm);
             controladores.Add("ControladorCondutor", new ControladorCondutor(servicoCondutor, servicoCliente));
 
-            var repositorioTaxa = new RepositorioTaxaEmBancoDeDados();
-            var servicoTaxa = new ServicoTaxa(repositorioTaxa);
+            // foi mechido
+            var repositorioTaxa = new RepositorioTaxaOrm(contextoDadosOrm);
+            var servicoTaxa = new ServicoTaxa(repositorioTaxa, contextoDadosOrm);
             controladores.Add("ControladorTaxa", new ControladorTaxa(servicoTaxa));
 
-            var repositorioVeiculo = new RepositorioVeiculoEmBancoDeDados();
-            var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo);
+            var repositorioVeiculo = new RepositorioVeiculoOrm(contextoDadosOrm);
+            var servicoVeiculo = new ServicoVeiculo(repositorioVeiculo, contextoDadosOrm);
             controladores.Add("ControladorVeiculo", new ControladorVeiculo(servicoVeiculo, servicoGrupoVeiculo));
 
-            var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
-            var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca);
+            var repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaOrm(contextoDadosOrm);
+            var servicoPlanoDeCobranca = new ServicoPlanoDeCobranca(repositorioPlanoDeCobranca, contextoDadosOrm);
             controladores.Add("ControladorPlanoDeCobranca", new ControladorPlanoDeCobranca(servicoPlanoDeCobranca, servicoGrupoVeiculo));
         }
     }

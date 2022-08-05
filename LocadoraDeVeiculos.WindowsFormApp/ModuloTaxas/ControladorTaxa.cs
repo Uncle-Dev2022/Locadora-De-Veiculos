@@ -1,14 +1,9 @@
 ﻿using FluentResults;
-using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
-using LocadoraDeVeiculos.Infra.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraVeiculos.Aplicacao.ModuloTaxas;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
@@ -59,7 +54,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
         public override void Excluir()
         {
             var id = tabelaTaxas.ObtemNumeroTaxaSelecionada();
-            
+
             if (id == Guid.Empty)
             {
                 MessageBox.Show("Selecione uma Taxa primeiro",

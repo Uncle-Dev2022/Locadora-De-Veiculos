@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using FluentValidation;
+﻿using FluentValidation;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
 {
     public class ValidadorTaxa : AbstractValidator<Taxa>
     {
-        
+
         public ValidadorTaxa()
         {
             RuleFor(x => x.descricao).NotNull().WithMessage("A Descrição não pode ser nula");
@@ -24,7 +18,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloTaxas
                 .WithMessage("A Descrição não pode conter números ou símbolos especiais");
             RuleFor(x => x.valor).NotNull().WithMessage("O valor não pode ser nulo");
 
-            RuleFor(x => x.tipoCalculo).NotNull().NotEmpty()
+            RuleFor(x => x.tipoCalculo).NotNull()
                 .WithMessage("O tipo do Cálculo deve ser Diário ou Fixo");
         }
     }

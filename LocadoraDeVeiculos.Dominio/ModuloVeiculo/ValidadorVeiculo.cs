@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
 {
@@ -35,12 +30,12 @@ namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
                .NotNull().WithMessage("Placa não pode ser nulo")
                .NotEmpty().WithMessage("Placa não pode ser vazio");
 
-            RuleFor(x => x.Quilometragem)               
+            RuleFor(x => x.Quilometragem)
                .NotEmpty().WithMessage("Quilometragem não pode ser vazio");
 
             RuleFor(x => x.CapacidadeTanque)
                .NotEmpty().WithMessage("Capacidade Tanque não pode ser vazio");
-            
+
             RuleFor(x => x.Imagem)
                .NotEmpty().WithMessage("Imagem não pode ser vazio");
 

@@ -1,27 +1,21 @@
 ﻿using FluentValidation;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
 {
     public class ValidadorFuncionario : AbstractValidator<Funcionario>
     {
-
         public ValidadorFuncionario()
         {
-            
+
 
             RuleFor(x => x.Nome)
                 .NotNull().WithMessage("Nome não pode ser nulo")
                 .NotEmpty().WithMessage("Nome não pode ser vazio")
                 .MinimumLength(2).WithMessage("Nome deve ter no mínimo 2 caracteres")
-                .Matches(@"^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*$").WithMessage("Caracteres especiais não são permitidos!"); 
-            
+                .Matches(@"^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*$").WithMessage("Caracteres especiais não são permitidos!");
+
 
             RuleFor(x => x.Salario)
                 .GreaterThan(0).WithMessage("Salario não pode ser menor que zero");
@@ -39,13 +33,8 @@ namespace LocadoraDeVeiculos.Dominio.ModuloFuncionário
                .NotEmpty().WithMessage("Login não pode ser vazio")
                .MinimumLength(2).WithMessage("Login deve ter no mínimo 2 caracteres");
 
-            
+
 
         }
-
-
-
-
-
     }
 }

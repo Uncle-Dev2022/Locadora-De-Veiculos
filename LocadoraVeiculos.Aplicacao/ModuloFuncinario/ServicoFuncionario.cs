@@ -5,18 +5,14 @@ using LocadoraDeVeiculos.Dominio.ModuloFuncionário;
 using LocadoraDeVeiculos.Dominio.ModuloFuncionario;
 using LocadoraDeVeiculos.Infra.Orm.ModuloFuncionario;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
-using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
 {
     public class ServicoFuncionario : ServicoBase<Funcionario>
     {
-        public ServicoFuncionario(RepositorioFuncionarioOrm repositorio) : base(repositorio)
+        public ServicoFuncionario(IRepositorioFuncionario repositorio, IContextoPersistencia contextoPersistencia) : base(repositorio, contextoPersistencia)
         {
         }
 
@@ -38,7 +34,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                 erros.Add(new Error("Login duplicado"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }
@@ -61,7 +60,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloFuncinario
                    funcionarioEncontrado.Id != funcionario.Id;
         }
 
-
+        public List<Funcionario> SelecionarTodosOsFuncionario()
+        {
+            return repositorio.SelecionarTodos();
+        }
 
 
     }

@@ -1,18 +1,13 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Infra.Compartilhado;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 {
-    public class RepositorioCondutorEmBancoDeDados : RepositorioBaseEmBancoDeDados<Condutor, MapeadorCondutor> , IRepositorioCondutor
+    public class RepositorioCondutorEmBancoDeDados : RepositorioBaseEmBancoDeDados<Condutor, MapeadorCondutor>, IRepositorioCondutor
     {
-		protected override string sqlInserir =>
-			@"INSERT INTO [TBCONDUTOR]
+        protected override string sqlInserir =>
+            @"INSERT INTO [TBCONDUTOR]
 			(
 				[ID],
 				[NOME],
@@ -36,8 +31,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 			);";
 
 
-		protected override string sqlEditar =>
-			@"UPDATE [TBCONDUTOR]
+        protected override string sqlEditar =>
+            @"UPDATE [TBCONDUTOR]
 
 			SET
 				[NOME]=@NOME,
@@ -50,12 +45,12 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 			WHERE
 				[ID] = @ID";
 
-        protected override string sqlExcluir => 
-			@"DELETE FROM [TBCONDUTOR]
+        protected override string sqlExcluir =>
+            @"DELETE FROM [TBCONDUTOR]
 					WHERE [ID]=@ID";
 
         protected override string sqlSelecionarPorId =>
-			@"SELECT 
+            @"SELECT 
 				CONDUTOR.[ID] CONDUTOR_ID,
 				CONDUTOR.[NOME] CONDUTOR_NOME,
 				CONDUTOR.[ENDERECO] CONDUTOR_ENDERECO,
@@ -80,8 +75,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 				WHERE
 					CONDUTOR.[ID]=@ID";
 
-		protected override string sqlSelecionarTodos =>
-			@"SELECT 
+        protected override string sqlSelecionarTodos =>
+            @"SELECT 
 				CONDUTOR.[ID] CONDUTOR_ID,
 				CONDUTOR.[NOME] CONDUTOR_NOME,
 				CONDUTOR.[ENDERECO] CONDUTOR_ENDERECO,
@@ -104,8 +99,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 				ON
 					CLIENTE.ID = CONDUTOR.CLIENTE_ID";
 
-		protected string sqlSelecionarPorNome =>
-			@"SELECT 
+        protected string sqlSelecionarPorNome =>
+            @"SELECT 
 				CONDUTOR.[ID] CONDUTOR_ID,
 				CONDUTOR.[NOME] CONDUTOR_NOME,
 				CONDUTOR.[ENDERECO] CONDUTOR_ENDERECO,
@@ -128,8 +123,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 				ON
 					CONDUTOR.[NOME] = @CONDUTOR_NOME";
 
-		protected string sqlSelecionarPorCPF =>
-			@"SELECT 
+        protected string sqlSelecionarPorCPF =>
+            @"SELECT 
 				CONDUTOR.[ID] CONDUTOR_ID,
 				CONDUTOR.[NOME] CONDUTOR_NOME,
 				CONDUTOR.[ENDERECO] CONDUTOR_ENDERECO,
@@ -152,8 +147,8 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 				ON
 					CONDUTOR.[CPF] = @CONDUTOR_CPF";
 
-		protected string sqlSelecionarPorCNH =>
-			@"SELECT 
+        protected string sqlSelecionarPorCNH =>
+            @"SELECT 
 				CONDUTOR.[ID] CONDUTOR_ID,
 				CONDUTOR.[NOME] CONDUTOR_NOME,
 				CONDUTOR.[ENDERECO] CONDUTOR_ENDERECO,
@@ -176,19 +171,19 @@ namespace LocadoraDeVeiculos.Infra.ModuloCondutor
 				ON
 					CONDUTOR.[CNH] = @CONDUTOR_CNH";
 
-		public Condutor SelecionarCondutorPorNome(string nome)
-		{
-			return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("CONDUTOR_NOME", nome));
-		}
-
-		public Condutor SelecionarCondutorPorCPF(string CPF)
-		{
-			return SelecionarPorParametro(sqlSelecionarPorCPF, new SqlParameter("CONDUTOR_CPF", CPF));
-		}
-
-		public Condutor SelecionarCondutorPorCNH(string CNH)
+        public Condutor SelecionarCondutorPorNome(string nome)
         {
-			return SelecionarPorParametro(sqlSelecionarPorCNH,new SqlParameter("CONDUTOR_CNH", CNH));
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("CONDUTOR_NOME", nome));
         }
-	}
+
+        public Condutor SelecionarCondutorPorCPF(string CPF)
+        {
+            return SelecionarPorParametro(sqlSelecionarPorCPF, new SqlParameter("CONDUTOR_CPF", CPF));
+        }
+
+        public Condutor SelecionarCondutorPorCNH(string CNH)
+        {
+            return SelecionarPorParametro(sqlSelecionarPorCNH, new SqlParameter("CONDUTOR_CNH", CNH));
+        }
+    }
 }

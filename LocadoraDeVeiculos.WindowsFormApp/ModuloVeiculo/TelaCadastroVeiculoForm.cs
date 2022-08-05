@@ -1,5 +1,4 @@
 ﻿using FluentResults;
-using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
 using System;
@@ -39,7 +38,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo
             set
             {
                 veiculo = value;
-                    PreencherDadosNaTela();
+                PreencherDadosNaTela();
             }
         }
 

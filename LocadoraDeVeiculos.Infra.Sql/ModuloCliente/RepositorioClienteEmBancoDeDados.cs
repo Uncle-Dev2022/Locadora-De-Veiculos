@@ -1,15 +1,10 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Compartilhado;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ModuloCliente
 {
-    public class RepositorioClienteEmBancoDeDados : RepositorioBaseEmBancoDeDados<Cliente,MapeadorCliente>,IRepositorioCliente
+    public class RepositorioClienteEmBancoDeDados : RepositorioBaseEmBancoDeDados<Cliente, MapeadorCliente>, IRepositorioCliente
     {
         protected override string sqlInserir =>
             @"INSERT INTO [DBO].[TBCLIENTE]
@@ -57,7 +52,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
 	             ID=@ID";
 
 
-        protected override string sqlSelecionarPorId => 
+        protected override string sqlSelecionarPorId =>
             @"SELECT
                 [ID],
 		        [NOME],
@@ -74,7 +69,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
                     [ID]=@ID";
 
 
-        protected override string sqlSelecionarTodos => 
+        protected override string sqlSelecionarTodos =>
             @"SELECT
                 [ID],
 		        [NOME],
@@ -122,7 +117,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
 
         public Cliente SelecionarClientePorNome(string nome)
         {
-            return  SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
+            return SelecionarPorParametro(sqlSelecionarPorNome, new SqlParameter("NOME", nome));
         }
 
         public Cliente SelecionarClientePorCPFOuCNPJ(string CPF_CNPJ)

@@ -2,24 +2,17 @@
 using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
-using LocadoraDeVeiculos.Infra.Compartilhado;
-using LocadoraDeVeiculos.Infra.ModuloCliente;
-using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using LocadoraDeVeiculos.Infra.Orm.ModuloCliente;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
-using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloCliente
 {
     public class ServicoCliente : ServicoBase<Cliente>
     {
 
-        public ServicoCliente(RepositorioClienteOrm repositorio) : base(repositorio)
+        public ServicoCliente(IRepositorioCliente repositorio,IContextoPersistencia contextoPersistencia) : base(repositorio,contextoPersistencia)
         {
 
         }
@@ -50,7 +43,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             }
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }
@@ -71,6 +67,11 @@ namespace LocadoraVeiculos.Aplicacao.ModuloCliente
             return ClienteEncontrado != null &&
                    ClienteEncontrado.Nome == cliente.Nome &&
                    ClienteEncontrado.Id != cliente.Id;
+        }
+
+        public List<Cliente> SelecionarTodosOsClientes()
+        {
+            return repositorio.SelecionarTodos();
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
 {
@@ -10,8 +9,8 @@ namespace LocadoraDeVeiculos.Dominio.Tests.ModuloTaxas
     {
         [TestMethod]
         public void Descricao_nao_Pode_Ser_Nula()
-        { 
-            Taxa taxa = new(0.3 , "", TipoCalculo.Diario);
+        {
+            Taxa taxa = new(0.3, "", TipoCalculo.Diario);
 
             ValidadorTaxa validacao = new();
 

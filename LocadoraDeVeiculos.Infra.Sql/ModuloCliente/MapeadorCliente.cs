@@ -1,15 +1,11 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.ModuloCliente
 {
-    public class MapeadorCliente :MapeadorBase<Cliente>
+    public class MapeadorCliente : MapeadorBase<Cliente>
     {
         public override void ConfigurarParametros(Cliente registro, SqlCommand comando)
         {
@@ -34,7 +30,7 @@ namespace LocadoraDeVeiculos.Infra.ModuloCliente
             var tipoCliente = Convert.ToBoolean(leitorRegistro["TIPOCLIENTE"]);
             string cnh = "";
 
-            if(leitorRegistro["CNH"] != DBNull.Value)
+            if (leitorRegistro["CNH"] != DBNull.Value)
             {
                 cnh = Convert.ToString(leitorRegistro["CNH"]);
             }

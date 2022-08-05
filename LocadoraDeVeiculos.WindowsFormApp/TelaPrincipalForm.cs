@@ -1,13 +1,14 @@
-﻿using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
+﻿using LocadoraDeVeiculos.Dominio.ModuloLocacao;
+using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloCondutor;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloFuncionário;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloGrupoDeVeiculos;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using LocadoraVeiculos.Aplicacao.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
@@ -20,11 +21,22 @@ namespace LocadoraDeVeiculos.WindowsFormApp
     public partial class TelaPrincipalForm : Form
     {
         private ControladorBase controlador;
+=========
         private Dictionary<string, ControladorBase> controladores;
-        private IServiceLocator serviceLocator;
+>>>>>>>>> Temporary merge branch 2
+=========
+        private Dictionary<string, ControladorBase> controladores;
+>>>>>>>>> Temporary merge branch 2
+=========
+        private Dictionary<string, ControladorBase> controladores;
+>>>>>>>>> Temporary merge branch 2
+=========
+        private Dictionary<string, ControladorBase> controladores;
+>>>>>>>>> Temporary merge branch 2
 
-        public TelaPrincipalForm(IServiceLocator serviceLocator)
-        {
+=========
+            this.serviceLocator = serviceLocator;
+>>>>>>>>> Temporary merge branch 2
             InitializeComponent();
 
             this.serviceLocator = serviceLocator;
@@ -33,18 +45,16 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
             labelRodape.Text = string.Empty;
             labelTipoCadastro.Text = string.Empty;
+<<<<<<<<< Temporary merge branch 1
+=========
             this.serviceLocator = serviceLocator;
+>>>>>>>>> Temporary merge branch 2
         }
 
         public static TelaPrincipalForm Instancia
         {
             get;
             private set;
-        }
-
-        public void AtualizarRodape(string mensagem)
-        {
-            labelRodape.Text = mensagem;
         }
 
         private void ClienteMenuItem_Click(object sender, EventArgs e)
@@ -55,8 +65,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         private void FuncionarioSubMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorFuncionario>());
+
         }
+<<<<<<<<< Temporary merge branch 1
+
+=========
        
+>>>>>>>>> Temporary merge branch 2
         private void GrupoDeVeiculosSubMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorGrupoDeVeiculo>());
@@ -78,6 +93,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
         private void planoDeCobrançaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorPlanoDeCobranca>());
+        }
+        private void LocacaoMenuItem_Click(object sender, EventArgs e)
+        {
+            ConfigurarTelaPrincipal(serviceLocator.Get<ControladorLocacao>());
         }
         private void btnInserir_Click(object sender, EventArgs e)
         {
@@ -116,10 +135,12 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
             btnFiltrar.Enabled = configuracao.FiltrarHabilitado;
             btnAgrupar.Enabled = configuracao.AgruparHabilitado;
-            btnVisualizar.Enabled = configuracao.VisualizarHabilitado;
-        }
 
-        private void ConfigurarTooltips(ConfiguracaoToolBoxBase configuracao)
+=========
+>>>>>>>>> Temporary merge branch 2
+
+=========
+>>>>>>>>> Temporary merge branch 2
         {
             btnInserir.ToolTipText = configuracao.TooltipInserir;
             btnEditar.ToolTipText = configuracao.TooltipEditar;
@@ -131,7 +152,10 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
         {
+<<<<<<<<< Temporary merge branch 1
 
+=========
+>>>>>>>>> Temporary merge branch 2
             this.controlador = controlador;
 
             ConfigurarToolbox();
@@ -149,9 +173,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
                 labelTipoCadastro.Text = configuracao.TipoCadastro;
 
-                ConfigurarTooltips(configuracao);
-
-                ConfigurarBotoes(configuracao);
             }
         }
 
@@ -165,7 +186,13 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
             listagemControl.Dock = DockStyle.Fill;
 
+
             panelRegistros.Controls.Add(listagemControl);
+
         }
+<<<<<<<<< Temporary merge branch 1
+
+=========
+>>>>>>>>> Temporary merge branch 2
     }
 }

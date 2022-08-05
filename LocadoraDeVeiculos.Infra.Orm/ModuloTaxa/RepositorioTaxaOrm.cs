@@ -1,17 +1,13 @@
-﻿using LocadoraDeVeiculos.Dominio.ModuloTaxas;
+﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloTaxa
 {
-    public class RepositorioTaxaOrm : RepositorioBaseOrm<Taxa, MapeadorTaxaOrm>,IRepositorioTaxa
+    public class RepositorioTaxaOrm : RepositorioBaseOrm<Taxa, MapeadorTaxaOrm>, IRepositorioTaxa
     {
-        public RepositorioTaxaOrm(LocadoraDeVeiculosDbContext db) : base(db)
+        public RepositorioTaxaOrm(IContextoPersistencia db) : base(db)
         {
         }
 

@@ -1,12 +1,8 @@
 ﻿using LocadoraDeVeiculos.Dominio.ModuloCliente;
-using LocadoraDeVeiculos.Infra.ModuloCliente;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraVeiculos.Aplicacao.ModuloCliente;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente

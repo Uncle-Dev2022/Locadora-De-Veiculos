@@ -2,11 +2,6 @@
 using LocadoraDeVeiculos.Infra.Orm.Compartilhado;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente
 {
@@ -23,7 +18,7 @@ namespace LocadoraDeVeiculos.Infra.Orm.ModuloCliente
             builder.Property(x => x.Telefone).HasColumnType("VARCHAR(50)").IsRequired();
             builder.Property(x => x.CNH).HasColumnType("VARCHAR(50)");
             builder.Property(x => x.tipoCliente);
-            
+
         }
     }
 }

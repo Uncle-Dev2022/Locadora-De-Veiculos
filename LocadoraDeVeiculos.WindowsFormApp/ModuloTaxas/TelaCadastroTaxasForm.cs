@@ -1,14 +1,6 @@
 ﻿using FluentResults;
-using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
@@ -35,8 +27,8 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
                 txtValor.Text = taxa.valor.ToString();
                 if (taxa.tipoCalculo == TipoCalculo.Diario)
                     radioButton1.Checked = true;
-                else 
-                radioButton2.Checked = true;
+                else
+                    radioButton2.Checked = true;
             }
         }
         private void btnGravar_Click(object sender, System.EventArgs e)
@@ -44,7 +36,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas
             if (!double.TryParse(txtValor.Text, out taxa.valor))
                 DialogResult = DialogResult.Abort;
 
-            taxa.descricao = txtDescricao.Text;            
+            taxa.descricao = txtDescricao.Text;
             if (radioButton1.Checked)
                 taxa.tipoCalculo = Enum.Parse<TipoCalculo>(radioButton1.Text);
             else

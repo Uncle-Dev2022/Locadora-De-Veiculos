@@ -1,14 +1,6 @@
 ﻿using FluentResults;
-using FluentValidation.Results;
 using LocadoraDeVeiculos.Dominio.ModuloCliente;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
@@ -19,7 +11,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
 
         public TelaCadastroClienteForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         public Func<Cliente, Result<Cliente>> GravarRegistro { get; set; }
@@ -36,7 +28,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 txtBoxEmail.Text = cliente.Email;
                 maskedTextBoxTelefone.Text = cliente.Telefone;
 
-                if(cliente.tipoCliente == true)
+                if (cliente.tipoCliente == true)
                 {
                     radioButtonPessoaFiscia.Checked = true;
                     cpfEcnpj.Text = "CPF";
@@ -121,9 +113,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloCliente
                 else
                 {
                     TelaPrincipalForm.Instancia.AtualizarRodape(erro);
-
-                    DialogResult = DialogResult.None;
+                    
                 }
+                DialogResult = DialogResult.None;
             }
         }
 

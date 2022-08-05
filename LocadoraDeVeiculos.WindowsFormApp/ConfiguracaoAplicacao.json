@@ -1,4 +1,6 @@
 {
+  "Versao": "2.0",
+
   "ConfiguracaoLogs": {
     "DiretorioSaida": "..\\..\\..\\..\\logs"
   },

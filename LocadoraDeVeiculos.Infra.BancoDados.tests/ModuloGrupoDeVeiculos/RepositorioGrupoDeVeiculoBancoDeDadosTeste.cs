@@ -12,7 +12,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
         GrupoDeVeiculo grupoVeiculo1;
         GrupoDeVeiculo grupoVeiculo2;
 
-        RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo;
+        RepositorioGrupoDeVeiculo repositorioGrupoDeVeiculo;
 
         public RepositorioGrupoDeVeiculoBancoDeDadosTeste()
         {
@@ -22,7 +22,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
             grupoVeiculo1 = new GrupoDeVeiculo("GrupoDeVeiculoUm");
             grupoVeiculo2 = new GrupoDeVeiculo("GrupoDeVeiculoDois");
 
-            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
+            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculo();
 
         }
 
@@ -45,7 +45,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloGrupoDeVeiculos
             repositorioGrupoDeVeiculo.Inserir(grupoVeiculo);
 
             grupoVeiculo.Nome = "Tio Home";
-            
+
             repositorioGrupoDeVeiculo.Editar(grupoVeiculo);
 
             var GrupoDeVeiculoEditado = repositorioGrupoDeVeiculo.SelecionarPorId(grupoVeiculo.Id);

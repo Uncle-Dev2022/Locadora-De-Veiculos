@@ -13,4 +13,8 @@
     <PackageReference Include="Serilog.Sinks.Seq" Version="5.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraDeVeiculos.infra.Config\LocadoraDeVeiculos.infra.Config.csproj" />
+  </ItemGroup>
+
 </Project>

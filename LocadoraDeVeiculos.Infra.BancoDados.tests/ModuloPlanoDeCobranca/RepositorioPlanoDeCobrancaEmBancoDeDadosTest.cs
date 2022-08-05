@@ -4,11 +4,6 @@ using LocadoraDeVeiculos.Infra.Compartilhado;
 using LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
 {
@@ -21,7 +16,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
         GrupoDeVeiculo grupo;
 
         private RepositorioPlanoDeCobrancaEmBancoDeDados repositorioPlanoDeCobranca;
-        private RepositorioGrupoDeVeiculoEmBancoDeDados repositorioGrupoDeVeiculo;
+        private RepositorioGrupoDeVeiculo repositorioGrupoDeVeiculo;
         public RepositorioPlanoDeCobrancaEmBancoDeDadosTest()
         {
             DB.executarSql("DELETE FROM TBPlanoDeCobranca;");
@@ -39,7 +34,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
             planoDeCobranca2 = new PlanoDeCobranca("plano3", grupo, livre, diario, controlado);
 
             repositorioPlanoDeCobranca = new RepositorioPlanoDeCobrancaEmBancoDeDados();
-            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculoEmBancoDeDados();
+            repositorioGrupoDeVeiculo = new RepositorioGrupoDeVeiculo();
         }
 
         [TestMethod]
@@ -51,7 +46,7 @@ namespace LocadoraDeVeiculos.Infra.BancoDados.tests.ModuloPlanoDeCobranca
             var PlanoDeCobrancaEncontrado = repositorioPlanoDeCobranca.SelecionarPorId(planoDeCobranca.Id);
 
             Assert.IsNotNull(PlanoDeCobrancaEncontrado);
-            
+
             Assert.AreEqual(planoDeCobranca.Equals(PlanoDeCobrancaEncontrado), true);
         }
 

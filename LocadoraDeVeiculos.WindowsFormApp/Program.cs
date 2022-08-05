@@ -1,10 +1,7 @@
 
 using LocadoraDeVeiculo.Infra.Logging;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
-using Microsoft.Extensions.Configuration;
-using Serilog;
 using System;
-using System.IO;
 using System.Windows.Forms;
 
 namespace LocadoraDeVeiculos.WindowsFormApp

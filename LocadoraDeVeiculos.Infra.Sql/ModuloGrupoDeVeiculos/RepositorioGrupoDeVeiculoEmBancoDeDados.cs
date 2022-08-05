@@ -1,14 +1,13 @@
-﻿using LocadoraDeVeiculos.Dominio.Compartilhado;
-using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
+﻿using LocadoraDeVeiculos.Dominio.ModuloGrupoDeVeiculos;
 using LocadoraDeVeiculos.Infra.Compartilhado;
 using System.Data.SqlClient;
 
 namespace LocadoraDeVeiculos.Infra.ModuloGrupoDeVeiculos
 {
-    public class RepositorioGrupoDeVeiculoEmBancoDeDados : 
-        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorGrupoDeVeiculo> , IRepositorioGrupoDeVeiculo 
+    public class RepositorioGrupoDeVeiculo :
+        RepositorioBaseEmBancoDeDados<GrupoDeVeiculo, MapeadorGrupoDeVeiculo>, IRepositorioGrupoDeVeiculo
     {
-        
+
 
         protected override string sqlInserir =>
             @"INSERT INTO [TBGRUPOVEICULO] 

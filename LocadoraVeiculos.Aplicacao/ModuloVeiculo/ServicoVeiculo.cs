@@ -4,18 +4,14 @@ using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloVeiculo;
 using LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo;
 using LocadoraVeiculos.Aplicacao.Compartilhado;
-using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
 {
     public class ServicoVeiculo : ServicoBase<Veiculo>
     {
-        public ServicoVeiculo(RepositorioVeiculoOrm repositorio) : base(repositorio)
+        public ServicoVeiculo(IRepositorioVeiculo repositorio, IContextoPersistencia contextoPersistencia) : base(repositorio, contextoPersistencia)
         {
         }
 
@@ -34,7 +30,10 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
                 erros.Add(new Error("Placa duplicado"));
 
             if (erros.Any())
+            {
+                contextoPersistencia.DesfazerAlteracoes();
                 return Result.Fail(erros);
+            }
 
             return Result.Ok();
         }
@@ -48,5 +47,9 @@ namespace LocadoraVeiculos.Aplicacao.ModuloVeiculo
                    funcionarioEncontrado.Id != veiculo.Id;
         }
 
+        public List<Veiculo> SelecionarTodosOsVeiculos()
+        {
+            return repositorio.SelecionarTodos();
+        }
     }
 }
