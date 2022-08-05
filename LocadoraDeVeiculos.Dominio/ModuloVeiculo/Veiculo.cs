@@ -81,10 +81,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloVeiculo
 
         }
 
-        public Veiculo Clone()
-        {
-            return MemberwiseClone() as Veiculo;
-        }
+      
 
         public override string ToString()
         {

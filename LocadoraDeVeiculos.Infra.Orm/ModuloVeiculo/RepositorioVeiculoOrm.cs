@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LocadoraDeVeiculos.Infra.Orm.ModuloVeiculo
 {
     public class RepositorioVeiculoOrm : RepositorioBaseOrm<Veiculo,
-        MapeadorVeiculoOrm>
+        MapeadorVeiculoOrm>,IRepositorioVeiculo
     {
         public RepositorioVeiculoOrm(LocadoraDeVeiculosDbContext db) : base(db)   
         {
