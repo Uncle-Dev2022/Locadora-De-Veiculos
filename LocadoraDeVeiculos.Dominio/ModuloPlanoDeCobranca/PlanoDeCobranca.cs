@@ -75,6 +75,7 @@ namespace LocadoraDeVeiculos.Dominio.ModuloPlanoDeCobranca
     public class PlanoLivre : ICalculaPlano
     {
         public decimal valorDiario;
+        
         public PlanoLivre(decimal valorDiario)
         {
             this.valorDiario = valorDiario;

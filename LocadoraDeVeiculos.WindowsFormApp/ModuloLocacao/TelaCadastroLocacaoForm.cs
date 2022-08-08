@@ -81,6 +81,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao
 
         private string CalcularValor(PlanoDeCobranca planoDeCobranca)
         {
+            decimal valor;
             
             if (planoDeCobranca != null)
             {
@@ -89,25 +90,45 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloLocacao
                 if (radioDiario.Checked)
                 {
                     nomeplano = radioDiario.Text;
-
+                    valor = planoDeCobranca.planoDiario.valorDiario * CalcularDiferencaDias();
                 }
                 else if (radioLivre.Checked)
                 {
                     nomeplano = radioLivre.Text;
+                    valor = planoDeCobranca.planoLivre.valorDiario * CalcularDiferencaDias();
                 }
                 else
                 {
                     nomeplano = radioButtonControlado.Text;
+                    valor = planoDeCobranca.planoControlado.valorDiario * CalcularDiferencaDias();
                 }
 
-                TipoPlano tipoDoPlano = Enum.Parse<TipoPlano>(nomeplano);
+                
 
-                ICalculaPlano plano = planoDeCobranca.EscolheOPlano(tipoDoPlano);
-
+                return Convert.ToString(valor);
                 
             }
 
             return "Sem Dados para calculo";
+        }
+
+        private int CalcularDiferencaDias()
+        {
+            int totalDias = 0;
+            DateTime dataDeLocacao;
+            DateTime dataDeDevolucao;
+
+            if (dateTimePickerLocacao!= null && dateTimePickerDevolucao!= null)
+            {
+                dataDeLocacao = dateTimePickerLocacao.Value;
+
+                dataDeDevolucao = dateTimePickerDevolucao.Value;
+
+                totalDias = dataDeDevolucao.DayOfYear - dataDeLocacao.DayOfYear;
+                
+            }
+
+            return totalDias;
         }
 
         private void CarregarCliente(List<Cliente> clientes)

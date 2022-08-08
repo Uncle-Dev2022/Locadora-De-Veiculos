@@ -114,7 +114,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             btnEditar.Enabled = configuracao.EditarHabilitado;
             btnExcluir.Enabled = configuracao.ExcluirHabilitado;
             btnFiltrar.Enabled = configuracao.FiltrarHabilitado;
-            btnAgrupar.Enabled = configuracao.AgruparHabilitado;
+            btnDevolucao.Enabled = configuracao.AgruparHabilitado;
             btnVisualizar.Enabled = configuracao.VisualizarHabilitado;
         }
 
@@ -124,7 +124,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             btnEditar.ToolTipText = configuracao.TooltipEditar;
             btnExcluir.ToolTipText = configuracao.TooltipExcluir;
             btnFiltrar.ToolTipText = configuracao.TooltipFiltrar;
-            btnAgrupar.ToolTipText = configuracao.TooltipAgrupar;
+            btnDevolucao.ToolTipText = configuracao.TooltipAgrupar;
             btnVisualizar.ToolTipText = configuracao.TooltipVisualizar;
         }
 
