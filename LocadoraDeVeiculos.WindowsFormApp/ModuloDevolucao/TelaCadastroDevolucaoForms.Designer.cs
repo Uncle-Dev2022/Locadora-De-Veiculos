@@ -50,15 +50,15 @@
             this.comboBoxCombustivel = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDevolucaoReal = new System.Windows.Forms.DateTimePicker();
             this.textBoxquilometragemDevolucao = new System.Windows.Forms.TextBox();
-            this.textBoxFuncionario = new System.Windows.Forms.TextBox();
-            this.textBoxCliente = new System.Windows.Forms.TextBox();
-            this.textBoxCondutor = new System.Windows.Forms.TextBox();
-            this.textBoxGrupoDeVeiculo = new System.Windows.Forms.TextBox();
-            this.textBoxVeiculo = new System.Windows.Forms.TextBox();
-            this.textBoxPlanoDeCobrança = new System.Windows.Forms.TextBox();
-            this.textBoxDataDaLocação = new System.Windows.Forms.TextBox();
-            this.textBoxDevolucaoPrevista = new System.Windows.Forms.TextBox();
-            this.textBoxValorTotal = new System.Windows.Forms.TextBox();
+            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
+            this.comboBoxDevolucaoPrevista = new System.Windows.Forms.ComboBox();
+            this.comboBoxDataDeLocacao = new System.Windows.Forms.ComboBox();
+            this.comboBoxPlanoDeCobranca = new System.Windows.Forms.ComboBox();
+            this.comboBoxVeiculo = new System.Windows.Forms.ComboBox();
+            this.comboBoxGrupoDeVeiculo = new System.Windows.Forms.ComboBox();
+            this.comboBoxCondutor = new System.Windows.Forms.ComboBox();
+            this.comboBoxValorTotal = new System.Windows.Forms.ComboBox();
+            this.comboBoxFuncionario = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -285,83 +285,110 @@
             this.textBoxquilometragemDevolucao.Size = new System.Drawing.Size(100, 23);
             this.textBoxquilometragemDevolucao.TabIndex = 37;
             // 
-            // textBoxFuncionario
+            // comboBoxCliente
             // 
-            this.textBoxFuncionario.Location = new System.Drawing.Point(208, 18);
-            this.textBoxFuncionario.Name = "textBoxFuncionario";
-            this.textBoxFuncionario.Size = new System.Drawing.Size(100, 23);
-            this.textBoxFuncionario.TabIndex = 38;
+            this.comboBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCliente.FormattingEnabled = true;
+            this.comboBoxCliente.Location = new System.Drawing.Point(208, 42);
+            this.comboBoxCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCliente.Name = "comboBoxCliente";
+            this.comboBoxCliente.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxCliente.TabIndex = 47;
             // 
-            // textBoxCliente
+            // comboBoxDevolucaoPrevista
             // 
-            this.textBoxCliente.Location = new System.Drawing.Point(208, 42);
-            this.textBoxCliente.Name = "textBoxCliente";
-            this.textBoxCliente.Size = new System.Drawing.Size(100, 23);
-            this.textBoxCliente.TabIndex = 39;
+            this.comboBoxDevolucaoPrevista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDevolucaoPrevista.FormattingEnabled = true;
+            this.comboBoxDevolucaoPrevista.Location = new System.Drawing.Point(208, 190);
+            this.comboBoxDevolucaoPrevista.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxDevolucaoPrevista.Name = "comboBoxDevolucaoPrevista";
+            this.comboBoxDevolucaoPrevista.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxDevolucaoPrevista.TabIndex = 48;
             // 
-            // textBoxCondutor
+            // comboBoxDataDeLocacao
             // 
-            this.textBoxCondutor.Location = new System.Drawing.Point(208, 66);
-            this.textBoxCondutor.Name = "textBoxCondutor";
-            this.textBoxCondutor.Size = new System.Drawing.Size(100, 23);
-            this.textBoxCondutor.TabIndex = 40;
+            this.comboBoxDataDeLocacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDataDeLocacao.FormattingEnabled = true;
+            this.comboBoxDataDeLocacao.Location = new System.Drawing.Point(208, 166);
+            this.comboBoxDataDeLocacao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxDataDeLocacao.Name = "comboBoxDataDeLocacao";
+            this.comboBoxDataDeLocacao.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxDataDeLocacao.TabIndex = 49;
             // 
-            // textBoxGrupoDeVeiculo
+            // comboBoxPlanoDeCobranca
             // 
-            this.textBoxGrupoDeVeiculo.Location = new System.Drawing.Point(208, 91);
-            this.textBoxGrupoDeVeiculo.Name = "textBoxGrupoDeVeiculo";
-            this.textBoxGrupoDeVeiculo.Size = new System.Drawing.Size(100, 23);
-            this.textBoxGrupoDeVeiculo.TabIndex = 41;
+            this.comboBoxPlanoDeCobranca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxPlanoDeCobranca.FormattingEnabled = true;
+            this.comboBoxPlanoDeCobranca.Location = new System.Drawing.Point(208, 142);
+            this.comboBoxPlanoDeCobranca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxPlanoDeCobranca.Name = "comboBoxPlanoDeCobranca";
+            this.comboBoxPlanoDeCobranca.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxPlanoDeCobranca.TabIndex = 50;
             // 
-            // textBoxVeiculo
+            // comboBoxVeiculo
             // 
-            this.textBoxVeiculo.Location = new System.Drawing.Point(208, 117);
-            this.textBoxVeiculo.Name = "textBoxVeiculo";
-            this.textBoxVeiculo.Size = new System.Drawing.Size(100, 23);
-            this.textBoxVeiculo.TabIndex = 42;
+            this.comboBoxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxVeiculo.FormattingEnabled = true;
+            this.comboBoxVeiculo.Location = new System.Drawing.Point(208, 117);
+            this.comboBoxVeiculo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxVeiculo.Name = "comboBoxVeiculo";
+            this.comboBoxVeiculo.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxVeiculo.TabIndex = 51;
             // 
-            // textBoxPlanoDeCobrança
+            // comboBoxGrupoDeVeiculo
             // 
-            this.textBoxPlanoDeCobrança.Location = new System.Drawing.Point(208, 142);
-            this.textBoxPlanoDeCobrança.Name = "textBoxPlanoDeCobrança";
-            this.textBoxPlanoDeCobrança.Size = new System.Drawing.Size(100, 23);
-            this.textBoxPlanoDeCobrança.TabIndex = 43;
+            this.comboBoxGrupoDeVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGrupoDeVeiculo.FormattingEnabled = true;
+            this.comboBoxGrupoDeVeiculo.Location = new System.Drawing.Point(208, 91);
+            this.comboBoxGrupoDeVeiculo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxGrupoDeVeiculo.Name = "comboBoxGrupoDeVeiculo";
+            this.comboBoxGrupoDeVeiculo.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxGrupoDeVeiculo.TabIndex = 52;
             // 
-            // textBoxDataDaLocação
+            // comboBoxCondutor
             // 
-            this.textBoxDataDaLocação.Location = new System.Drawing.Point(208, 166);
-            this.textBoxDataDaLocação.Name = "textBoxDataDaLocação";
-            this.textBoxDataDaLocação.Size = new System.Drawing.Size(100, 23);
-            this.textBoxDataDaLocação.TabIndex = 44;
+            this.comboBoxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCondutor.FormattingEnabled = true;
+            this.comboBoxCondutor.Location = new System.Drawing.Point(208, 66);
+            this.comboBoxCondutor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCondutor.Name = "comboBoxCondutor";
+            this.comboBoxCondutor.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxCondutor.TabIndex = 53;
             // 
-            // textBoxDevolucaoPrevista
+            // comboBoxValorTotal
             // 
-            this.textBoxDevolucaoPrevista.Location = new System.Drawing.Point(208, 190);
-            this.textBoxDevolucaoPrevista.Name = "textBoxDevolucaoPrevista";
-            this.textBoxDevolucaoPrevista.Size = new System.Drawing.Size(100, 23);
-            this.textBoxDevolucaoPrevista.TabIndex = 45;
+            this.comboBoxValorTotal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxValorTotal.FormattingEnabled = true;
+            this.comboBoxValorTotal.Location = new System.Drawing.Point(174, 599);
+            this.comboBoxValorTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxValorTotal.Name = "comboBoxValorTotal";
+            this.comboBoxValorTotal.Size = new System.Drawing.Size(155, 23);
+            this.comboBoxValorTotal.TabIndex = 54;
             // 
-            // textBoxValorTotal
+            // comboBoxFuncionario
             // 
-            this.textBoxValorTotal.Location = new System.Drawing.Point(174, 599);
-            this.textBoxValorTotal.Name = "textBoxValorTotal";
-            this.textBoxValorTotal.Size = new System.Drawing.Size(100, 23);
-            this.textBoxValorTotal.TabIndex = 46;
+            this.comboBoxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFuncionario.FormattingEnabled = true;
+            this.comboBoxFuncionario.Location = new System.Drawing.Point(208, 18);
+            this.comboBoxFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxFuncionario.Name = "comboBoxFuncionario";
+            this.comboBoxFuncionario.Size = new System.Drawing.Size(218, 23);
+            this.comboBoxFuncionario.TabIndex = 55;
             // 
             // TelaCadastroDevolucaoForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 658);
-            this.Controls.Add(this.textBoxValorTotal);
-            this.Controls.Add(this.textBoxDevolucaoPrevista);
-            this.Controls.Add(this.textBoxDataDaLocação);
-            this.Controls.Add(this.textBoxPlanoDeCobrança);
-            this.Controls.Add(this.textBoxVeiculo);
-            this.Controls.Add(this.textBoxGrupoDeVeiculo);
-            this.Controls.Add(this.textBoxCondutor);
-            this.Controls.Add(this.textBoxCliente);
-            this.Controls.Add(this.textBoxFuncionario);
+            this.Controls.Add(this.comboBoxFuncionario);
+            this.Controls.Add(this.comboBoxValorTotal);
+            this.Controls.Add(this.comboBoxCondutor);
+            this.Controls.Add(this.comboBoxGrupoDeVeiculo);
+            this.Controls.Add(this.comboBoxVeiculo);
+            this.Controls.Add(this.comboBoxPlanoDeCobranca);
+            this.Controls.Add(this.comboBoxDataDeLocacao);
+            this.Controls.Add(this.comboBoxDevolucaoPrevista);
+            this.Controls.Add(this.comboBoxCliente);
             this.Controls.Add(this.textBoxquilometragemDevolucao);
             this.Controls.Add(this.dateTimePickerDevolucaoReal);
             this.Controls.Add(this.comboBoxCombustivel);
@@ -417,14 +444,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckedListBox checkedListBoxTaxasSelecionadas;
         private System.Windows.Forms.CheckedListBox checkedListBoxTaxasAdicionais;
-        private System.Windows.Forms.TextBox textBoxFuncionario;
-        private System.Windows.Forms.TextBox textBoxCliente;
-        private System.Windows.Forms.TextBox textBoxCondutor;
-        private System.Windows.Forms.TextBox textBoxGrupoDeVeiculo;
-        private System.Windows.Forms.TextBox textBoxVeiculo;
-        private System.Windows.Forms.TextBox textBoxPlanoDeCobrança;
-        private System.Windows.Forms.TextBox textBoxDataDaLocação;
-        private System.Windows.Forms.TextBox textBoxDevolucaoPrevista;
-        private System.Windows.Forms.TextBox textBoxValorTotal;
+        private System.Windows.Forms.ComboBox comboBoxCliente;
+        private System.Windows.Forms.ComboBox comboBoxDevolucaoPrevista;
+        private System.Windows.Forms.ComboBox comboBoxDataDeLocacao;
+        private System.Windows.Forms.ComboBox comboBoxPlanoDeCobranca;
+        private System.Windows.Forms.ComboBox comboBoxVeiculo;
+        private System.Windows.Forms.ComboBox comboBoxGrupoDeVeiculo;
+        private System.Windows.Forms.ComboBox comboBoxCondutor;
+        private System.Windows.Forms.ComboBox comboBoxValorTotal;
+        private System.Windows.Forms.ComboBox comboBoxFuncionario;
     }
 }

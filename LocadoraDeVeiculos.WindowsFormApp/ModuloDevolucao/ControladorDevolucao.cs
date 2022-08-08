@@ -2,6 +2,7 @@
 using LocadoraDeVeiculos.Dominio.ModuloDevolucao;
 using LocadoraDeVeiculos.WindowsFormApp.Compartilhado;
 using LocadoraVeiculos.Aplicacao.ModuloDevolucao;
+using LocadoraVeiculos.Aplicacao.ModuloLocacao;
 using LocadoraVeiculos.Aplicacao.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloVeiculo;
 using System;
@@ -21,28 +22,23 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
 
         private TabelaDevolucaoControl tabelaDevolucao;
 
-        public ControladorDevolucao(ServicoDevolucao servicoDevolucao, ServicoLocacao servicoLocacao,
-            ServicoTaxa servicoTaxa)
+        public ControladorDevolucao(ServicoDevolucao servicoDevolucao,
+            ServicoLocacao servicoLocacao, ServicoTaxa servicoTaxa)
         {
-            servicoDevolucao = servicoDevolucao;
-            servicoLocacao = servicoLocacao;
-            servicoTaxa = servicoTaxa;
-
+            this.servicoDevolucao = servicoDevolucao;
+            this.servicoLocacao = servicoLocacao;
+            this.servicoTaxa = servicoTaxa;
         }
 
         public override void Inserir()
         {
-
-
             TelaCadastroDevolucaoForms tela = new(servicoDevolucao, servicoLocacao, servicoTaxa);
 
             tela.Devolucao = new();
 
-            tela.GravarRegistro = servicoDevolucao.Inserir;
+            tela.GravarRegistro = servicoDevolucao.Inserir;           
 
-            DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
+            if (tela.ShowDialog() == DialogResult.OK)
                 CarregarDevolucoes();
         }
 
@@ -51,24 +47,33 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
         public override void Editar()
         {
             var id = tabelaDevolucao.ObtemNumeroDevolucaoSelecionado();
-
-            var devolucaoSelecionada = servicoDevolucao.SelecionarPorId(id);
-
-            if (devolucaoSelecionada == null)
+            if (id == Guid.Empty)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Selecione uma devolução para editar");
+                MessageBox.Show("Selecione uma Devolição primeiro",
+                    "Edição de Devolução", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
+
+            var resultado = servicoDevolucao.SelecionarPorId(id);
+
+            if (resultado.IsFailed)
+            {
+                MessageBox.Show(resultado.Errors[0].Message,
+                    "Edição de Devolução", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var devolucaoSelecionada = resultado.Value;
+
             TelaCadastroDevolucaoForms tela = new(servicoDevolucao, servicoLocacao, servicoTaxa);
 
-            tela.Devolucao = devolucaoSelecionada.Value;
+            tela.Devolucao = devolucaoSelecionada;
 
             tela.GravarRegistro = servicoDevolucao.Editar;
+                       
 
-            DialogResult resultado = tela.ShowDialog();
-
-            if (resultado == DialogResult.OK)
+            if (tela.ShowDialog() == DialogResult.OK)
                 CarregarDevolucoes();
         }
 
@@ -80,26 +85,34 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
         {
             var id = tabelaDevolucao.ObtemNumeroDevolucaoSelecionado();
 
-            Devolucao devolucaoSelecionada = servicoDevolucao.SelecionarPorId(id).Value;
-
-            if (devolucaoSelecionada == null)
+            if (id == Guid.Empty)
             {
-                TelaPrincipalForm.Instancia.AtualizarRodape($"Selecione uma devolução para excluir");
+                MessageBox.Show("Selecione uma Devolução primeiro",
+                    "Exclusão de Devolução", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show("Deseja realmente excluir a devolução?",
-               "Exclusão de Devolução", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            var resultadoSelecao = servicoDevolucao.SelecionarPorId(id);
 
-            Result validationResult;
-
-            if (resultado == DialogResult.OK)
+            if (resultadoSelecao.IsFailed)
             {
-                validationResult = servicoDevolucao.Excluir(devolucaoSelecionada);
-                CarregarDevolucoes();
+                MessageBox.Show(resultadoSelecao.Errors[0].Message,
+                    "Exclusão de Devolução", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                if (validationResult.Errors.Count > 0)
-                    TelaPrincipalForm.Instancia.AtualizarRodape(validationResult.Errors[0].Message);
+            var devolucaoSelecionado = resultadoSelecao.Value;
+
+            if (MessageBox.Show("Deseja realmente excluir a Devolução?", "Exclusão de Devolução",
+                            MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                var resultadoExclusao = servicoDevolucao.Excluir(devolucaoSelecionado);
+
+                if (resultadoExclusao.IsSuccess)
+                    CarregarDevolucoes();
+                else
+                    MessageBox.Show(resultadoExclusao.Errors[0].Message,
+                        "Exclusão de Devolução", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -121,11 +134,22 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
 
         private void CarregarDevolucoes()
         {
-            List<Devolucao> devolucoes = servicoDevolucao.SelecionarTodos().Value;
+            var resultado = servicoDevolucao.SelecionarTodos();
 
-            tabelaDevolucao.AtualizarRegistros(devolucoes);
+            if (resultado.IsSuccess)
+            {
+                List<Devolucao> devolucoes = servicoDevolucao.SelecionarTodos().Value;
 
-            TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {devolucoes.Count} {(devolucoes.Count == 1 ? "devolução" : "devoluções")}");
+                tabelaDevolucao.AtualizarRegistros(devolucoes);
+
+                TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {devolucoes.Count} Devolução");
+            }
+            else
+            {
+                MessageBox.Show(resultado.Errors[0].Message, "Exclusão de Devolução",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
     }

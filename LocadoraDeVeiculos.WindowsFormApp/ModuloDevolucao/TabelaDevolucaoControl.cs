@@ -59,11 +59,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
 
             foreach (var devolucao in devolucoes)
             {
-                grid.Rows.Add(devolucao.Id, devolucao.Locacao.Funcionario.Nome,
+                grid.Rows.Add(devolucao.Id, devolucao.Locacao.funcionario.Nome,
                     devolucao.Locacao.Condutor == null ? devolucao.Locacao.Cliente.Nome : devolucao.Locacao.Condutor.Nome,
-                    devolucao.Locacao.Veiculo.Modelo,
-                    devolucao.Locacao.PlanoCobranca,
-                    devolucao.Locacao.DataLocacao,
+                    devolucao.Locacao.veiculo.Modelo,
+                    devolucao.Locacao.planoDeCobranca,
+                    devolucao.Locacao.dataDeLocacao,
                     devolucao.DataDevolucao);
             }
         }

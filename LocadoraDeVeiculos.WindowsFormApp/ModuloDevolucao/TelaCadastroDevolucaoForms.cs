@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using LocadoraDeVeiculos.Dominio.ModuloDevolucao;
+using LocadoraDeVeiculos.Dominio.ModuloLocacao;
 using LocadoraDeVeiculos.Dominio.ModuloTaxas;
 using LocadoraVeiculos.Aplicacao.ModuloDevolucao;
 using LocadoraVeiculos.Aplicacao.ModuloTaxas;
@@ -20,27 +21,16 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
     {
         private Devolucao _devolucao;
 
-        private Locacao Locacao;
-        private ServicoTaxa _servicoTaxa;
+        private Locacao locacao;
+        private List<Taxa> taxas;
 
-        public Devolucao Devolucao
+       
+       
+        public TelaCadastroDevolucaoForms( Locacao locacao, ServicoTaxa taxa)
         {
-            get { return _devolucao; }
-            set
-            {
-                _devolucao = value;
-            }
-        }
-
-        public Func<Devolucao, Result<Devolucao>> GravarRegistro { get; set; }
-
-        public TelaCadastroDevolucaoForms(Devolucao devolucao,
-            Locacao Locacao, ServicoTaxa servicoTaxa)
-        {
-            InitializeComponent();
-            this._devolucao = devolucao;
-            this.Locacao = Locacao;
-            this._servicoTaxa = servicoTaxa;
+            InitializeComponent();            
+            this.locacao = locacao;
+            this.taxas = taxa.SelecionarTodasAsTaxas();
 
             textBoxquilometragemDevolucao.Enabled = false;
             dateTimePickerDevolucaoReal.Enabled = false;
@@ -60,7 +50,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
 
             for (int i = 0; i < _taxas.Count; i++)
             {
-                if (Locacao.Taxas.Contains((Taxa)checkedListBoxTaxasSelecionadas.Items[i]))
+                if (Locacao.Taxa.Contains((Taxa)checkedListBoxTaxasSelecionadas.Items[i]))
                 {
 
                 }
@@ -68,6 +58,19 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
                 {
                     checkedListBoxTaxasAdicionais.Items.Add(_taxas[i]);
                 }
+            }
+        }
+
+
+        public Func<Devolucao, Result<Devolucao>> GravarRegistro { get; set; }
+
+
+        public Devolucao Devolucao
+        {
+            get { return _devolucao; }
+            set
+            {
+                _devolucao = value;
             }
         }
 
