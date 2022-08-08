@@ -10,6 +10,11 @@ using LocadoraDeVeiculos.WindowsFormApp.ModuloTaxas;
 using LocadoraDeVeiculos.WindowsFormApp.ModuloVeiculo;
 using System;
 using System.Windows.Forms;
+using LocadoraVeiculos.Aplicacao.ModuloTaxas;
+using LocadoraVeiculos.Aplicacao.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.Infra.ModuloPlanoDeCobranca;
+using LocadoraDeVeiculos.WindowsFormApp.ModuloPlanoDeCobranca;
+
 
 namespace LocadoraDeVeiculos.WindowsFormApp
 {
@@ -17,9 +22,9 @@ namespace LocadoraDeVeiculos.WindowsFormApp
     {
         private ControladorBase controlador;
         private IServiceLocator serviceLocator;
-
         public TelaPrincipalForm(IServiceLocator serviceLocator)
         {
+
             InitializeComponent();
 
             this.serviceLocator = serviceLocator;
@@ -30,6 +35,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             labelTipoCadastro.Text = string.Empty;
 
         }
+
 
         public static TelaPrincipalForm Instancia
         {
@@ -42,6 +48,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             labelRodape.Text = mensagem;
         }
 
+
         private void ClienteMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorCliente>());
@@ -52,6 +59,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorFuncionario>());
 
         }
+
         private void GrupoDeVeiculosSubMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurarTelaPrincipal(serviceLocator.Get<ControladorGrupoDeVeiculo>());
@@ -117,7 +125,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
             btnDevolucao.Enabled = configuracao.AgruparHabilitado;
             btnVisualizar.Enabled = configuracao.VisualizarHabilitado;
         }
-
         private void ConfigurarTooltips(ConfiguracaoToolBoxBase configuracao)
         {
             btnInserir.ToolTipText = configuracao.TooltipInserir;
@@ -130,6 +137,7 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
         private void ConfigurarTelaPrincipal(ControladorBase controlador)
         {
+
             this.controlador = controlador;
 
             ConfigurarToolbox();
@@ -147,9 +155,6 @@ namespace LocadoraDeVeiculos.WindowsFormApp
 
                 labelTipoCadastro.Text = configuracao.TipoCadastro;
 
-                ConfigurarTooltips(configuracao);
-
-                ConfigurarBotoes(configuracao);
             }
         }
 
