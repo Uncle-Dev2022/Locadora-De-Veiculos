@@ -50,15 +50,15 @@
             this.comboBoxCombustivel = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDevolucaoReal = new System.Windows.Forms.DateTimePicker();
             this.textBoxquilometragemDevolucao = new System.Windows.Forms.TextBox();
-            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
-            this.comboBoxDevolucaoPrevista = new System.Windows.Forms.ComboBox();
-            this.comboBoxDataDeLocacao = new System.Windows.Forms.ComboBox();
-            this.comboBoxPlanoDeCobranca = new System.Windows.Forms.ComboBox();
-            this.comboBoxVeiculo = new System.Windows.Forms.ComboBox();
-            this.comboBoxGrupoDeVeiculo = new System.Windows.Forms.ComboBox();
-            this.comboBoxCondutor = new System.Windows.Forms.ComboBox();
-            this.comboBoxValorTotal = new System.Windows.Forms.ComboBox();
-            this.comboBoxFuncionario = new System.Windows.Forms.ComboBox();
+            this.labelFuncionario = new System.Windows.Forms.Label();
+            this.labelCliente = new System.Windows.Forms.Label();
+            this.labelCondutor = new System.Windows.Forms.Label();
+            this.labelGrupoDeVeiculo = new System.Windows.Forms.Label();
+            this.labelVeiculo = new System.Windows.Forms.Label();
+            this.labelPlanoDeCobranca = new System.Windows.Forms.Label();
+            this.labelDataDaLocacao = new System.Windows.Forms.Label();
+            this.labelDevolucaoPrevista = new System.Windows.Forms.Label();
+            this.labelValorTotal = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -83,6 +83,7 @@
             this.btnGravar.TabIndex = 20;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // label2
             // 
@@ -285,110 +286,101 @@
             this.textBoxquilometragemDevolucao.Size = new System.Drawing.Size(100, 23);
             this.textBoxquilometragemDevolucao.TabIndex = 37;
             // 
-            // comboBoxCliente
+            // labelFuncionario
             // 
-            this.comboBoxCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCliente.FormattingEnabled = true;
-            this.comboBoxCliente.Location = new System.Drawing.Point(208, 42);
-            this.comboBoxCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxCliente.Name = "comboBoxCliente";
-            this.comboBoxCliente.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxCliente.TabIndex = 47;
+            this.labelFuncionario.AutoSize = true;
+            this.labelFuncionario.Location = new System.Drawing.Point(208, 26);
+            this.labelFuncionario.Name = "labelFuncionario";
+            this.labelFuncionario.Size = new System.Drawing.Size(12, 15);
+            this.labelFuncionario.TabIndex = 38;
+            this.labelFuncionario.Text = "-";
             // 
-            // comboBoxDevolucaoPrevista
+            // labelCliente
             // 
-            this.comboBoxDevolucaoPrevista.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDevolucaoPrevista.FormattingEnabled = true;
-            this.comboBoxDevolucaoPrevista.Location = new System.Drawing.Point(208, 190);
-            this.comboBoxDevolucaoPrevista.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxDevolucaoPrevista.Name = "comboBoxDevolucaoPrevista";
-            this.comboBoxDevolucaoPrevista.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxDevolucaoPrevista.TabIndex = 48;
+            this.labelCliente.AutoSize = true;
+            this.labelCliente.Location = new System.Drawing.Point(208, 50);
+            this.labelCliente.Name = "labelCliente";
+            this.labelCliente.Size = new System.Drawing.Size(12, 15);
+            this.labelCliente.TabIndex = 39;
+            this.labelCliente.Text = "-";
             // 
-            // comboBoxDataDeLocacao
+            // labelCondutor
             // 
-            this.comboBoxDataDeLocacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDataDeLocacao.FormattingEnabled = true;
-            this.comboBoxDataDeLocacao.Location = new System.Drawing.Point(208, 166);
-            this.comboBoxDataDeLocacao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxDataDeLocacao.Name = "comboBoxDataDeLocacao";
-            this.comboBoxDataDeLocacao.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxDataDeLocacao.TabIndex = 49;
+            this.labelCondutor.AutoSize = true;
+            this.labelCondutor.Location = new System.Drawing.Point(208, 74);
+            this.labelCondutor.Name = "labelCondutor";
+            this.labelCondutor.Size = new System.Drawing.Size(12, 15);
+            this.labelCondutor.TabIndex = 40;
+            this.labelCondutor.Text = "-";
             // 
-            // comboBoxPlanoDeCobranca
+            // labelGrupoDeVeiculo
             // 
-            this.comboBoxPlanoDeCobranca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxPlanoDeCobranca.FormattingEnabled = true;
-            this.comboBoxPlanoDeCobranca.Location = new System.Drawing.Point(208, 142);
-            this.comboBoxPlanoDeCobranca.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxPlanoDeCobranca.Name = "comboBoxPlanoDeCobranca";
-            this.comboBoxPlanoDeCobranca.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxPlanoDeCobranca.TabIndex = 50;
+            this.labelGrupoDeVeiculo.AutoSize = true;
+            this.labelGrupoDeVeiculo.Location = new System.Drawing.Point(208, 99);
+            this.labelGrupoDeVeiculo.Name = "labelGrupoDeVeiculo";
+            this.labelGrupoDeVeiculo.Size = new System.Drawing.Size(12, 15);
+            this.labelGrupoDeVeiculo.TabIndex = 41;
+            this.labelGrupoDeVeiculo.Text = "-";
             // 
-            // comboBoxVeiculo
+            // labelVeiculo
             // 
-            this.comboBoxVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxVeiculo.FormattingEnabled = true;
-            this.comboBoxVeiculo.Location = new System.Drawing.Point(208, 117);
-            this.comboBoxVeiculo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxVeiculo.Name = "comboBoxVeiculo";
-            this.comboBoxVeiculo.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxVeiculo.TabIndex = 51;
+            this.labelVeiculo.AutoSize = true;
+            this.labelVeiculo.Location = new System.Drawing.Point(208, 125);
+            this.labelVeiculo.Name = "labelVeiculo";
+            this.labelVeiculo.Size = new System.Drawing.Size(12, 15);
+            this.labelVeiculo.TabIndex = 42;
+            this.labelVeiculo.Text = "-";
             // 
-            // comboBoxGrupoDeVeiculo
+            // labelPlanoDeCobranca
             // 
-            this.comboBoxGrupoDeVeiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGrupoDeVeiculo.FormattingEnabled = true;
-            this.comboBoxGrupoDeVeiculo.Location = new System.Drawing.Point(208, 91);
-            this.comboBoxGrupoDeVeiculo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxGrupoDeVeiculo.Name = "comboBoxGrupoDeVeiculo";
-            this.comboBoxGrupoDeVeiculo.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxGrupoDeVeiculo.TabIndex = 52;
+            this.labelPlanoDeCobranca.AutoSize = true;
+            this.labelPlanoDeCobranca.Location = new System.Drawing.Point(208, 150);
+            this.labelPlanoDeCobranca.Name = "labelPlanoDeCobranca";
+            this.labelPlanoDeCobranca.Size = new System.Drawing.Size(12, 15);
+            this.labelPlanoDeCobranca.TabIndex = 43;
+            this.labelPlanoDeCobranca.Text = "-";
             // 
-            // comboBoxCondutor
+            // labelDataDaLocacao
             // 
-            this.comboBoxCondutor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCondutor.FormattingEnabled = true;
-            this.comboBoxCondutor.Location = new System.Drawing.Point(208, 66);
-            this.comboBoxCondutor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxCondutor.Name = "comboBoxCondutor";
-            this.comboBoxCondutor.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxCondutor.TabIndex = 53;
+            this.labelDataDaLocacao.AutoSize = true;
+            this.labelDataDaLocacao.Location = new System.Drawing.Point(208, 174);
+            this.labelDataDaLocacao.Name = "labelDataDaLocacao";
+            this.labelDataDaLocacao.Size = new System.Drawing.Size(12, 15);
+            this.labelDataDaLocacao.TabIndex = 44;
+            this.labelDataDaLocacao.Text = "-";
             // 
-            // comboBoxValorTotal
+            // labelDevolucaoPrevista
             // 
-            this.comboBoxValorTotal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxValorTotal.FormattingEnabled = true;
-            this.comboBoxValorTotal.Location = new System.Drawing.Point(174, 599);
-            this.comboBoxValorTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxValorTotal.Name = "comboBoxValorTotal";
-            this.comboBoxValorTotal.Size = new System.Drawing.Size(155, 23);
-            this.comboBoxValorTotal.TabIndex = 54;
+            this.labelDevolucaoPrevista.AutoSize = true;
+            this.labelDevolucaoPrevista.Location = new System.Drawing.Point(208, 198);
+            this.labelDevolucaoPrevista.Name = "labelDevolucaoPrevista";
+            this.labelDevolucaoPrevista.Size = new System.Drawing.Size(12, 15);
+            this.labelDevolucaoPrevista.TabIndex = 45;
+            this.labelDevolucaoPrevista.Text = "-";
             // 
-            // comboBoxFuncionario
+            // labelValorTotal
             // 
-            this.comboBoxFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFuncionario.FormattingEnabled = true;
-            this.comboBoxFuncionario.Location = new System.Drawing.Point(208, 18);
-            this.comboBoxFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBoxFuncionario.Name = "comboBoxFuncionario";
-            this.comboBoxFuncionario.Size = new System.Drawing.Size(218, 23);
-            this.comboBoxFuncionario.TabIndex = 55;
+            this.labelValorTotal.AutoSize = true;
+            this.labelValorTotal.Location = new System.Drawing.Point(174, 607);
+            this.labelValorTotal.Name = "labelValorTotal";
+            this.labelValorTotal.Size = new System.Drawing.Size(12, 15);
+            this.labelValorTotal.TabIndex = 46;
+            this.labelValorTotal.Text = "-";
             // 
             // TelaCadastroDevolucaoForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(612, 658);
-            this.Controls.Add(this.comboBoxFuncionario);
-            this.Controls.Add(this.comboBoxValorTotal);
-            this.Controls.Add(this.comboBoxCondutor);
-            this.Controls.Add(this.comboBoxGrupoDeVeiculo);
-            this.Controls.Add(this.comboBoxVeiculo);
-            this.Controls.Add(this.comboBoxPlanoDeCobranca);
-            this.Controls.Add(this.comboBoxDataDeLocacao);
-            this.Controls.Add(this.comboBoxDevolucaoPrevista);
-            this.Controls.Add(this.comboBoxCliente);
+            this.Controls.Add(this.labelValorTotal);
+            this.Controls.Add(this.labelDevolucaoPrevista);
+            this.Controls.Add(this.labelDataDaLocacao);
+            this.Controls.Add(this.labelPlanoDeCobranca);
+            this.Controls.Add(this.labelVeiculo);
+            this.Controls.Add(this.labelGrupoDeVeiculo);
+            this.Controls.Add(this.labelCondutor);
+            this.Controls.Add(this.labelCliente);
+            this.Controls.Add(this.labelFuncionario);
             this.Controls.Add(this.textBoxquilometragemDevolucao);
             this.Controls.Add(this.dateTimePickerDevolucaoReal);
             this.Controls.Add(this.comboBoxCombustivel);
@@ -444,14 +436,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.CheckedListBox checkedListBoxTaxasSelecionadas;
         private System.Windows.Forms.CheckedListBox checkedListBoxTaxasAdicionais;
-        private System.Windows.Forms.ComboBox comboBoxCliente;
-        private System.Windows.Forms.ComboBox comboBoxDevolucaoPrevista;
-        private System.Windows.Forms.ComboBox comboBoxDataDeLocacao;
-        private System.Windows.Forms.ComboBox comboBoxPlanoDeCobranca;
-        private System.Windows.Forms.ComboBox comboBoxVeiculo;
-        private System.Windows.Forms.ComboBox comboBoxGrupoDeVeiculo;
-        private System.Windows.Forms.ComboBox comboBoxCondutor;
-        private System.Windows.Forms.ComboBox comboBoxValorTotal;
-        private System.Windows.Forms.ComboBox comboBoxFuncionario;
+        private System.Windows.Forms.Label labelFuncionario;
+        private System.Windows.Forms.Label labelCliente;
+        private System.Windows.Forms.Label labelCondutor;
+        private System.Windows.Forms.Label labelGrupoDeVeiculo;
+        private System.Windows.Forms.Label labelVeiculo;
+        private System.Windows.Forms.Label labelPlanoDeCobranca;
+        private System.Windows.Forms.Label labelDataDaLocacao;
+        private System.Windows.Forms.Label labelDevolucaoPrevista;
+        private System.Windows.Forms.Label labelValorTotal;
     }
 }

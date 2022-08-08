@@ -24,11 +24,11 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
         private Locacao locacao;
         private List<Taxa> taxas;
 
-       
-       
-        public TelaCadastroDevolucaoForms( Locacao locacao, ServicoTaxa taxa)
+
+
+        public TelaCadastroDevolucaoForms(Locacao locacao, ServicoTaxa taxa)
         {
-            InitializeComponent();            
+            InitializeComponent();
             this.locacao = locacao;
             this.taxas = taxa.SelecionarTodasAsTaxas();
 
@@ -43,14 +43,14 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
             foreach (TanqueGasolinaEnum combustivel in combustiveis)
                 comboBoxCombustivel.Items.Add(combustivel);
 
-            foreach (var taxaLocacao in Locacao.Taxa)
+            foreach (var taxaLocacao in locacao.Taxas)
                 checkedListBoxTaxasSelecionadas.Items.Add(taxaLocacao);
 
-            List<Taxa> _taxas = _servicoTaxa.SelecionarTodasAsTaxas();
+            List<Taxa> _taxas = taxa.SelecionarTodasAsTaxas();
 
             for (int i = 0; i < _taxas.Count; i++)
             {
-                if (Locacao.Taxa.Contains((Taxa)checkedListBoxTaxasSelecionadas.Items[i]))
+                if (locacao.Taxas.Contains((Taxa)checkedListBoxTaxasSelecionadas.Items[i]))
                 {
 
                 }
@@ -75,24 +75,23 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
         }
 
 
-
-
-
         private void TelaCadastroDevolucaoForms_Load(object sender, EventArgs e)
         {
-                    }
+
+        }
+
 
         private void AtualizarTotalPrevisto()
         {
             ObterDadosDaTela();
-            textBoxValorTotal.Text = Devolucao.ValorTotal.ToString();
+            labelValorTotal.Text = Devolucao.ValorTotal.ToString();
         }
 
         private void ObterDadosDaTela()
         {
             Devolucao.DataDevolucao = dateTimePickerDevolucaoReal.Value;
             Devolucao.NivelGasolina = (TanqueGasolinaEnum)comboBoxCombustivel.SelectedItem;
-            
+
 
             foreach (Taxa taxa in checkedListBoxTaxasSelecionadas.CheckedItems)
                 if (!Devolucao.TaxasAdicionais.Contains(taxa))
@@ -106,9 +105,37 @@ namespace LocadoraDeVeiculos.WindowsFormApp.ModuloDevolucao
             Devolucao.ValorTotal = Devolucao.CalcularTotal(numericUpDownKmRodadosLocacao.Value, configuracao, (TanqueEnum)comboBoxNivelTanque.SelectedItem);
         }
 
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            _devolucao.QuilometragemDevolucao = int.Parse(textBoxquilometragemDevolucao.Text);
+            _devolucao.DataDevolucao = dateTimePickerDevolucaoReal.Value;
+
+            if (comboBoxCombustivel.SelectedItem.ToString() == "Cheio")
+            {
+                _devolucao.NivelGasolina = TanqueGasolinaEnum.Cheio;
+            }
+
+            else if (comboBoxCombustivel.SelectedItem.ToString() == "Meio_Cheio")
+            {
+                _devolucao.NivelGasolina = TanqueGasolinaEnum.Meio_Cheio;
+            }
+
+            else if (comboBoxCombustivel.SelectedItem.ToString() == "Meio")
+            {
+                _devolucao.NivelGasolina = TanqueGasolinaEnum.Meio;
+            }
+
+            else if (comboBoxCombustivel.SelectedItem.ToString() == "Meio_Vazio")
+            {
+                _devolucao.NivelGasolina = TanqueGasolinaEnum.Meio_vazio;
+            }
+
+            else if (comboBoxCombustivel.SelectedItem.ToString() == "Vazio")
+            {
+                _devolucao.NivelGasolina = TanqueGasolinaEnum.Vazio;
+            }
 
 
-
-
+        }
     }
 }
